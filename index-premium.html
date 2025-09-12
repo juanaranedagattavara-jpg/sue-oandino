@@ -882,65 +882,99 @@
     </section>
 
     <!-- Servicios Section -->
-    <section class="section">
+    <section class="section bg-gray-50">
         <div class="container">
-            <div class="text-center mb-16">
-                <h2 class="mb-8">Nuestros Servicios</h2>
-                <p class="text-xl text-secondary" style="max-width: 600px; margin: 0 auto;">
-                    Soluciones integrales para el desarrollo sostenible en los Andes, diseñadas para cada tipo de cliente.
+            <div class="text-center mb-20">
+                <div class="inline-block mb-6">
+                    <span class="text-accent font-semibold text-sm uppercase tracking-wider">Nuestros Servicios</span>
+                </div>
+                <h2 class="text-5xl md:text-6xl font-bold text-primary mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
+                    Soluciones Integrales
+                </h2>
+                <p class="text-xl md:text-2xl text-secondary max-w-4xl mx-auto leading-relaxed font-light">
+                    Desarrollamos programas especializados para cada tipo de cliente, combinando metodologías probadas con innovación constante.
                 </p>
             </div>
-            <div class="grid grid-3">
-                <div class="card text-center">
-                    <div class="service-icon mx-auto">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 7H16c-.8 0-1.54.37-2.01.99L12 10l-1.99-2.01A2.5 2.5 0 0 0 8 7H5.46c-.8 0-1.54.37-2.01.99L1 10.5V22h2v-6h2.5l2.54 7.63A1.5 1.5 0 0 0 9.46 25H12c.8 0 1.54-.37 2.01-.99L16 22l1.99 2.01A2.5 2.5 0 0 0 20 25h2.54c.8 0 1.54-.37 2.01-.99L27 16.5V22h2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="mb-6 text-primary">Personas</h3>
-                    <ul class="text-secondary space-y-3 text-left">
-                        <li>Programas de educación básica y técnica</li>
-                        <li>Capacitación en emprendimiento</li>
-                        <li>Desarrollo de habilidades digitales</li>
-                        <li>Apoyo psicosocial y familiar</li>
-                    </ul>
-                    <div class="mt-8">
-                        <a href="#contacto" class="btn btn-primary w-full">Más Información</a>
-                    </div>
-                </div>
-                <div class="card text-center">
-                    <div class="service-icon mx-auto">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10z"/>
-                        </svg>
-                    </div>
-                    <h3 class="mb-6 text-primary">Empresas</h3>
-                    <ul class="text-secondary space-y-3 text-left">
-                        <li>Consultoría en responsabilidad social</li>
-                        <li>Programas de desarrollo comunitario</li>
-                        <li>Capacitación de personal local</li>
-                        <li>Proyectos de impacto social</li>
-                    </ul>
-                    <div class="mt-8">
-                        <a href="#contacto" class="btn btn-primary w-full">Más Información</a>
+            
+            <!-- Tres pilares de servicios -->
+            <div class="servicios-grid" style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 2rem; margin-bottom: 4rem;">
+                <style>
+                    @media (min-width: 768px) {
+                        .servicios-grid {
+                            grid-template-columns: repeat(3, 1fr) !important;
+                        }
+                    }
+                </style>
+                <!-- Pilar 1: Personas -->
+                <div class="group relative">
+                    <div class="bg-gradient-to-br from-primary to-primary/90 rounded-3xl p-10 text-white h-full shadow-2xl hover:shadow-3xl transition-all duration-500">
+                        <div class="text-center mb-8">
+                            <div class="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" class="text-white">
+                                    <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 7H16c-.8 0-1.54.37-2.01.99L12 10l-1.99-2.01A2.5 2.5 0 0 0 8 7H5.46c-.8 0-1.54.37-2.01.99L1 10.5V22h2v-6h2.5l2.54 7.63A1.5 1.5 0 0 0 9.46 25H12c.8 0 1.54-.37 2.01-.99L16 22l1.99 2.01A2.5 2.5 0 0 0 20 25h2.54c.8 0 1.54-.37 2.01-.99L27 16.5V22h2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4">PERSONAS</h3>
+                        </div>
+                        <div class="space-y-4 text-white/90">
+                            <p class="text-lg leading-relaxed">
+                                Programas de educación básica y técnica, capacitación en emprendimiento, desarrollo de habilidades digitales y apoyo psicosocial para empoderar a las comunidades andinas.
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="card text-center">
-                    <div class="service-icon mx-auto">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
+                
+                <!-- Pilar 2: Empresas -->
+                <div class="group relative">
+                    <div class="bg-gradient-to-br from-accent to-accent/80 rounded-3xl p-10 text-white h-full shadow-2xl hover:shadow-3xl transition-all duration-500">
+                        <div class="text-center mb-8">
+                            <div class="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" class="text-white">
+                                    <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4">EMPRESAS</h3>
+                        </div>
+                        <div class="space-y-4 text-white/90">
+                            <p class="text-lg leading-relaxed">
+                                Consultoría en responsabilidad social, programas de desarrollo comunitario, capacitación de personal local y proyectos de impacto social para empresas comprometidas.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="mb-6 text-primary">Gobiernos</h3>
-                    <ul class="text-secondary space-y-3 text-left">
-                        <li>Políticas públicas de desarrollo</li>
-                        <li>Programas de inclusión social</li>
-                        <li>Capacitación de funcionarios</li>
-                        <li>Evaluación de impacto social</li>
-                    </ul>
-                    <div class="mt-8">
-                        <a href="#contacto" class="btn btn-primary w-full">Más Información</a>
+                </div>
+                
+                <!-- Pilar 3: Gobiernos -->
+                <div class="group relative">
+                    <div class="bg-gradient-to-br from-gray-600 to-gray-700 rounded-3xl p-10 text-white h-full shadow-2xl hover:shadow-3xl transition-all duration-500">
+                        <div class="text-center mb-8">
+                            <div class="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" class="text-white">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4">GOBIERNOS</h3>
+                        </div>
+                        <div class="space-y-4 text-white/90">
+                            <p class="text-lg leading-relaxed">
+                                Políticas públicas de desarrollo, programas de inclusión social, capacitación de funcionarios y evaluación de impacto social para gobiernos locales y nacionales.
+                            </p>
+                        </div>
                     </div>
+                </div>
+            </div>
+            
+            <!-- Call to Action único -->
+            <div class="text-center">
+                <div class="bg-white rounded-3xl p-12 shadow-2xl border border-gray-100 max-w-4xl mx-auto">
+                    <h3 class="text-3xl md:text-4xl font-bold text-primary mb-6" style="font-family: 'Playfair Display', serif;">
+                        ¿Listo para transformar tu organización?
+                    </h3>
+                    <p class="text-xl text-secondary mb-8 leading-relaxed">
+                        Descubre cómo nuestros servicios pueden impulsar el desarrollo regenerativo en tu comunidad o empresa.
+                    </p>
+                    <a href="#contacto" class="btn btn-primary text-lg px-8 py-4" style="background-color: #c9a96e; border: none; font-weight: 600;" aria-label="Agendar una consulta para conocer nuestros servicios">
+                        Agendar Consulta
+                    </a>
                 </div>
             </div>
         </div>
