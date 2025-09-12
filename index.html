@@ -11,49 +11,77 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="wp-block-group has-background-background-color has-background" style="padding-top:1rem;padding-bottom:1rem">
-        <div class="wp-block-group" style="padding-left:1rem;padding-right:1rem">
-            <div class="wp-block-group" style="display:flex;flex-wrap:nowrap;justify-content:space-between">
-                <h1 class="wp-block-heading" style="font-style:normal;font-weight:600;font-size:1.25rem;margin:0">
-                    <a href="/" style="color:inherit;text-decoration:none">Sueño Andino</a>
-                </h1>
-                <nav class="wp-block-navigation" style="display:flex;justify-content:right">
-                    <ul style="display:flex;list-style:none;margin:0;padding:0;gap:2rem">
-                        <li><a href="#servicios" style="color:var(--color-text);text-decoration:none">Servicios</a></li>
-                        <li><a href="#casos" style="color:var(--color-text);text-decoration:none">Casos de Éxito</a></li>
-                        <li><a href="#contacto" style="color:var(--color-text);text-decoration:none">Contacto</a></li>
-                    </ul>
-                </nav>
+    <header id="header" class="wp-block-group" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,169,110,0.1);padding:1.5rem 0;transition:all 0.3s ease;transform:translateY(0)">
+        <div style="max-width:1400px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center">
+            <!-- Logo -->
+            <div style="display:flex;align-items:center;gap:1rem">
+                <div style="width:3rem;height:3rem;background:linear-gradient(135deg, #c9a96e 0%, #b8945f 100%);border-radius:0.75rem;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 16px -4px rgba(201,169,110,0.3)">
+                    <span style="color:white;font-weight:700;font-size:1.5rem;font-family:'Playfair Display',serif">SA</span>
+                </div>
+                <div>
+                    <div style="font-weight:700;font-size:1.5rem;color:#1a472a;line-height:1;font-family:'Playfair Display',serif">Sueño Andino</div>
+                    <div style="font-size:0.75rem;color:#c9a96e;text-transform:uppercase;letter-spacing:0.15em;font-weight:600">Desarrollo Regenerativo</div>
+                </div>
             </div>
+            
+            <!-- Navigation -->
+            <nav style="display:flex;gap:3rem;align-items:center">
+                <a href="#servicios" style="color:#1a472a;text-decoration:none;font-weight:500;transition:all 0.3s ease;font-size:1rem;position:relative;padding:0.5rem 0" onmouseover="this.style.color='#c9a96e'" onmouseout="this.style.color='#1a472a'">
+                    Servicios
+                    <div style="position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg, #c9a96e 0%, #b8945f 100%);transition:width 0.3s ease"></div>
+                </a>
+                <a href="#nosotros" style="color:#1a472a;text-decoration:none;font-weight:500;transition:all 0.3s ease;font-size:1rem;position:relative;padding:0.5rem 0" onmouseover="this.style.color='#c9a96e'" onmouseout="this.style.color='#1a472a'">
+                    Nosotros
+                    <div style="position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg, #c9a96e 0%, #b8945f 100%);transition:width 0.3s ease"></div>
+                </a>
+                <a href="#contacto" style="color:#1a472a;text-decoration:none;font-weight:500;transition:all 0.3s ease;font-size:1rem;position:relative;padding:0.5rem 0" onmouseover="this.style.color='#c9a96e'" onmouseout="this.style.color='#1a472a'">
+                    Contacto
+                    <div style="position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg, #c9a96e 0%, #b8945f 100%);transition:width 0.3s ease"></div>
+                </a>
+            </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <div class="wp-block-group" style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding-top:4rem;padding-bottom:4rem">
+    <div class="wp-block-group" style="position:relative;min-height:120vh;display:flex;align-items:center;justify-content:center;padding-top:8rem;padding-bottom:8rem">
         <!-- Imagen de fondo -->
         <div style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:0">
             <img src="assets/img/hero-image.jpg" 
                  alt="Paisaje andino regenerativo" 
                  style="width:100%;height:100%;object-fit:cover;background:linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);">
-            <!-- Overlay para mejorar legibilidad -->
-            <div style="position:absolute;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.4)"></div>
+            <!-- Overlay premium para mejorar legibilidad -->
+            <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%)"></div>
         </div>
         
-        <!-- Contenido centrado -->
-        <div style="position:relative;z-index:10;text-align:center;color:white;max-width:1200px;margin:0 auto;padding:0 1.5rem">
-            <h1 class="wp-block-heading" style="font-size:clamp(3rem, 8vw, 6rem);font-weight:700;margin:0 0 2rem 0;line-height:1.1;font-family:'Playfair Display',serif">
+        <!-- Contenido centrado premium -->
+        <div style="position:relative;z-index:10;text-align:center;color:white;max-width:1000px;margin:0 auto;padding:0 2rem">
+            <!-- Badge superior premium -->
+            <div style="display:inline-block;margin-bottom:3rem;padding:0.75rem 2rem;background:rgba(201,169,110,0.15);border:1px solid rgba(201,169,110,0.3);border-radius:2rem;backdrop-filter:blur(10px)">
+                <span style="color:#c9a96e;font-weight:600;font-size:0.875rem;text-transform:uppercase;letter-spacing:0.15em">Desarrollo Regenerativo</span>
+            </div>
+            
+            <h1 class="wp-block-heading" style="font-size:clamp(4rem, 10vw, 7rem);font-weight:800;margin:0 0 3rem 0;line-height:1.05;font-family:'Playfair Display',serif;text-shadow:0 4px 8px rgba(0,0,0,0.3)">
                 Regenerar territorios.<br>
-                Transformar futuros.
+                <span style="color:#c9a96e">Transformar futuros.</span>
             </h1>
             
-            <p style="font-size:clamp(1.25rem, 4vw, 2rem);font-weight:300;line-height:1.4;margin:0 0 3rem 0;max-width:900px;margin-left:auto;margin-right:auto">
+            <p style="font-size:clamp(1.5rem, 4vw, 2.25rem);font-weight:300;line-height:1.4;margin:0 0 4rem 0;max-width:800px;margin-left:auto;margin-right:auto;text-shadow:0 2px 4px rgba(0,0,0,0.3)">
                 Somos el aliado estratégico para gobiernos y empresas que buscan impulsar un desarrollo regenerativo, integrando salud ecosistémica, bienestar social y prosperidad económica.
             </p>
             
-            <!-- Botones -->
-            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem">
-                <a href="#contacto" class="btn" style="display:inline-block;padding:1rem 2rem;background-color:#c9a96e;color:white;border:none;border-radius:0.5rem;text-decoration:none;font-weight:600;font-size:1.125rem;min-height:4rem;transition:all 0.3s ease">Agendar Reunión</a>
-                <a href="#servicios" class="btn btn-outline" style="display:inline-block;padding:1rem 2rem;background-color:transparent;border:2px solid white;color:white;border-radius:0.5rem;text-decoration:none;font-weight:600;font-size:1.125rem;min-height:4rem;transition:all 0.3s ease">Conocer Más</a>
+            <!-- Botones premium -->
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-bottom:4rem">
+                <a href="#contacto" style="background:linear-gradient(135deg, #c9a96e 0%, #b8945f 100%);color:white;padding:1.25rem 3rem;border-radius:1rem;text-decoration:none;font-weight:700;font-size:1.25rem;transition:all 0.4s ease;box-shadow:0 15px 35px -5px rgba(201,169,110,0.4);text-transform:uppercase;letter-spacing:0.05em" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 20px 40px -5px rgba(201,169,110,0.6)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 15px 35px -5px rgba(201,169,110,0.4)'">
+                    Agendar Reunión
+                </a>
+                <a href="#servicios" style="background:rgba(255,255,255,0.1);color:white;padding:1.25rem 3rem;border-radius:1rem;text-decoration:none;font-weight:700;font-size:1.25rem;border:2px solid rgba(255,255,255,0.4);backdrop-filter:blur(15px);transition:all 0.4s ease;text-transform:uppercase;letter-spacing:0.05em" onmouseover="this.style.background='rgba(255,255,255,0.2)';this.style.borderColor='rgba(255,255,255,0.7)';this.style.transform='translateY(-3px)'" onmouseout="this.style.background='rgba(255,255,255,0.1)';this.style.borderColor='rgba(255,255,255,0.4)';this.style.transform='translateY(0)'">
+                    Conocer Más
+                </a>
+            </div>
+            
+            <!-- Indicador de scroll premium -->
+            <div style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);animation:bounce 2s infinite">
+                <div style="width:2px;height:3rem;background:linear-gradient(to bottom, #c9a96e 0%, transparent 100%);border-radius:1px"></div>
             </div>
         </div>
     </div>
@@ -657,7 +685,7 @@
                 </div>
             </div>
 
-            <!-- Carrusel de Logos -->
+            <!-- Logos de Aliados -->
             <div style="margin-bottom:5rem">
                 <div style="text-align:center;margin-bottom:3rem">
                     <h3 style="font-size:clamp(2rem, 4vw, 2.5rem);font-weight:700;color:#1a472a;margin:0 0 1rem 0;font-family:'Playfair Display',serif">
@@ -668,54 +696,41 @@
                     </p>
                 </div>
                 
-                <!-- Carrusel de logos -->
-                <div style="position:relative;overflow:hidden">
-                    <div class="carrusel-logos" style="display:flex;animation:scroll 20s linear infinite;">
+                <!-- Logos circulares estáticos -->
+                <div style="background:white;border-radius:1.5rem;padding:3rem;border:1px solid #f3f4f6;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1)">
+                    <div style="display:grid;grid-template-columns:repeat(1,1fr);gap:2rem;justify-items:center">
+                        <style>
+                            @media (min-width: 768px) {
+                                .logos-grid {
+                                    grid-template-columns: repeat(5, 1fr) !important;
+                                }
+                            }
+                        </style>
+                        
                         <!-- Logo 1 -->
-                        <div style="flex-shrink:0;margin:0 2rem;display:flex;align-items:center;justify-content:center">
-                            <div style="width:8rem;height:4rem;background:#e5e7eb;border-radius:0.5rem;display:flex;align-items:center;justify-content:center">
-                                <span style="color:#6b7280;font-weight:600;font-size:0.875rem">Gobierno Regional</span>
+                        <div class="logos-grid" style="display:grid;grid-template-columns:repeat(1,1fr);gap:2rem;justify-items:center">
+                            <div style="width:7rem;height:7rem;background:linear-gradient(135deg, #c9a96e 0%, #b8945f 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);transition:transform 0.3s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                                <span style="color:white;font-weight:700;font-size:0.875rem;text-align:center">Gobierno<br>Regional</span>
                             </div>
-                        </div>
-                        <!-- Logo 2 -->
-                        <div style="flex-shrink:0;margin:0 2rem;display:flex;align-items:center;justify-content:center">
-                            <div style="width:8rem;height:4rem;background:#e5e7eb;border-radius:0.5rem;display:flex;align-items:center;justify-content:center">
-                                <span style="color:#6b7280;font-weight:600;font-size:0.875rem">Minera XYZ</span>
+                            
+                            <!-- Logo 2 -->
+                            <div style="width:7rem;height:7rem;background:linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);transition:transform 0.3s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                                <span style="color:white;font-weight:700;font-size:0.875rem;text-align:center">Minera<br>XYZ</span>
                             </div>
-                        </div>
-                        <!-- Logo 3 -->
-                        <div style="flex-shrink:0;margin:0 2rem;display:flex;align-items:center;justify-content:center">
-                            <div style="width:8rem;height:4rem;background:#e5e7eb;border-radius:0.5rem;display:flex;align-items:center;justify-content:center">
-                                <span style="color:#6b7280;font-weight:600;font-size:0.875rem">Fundación ABC</span>
+                            
+                            <!-- Logo 3 -->
+                            <div style="width:7rem;height:7rem;background:linear-gradient(135deg, #6b7280 0%, #4b5563 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);transition:transform 0.3s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                                <span style="color:white;font-weight:700;font-size:0.875rem;text-align:center">Fundación<br>ABC</span>
                             </div>
-                        </div>
-                        <!-- Logo 4 -->
-                        <div style="flex-shrink:0;margin:0 2rem;display:flex;align-items:center;justify-content:center">
-                            <div style="width:8rem;height:4rem;background:#e5e7eb;border-radius:0.5rem;display:flex;align-items:center;justify-content:center">
-                                <span style="color:#6b7280;font-weight:600;font-size:0.875rem">ONG Def</span>
+                            
+                            <!-- Logo 4 -->
+                            <div style="width:7rem;height:7rem;background:linear-gradient(135deg, #16a34a 0%, #15803d 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);transition:transform 0.3s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                                <span style="color:white;font-weight:700;font-size:0.875rem;text-align:center">ONG<br>Def</span>
                             </div>
-                        </div>
-                        <!-- Logo 5 -->
-                        <div style="flex-shrink:0;margin:0 2rem;display:flex;align-items:center;justify-content:center">
-                            <div style="width:8rem;height:4rem;background:#e5e7eb;border-radius:0.5rem;display:flex;align-items:center;justify-content:center">
-                                <span style="color:#6b7280;font-weight:600;font-size:0.875rem">Universidad</span>
-                            </div>
-                        </div>
-                        <!-- Logo 6 -->
-                        <div style="flex-shrink:0;margin:0 2rem;display:flex;align-items:center;justify-content:center">
-                            <div style="width:8rem;height:4rem;background:#e5e7eb;border-radius:0.5rem;display:flex;align-items:center;justify-content:center">
-                                <span style="color:#6b7280;font-weight:600;font-size:0.875rem">Empresa GHI</span>
-                            </div>
-                        </div>
-                        <!-- Repetir para efecto continuo -->
-                        <div style="flex-shrink:0;margin:0 2rem;display:flex;align-items:center;justify-content:center">
-                            <div style="width:8rem;height:4rem;background:#e5e7eb;border-radius:0.5rem;display:flex;align-items:center;justify-content:center">
-                                <span style="color:#6b7280;font-weight:600;font-size:0.875rem">Gobierno Regional</span>
-                            </div>
-                        </div>
-                        <div style="flex-shrink:0;margin:0 2rem;display:flex;align-items:center;justify-content:center">
-                            <div style="width:8rem;height:4rem;background:#e5e7eb;border-radius:0.5rem;display:flex;align-items:center;justify-content:center">
-                                <span style="color:#6b7280;font-weight:600;font-size:0.875rem">Minera XYZ</span>
+                            
+                            <!-- Logo 5 -->
+                            <div style="width:7rem;height:7rem;background:linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);transition:transform 0.3s ease" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                                <span style="color:white;font-weight:700;font-size:0.875rem;text-align:center">Universidad<br>Nacional</span>
                             </div>
                         </div>
                     </div>
@@ -855,5 +870,25 @@
             }
         }
     </style>
+    
+    <!-- Header scroll behavior -->
+    <script>
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down - hide header
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up - show header
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+    </script>
 </body>
 </html>

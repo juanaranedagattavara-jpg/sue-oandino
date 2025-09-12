@@ -35,19 +35,34 @@
     <a href="#main-content" class="sr-only">Saltar al contenido principal</a>
     
     <!-- Header -->
-    <header class="header-fixed">
+    <header id="header" class="header-fixed" style="transition: all 0.3s ease; transform: translateY(0);">
         <div class="container">
             <nav class="flex items-center justify-between" style="height: 5rem;" role="navigation" aria-label="Navegación principal">
-                <div class="flex items-center">
-                    <h1 class="text-primary font-bold" style="font-size: 1.5rem; margin: 0;">
-                        <a href="/" style="text-decoration: none; color: inherit;" aria-label="Sueño Andino - Inicio">Sueño Andino</a>
-                    </h1>
+                <!-- Logo -->
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-accent to-accent/80 rounded-xl flex items-center justify-center shadow-lg">
+                        <span class="text-white font-bold text-xl" style="font-family: 'Playfair Display', serif;">SA</span>
+                    </div>
+                    <div>
+                        <div class="text-primary font-bold text-xl" style="font-family: 'Playfair Display', serif;">Sueño Andino</div>
+                        <div class="text-accent text-xs uppercase tracking-wider font-semibold">Desarrollo Regenerativo</div>
+                    </div>
                 </div>
-                <div class="flex items-center space-x-8">
-                    <a href="#servicios" class="text-secondary font-medium hover:text-primary transition-colors">Servicios</a>
-                    <a href="#casos" class="text-secondary font-medium hover:text-primary transition-colors">Casos de Éxito</a>
-                    <a href="#contacto" class="text-secondary font-medium hover:text-primary transition-colors">Contacto</a>
-                    <a href="#contacto" class="btn btn-primary" aria-label="Agendar una reunión">Agendar Reunión</a>
+                
+                <!-- Navigation -->
+                <div class="flex items-center space-x-12">
+                    <a href="#servicios" class="text-primary font-medium hover:text-accent transition-all duration-300 relative group">
+                        Servicios
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-accent/80 transition-all duration-300 group-hover:w-full"></div>
+                    </a>
+                    <a href="#nosotros" class="text-primary font-medium hover:text-accent transition-all duration-300 relative group">
+                        Nosotros
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-accent/80 transition-all duration-300 group-hover:w-full"></div>
+                    </a>
+                    <a href="#contacto" class="text-primary font-medium hover:text-accent transition-all duration-300 relative group">
+                        Contacto
+                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-accent/80 transition-all duration-300 group-hover:w-full"></div>
+                    </a>
                 </div>
             </nav>
         </div>
@@ -56,36 +71,46 @@
     <!-- Main Content -->
     <main id="main-content">
         <!-- Hero Section -->
-        <section class="relative min-h-screen flex items-center justify-center" style="margin-top: 5rem;" aria-labelledby="hero-title">
+        <section class="relative min-h-screen flex items-center justify-center" style="margin-top: 5rem; min-height: 120vh; padding: 8rem 0;" aria-labelledby="hero-title">
             <!-- Imagen de fondo -->
             <div class="absolute inset-0 z-0">
                 <img src="assets/img/hero-image.jpg" 
                      alt="Paisaje andino regenerativo" 
                      class="w-full h-full object-cover"
                      style="background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);">
-                <!-- Overlay para mejorar legibilidad -->
-                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                <!-- Overlay premium para mejorar legibilidad -->
+                <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%);"></div>
             </div>
             
-            <!-- Contenido centrado -->
-            <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
-                <h1 id="hero-title" class="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
+            <!-- Contenido centrado premium -->
+            <div class="relative z-10 text-center text-white max-w-5xl mx-auto px-8">
+                <!-- Badge superior premium -->
+                <div class="inline-block mb-12 px-8 py-3 rounded-full" style="background: rgba(201,169,110,0.15); border: 1px solid rgba(201,169,110,0.3); backdrop-filter: blur(10px);">
+                    <span class="text-accent font-semibold text-sm uppercase tracking-wider">Desarrollo Regenerativo</span>
+                </div>
+                
+                <h1 id="hero-title" class="text-6xl md:text-8xl lg:text-9xl font-extrabold mb-12 leading-tight" style="font-family: 'Playfair Display', serif; text-shadow: 0 4px 8px rgba(0,0,0,0.3);">
                     Regenerar territorios.<br>
-                    Transformar futuros.
+                    <span class="text-accent">Transformar futuros.</span>
                 </h1>
                 
-                <p class="text-xl md:text-2xl lg:text-3xl font-light leading-relaxed max-w-3xl mx-auto mb-12" style="line-height: 1.4;">
+                <p class="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed max-w-4xl mx-auto mb-16" style="text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
                     Somos el aliado estratégico para gobiernos y empresas que buscan impulsar un desarrollo regenerativo, integrando salud ecosistémica, bienestar social y prosperidad económica.
                 </p>
                 
-                <!-- Botones -->
-                <div class="flex flex-wrap justify-center gap-6">
-                    <a href="#contacto" class="btn btn-primary text-lg px-8 py-4" style="background-color: #c9a96e; border: none; min-height: 4rem;" aria-label="Agendar una reunión para conocer nuestros servicios">
+                <!-- Botones premium -->
+                <div class="flex flex-wrap justify-center gap-8 mb-16">
+                    <a href="#contacto" class="bg-gradient-to-r from-accent to-accent/80 text-white px-12 py-5 rounded-2xl text-xl font-bold uppercase tracking-wide transition-all duration-400 hover:-translate-y-1 hover:shadow-2xl" style="box-shadow: 0 15px 35px -5px rgba(201,169,110,0.4);" aria-label="Agendar una reunión para conocer nuestros servicios">
                         Agendar Reunión
                     </a>
-                    <a href="#servicios" class="btn btn-secondary text-lg px-8 py-4" style="background-color: transparent; border: 2px solid white; color: white; min-height: 4rem;" aria-label="Conocer más sobre nuestros servicios">
+                    <a href="#servicios" class="bg-white/10 text-white px-12 py-5 rounded-2xl text-xl font-bold uppercase tracking-wide border-2 border-white/30 backdrop-blur-xl transition-all duration-400 hover:bg-white/20 hover:border-white/60 hover:-translate-y-1" aria-label="Conocer más sobre nuestros servicios">
                         Conocer Más
                     </a>
+                </div>
+                
+                <!-- Indicador de scroll premium -->
+                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                    <div class="w-0.5 h-12 bg-gradient-to-b from-accent to-transparent rounded-full"></div>
                 </div>
             </div>
         </section>
@@ -674,70 +699,57 @@
                     </article>
                 </div>
 
-                <!-- Carrusel de Logos -->
-                <div class="mb-20">
-                    <div class="text-center mb-12">
-                        <h3 class="text-3xl md:text-4xl font-bold text-primary mb-4" style="font-family: 'Playfair Display', serif;">
-                            Nuestros Aliados
-                        </h3>
-                        <p class="text-lg text-secondary max-w-2xl mx-auto">
-                            Organizaciones que confían en nosotros para impulsar el desarrollo regenerativo
-                        </p>
-                    </div>
-                    
-                    <!-- Carrusel de logos -->
-                    <div class="relative overflow-hidden">
-                        <div class="flex animate-scroll" style="animation: scroll 20s linear infinite;">
-                            <!-- Logo 1 -->
-                            <div class="flex-shrink-0 mx-8 flex items-center justify-center">
-                                <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                                    <span class="text-gray-500 font-semibold text-sm">Gobierno Regional</span>
-                                </div>
+            <!-- Logos de Aliados -->
+            <div class="mb-20">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-primary mb-4" style="font-family: 'Playfair Display', serif;">
+                        Nuestros Aliados
+                    </h3>
+                    <p class="text-lg text-secondary max-w-2xl mx-auto">
+                        Organizaciones que confían en nosotros para impulsar el desarrollo regenerativo
+                    </p>
+                </div>
+                
+                <!-- Logos circulares estáticos -->
+                <div class="bg-white rounded-3xl p-12 border border-gray-100 shadow-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-8 justify-items-center">
+                        <!-- Logo 1 -->
+                        <div class="group">
+                            <div class="w-28 h-28 bg-gradient-to-br from-accent to-accent/80 rounded-full flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
+                                <span class="text-white font-bold text-sm text-center">Gobierno<br>Regional</span>
                             </div>
-                            <!-- Logo 2 -->
-                            <div class="flex-shrink-0 mx-8 flex items-center justify-center">
-                                <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                                    <span class="text-gray-500 font-semibold text-sm">Minera XYZ</span>
-                                </div>
+                        </div>
+                        
+                        <!-- Logo 2 -->
+                        <div class="group">
+                            <div class="w-28 h-28 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
+                                <span class="text-white font-bold text-sm text-center">Minera<br>XYZ</span>
                             </div>
-                            <!-- Logo 3 -->
-                            <div class="flex-shrink-0 mx-8 flex items-center justify-center">
-                                <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                                    <span class="text-gray-500 font-semibold text-sm">Fundación ABC</span>
-                                </div>
+                        </div>
+                        
+                        <!-- Logo 3 -->
+                        <div class="group">
+                            <div class="w-28 h-28 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
+                                <span class="text-white font-bold text-sm text-center">Fundación<br>ABC</span>
                             </div>
-                            <!-- Logo 4 -->
-                            <div class="flex-shrink-0 mx-8 flex items-center justify-center">
-                                <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                                    <span class="text-gray-500 font-semibold text-sm">ONG Def</span>
-                                </div>
+                        </div>
+                        
+                        <!-- Logo 4 -->
+                        <div class="group">
+                            <div class="w-28 h-28 bg-gradient-to-br from-green-600 to-green-700 rounded-full flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
+                                <span class="text-white font-bold text-sm text-center">ONG<br>Def</span>
                             </div>
-                            <!-- Logo 5 -->
-                            <div class="flex-shrink-0 mx-8 flex items-center justify-center">
-                                <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                                    <span class="text-gray-500 font-semibold text-sm">Universidad</span>
-                                </div>
-                            </div>
-                            <!-- Logo 6 -->
-                            <div class="flex-shrink-0 mx-8 flex items-center justify-center">
-                                <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                                    <span class="text-gray-500 font-semibold text-sm">Empresa GHI</span>
-                                </div>
-                            </div>
-                            <!-- Repetir para efecto continuo -->
-                            <div class="flex-shrink-0 mx-8 flex items-center justify-center">
-                                <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                                    <span class="text-gray-500 font-semibold text-sm">Gobierno Regional</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0 mx-8 flex items-center justify-center">
-                                <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                                    <span class="text-gray-500 font-semibold text-sm">Minera XYZ</span>
-                                </div>
+                        </div>
+                        
+                        <!-- Logo 5 -->
+                        <div class="group">
+                            <div class="w-28 h-28 bg-gradient-to-br from-red-600 to-red-700 rounded-full flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
+                                <span class="text-white font-bold text-sm text-center">Universidad<br>Nacional</span>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
                 <!-- Impacto en números mejorado -->
                 <div class="bg-gradient-to-r from-primary to-primary/90 rounded-3xl p-12 text-white">
@@ -900,6 +912,26 @@
             "https://wa.me/51999888777"
         ]
     }
+    </script>
+    
+    <!-- Header scroll behavior -->
+    <script>
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down - hide header
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up - show header
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
     </script>
 </body>
 </html>
