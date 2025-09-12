@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sueño Andino - Transformando Vidas en los Andes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a472a;
+            --secondary-color: #2d5a3d;
+            --accent-color: #c9a96e;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --background: #ffffff;
+            --background-light: #f8fafc;
+            --background-dark: #0f172a;
+            --border-light: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--background);
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section {
+            padding: 8rem 0;
+        }
+        
+        .section-sm {
+            padding: 6rem 0;
+        }
+        
+        .section-lg {
+            padding: 12rem 0;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+        }
+        
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.6;
+        }
+        
+        .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+        
+        .text-sm {
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        .text-xs {
+            font-size: 0.75rem;
+            line-height: 1.4;
+        }
+        
+        .font-light {
+            font-weight: 300;
+        }
+        
+        .font-medium {
+            font-weight: 500;
+        }
+        
+        .font-semibold {
+            font-weight: 600;
+        }
+        
+        .font-bold {
+            font-weight: 700;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-primary {
+            color: var(--primary-color);
+        }
+        
+        .text-secondary {
+            color: var(--text-secondary);
+        }
+        
+        .text-accent {
+            color: var(--accent-color);
+        }
+        
+        .bg-primary {
+            background-color: var(--primary-color);
+        }
+        
+        .bg-light {
+            background-color: var(--background-light);
+        }
+        
+        .bg-dark {
+            background-color: var(--background-dark);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            min-height: 3.5rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: var(--text-primary);
+        }
+        
+        .btn-accent:hover {
+            background-color: #b8945f;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 3rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .grid {
+            display: grid;
+            gap: 3rem;
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        .flex {
+            display: flex;
+        }
+        
+        .items-center {
+            align-items: center;
+        }
+        
+        .justify-between {
+            justify-content: space-between;
+        }
+        
+        .justify-center {
+            justify-content: center;
+        }
+        
+        .space-y-8 > * + * {
+            margin-top: 2rem;
+        }
+        
+        .space-y-12 > * + * {
+            margin-top: 3rem;
+        }
+        
+        .space-y-16 > * + * {
+            margin-top: 4rem;
+        }
+        
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+        
+        .mb-12 {
+            margin-bottom: 3rem;
+        }
+        
+        .mb-16 {
+            margin-bottom: 4rem;
+        }
+        
+        .mt-8 {
+            margin-top: 2rem;
+        }
+        
+        .mt-12 {
+            margin-top: 3rem;
+        }
+        
+        .mt-16 {
+            margin-top: 4rem;
+        }
+        
+        .opacity-60 {
+            opacity: 0.6;
+        }
+        
+        .opacity-80 {
+            opacity: 0.8;
+        }
+        
+        .border-t {
+            border-top: 1px solid var(--border-light);
+        }
+        
+        .border-b {
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+        
+        .rounded-xl {
+            border-radius: 1rem;
+        }
+        
+        .rounded-2xl {
+            border-radius: 1.5rem;
+        }
+        
+        .shadow-sm {
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .shadow-md {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .shadow-lg {
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .shadow-xl {
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .w-full {
+            width: 100%;
+        }
+        
+        .h-full {
+            height: 100%;
+        }
+        
+        .min-h-screen {
+            min-height: 100vh;
+        }
+        
+        .aspect-video {
+            aspect-ratio: 16 / 9;
+        }
+        
+        .aspect-square {
+            aspect-ratio: 1 / 1;
+        }
+        
+        .object-cover {
+            object-fit: cover;
+        }
+        
+        .object-center {
+            object-position: center;
+        }
+        
+        .relative {
+            position: relative;
+        }
+        
+        .absolute {
+            position: absolute;
+        }
+        
+        .inset-0 {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .z-10 {
+            z-index: 10;
+        }
+        
+        .z-20 {
+            z-index: 20;
+        }
+        
+        .overflow-hidden {
+            overflow: hidden;
+        }
+        
+        .bg-gradient {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+        
+        .bg-gradient-light {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+        
+        .stats-number {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1;
+            color: var(--accent-color);
+        }
+        
+        .testimonial-quote {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+        
+        .testimonial-author {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .testimonial-role {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% + 2rem);
+            background-color: var(--border-light);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .service-icon {
+            width: 4rem;
+            height: 4rem;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #b8945f 100%);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .media-logo {
+            height: 3rem;
+            width: auto;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+        
+        .media-logo:hover {
+            opacity: 1;
+        }
+        
+        .partner-logo {
+            height: 4rem;
+            width: auto;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .partner-logo:hover {
+            opacity: 1;
+        }
+        
+        .award-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #b8945f 100%);
+            color: white;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .award-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .section {
+                padding: 6rem 0;
+            }
+            
+            .section-lg {
+                padding: 8rem 0;
+            }
+            
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .section-lg {
+                padding: 6rem 0;
+            }
+            
+            .grid-2,
+            .grid-3,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.875rem;
+            }
+            
+            .card {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white border-b" style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.95);">
+        <div class="container">
+            <div class="flex items-center justify-between" style="height: 5rem;">
+                <div class="flex items-center">
+                    <h1 class="text-primary font-bold" style="font-size: 1.5rem; margin: 0;">
+                        <a href="/" style="text-decoration: none; color: inherit;">Sueño Andino</a>
+                    </h1>
+                </div>
+                <nav class="flex items-center space-x-8">
+                    <a href="#servicios" class="text-secondary font-medium hover:text-primary transition-colors">Servicios</a>
+                    <a href="#casos" class="text-secondary font-medium hover:text-primary transition-colors">Casos de Éxito</a>
+                    <a href="#contacto" class="text-secondary font-medium hover:text-primary transition-colors">Contacto</a>
+                    <a href="#contacto" class="btn btn-primary">Agendar Reunión</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient min-h-screen flex items-center hero-pattern" style="margin-top: 5rem;">
+        <div class="container">
+            <div class="grid grid-2 items-center gap-16">
+                <div class="space-y-8">
+                    <div class="space-y-6">
+                        <h1 class="text-white" style="font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1;">
+                            Transformando Vidas en los Andes
+                        </h1>
+                        <p class="text-xl text-white opacity-90" style="max-width: 600px;">
+                            Desarrollamos soluciones educativas y de desarrollo sostenible que empoderan a las comunidades andinas para construir un futuro próspero y equitativo.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contacto" class="btn btn-accent">Agendar Reunión</a>
+                        <a href="#servicios" class="btn btn-secondary" style="background: rgba(255, 255, 255, 0.1); color: white; border-color: rgba(255, 255, 255, 0.3);">Conocer Más</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="aspect-video bg-white rounded-2xl shadow-xl overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-accent to-yellow-600 flex items-center justify-center text-white text-lg font-semibold">
+                            Video Hero
+                            <div class="text-sm opacity-80 mt-2">assets/media/hero.mp4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Golden Circle Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="mb-8">¿Por qué Sueño Andino?</h2>
+                <p class="text-xl text-secondary" style="max-width: 600px; margin: 0 auto;">
+                    Nuestra metodología única combina saberes ancestrales con innovación moderna para crear impacto real y sostenible.
+                </p>
+            </div>
+            <div class="grid grid-3">
+                <div class="card text-center">
+                    <div class="service-icon mx-auto">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="mb-6 text-accent">¿QUÉ HACEMOS?</h3>
+                    <p class="text-secondary">
+                        Desarrollamos programas educativos y de desarrollo sostenible específicamente diseñados para las comunidades andinas, combinando saberes ancestrales con metodologías modernas.
+                    </p>
+                </div>
+                <div class="card text-center">
+                    <div class="service-icon mx-auto">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="mb-6 text-accent">¿CÓMO LO HACEMOS?</h3>
+                    <p class="text-secondary">
+                        Trabajamos directamente con las comunidades, respetando su cultura y tradiciones, utilizando un enfoque participativo que garantiza la sostenibilidad y el impacto real.
+                    </p>
+                </div>
+                <div class="card text-center">
+                    <div class="service-icon mx-auto">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <h3 class="mb-6 text-accent">¿POR QUÉ LO HACEMOS?</h3>
+                    <p class="text-secondary">
+                        Creemos que cada persona en los Andes merece oportunidades equitativas para desarrollarse y prosperar, preservando su identidad cultural y contribuyendo al bienestar de su comunidad.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="mb-8">Nuestra Historia</h2>
+                <p class="text-xl text-secondary" style="max-width: 600px; margin: 0 auto;">
+                    Un recorrido de transformación y crecimiento que ha impactado miles de vidas en los Andes.
+                </p>
+            </div>
+            <div class="grid grid-4">
+                <div class="timeline-item">
+                    <h3 class="text-accent mb-4">2018</h3>
+                    <h4 class="mb-4">Fundación</h4>
+                    <p class="text-secondary">
+                        Nace Sueño Andino con la misión de transformar vidas en las comunidades andinas a través de la educación y el desarrollo sostenible.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-accent mb-4">2020</h3>
+                    <h4 class="mb-4">Primeros Proyectos</h4>
+                    <p class="text-secondary">
+                        Implementamos nuestros primeros programas educativos en 5 comunidades andinas, beneficiando a más de 200 familias.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-accent mb-4">2022</h3>
+                    <h4 class="mb-4">Expansión</h4>
+                    <p class="text-secondary">
+                        Ampliamos nuestros servicios a empresas y gobiernos, estableciendo alianzas estratégicas para mayor impacto.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-accent mb-4">2024</h3>
+                    <h4 class="mb-4">Presente</h4>
+                    <p class="text-secondary">
+                        Hemos transformado más de 1,000 vidas y continuamos creciendo con nuevos programas y metodologías innovadoras.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="mb-8">Nuestros Servicios</h2>
+                <p class="text-xl text-secondary" style="max-width: 600px; margin: 0 auto;">
+                    Soluciones integrales para el desarrollo sostenible en los Andes, diseñadas para cada tipo de cliente.
+                </p>
+            </div>
+            <div class="grid grid-3">
+                <div class="card text-center">
+                    <div class="service-icon mx-auto">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 7H16c-.8 0-1.54.37-2.01.99L12 10l-1.99-2.01A2.5 2.5 0 0 0 8 7H5.46c-.8 0-1.54.37-2.01.99L1 10.5V22h2v-6h2.5l2.54 7.63A1.5 1.5 0 0 0 9.46 25H12c.8 0 1.54-.37 2.01-.99L16 22l1.99 2.01A2.5 2.5 0 0 0 20 25h2.54c.8 0 1.54-.37 2.01-.99L27 16.5V22h2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="mb-6 text-primary">Personas</h3>
+                    <ul class="text-secondary space-y-3 text-left">
+                        <li>Programas de educación básica y técnica</li>
+                        <li>Capacitación en emprendimiento</li>
+                        <li>Desarrollo de habilidades digitales</li>
+                        <li>Apoyo psicosocial y familiar</li>
+                    </ul>
+                    <div class="mt-8">
+                        <a href="#contacto" class="btn btn-primary w-full">Más Información</a>
+                    </div>
+                </div>
+                <div class="card text-center">
+                    <div class="service-icon mx-auto">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10z"/>
+                        </svg>
+                    </div>
+                    <h3 class="mb-6 text-primary">Empresas</h3>
+                    <ul class="text-secondary space-y-3 text-left">
+                        <li>Consultoría en responsabilidad social</li>
+                        <li>Programas de desarrollo comunitario</li>
+                        <li>Capacitación de personal local</li>
+                        <li>Proyectos de impacto social</li>
+                    </ul>
+                    <div class="mt-8">
+                        <a href="#contacto" class="btn btn-primary w-full">Más Información</a>
+                    </div>
+                </div>
+                <div class="card text-center">
+                    <div class="service-icon mx-auto">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="mb-6 text-primary">Gobiernos</h3>
+                    <ul class="text-secondary space-y-3 text-left">
+                        <li>Políticas públicas de desarrollo</li>
+                        <li>Programas de inclusión social</li>
+                        <li>Capacitación de funcionarios</li>
+                        <li>Evaluación de impacto social</li>
+                    </ul>
+                    <div class="mt-8">
+                        <a href="#contacto" class="btn btn-primary w-full">Más Información</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Casos de Éxito Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="mb-8">Casos de Éxito</h2>
+                <p class="text-xl text-secondary" style="max-width: 600px; margin: 0 auto;">
+                    Historias reales de transformación que demuestran el impacto positivo de nuestro trabajo.
+                </p>
+            </div>
+            <div class="grid grid-3 mb-16">
+                <div class="card">
+                    <h3 class="text-primary mb-4">Comunidad de Huancavelica</h3>
+                    <div class="stats-number mb-6">+150%</div>
+                    <p class="text-sm text-accent font-semibold mb-6">en ingresos familiares</p>
+                    <blockquote class="testimonial-quote mb-6">
+                        "Gracias al programa de emprendimiento, pudimos crear una cooperativa de artesanías que ahora exporta a nivel nacional."
+                    </blockquote>
+                    <div class="border-t pt-4">
+                        <div class="testimonial-author">María Quispe</div>
+                        <div class="testimonial-role">Líder Comunitaria</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-primary mb-4">Escuela Rural de Cusco</h3>
+                    <div class="stats-number mb-6">95%</div>
+                    <p class="text-sm text-accent font-semibold mb-6">de aprobación estudiantil</p>
+                    <blockquote class="testimonial-quote mb-6">
+                        "Nuestros estudiantes ahora tienen acceso a tecnología educativa y metodologías modernas que los preparan para el futuro."
+                    </blockquote>
+                    <div class="border-t pt-4">
+                        <div class="testimonial-author">Prof. Carlos Mamani</div>
+                        <div class="testimonial-role">Director</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-primary mb-4">Empresa Minera Responsable</h3>
+                    <div class="stats-number mb-6">+300</div>
+                    <p class="text-sm text-accent font-semibold mb-6">empleos locales</p>
+                    <blockquote class="testimonial-quote mb-6">
+                        "El programa de responsabilidad social nos ayudó a crear un modelo de desarrollo sostenible que beneficia a toda la región."
+                    </blockquote>
+                    <div class="border-t pt-4">
+                        <div class="testimonial-author">Ing. Ana Vargas</div>
+                        <div class="testimonial-role">Gerente RSE</div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <h3 class="text-primary mb-12">Nuestro Impacto en Números</h3>
+                <div class="grid grid-4">
+                    <div class="text-center">
+                        <div class="stats-number">1,200+</div>
+                        <p class="text-sm font-semibold text-secondary">Personas Beneficiadas</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="stats-number">25+</div>
+                        <p class="text-sm font-semibold text-secondary">Comunidades Atendidas</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="stats-number">15+</div>
+                        <p class="text-sm font-semibold text-secondary">Proyectos Exitosos</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="stats-number">98%</div>
+                        <p class="text-sm font-semibold text-secondary">Satisfacción</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prensa y Alianzas Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="mb-8">Prensa y Alianzas</h2>
+                <p class="text-xl text-secondary" style="max-width: 600px; margin: 0 auto;">
+                    Reconocimientos y alianzas estratégicas que fortalecen nuestro impacto en las comunidades andinas.
+                </p>
+            </div>
+            
+            <div class="mb-16">
+                <h3 class="text-center text-primary mb-12">En los Medios</h3>
+                <div class="grid grid-3">
+                    <div class="card text-center">
+                        <div class="text-accent font-semibold mb-4">El Comercio</div>
+                        <blockquote class="text-secondary italic">
+                            "Sueño Andino transforma vidas en comunidades rurales a través de la educación"
+                        </blockquote>
+                    </div>
+                    <div class="card text-center">
+                        <div class="text-accent font-semibold mb-4">RPP Noticias</div>
+                        <blockquote class="text-secondary italic">
+                            "Modelo de desarrollo sostenible que respeta la cultura andina"
+                        </blockquote>
+                    </div>
+                    <div class="card text-center">
+                        <div class="text-accent font-semibold mb-4">Canal N</div>
+                        <blockquote class="text-secondary italic">
+                            "Iniciativa que combina tradición y modernidad para el desarrollo"
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-16">
+                <h3 class="text-center text-primary mb-12">Nuestros Aliados</h3>
+                <div class="grid grid-3">
+                    <div class="card text-center">
+                        <div class="text-primary font-semibold text-lg mb-4">Ministerio de Educación</div>
+                        <p class="text-secondary">Alianza estratégica para programas educativos rurales</p>
+                    </div>
+                    <div class="card text-center">
+                        <div class="text-primary font-semibold text-lg mb-4">Empresas Mineras</div>
+                        <p class="text-secondary">Programas de responsabilidad social empresarial</p>
+                    </div>
+                    <div class="card text-center">
+                        <div class="text-primary font-semibold text-lg mb-4">ONGs Internacionales</div>
+                        <p class="text-secondary">Cooperación técnica y financiera para proyectos</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <h3 class="text-primary mb-12">Reconocimientos</h3>
+                <div class="flex justify-center flex-wrap gap-4">
+                    <div class="award-badge">Premio Nacional - Mejor Iniciativa Social 2023</div>
+                    <div class="award-badge">Certificación ISO - Gestión de Calidad 9001:2015</div>
+                    <div class="award-badge">Sello Verde - Desarrollo Sostenible</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section class="section bg-gradient text-white">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-white mb-8">¿Listo para Transformar Vidas?</h2>
+                <p class="text-xl text-white opacity-90" style="max-width: 600px; margin: 0 auto;">
+                    Agenda una reunión y descubre cómo podemos trabajar juntos para crear un impacto positivo en los Andes.
+                </p>
+            </div>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3 class="text-primary mb-6">Agenda una Reunión</h3>
+                    <p class="text-secondary mb-8">Reserva tu espacio en nuestro calendario para una consulta personalizada.</p>
+                    <a href="https://calendly.com/sueno-andino" target="_blank" class="btn btn-accent w-full">Agendar Ahora</a>
+                </div>
+                <div class="card">
+                    <h3 class="text-primary mb-6">Descarga el Dossier</h3>
+                    <p class="text-secondary mb-8">Conoce más detalles sobre nuestros programas y metodologías.</p>
+                    <a href="assets/dossier-sueno-andino.pdf" target="_blank" class="btn btn-primary w-full">Descargar PDF</a>
+                </div>
+                <div class="card">
+                    <h3 class="text-primary mb-6">WhatsApp</h3>
+                    <p class="text-secondary mb-8">Escríbenos directamente para resolver tus dudas.</p>
+                    <a href="https://wa.me/51999888777" target="_blank" class="btn btn-primary w-full">Escribir Ahora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white">
+        <div class="container">
+            <div class="section-sm">
+                <div class="grid grid-3 mb-12">
+                    <div>
+                        <h3 class="text-white mb-6">Sueño Andino</h3>
+                        <p class="text-sm text-gray-300 mb-6">
+                            Transformando vidas a través de la educación y el desarrollo sostenible en los Andes.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-white mb-6">Enlaces</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#servicios" class="text-gray-300 hover:text-white transition-colors">Servicios</a></li>
+                            <li><a href="#casos" class="text-gray-300 hover:text-white transition-colors">Casos de Éxito</a></li>
+                            <li><a href="#contacto" class="text-gray-300 hover:text-white transition-colors">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-white mb-6">Contacto</h4>
+                        <p class="text-sm text-gray-300">
+                            info@sueñoandino.com<br>
+                            +51 999 888 777
+                        </p>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 pt-8">
+                    <p class="text-center text-sm text-gray-400">
+                        © 2024 Sueño Andino. Todos los derechos reservados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
