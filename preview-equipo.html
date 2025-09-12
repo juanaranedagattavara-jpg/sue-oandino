@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sueño Andino - Equipo y Directorio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+          --color-primary: #2c5530;
+          --color-secondary: #8b4513;
+          --color-accent: #d4af37;
+          --color-text: #333333;
+          --color-background: #ffffff;
+          --font-primary: 'Inter', sans-serif;
+          --font-secondary: 'Playfair Display', serif;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: var(--font-primary);
+          line-height: 1.6;
+          color: var(--color-text);
+          background-color: var(--color-background);
+          margin: 0;
+          padding: 0;
+        }
+
+        .section {
+          padding: 6rem 0;
+        }
+
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 1rem;
+        }
+
+        .team-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 3rem;
+          margin-top: 4rem;
+        }
+
+        .team-member {
+          text-align: center;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .team-member img {
+          border-radius: 50%;
+          object-fit: cover;
+          width: 200px;
+          height: 200px;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          filter: grayscale(0.2);
+          border: 1px solid rgba(44, 85, 48, 0.1);
+          margin-bottom: 1.5rem;
+        }
+
+        .team-member:hover img {
+          transform: scale(1.02);
+          filter: grayscale(0);
+          border-color: var(--color-primary);
+          box-shadow: 0 20px 40px rgba(44, 85, 48, 0.15);
+        }
+
+        .team-member h3 {
+          margin: 0 0 0.5rem 0;
+          color: var(--color-text);
+          font-family: var(--font-primary);
+          font-weight: 500;
+          letter-spacing: -0.01em;
+          line-height: 1.3;
+          font-size: 1.25rem;
+        }
+
+        .team-member p {
+          color: var(--color-secondary);
+          font-size: 0.875rem;
+          font-weight: 400;
+          line-height: 1.5;
+          margin: 0;
+          opacity: 0.8;
+        }
+
+        .section-title {
+          font-family: var(--font-primary);
+          font-weight: 300;
+          letter-spacing: -0.02em;
+          line-height: 1.2;
+          margin: 0 0 1rem 0;
+          font-size: 3rem;
+          text-align: center;
+        }
+
+        .section-subtitle {
+          font-weight: 300;
+          line-height: 1.6;
+          opacity: 0.8;
+          text-align: center;
+          font-size: 1.125rem;
+          margin: 0 0 4rem 0;
+        }
+
+        .separator {
+          height: 1px;
+          background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+          border: none;
+          margin: 2rem auto;
+          width: 100px;
+        }
+
+        .equipo-section {
+          background: #ffffff;
+        }
+
+        .directorio-section {
+          background: #fafbfc;
+        }
+
+        @media (max-width: 768px) {
+          .team-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+          
+          .team-member img {
+            width: 160px;
+            height: 160px;
+          }
+          
+          .section-title {
+            font-size: 2.5rem;
+          }
+          
+          .team-member h3 {
+            font-size: 1.125rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .team-member img {
+            width: 140px;
+            height: 140px;
+          }
+          
+          .section-title {
+            font-size: 2rem;
+          }
+          
+          .team-member h3 {
+            font-size: 1rem;
+          }
+          
+          .team-member p {
+            font-size: 0.8rem;
+          }
+        }
+    </style>
+</head>
+<body>
+    <!-- Equipo Section -->
+    <section class="section equipo-section">
+        <div class="container">
+            <h2 class="section-title">Nuestro Equipo</h2>
+            <p class="section-subtitle">Profesionales comprometidos con el desarrollo sostenible de los Andes</p>
+            <hr class="separator">
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/200x200/f8f9fa/2c5530?text=PS" alt="Pedro Smith">
+                    <h3>Pedro Smith</h3>
+                    <p>Director Ejecutivo</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/200x200/f8f9fa/2c5530?text=MA" alt="Martín Araneda">
+                    <h3>Martín Araneda</h3>
+                    <p>Director Desarrollo Territorial</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/200x200/f8f9fa/2c5530?text=GA" alt="Goran Ahumada">
+                    <h3>Goran Ahumada</h3>
+                    <p>Director Emprendimiento</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/200x200/f8f9fa/2c5530?text=AR" alt="Ana Rodríguez">
+                    <h3>Ana Rodríguez</h3>
+                    <p>Directora de Programas</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/200x200/f8f9fa/2c5530?text=CM" alt="Carlos Mendoza">
+                    <h3>Carlos Mendoza</h3>
+                    <p>Director de Comunicaciones</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Directorio Section -->
+    <section class="section directorio-section">
+        <div class="container">
+            <h2 class="section-title">Directorio</h2>
+            <p class="section-subtitle">Líderes visionarios que guían nuestra misión</p>
+            <hr class="separator">
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/200x200/f8f9fa/2c5530?text=GR" alt="Gonzalo Rozas">
+                    <h3>Gonzalo Rozas</h3>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/200x200/f8f9fa/2c5530?text=AR" alt="Anita Rivera">
+                    <h3>Anita Rivera</h3>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/200x200/f8f9fa/2c5530?text=CB" alt="Carlos Briceño">
+                    <h3>Carlos Briceño</h3>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/200x200/f8f9fa/2c5530?text=PB" alt="Pía Bustos">
+                    <h3>Pía Bustos</h3>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/200x200/f8f9fa/2c5530?text=MB" alt="Martín Bascopé">
+                    <h3>Martín Bascopé</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
