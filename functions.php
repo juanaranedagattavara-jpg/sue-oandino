@@ -51,13 +51,18 @@ add_action('after_setup_theme', 'sueno_andino_setup');
  */
 function sueno_andino_scripts() {
     // Estilos del tema
-    wp_enqueue_style('sueno-andino-style', get_stylesheet_uri(), array(), '1.0.0');
+    wp_enqueue_style('sueno-andino-style', get_stylesheet_uri(), array(), '1.0.1');
     
-    // Google Fonts
-    wp_enqueue_style('sueno-andino-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap', array(), null);
+    // Google Fonts con preload
+    wp_enqueue_style('sueno-andino-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap', array(), null);
     
-    // Scripts del tema
-    wp_enqueue_script('sueno-andino-script', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.0', true);
+    // CSS Premium
+    wp_enqueue_style('sueno-andino-premium', get_template_directory_uri() . '/assets/css/premium.css', array('sueno-andino-style'), '1.0.1');
+    
+    // Scripts del tema (solo si existe)
+    if (file_exists(get_template_directory() . '/assets/js/main.js')) {
+        wp_enqueue_script('sueno-andino-script', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.1', true);
+    }
 }
 add_action('wp_enqueue_scripts', 'sueno_andino_scripts');
 
