@@ -46,9 +46,9 @@
     <div class="wp-block-group" style="position:relative;min-height:120vh;display:flex;align-items:center;justify-content:center;padding-top:8rem;padding-bottom:8rem">
         <!-- Imagen de fondo -->
         <div style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:0">
-            <img src="assets/img/hero-image.jpg" 
-                 alt="Paisaje andino regenerativo" 
-                 style="width:100%;height:100%;object-fit:cover;background:linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);">
+        <img src="assets/img/hero-background.jpg" 
+             alt="Paisaje andino regenerativo" 
+             style="width:100%;height:100%;object-fit:cover;background:linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);">
             <!-- Overlay premium para mejorar legibilidad -->
             <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%)"></div>
         </div>
@@ -230,126 +230,102 @@
         </div>
     </div>
 
-    <!-- Timeline Section -->
-    <div class="wp-block-group" style="background-color:#ffffff;padding-top:5rem;padding-bottom:5rem">
-        <div style="max-width:1400px;margin:0 auto;padding:0 1rem">
-            <!-- Header mejorado -->
-            <div style="text-align:center;margin-bottom:5rem">
-                <div style="display:inline-block;margin-bottom:1.5rem">
+    <!-- Timeline Section - Rediseño Minimalista -->
+    <div class="wp-block-group" style="background-color:#ffffff;padding-top:4rem;padding-bottom:4rem">
+        <div style="max-width:1200px;margin:0 auto;padding:0 1rem">
+            <!-- Header compacto -->
+            <div style="text-align:center;margin-bottom:3rem">
+                <div style="display:inline-block;margin-bottom:1rem">
                     <span style="color:#c9a96e;font-weight:600;font-size:0.875rem;text-transform:uppercase;letter-spacing:0.1em">Nuestra Historia</span>
                 </div>
-                <h2 class="wp-block-heading" style="font-size:clamp(3rem, 6vw, 4.5rem);font-weight:700;color:#1a472a;margin:0 0 2rem 0;line-height:1.1;font-family:'Playfair Display',serif">
-                    Un Viaje de Transformación
+                <h2 class="wp-block-heading" style="font-size:clamp(2.5rem, 5vw, 3.5rem);font-weight:700;color:#1a472a;margin:0 0 1.5rem 0;line-height:1.1;font-family:'Playfair Display',serif">
+                    Hitos Transformadores
                 </h2>
-                <p style="font-size:clamp(1.25rem, 3vw, 1.5rem);color:#6b7280;line-height:1.6;margin:0 auto;max-width:900px;font-weight:300">
-                    Desde nuestros humildes comienzos hasta convertirnos en <span style="color:#c9a96e;font-weight:600">líderes en desarrollo regenerativo</span>, cada paso ha sido una oportunidad para crear impacto real en las comunidades andinas.
+                <p style="font-size:clamp(1.125rem, 2.5vw, 1.25rem);color:#6b7280;line-height:1.6;margin:0 auto;max-width:700px;font-weight:300">
+                    Seis años de <span style="color:#c9a96e;font-weight:600">impacto regenerativo</span> en las comunidades andinas.
                 </p>
             </div>
             
-            <!-- Timeline con diseño limpio -->
-            <div style="position:relative;max-width:1200px;margin:0 auto">
-                <!-- Línea central -->
-                <div style="position:absolute;left:50%;transform:translateX(-50%);width:4px;height:100%;background:linear-gradient(to bottom, #c9a96e 0%, #c9a96e 60%, #c9a96e 30%);display:none" class="timeline-line"></div>
+            <!-- Timeline vertical compacta -->
+            <div style="max-width:800px;margin:0 auto;position:relative">
+                <!-- Línea vertical central -->
+                <div style="position:absolute;left:2rem;top:0;bottom:0;width:2px;background:linear-gradient(to bottom, #c9a96e 0%, #c9a96e 70%, rgba(201,169,110,0.3) 100%);z-index:1"></div>
                 
-                <!-- Timeline items -->
-                <div style="space-y:4rem">
+                <!-- Timeline items compactos -->
+                <div style="space-y:2.5rem">
                     <!-- 2018 - Fundación -->
-                    <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:6rem">
-                        <div style="width:50%;padding-right:3rem;text-align:right;order:2">
-                            <div style="background:white;border-radius:1rem;padding:2rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);border:1px solid #f3f4f6;max-width:400px;margin-left:auto">
-                                <div style="display:flex;align-items:center;justify-content:flex-end;margin-bottom:1rem">
-                                    <div style="width:12px;height:12px;background-color:#c9a96e;border-radius:50%;margin-right:0.75rem"></div>
-                                    <span style="color:#c9a96e;font-weight:700;font-size:1.125rem">2018</span>
-                                </div>
-                                <h3 style="font-size:1.5rem;font-weight:700;color:#1a472a;margin:0 0 1rem 0">Fundación</h3>
-                                <p style="color:#6b7280;line-height:1.6;margin:0">
-                                    Nace Sueño Andino con la misión de transformar vidas en las comunidades andinas a través de la educación y el desarrollo sostenible.
-                                </p>
+                    <div style="display:flex;align-items:flex-start;gap:2rem;position:relative;z-index:2">
+                        <!-- Año -->
+                        <div style="flex-shrink:0;width:4rem;text-align:center">
+                            <div style="width:3rem;height:3rem;background-color:#c9a96e;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:0.875rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);margin:0 auto">
+                                18
                             </div>
+                            <div style="margin-top:0.5rem;font-size:0.75rem;color:#c9a96e;font-weight:600">2018</div>
                         </div>
                         
-                        <!-- Punto central -->
-                        <div style="width:4rem;height:4rem;background-color:#c9a96e;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.25rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);z-index:10;order:1;margin:1rem 0">
-                            01
-                        </div>
-                        
-                        <div style="width:50%;padding-left:3rem;order:3">
-                            <!-- Espacio vacío para balance visual -->
+                        <!-- Contenido -->
+                        <div style="flex:1;padding-top:0.5rem">
+                            <h3 style="font-size:1.25rem;font-weight:700;color:#1a472a;margin:0 0 0.5rem 0;line-height:1.3">Fundación</h3>
+                            <p style="color:#6b7280;line-height:1.5;margin:0;font-size:0.95rem">
+                                Nace Sueño Andino con la misión de transformar vidas en las comunidades andinas.
+                            </p>
                         </div>
                     </div>
                     
                     <!-- 2020 - Primeros Proyectos -->
-                    <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:6rem">
-                        <div style="width:50%;padding-right:3rem;order:2">
-                            <!-- Espacio vacío para balance visual -->
-                        </div>
-                        
-                        <!-- Punto central -->
-                        <div style="width:4rem;height:4rem;background-color:#c9a96e;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.25rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);z-index:10;order:1;margin:1rem 0">
-                            02
-                        </div>
-                        
-                        <div style="width:50%;padding-left:3rem;order:3">
-                            <div style="background:white;border-radius:1rem;padding:2rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);border:1px solid #f3f4f6;max-width:400px">
-                                <div style="display:flex;align-items:center;margin-bottom:1rem">
-                                    <span style="color:#c9a96e;font-weight:700;font-size:1.125rem">2020</span>
-                                    <div style="width:12px;height:12px;background-color:#c9a96e;border-radius:50%;margin-left:0.75rem"></div>
-                                </div>
-                                <h3 style="font-size:1.5rem;font-weight:700;color:#1a472a;margin:0 0 1rem 0">Primeros Proyectos</h3>
-                                <p style="color:#6b7280;line-height:1.6;margin:0">
-                                    Implementamos nuestros primeros programas educativos en 5 comunidades andinas, beneficiando a más de 200 familias.
-                                </p>
+                    <div style="display:flex;align-items:flex-start;gap:2rem;position:relative;z-index:2">
+                        <!-- Año -->
+                        <div style="flex-shrink:0;width:4rem;text-align:center">
+                            <div style="width:3rem;height:3rem;background-color:#c9a96e;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:0.875rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);margin:0 auto">
+                                20
                             </div>
+                            <div style="margin-top:0.5rem;font-size:0.75rem;color:#c9a96e;font-weight:600">2020</div>
+                        </div>
+                        
+                        <!-- Contenido -->
+                        <div style="flex:1;padding-top:0.5rem">
+                            <h3 style="font-size:1.25rem;font-weight:700;color:#1a472a;margin:0 0 0.5rem 0;line-height:1.3">Primeros Proyectos</h3>
+                            <p style="color:#6b7280;line-height:1.5;margin:0;font-size:0.95rem">
+                                Implementamos programas educativos en 5 comunidades, beneficiando a 200+ familias.
+                            </p>
                         </div>
                     </div>
                     
                     <!-- 2022 - Expansión -->
-                    <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:6rem">
-                        <div style="width:50%;padding-right:3rem;text-align:right;order:2">
-                            <div style="background:white;border-radius:1rem;padding:2rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);border:1px solid #f3f4f6;max-width:400px;margin-left:auto">
-                                <div style="display:flex;align-items:center;justify-content:flex-end;margin-bottom:1rem">
-                                    <div style="width:12px;height:12px;background-color:#c9a96e;border-radius:50%;margin-right:0.75rem"></div>
-                                    <span style="color:#c9a96e;font-weight:700;font-size:1.125rem">2022</span>
-                                </div>
-                                <h3 style="font-size:1.5rem;font-weight:700;color:#1a472a;margin:0 0 1rem 0">Expansión</h3>
-                                <p style="color:#6b7280;line-height:1.6;margin:0">
-                                    Ampliamos nuestros servicios a empresas y gobiernos, estableciendo alianzas estratégicas para mayor impacto.
-                                </p>
+                    <div style="display:flex;align-items:flex-start;gap:2rem;position:relative;z-index:2">
+                        <!-- Año -->
+                        <div style="flex-shrink:0;width:4rem;text-align:center">
+                            <div style="width:3rem;height:3rem;background-color:#c9a96e;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:0.875rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);margin:0 auto">
+                                22
                             </div>
+                            <div style="margin-top:0.5rem;font-size:0.75rem;color:#c9a96e;font-weight:600">2022</div>
                         </div>
                         
-                        <!-- Punto central -->
-                        <div style="width:4rem;height:4rem;background-color:#c9a96e;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.25rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);z-index:10;order:1;margin:1rem 0">
-                            03
-                        </div>
-                        
-                        <div style="width:50%;padding-left:3rem;order:3">
-                            <!-- Espacio vacío para balance visual -->
+                        <!-- Contenido -->
+                        <div style="flex:1;padding-top:0.5rem">
+                            <h3 style="font-size:1.25rem;font-weight:700;color:#1a472a;margin:0 0 0.5rem 0;line-height:1.3">Expansión</h3>
+                            <p style="color:#6b7280;line-height:1.5;margin:0;font-size:0.95rem">
+                                Ampliamos servicios a empresas y gobiernos, estableciendo alianzas estratégicas.
+                            </p>
                         </div>
                     </div>
                     
                     <!-- 2024 - Presente -->
-                    <div style="display:flex;flex-direction:column;align-items:center">
-                        <div style="width:50%;padding-right:3rem;order:2">
-                            <!-- Espacio vacío para balance visual -->
-                        </div>
-                        
-                        <!-- Punto central -->
-                        <div style="width:4rem;height:4rem;background:linear-gradient(135deg, #c9a96e 0%, #b8945f 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.25rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);z-index:10;order:1;margin:1rem 0">
-                            04
-                        </div>
-                        
-                        <div style="width:50%;padding-left:3rem;order:3">
-                            <div style="background:linear-gradient(135deg, rgba(201,169,110,0.05) 0%, rgba(201,169,110,0.1) 100%);border-radius:1rem;padding:2rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);border:1px solid rgba(201,169,110,0.2);max-width:400px">
-                                <div style="display:flex;align-items:center;margin-bottom:1rem">
-                                    <span style="color:#c9a96e;font-weight:700;font-size:1.125rem">2024</span>
-                                    <div style="width:12px;height:12px;background-color:#c9a96e;border-radius:50%;margin-left:0.75rem"></div>
-                                </div>
-                                <h3 style="font-size:1.5rem;font-weight:700;color:#1a472a;margin:0 0 1rem 0">Presente</h3>
-                                <p style="color:#6b7280;line-height:1.6;margin:0">
-                                    Hemos transformado más de 1,000 vidas y continuamos creciendo con nuevos programas y metodologías innovadoras.
-                                </p>
+                    <div style="display:flex;align-items:flex-start;gap:2rem;position:relative;z-index:2">
+                        <!-- Año -->
+                        <div style="flex-shrink:0;width:4rem;text-align:center">
+                            <div style="width:3rem;height:3rem;background:linear-gradient(135deg, #c9a96e 0%, #b8945f 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:0.875rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);margin:0 auto">
+                                24
                             </div>
+                            <div style="margin-top:0.5rem;font-size:0.75rem;color:#c9a96e;font-weight:600">2024</div>
+                        </div>
+                        
+                        <!-- Contenido -->
+                        <div style="flex:1;padding-top:0.5rem">
+                            <h3 style="font-size:1.25rem;font-weight:700;color:#1a472a;margin:0 0 0.5rem 0;line-height:1.3">Presente</h3>
+                            <p style="color:#6b7280;line-height:1.5;margin:0;font-size:0.95rem">
+                                Hemos transformado 1,200+ vidas y continuamos creciendo con metodologías innovadoras.
+                            </p>
                         </div>
                     </div>
                 </div>
