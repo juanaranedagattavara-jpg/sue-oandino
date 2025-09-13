@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/premium.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background-color:#f7f6f4;">
     <!-- Header -->
     <header id="header" class="wp-block-group" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,169,110,0.1);padding:1.5rem 0;transition:all 0.3s ease;transform:translateY(0)">
         <div style="max-width:1400px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center">
@@ -111,7 +111,7 @@
     </div>
 
     <!-- Golden Circle Section -->
-    <div class="wp-block-group" style="background-color:#f9fafb;padding-top:5rem;padding-bottom:5rem" id="nosotros">
+    <div class="wp-block-group" style="background-color:#f7f6f4;padding-top:5rem;padding-bottom:5rem" id="nosotros">
         <div style="max-width:1400px;margin:0 auto;padding:0 1rem">
             <!-- Header con mejor storytelling -->
             <div style="text-align:center;margin-bottom:5rem">
@@ -126,123 +126,139 @@
                 </p>
             </div>
             
-            <!-- Cards con diseño mejorado -->
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2rem;margin-bottom:4rem">
-                <!-- Qué hacemos -->
+            <!-- Cards con diseño world-class para 4 cuadros en una fila -->
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3rem;margin-bottom:6rem">
+                <!-- Por qué lo hacemos - PRIMERO -->
                 <div style="position:relative">
-                    <div style="background:white;border-radius:1.5rem;padding:2.5rem;box-shadow:0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);border:1px solid #f3f4f6;height:100%;transition:all 0.3s ease">
-                        <!-- Número de sección -->
-                        <div style="position:absolute;top:-1rem;left:-1rem;width:3rem;height:3rem;background-color:#c9a96e;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.125rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1)">
-                            01
-                        </div>
+                    <div style="background:white;border-radius:2rem;padding:2.5rem;box-shadow:0 20px 40px -8px rgba(0,0,0,0.12), 0 0 0 1px rgba(201,169,110,0.06);height:100%;transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);border:1px solid rgba(201,169,110,0.06);position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-8px) scale(1.01)';this.style.boxShadow='0 25px 50px -8px rgba(0,0,0,0.18), 0 0 0 1px rgba(201,169,110,0.12)'" onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 20px 40px -8px rgba(0,0,0,0.12), 0 0 0 1px rgba(201,169,110,0.06)'">
+                        <!-- Elemento decorativo de fondo -->
+                        <div style="position:absolute;top:-50%;right:-30%;width:150%;height:150%;background:radial-gradient(circle, rgba(201,169,110,0.03) 0%, transparent 60%);z-index:0"></div>
                         
-                        <!-- Icono mejorado -->
-                        <div style="width:5rem;height:5rem;background:linear-gradient(135deg, #c9a96e 0%, #b8945f 100%);border-radius:1rem;display:flex;align-items:center;justify-content:center;margin-bottom:2rem">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style="color:white">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
                         
-                        <!-- Contenido -->
-                        <div style="space-y:1.5rem">
-                            <h3 style="font-size:1.75rem;font-weight:700;color:#1a472a;margin:0;line-height:1.2">¿Qué hacemos?</h3>
-                            <p style="color:#6b7280;line-height:1.6;margin:0;font-size:1.125rem">
-                                Desarrollamos programas educativos y de desarrollo sostenible específicamente diseñados para las comunidades andinas, combinando saberes ancestrales con metodologías modernas.
-                            </p>
-                            
-                            <!-- Elemento decorativo -->
-                            <div style="width:4rem;height:0.25rem;background:linear-gradient(90deg, #c9a96e 0%, #b8945f 100%);border-radius:0.125rem"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Cómo lo hacemos -->
-                <div style="position:relative">
-                    <div style="background:white;border-radius:1.5rem;padding:2.5rem;box-shadow:0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);border:1px solid #f3f4f6;height:100%;transition:all 0.3s ease">
-                        <!-- Número de sección -->
-                        <div style="position:absolute;top:-1rem;left:-1rem;width:3rem;height:3rem;background-color:#c9a96e;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.125rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1)">
-                            02
-                        </div>
-                        
-                        <!-- Icono mejorado -->
-                        <div style="width:5rem;height:5rem;background:linear-gradient(135deg, #c9a96e 0%, #b8945f 100%);border-radius:1rem;display:flex;align-items:center;justify-content:center;margin-bottom:2rem">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style="color:white">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        
-                        <!-- Contenido -->
-                        <div style="space-y:1.5rem">
-                            <h3 style="font-size:1.75rem;font-weight:700;color:#1a472a;margin:0;line-height:1.2">¿Cómo lo hacemos?</h3>
-                            <p style="color:#6b7280;line-height:1.6;margin:0;font-size:1.125rem">
-                                Trabajamos directamente con las comunidades, respetando su cultura y tradiciones, utilizando un enfoque participativo que garantiza la sostenibilidad y el impacto real.
-                            </p>
-                            
-                            <!-- Elemento decorativo -->
-                            <div style="width:4rem;height:0.25rem;background:linear-gradient(90deg, #c9a96e 0%, #b8945f 100%);border-radius:0.125rem"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Por qué lo hacemos -->
-                <div style="position:relative">
-                    <div style="background:white;border-radius:1.5rem;padding:2.5rem;box-shadow:0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);border:1px solid #f3f4f6;height:100%;transition:all 0.3s ease">
-                        <!-- Número de sección -->
-                        <div style="position:absolute;top:-1rem;left:-1rem;width:3rem;height:3rem;background-color:#c9a96e;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.125rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1)">
-                            03
-                        </div>
-                        
-                        <!-- Icono mejorado -->
-                        <div style="width:5rem;height:5rem;background:linear-gradient(135deg, #c9a96e 0%, #b8945f 100%);border-radius:1rem;display:flex;align-items:center;justify-content:center;margin-bottom:2rem">
+                        <!-- Icono world-class -->
+                        <div style="width:5rem;height:5rem;background:linear-gradient(135deg, #c9a96e 0%, #b8945f 100%);border-radius:1.5rem;display:flex;align-items:center;justify-content:center;margin-bottom:2rem;box-shadow:0 12px 24px -4px rgba(201,169,110,0.3);position:relative;z-index:1">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style="color:white">
                                 <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                             </svg>
                         </div>
                         
-                        <!-- Contenido -->
-                        <div style="space-y:1.5rem">
-                            <h3 style="font-size:1.75rem;font-weight:700;color:#1a472a;margin:0;line-height:1.2">¿Por qué lo hacemos?</h3>
-                            <p style="color:#6b7280;line-height:1.6;margin:0;font-size:1.125rem">
-                                Creemos que cada persona en los Andes merece oportunidades equitativas para desarrollarse y prosperar, preservando su identidad cultural y contribuyendo al bienestar de su comunidad.
+                        <!-- Contenido world-class -->
+                        <div style="position:relative;z-index:1">
+                            <h3 style="font-size:1.75rem;font-weight:800;color:#1a472a;margin:0 0 1.5rem 0;line-height:1.2;font-family:'Playfair Display',serif;letter-spacing:-0.01em">¿Por qué lo hacemos?</h3>
+                            <p style="color:#6b7280;line-height:1.6;margin:0;font-size:1rem;font-weight:400">
+                                Creemos que cada persona en los Andes merece oportunidades equitativas para desarrollarse y prosperar, preservando su identidad cultural y contribuyendo al <span style="color:#c9a96e;font-weight:600;text-decoration:underline;text-decoration-color:#c9a96e;text-underline-offset:3px;text-decoration-thickness:1.5px">bienestar de su comunidad</span>.
                             </p>
                             
-                            <!-- Elemento decorativo -->
-                            <div style="width:4rem;height:0.25rem;background:linear-gradient(90deg, #c9a96e 0%, #b8945f 100%);border-radius:0.125rem"></div>
+                            <!-- Elemento decorativo world-class -->
+                            <div style="width:4rem;height:0.25rem;background:linear-gradient(90deg, #c9a96e 0%, #b8945f 100%);border-radius:0.25rem;margin-top:1.5rem;box-shadow:0 2px 4px rgba(201,169,110,0.2)"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cómo lo hacemos - SEGUNDO -->
+                <div style="position:relative">
+                    <div style="background:white;border-radius:2rem;padding:2.5rem;box-shadow:0 20px 40px -8px rgba(0,0,0,0.12), 0 0 0 1px rgba(201,169,110,0.06);height:100%;transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);border:1px solid rgba(201,169,110,0.06);position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-8px) scale(1.01)';this.style.boxShadow='0 25px 50px -8px rgba(0,0,0,0.18), 0 0 0 1px rgba(201,169,110,0.12)'" onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 20px 40px -8px rgba(0,0,0,0.12), 0 0 0 1px rgba(201,169,110,0.06)'">
+                        <!-- Elemento decorativo de fondo -->
+                        <div style="position:absolute;top:-50%;right:-30%;width:150%;height:150%;background:radial-gradient(circle, rgba(201,169,110,0.03) 0%, transparent 60%);z-index:0"></div>
+                        
+                        
+                        <!-- Icono world-class -->
+                        <div style="width:5rem;height:5rem;background:linear-gradient(135deg, #c9a96e 0%, #b8945f 100%);border-radius:1.5rem;display:flex;align-items:center;justify-content:center;margin-bottom:2rem;box-shadow:0 12px 24px -4px rgba(201,169,110,0.3);position:relative;z-index:1">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style="color:white">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        
+                        <!-- Contenido world-class -->
+                        <div style="position:relative;z-index:1">
+                            <h3 style="font-size:1.75rem;font-weight:800;color:#1a472a;margin:0 0 1.5rem 0;line-height:1.2;font-family:'Playfair Display',serif;letter-spacing:-0.01em">¿Cómo lo hacemos?</h3>
+                            <p style="color:#6b7280;line-height:1.6;margin:0;font-size:1rem;font-weight:400">
+                                Trabajamos directamente con las comunidades, respetando su cultura y tradiciones, utilizando un <span style="color:#c9a96e;font-weight:600;text-decoration:underline;text-decoration-color:#c9a96e;text-underline-offset:3px;text-decoration-thickness:1.5px">enfoque participativo que garantiza la sostenibilidad y el impacto real</span>.
+                            </p>
+                            
+                            <!-- Elemento decorativo world-class -->
+                            <div style="width:4rem;height:0.25rem;background:linear-gradient(90deg, #c9a96e 0%, #b8945f 100%);border-radius:0.25rem;margin-top:1.5rem;box-shadow:0 2px 4px rgba(201,169,110,0.2)"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Qué hacemos - TERCERO -->
+                <div style="position:relative">
+                    <div style="background:white;border-radius:2rem;padding:2.5rem;box-shadow:0 20px 40px -8px rgba(0,0,0,0.12), 0 0 0 1px rgba(201,169,110,0.06);height:100%;transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);border:1px solid rgba(201,169,110,0.06);position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-8px) scale(1.01)';this.style.boxShadow='0 25px 50px -8px rgba(0,0,0,0.18), 0 0 0 1px rgba(201,169,110,0.12)'" onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 20px 40px -8px rgba(0,0,0,0.12), 0 0 0 1px rgba(201,169,110,0.06)'">
+                        <!-- Elemento decorativo de fondo -->
+                        <div style="position:absolute;top:-50%;right:-30%;width:150%;height:150%;background:radial-gradient(circle, rgba(201,169,110,0.03) 0%, transparent 60%);z-index:0"></div>
+                        
+                        
+                        <!-- Icono world-class -->
+                        <div style="width:5rem;height:5rem;background:linear-gradient(135deg, #c9a96e 0%, #b8945f 100%);border-radius:1.5rem;display:flex;align-items:center;justify-content:center;margin-bottom:2rem;box-shadow:0 12px 24px -4px rgba(201,169,110,0.3);position:relative;z-index:1">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style="color:white">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        
+                        <!-- Contenido world-class -->
+                        <div style="position:relative;z-index:1">
+                            <h3 style="font-size:1.75rem;font-weight:800;color:#1a472a;margin:0 0 1.5rem 0;line-height:1.2;font-family:'Playfair Display',serif;letter-spacing:-0.01em">¿Qué hacemos?</h3>
+                            <p style="color:#6b7280;line-height:1.6;margin:0;font-size:1rem;font-weight:400">
+                                Desarrollamos programas educativos y de desarrollo sostenible específicamente diseñados para las comunidades andinas, combinando <span style="color:#c9a96e;font-weight:600;text-decoration:underline;text-decoration-color:#c9a96e;text-underline-offset:3px;text-decoration-thickness:1.5px">saberes ancestrales con metodologías modernas</span>.
+                            </p>
+                            
+                            <!-- Elemento decorativo world-class -->
+                            <div style="width:4rem;height:0.25rem;background:linear-gradient(90deg, #c9a96e 0%, #b8945f 100%);border-radius:0.25rem;margin-top:1.5rem;box-shadow:0 2px 4px rgba(201,169,110,0.2)"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Para quién - CUARTO -->
+                <div style="position:relative">
+                    <div style="background:white;border-radius:2rem;padding:2.5rem;box-shadow:0 20px 40px -8px rgba(0,0,0,0.12), 0 0 0 1px rgba(201,169,110,0.06);height:100%;transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);border:1px solid rgba(201,169,110,0.06);position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-8px) scale(1.01)';this.style.boxShadow='0 25px 50px -8px rgba(0,0,0,0.18), 0 0 0 1px rgba(201,169,110,0.12)'" onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 20px 40px -8px rgba(0,0,0,0.12), 0 0 0 1px rgba(201,169,110,0.06)'">
+                        <!-- Elemento decorativo de fondo -->
+                        <div style="position:absolute;top:-50%;right:-30%;width:150%;height:150%;background:radial-gradient(circle, rgba(201,169,110,0.03) 0%, transparent 60%);z-index:0"></div>
+                        
+                        
+                        <!-- Icono world-class -->
+                        <div style="width:5rem;height:5rem;background:linear-gradient(135deg, #c9a96e 0%, #b8945f 100%);border-radius:1.5rem;display:flex;align-items:center;justify-content:center;margin-bottom:2rem;box-shadow:0 12px 24px -4px rgba(201,169,110,0.3);position:relative;z-index:1">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" style="color:white">
+                                <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 7H16c-.8 0-1.54.37-2.01.99L12 10l-1.99-2.01A2.5 2.5 0 0 0 8 7H5.46c-.8 0-1.54.37-2.01.99L1 10.5V22h2v-6h2.5l2.54 7.63A1.5 1.5 0 0 0 9.46 25H12c.8 0 1.54-.37 2.01-.99L16 22l1.99 2.01A2.5 2.5 0 0 0 20 25h2.54c.8 0 1.54-.37 2.01-.99L27 16.5V22h2z"/>
+                            </svg>
+                        </div>
+                        
+                        <!-- Contenido world-class -->
+                        <div style="position:relative;z-index:1">
+                            <h3 style="font-size:1.75rem;font-weight:800;color:#1a472a;margin:0 0 1.5rem 0;line-height:1.2;font-family:'Playfair Display',serif;letter-spacing:-0.01em">¿Para quién?</h3>
+                            <p style="color:#6b7280;line-height:1.6;margin:0;font-size:1rem;font-weight:400">
+                                Trabajamos con <span style="color:#c9a96e;font-weight:600;text-decoration:underline;text-decoration-color:#c9a96e;text-underline-offset:3px;text-decoration-thickness:1.5px">comunidades andinas, empresas comprometidas y gobiernos locales</span> que buscan impulsar un desarrollo regenerativo y sostenible en sus territorios.
+                            </p>
+                            
+                            <!-- Elemento decorativo world-class -->
+                            <div style="width:4rem;height:0.25rem;background:linear-gradient(90deg, #c9a96e 0%, #b8945f 100%);border-radius:0.25rem;margin-top:1.5rem;box-shadow:0 2px 4px rgba(201,169,110,0.2)"></div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Call to action mejorado -->
-            <div style="text-align:center">
-                <div style="background:white;border-radius:1rem;padding:2rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);border:1px solid #f3f4f6;max-width:600px;margin:0 auto">
-                    <h3 style="font-size:1.5rem;font-weight:700;color:#1a472a;margin:0 0 1rem 0;font-family:'Playfair Display',serif">
-                        ¿Listo para transformar tu territorio?
-                    </h3>
-                    <p style="color:#6b7280;margin:0 0 1.5rem 0">
-                        Descubre cómo podemos trabajar juntos para crear un impacto regenerativo en tu comunidad.
-                    </p>
-                    <a href="#contacto" style="display:inline-block;padding:1rem 2rem;background-color:#c9a96e;color:white;border:none;border-radius:0.5rem;text-decoration:none;font-weight:600;font-size:1.125rem;min-height:4rem;transition:all 0.3s ease">
-                        Iniciar Conversación
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
 
     <!-- Timeline Section - Rediseño Minimalista -->
-    <div class="wp-block-group" style="background-color:#ffffff;padding-top:4rem;padding-bottom:4rem">
-        <div style="max-width:1200px;margin:0 auto;padding:0 1rem">
+    <div class="wp-block-group" style="position:relative;background-color:#ffffff;padding-top:4rem;padding-bottom:4rem;background-image:url('assets/img/timeline-background.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+        <!-- Overlay 20% para 80% de nitidez -->
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,0.2);z-index:1"></div>
+        
+        <!-- Cuadro decorativo borroso con bordes circulares -->
+        <div style="position:absolute;top:2rem;left:50%;transform:translateX(-50%);width:95%;max-width:1200px;height:calc(100% - 4rem);background:rgba(255,255,255,0.15);backdrop-filter:blur(20px);border-radius:3rem;border:1px solid rgba(255,255,255,0.2);z-index:1.5;box-shadow:0 20px 40px rgba(0,0,0,0.1);"></div>
+        
+        <div style="max-width:1200px;margin:0 auto;padding:0 1rem;position:relative;z-index:2">
             <!-- Header compacto -->
             <div style="text-align:center;margin-bottom:3rem">
-                <div style="display:inline-block;margin-bottom:1rem">
-                    <span style="color:#c9a96e;font-weight:600;font-size:0.875rem;text-transform:uppercase;letter-spacing:0.1em">Nuestra Historia</span>
+                <div style="display:inline-block;margin-bottom:1rem;background:rgba(201,169,110,0.1);padding:0.5rem 1.5rem;border-radius:2rem;border:1px solid rgba(201,169,110,0.2)">
+                    <span style="color:#c9a96e;font-weight:600;font-size:0.875rem;text-transform:uppercase;letter-spacing:0.1em;text-shadow:0 1px 2px rgba(0,0,0,0.1);">Nuestra Historia</span>
                 </div>
-                <h2 class="wp-block-heading" style="font-size:clamp(2.5rem, 5vw, 3.5rem);font-weight:700;color:#1a472a;margin:0 0 1.5rem 0;line-height:1.1;font-family:'Playfair Display',serif">
+                <h2 class="wp-block-heading" style="font-size:clamp(2.5rem, 5vw, 3.5rem);font-weight:700;color:#1a472a;margin:0 0 1.5rem 0;line-height:1.1;font-family:'Playfair Display',serif;text-shadow:0 2px 4px rgba(0,0,0,0.1);">
                     Hitos Transformadores
                 </h2>
-                <p style="font-size:clamp(1.125rem, 2.5vw, 1.25rem);color:#6b7280;line-height:1.6;margin:0 auto;max-width:700px;font-weight:300">
-                    Seis años de <span style="color:#c9a96e;font-weight:600">impacto regenerativo</span> en las comunidades andinas.
+                <p style="font-size:clamp(1.125rem, 2.5vw, 1.25rem);color:#374151;line-height:1.6;margin:0 auto;max-width:700px;font-weight:400;text-shadow:0 1px 2px rgba(0,0,0,0.05);">
+                    Seis años de <span style="color:#c9a96e;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,0.1);">impacto regenerativo</span> en las comunidades andinas.
                 </p>
             </div>
             
@@ -252,7 +268,7 @@
                 <div style="position:absolute;left:2rem;top:0;bottom:0;width:2px;background:linear-gradient(to bottom, #c9a96e 0%, #c9a96e 70%, rgba(201,169,110,0.3) 100%);z-index:1"></div>
                 
                 <!-- Timeline items compactos -->
-                <div style="space-y:2.5rem">
+                <div>
                     <!-- 2018 - Fundación -->
                     <div style="display:flex;align-items:flex-start;gap:2rem;position:relative;z-index:2">
                         <!-- Año -->
@@ -265,8 +281,8 @@
                         
                         <!-- Contenido -->
                         <div style="flex:1;padding-top:0.5rem">
-                            <h3 style="font-size:1.25rem;font-weight:700;color:#1a472a;margin:0 0 0.5rem 0;line-height:1.3">Fundación</h3>
-                            <p style="color:#6b7280;line-height:1.5;margin:0;font-size:0.95rem">
+                            <h3 style="font-size:1.25rem;font-weight:700;color:#1a472a;margin:0 0 0.5rem 0;line-height:1.3;text-shadow:0 1px 2px rgba(0,0,0,0.1);">Fundación</h3>
+                            <p style="color:#374151;line-height:1.5;margin:0;font-size:0.95rem;font-weight:500;text-shadow:0 1px 2px rgba(0,0,0,0.05);">
                                 Nace Sueño Andino con la misión de transformar vidas en las comunidades andinas.
                             </p>
                         </div>
@@ -284,8 +300,8 @@
                         
                         <!-- Contenido -->
                         <div style="flex:1;padding-top:0.5rem">
-                            <h3 style="font-size:1.25rem;font-weight:700;color:#1a472a;margin:0 0 0.5rem 0;line-height:1.3">Primeros Proyectos</h3>
-                            <p style="color:#6b7280;line-height:1.5;margin:0;font-size:0.95rem">
+                            <h3 style="font-size:1.25rem;font-weight:700;color:#1a472a;margin:0 0 0.5rem 0;line-height:1.3;text-shadow:0 1px 2px rgba(0,0,0,0.1);">Primeros Proyectos</h3>
+                            <p style="color:#374151;line-height:1.5;margin:0;font-size:0.95rem;font-weight:500;text-shadow:0 1px 2px rgba(0,0,0,0.05);">
                                 Implementamos programas educativos en 5 comunidades, beneficiando a 200+ familias.
                             </p>
                         </div>
@@ -303,8 +319,8 @@
                         
                         <!-- Contenido -->
                         <div style="flex:1;padding-top:0.5rem">
-                            <h3 style="font-size:1.25rem;font-weight:700;color:#1a472a;margin:0 0 0.5rem 0;line-height:1.3">Expansión</h3>
-                            <p style="color:#6b7280;line-height:1.5;margin:0;font-size:0.95rem">
+                            <h3 style="font-size:1.25rem;font-weight:700;color:#1a472a;margin:0 0 0.5rem 0;line-height:1.3;text-shadow:0 1px 2px rgba(0,0,0,0.1);">Expansión</h3>
+                            <p style="color:#374151;line-height:1.5;margin:0;font-size:0.95rem;font-weight:500;text-shadow:0 1px 2px rgba(0,0,0,0.05);">
                                 Ampliamos servicios a empresas y gobiernos, estableciendo alianzas estratégicas.
                             </p>
                         </div>
@@ -322,8 +338,8 @@
                         
                         <!-- Contenido -->
                         <div style="flex:1;padding-top:0.5rem">
-                            <h3 style="font-size:1.25rem;font-weight:700;color:#1a472a;margin:0 0 0.5rem 0;line-height:1.3">Presente</h3>
-                            <p style="color:#6b7280;line-height:1.5;margin:0;font-size:0.95rem">
+                            <h3 style="font-size:1.25rem;font-weight:700;color:#1a472a;margin:0 0 0.5rem 0;line-height:1.3;text-shadow:0 1px 2px rgba(0,0,0,0.1);">Presente</h3>
+                            <p style="color:#374151;line-height:1.5;margin:0;font-size:0.95rem;font-weight:500;text-shadow:0 1px 2px rgba(0,0,0,0.05);">
                                 Hemos transformado 1,200+ vidas y continuamos creciendo con metodologías innovadoras.
                             </p>
                         </div>
@@ -350,7 +366,7 @@
     </div>
 
     <!-- Servicios Section -->
-    <div class="wp-block-group" style="background-color:#f9fafb;padding-top:5rem;padding-bottom:5rem" id="servicios">
+    <div class="wp-block-group" style="background-color:#f7f6f4;padding-top:5rem;padding-bottom:5rem" id="servicios">
         <div style="max-width:1400px;margin:0 auto;padding:0 1rem">
             <div style="text-align:center;margin-bottom:5rem">
                 <div style="display:inline-block;margin-bottom:1.5rem">
@@ -597,7 +613,7 @@
     </div>
 
     <!-- Casos de Éxito Section -->
-    <div class="wp-block-group" style="background:linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);padding-top:5rem;padding-bottom:5rem">
+    <div class="wp-block-group" style="background:linear-gradient(135deg, #f7f6f4 0%, #ffffff 100%);padding-top:5rem;padding-bottom:5rem">
         <div style="max-width:1400px;margin:0 auto;padding:0 1rem">
             <!-- Header mejorado -->
             <div style="text-align:center;margin-bottom:5rem">
@@ -811,6 +827,57 @@
             }
             h2 {
                 font-size: 2rem !important;
+            }
+            
+            /* Mejoras para la sección de 4 cuadros en una fila */
+            .wp-block-group[style*="grid-template-columns:repeat(4,1fr)"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 2rem !important;
+            }
+            
+            @media (max-width: 1024px) {
+                .wp-block-group[style*="grid-template-columns:repeat(4,1fr)"] {
+                    grid-template-columns: 1fr !important;
+                    gap: 1.5rem !important;
+                }
+            }
+            
+            /* Ajustes para los números de sección world-class en móvil */
+            .wp-block-group[style*="position:absolute;top:-2rem"] {
+                width: 4rem !important;
+                height: 4rem !important;
+                top: -1.5rem !important;
+                left: -1.5rem !important;
+                font-size: 1.25rem !important;
+            }
+            
+            /* Ajustes para los iconos world-class en móvil */
+            .wp-block-group[style*="width:7rem;height:7rem"] {
+                width: 5rem !important;
+                height: 5rem !important;
+                margin-bottom: 2rem !important;
+            }
+            
+            /* Ajustes para el padding world-class en móvil */
+            .wp-block-group[style*="padding:3.5rem"] {
+                padding: 2.5rem !important;
+            }
+            
+            /* Ajustes para el call-to-action en móvil */
+            .wp-block-group[style*="padding:3.5rem"] {
+                padding: 2rem !important;
+            }
+        }
+        
+        /* Animaciones suaves para mejor UX */
+        .wp-block-group[style*="transition:all 0.4s ease"] {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        
+        /* Mejora del hover en dispositivos táctiles */
+        @media (hover: none) {
+            .wp-block-group[style*="onmouseover"]:active {
+                transform: translateY(-4px) !important;
             }
         }
     </style>

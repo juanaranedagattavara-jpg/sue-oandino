@@ -563,7 +563,7 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color:#f7f6f4;">
     <!-- Header -->
     <header id="header" class="bg-white border-b" style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; backdrop-filter: blur(20px); background: rgba(255, 255, 255, 0.98); border-bottom: 1px solid rgba(201, 169, 110, 0.1); transition: all 0.3s ease; transform: translateY(0);">
         <div class="container">
@@ -668,7 +668,7 @@
     </section>
 
     <!-- Golden Circle Section -->
-    <section class="section bg-gray-50" id="nosotros">
+    <section class="section" style="background-color:#f7f6f4;" id="nosotros">
         <div class="container">
             <!-- Header con mejor storytelling -->
             <div class="text-center mb-20">
@@ -788,18 +788,24 @@
     </section>
 
     <!-- Timeline Section - Rediseño Minimalista -->
-    <section class="section bg-white" style="padding-top: 4rem; padding-bottom: 4rem;">
-        <div class="container" style="max-width: 1200px;">
+    <section class="section bg-white" style="position:relative;padding-top: 4rem; padding-bottom: 4rem;background-image:url('assets/img/timeline-background.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;">
+        <!-- Overlay 20% para 80% de nitidez -->
+        <div class="absolute inset-0" style="background:rgba(255,255,255,0.2);z-index:1;"></div>
+        
+        <!-- Cuadro decorativo borroso con bordes circulares -->
+        <div class="absolute left-1/2 transform -translate-x-1/2" style="top:2rem;width:95%;max-width:1200px;height:calc(100% - 4rem);background:rgba(255,255,255,0.15);backdrop-filter:blur(20px);border-radius:3rem;border:1px solid rgba(255,255,255,0.2);z-index:1.5;box-shadow:0 20px 40px rgba(0,0,0,0.1);"></div>
+        
+        <div class="container" style="max-width: 1200px;position:relative;z-index:2;">
             <!-- Header compacto -->
             <div class="text-center mb-12">
                 <div class="inline-block mb-4">
                     <span class="text-accent font-semibold text-sm uppercase tracking-wider">Nuestra Historia</span>
                 </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight" style="font-family: 'Playfair Display', serif;text-shadow:0 2px 4px rgba(0,0,0,0.1);">
                     Hitos Transformadores
                 </h2>
-                <p class="text-lg md:text-xl text-secondary max-w-3xl mx-auto leading-relaxed font-light">
-                    Seis años de <span class="text-accent font-semibold">impacto regenerativo</span> en las comunidades andinas.
+                <p class="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-normal" style="color:#374151;text-shadow:0 1px 2px rgba(0,0,0,0.05);">
+                    Seis años de <span class="text-accent font-semibold" style="text-shadow:0 1px 2px rgba(0,0,0,0.1);">impacto regenerativo</span> en las comunidades andinas.
                 </p>
             </div>
             
@@ -907,7 +913,7 @@
     </section>
 
     <!-- Servicios Section -->
-    <section class="section bg-gray-50" id="servicios">
+    <section class="section" style="background-color:#f7f6f4;" id="servicios">
         <div class="container">
             <div class="text-center mb-20">
                 <div class="inline-block mb-6">
