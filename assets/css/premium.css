@@ -408,6 +408,218 @@ a:focus {
     outline-offset: 2px;
 }
 
+/* Equipo Section Premium Styles */
+.equipo-section-premium {
+    position: relative;
+    overflow: hidden;
+}
+
+.equipo-section-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(201, 169, 110, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(26, 71, 42, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.equipo-title {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.equipo-subtitle {
+    position: relative;
+    z-index: 2;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.equipo-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.equipo-member {
+    position: relative;
+    padding: 1.5rem 1rem;
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.equipo-member::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(201, 169, 110, 0.05) 0%, rgba(26, 71, 42, 0.02) 100%);
+    border-radius: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.equipo-member:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(201, 169, 110, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.equipo-member:hover::before {
+    opacity: 1;
+}
+
+.equipo-photo {
+    position: relative;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.equipo-photo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(201, 169, 110, 0.2) 0%, rgba(26, 71, 42, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.equipo-member:hover .equipo-photo {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-color: var(--accent-color);
+}
+
+.equipo-member:hover .equipo-photo::before {
+    opacity: 1;
+}
+
+.equipo-member:hover .equipo-photo img {
+    filter: brightness(1.1) contrast(1.05);
+}
+
+.equipo-name {
+    font-weight: 600;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    margin-bottom: 0.25rem;
+}
+
+.equipo-member:hover .equipo-name {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.equipo-role {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    font-weight: 400;
+}
+
+.equipo-member:hover .equipo-role {
+    opacity: 1;
+    color: var(--text-primary);
+    transform: translateY(-1px);
+}
+
+/* Responsive Design for Equipo */
+@media (max-width: 1024px) {
+    .equipo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .equipo-member {
+        padding: 1.25rem 0.75rem;
+    }
+    
+    .equipo-photo {
+        width: 140px !important;
+        height: 140px !important;
+    }
+    
+    .equipo-photo img {
+        width: 140px !important;
+        height: 140px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .equipo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+    
+    .equipo-member {
+        padding: 1rem 0.5rem;
+    }
+    
+    .equipo-title {
+        font-size: 2rem !important;
+    }
+    
+    .equipo-subtitle {
+        font-size: 0.9rem !important;
+        margin-bottom: 2rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .equipo-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .equipo-member {
+        padding: 1.5rem 1rem;
+    }
+    
+    .equipo-photo {
+        width: 120px !important;
+        height: 120px !important;
+    }
+    
+    .equipo-photo img {
+        width: 120px !important;
+        height: 120px !important;
+    }
+    
+    .equipo-name {
+        font-size: 1rem !important;
+    }
+    
+    .equipo-role {
+        font-size: 0.75rem !important;
+    }
+}
+
 /* Print styles */
 @media print {
     .header-fixed {
@@ -418,5 +630,15 @@ a:focus {
         border: 1px solid var(--primary-color);
         background: white;
         color: var(--primary-color);
+    }
+    
+    .equipo-member {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    .equipo-member:hover {
+        transform: none;
     }
 }

@@ -10,6 +10,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         initSmoothScrolling();
         initHeaderScroll();
+        initLogoClick();
         initAccessibility();
         initPerformanceOptimizations();
     });
@@ -19,6 +20,7 @@
      */
     function initSmoothScrolling() {
         const links = document.querySelectorAll('a[href^="#"]');
+        const header = document.querySelector('header');
         
         links.forEach(link => {
             link.addEventListener('click', function(e) {
@@ -27,6 +29,12 @@
                 
                 if (targetElement) {
                     e.preventDefault();
+                    
+                    // Ocultar header al navegar a secciones específicas
+                    if (targetId !== '#hero' && targetId !== '#') {
+                        header.style.transform = 'translateY(-100%)';
+                        header.style.transition = 'transform 0.3s ease';
+                    }
                     
                     const headerHeight = document.querySelector('header')?.offsetHeight || 0;
                     const targetPosition = targetElement.offsetTop - headerHeight - 20;
@@ -44,7 +52,7 @@
     }
 
     /**
-     * Header scroll effects
+     * Header scroll effects - Aparece solo al hacer scroll hacia arriba
      */
     function initHeaderScroll() {
         const header = document.querySelector('header');
@@ -52,14 +60,28 @@
 
         let lastScrollY = window.scrollY;
         let ticking = false;
+        let isHeaderVisible = true;
 
         function updateHeader() {
             const currentScrollY = window.scrollY;
+            const scrollDifference = currentScrollY - lastScrollY;
             
-            if (currentScrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+            // Solo mostrar header si se hace scroll hacia arriba o está en la parte superior
+            if (currentScrollY < 100) {
+                // En la parte superior, siempre mostrar
+                header.style.transform = 'translateY(0)';
+                header.style.transition = 'transform 0.3s ease';
+                isHeaderVisible = true;
+            } else if (scrollDifference < -10 && !isHeaderVisible) {
+                // Scroll hacia arriba, mostrar header
+                header.style.transform = 'translateY(0)';
+                header.style.transition = 'transform 0.3s ease';
+                isHeaderVisible = true;
+            } else if (scrollDifference > 10 && isHeaderVisible) {
+                // Scroll hacia abajo, ocultar header
+                header.style.transform = 'translateY(-100%)';
+                header.style.transition = 'transform 0.3s ease';
+                isHeaderVisible = false;
             }
             
             lastScrollY = currentScrollY;
@@ -74,6 +96,33 @@
         }
 
         window.addEventListener('scroll', requestTick, { passive: true });
+    }
+
+    /**
+     * Logo click handler - Navega al Hero
+     */
+    function initLogoClick() {
+        const logo = document.querySelector('header img[alt*="Logo"]');
+        if (!logo) return;
+
+        // Hacer el logo clickeable
+        logo.style.cursor = 'pointer';
+        
+        logo.addEventListener('click', function() {
+            const heroSection = document.querySelector('#hero');
+            if (heroSection) {
+                // Mostrar header al volver al hero
+                const header = document.querySelector('header');
+                header.style.transform = 'translateY(0)';
+                header.style.transition = 'transform 0.3s ease';
+                
+                // Scroll suave al hero
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        });
     }
 
     /**
