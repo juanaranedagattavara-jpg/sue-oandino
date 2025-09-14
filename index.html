@@ -741,41 +741,94 @@
                 </div>
             </div>
 
-            <!-- Impacto en números mejorado -->
-            <div style="background:linear-gradient(90deg, #1a472a 0%, #2d5a3d 100%);border-radius:1.5rem;padding:3rem;color:white">
+            <!-- Galería de Fotos de la Marca -->
+            <div style="background:linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);border-radius:1.5rem;padding:3rem;box-shadow:0 10px 30px rgba(0,0,0,0.08);border:1px solid rgba(201,169,110,0.1)">
                 <div style="text-align:center;margin-bottom:3rem">
-                    <h3 style="font-size:clamp(2rem, 4vw, 2.5rem);font-weight:700;margin:0 0 1rem 0;font-family:'Playfair Display',serif">
-                        Nuestro Impacto en Números
+                    <div style="display:inline-block;margin-bottom:1.5rem;background:rgba(201,169,110,0.1);padding:0.75rem 2rem;border-radius:2rem;border:1px solid rgba(201,169,110,0.2)">
+                        <span style="color:#c9a96e;font-weight:600;font-size:0.875rem;text-transform:uppercase;letter-spacing:0.1em">Galería</span>
+                    </div>
+                    <h3 style="font-size:clamp(2rem, 4vw, 2.5rem);font-weight:700;margin:0 0 1rem 0;font-family:'Playfair Display',serif;color:#1a472a">
+                        Nuestra Marca en Imágenes
                     </h3>
-                    <p style="font-size:1.25rem;color:rgba(255,255,255,0.9);max-width:600px;margin:0 auto">
-                        Resultados concretos que reflejan nuestro compromiso con el desarrollo regenerativo
+                    <p style="font-size:1.125rem;color:#6b7280;max-width:600px;margin:0 auto;line-height:1.6">
+                        Momentos que capturan la esencia de nuestro trabajo regenerativo
                     </p>
                 </div>
-                <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2rem">
-                    <div style="text-align:center">
-                        <div style="font-size:clamp(2.5rem, 5vw, 3.5rem);font-weight:700;margin-bottom:0.5rem;transition:transform 0.3s ease">
-                            1,200+
+                
+                <!-- Grid de galería reorganizada: 2 grandes arriba, fila pequeña abajo -->
+                <div style="display:flex;flex-direction:column;gap:1.5rem">
+                    <!-- Fila superior: 2 fotos grandes -->
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+                        <!-- Foto 1 - Grande -->
+                        <div style="position:relative;overflow:hidden;border-radius:1rem;aspect-ratio:16/9;background:linear-gradient(135deg, #e5e7eb 0%, #f3f4f6 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 25px rgba(0,0,0,0.1);transition:transform 0.3s ease" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="text-align:center;color:#9ca3af">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="margin-bottom:1rem">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v12h16V6H4zm2 2h12v8H6V8zm2 2v4h8v-4H8z"/>
+                                </svg>
+                                <p style="font-size:0.875rem;font-weight:500;margin:0">Imagen Principal 1</p>
+                            </div>
                         </div>
-                        <p style="font-size:0.875rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.9);margin:0">Personas Beneficiadas</p>
-                    </div>
-                    <div style="text-align:center">
-                        <div style="font-size:clamp(2.5rem, 5vw, 3.5rem);font-weight:700;margin-bottom:0.5rem;transition:transform 0.3s ease">
-                            25+
+                        
+                        <!-- Foto 2 - Grande -->
+                        <div style="position:relative;overflow:hidden;border-radius:1rem;aspect-ratio:16/9;background:linear-gradient(135deg, #e5e7eb 0%, #f3f4f6 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 25px rgba(0,0,0,0.1);transition:transform 0.3s ease" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="text-align:center;color:#9ca3af">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="margin-bottom:1rem">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v12h16V6H4zm2 2h12v8H6V8zm2 2v4h8v-4H8z"/>
+                                </svg>
+                                <p style="font-size:0.875rem;font-weight:500;margin:0">Imagen Principal 2</p>
+                            </div>
                         </div>
-                        <p style="font-size:0.875rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.9);margin:0">Comunidades Atendidas</p>
                     </div>
-                    <div style="text-align:center">
-                        <div style="font-size:clamp(2.5rem, 5vw, 3.5rem);font-weight:700;margin-bottom:0.5rem;transition:transform 0.3s ease">
-                            15+
+                    
+                    <!-- Fila inferior: fotos pequeñas -->
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:1rem">
+                        <!-- Foto 3 - Pequeña -->
+                        <div style="position:relative;overflow:hidden;border-radius:0.75rem;aspect-ratio:4/3;background:linear-gradient(135deg, #e5e7eb 0%, #f3f4f6 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,0.08);transition:transform 0.3s ease" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="text-align:center;color:#9ca3af">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="margin-bottom:0.5rem">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v12h16V6H4zm2 2h12v8H6V8zm2 2v4h8v-4H8z"/>
+                                </svg>
+                                <p style="font-size:0.75rem;font-weight:500;margin:0">Foto 3</p>
+                            </div>
                         </div>
-                        <p style="font-size:0.875rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.9);margin:0">Proyectos Exitosos</p>
-                    </div>
-                    <div style="text-align:center">
-                        <div style="font-size:clamp(2.5rem, 5vw, 3.5rem);font-weight:700;margin-bottom:0.5rem;transition:transform 0.3s ease">
-                            98%
+                        
+                        <!-- Foto 4 - Pequeña -->
+                        <div style="position:relative;overflow:hidden;border-radius:0.75rem;aspect-ratio:4/3;background:linear-gradient(135deg, #e5e7eb 0%, #f3f4f6 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,0.08);transition:transform 0.3s ease" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="text-align:center;color:#9ca3af">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="margin-bottom:0.5rem">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v12h16V6H4zm2 2h12v8H6V8zm2 2v4h8v-4H8z"/>
+                                </svg>
+                                <p style="font-size:0.75rem;font-weight:500;margin:0">Foto 4</p>
+                            </div>
                         </div>
-                        <p style="font-size:0.875rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.9);margin:0">Satisfacción</p>
+                        
+                        <!-- Foto 5 - Pequeña -->
+                        <div style="position:relative;overflow:hidden;border-radius:0.75rem;aspect-ratio:4/3;background:linear-gradient(135deg, #e5e7eb 0%, #f3f4f6 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,0.08);transition:transform 0.3s ease" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="text-align:center;color:#9ca3af">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="margin-bottom:0.5rem">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v12h16V6H4zm2 2h12v8H6V8zm2 2v4h8v-4H8z"/>
+                                </svg>
+                                <p style="font-size:0.75rem;font-weight:500;margin:0">Foto 5</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Foto 6 - Pequeña -->
+                        <div style="position:relative;overflow:hidden;border-radius:0.75rem;aspect-ratio:4/3;background:linear-gradient(135deg, #e5e7eb 0%, #f3f4f6 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,0.08);transition:transform 0.3s ease" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="text-align:center;color:#9ca3af">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="margin-bottom:0.5rem">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v12h16V6H4zm2 2h12v8H6V8zm2 2v4h8v-4H8z"/>
+                                </svg>
+                                <p style="font-size:0.75rem;font-weight:500;margin:0">Foto 6</p>
+                            </div>
+                        </div>
                     </div>
+                </div>
+                
+                <!-- Texto descriptivo -->
+                <div style="text-align:center;margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(201,169,110,0.2)">
+                    <p style="font-size:0.875rem;color:#6b7280;margin:0;font-style:italic">
+                        Cada imagen cuenta una historia de transformación y esperanza
+                    </p>
                 </div>
             </div>
         </div>

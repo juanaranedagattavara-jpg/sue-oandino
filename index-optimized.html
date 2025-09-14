@@ -749,41 +749,94 @@
                 </div>
             </div>
 
-                <!-- Impacto en números mejorado -->
-                <div class="bg-gradient-to-r from-primary to-primary/90 rounded-3xl p-12 text-white">
+                <!-- Galería de Fotos de la Marca -->
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-12 shadow-xl border border-accent/10">
                     <div class="text-center mb-12">
-                        <h3 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">
-                            Nuestro Impacto en Números
+                        <div class="inline-block mb-6 bg-accent/10 px-8 py-3 rounded-full border border-accent/20">
+                            <span class="text-accent font-semibold text-sm uppercase tracking-wider">Galería</span>
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-4 text-primary" style="font-family: 'Playfair Display', serif;">
+                            Nuestra Marca en Imágenes
                         </h3>
-                        <p class="text-xl text-white/90 max-w-2xl mx-auto">
-                            Resultados concretos que reflejan nuestro compromiso con el desarrollo regenerativo
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                            Momentos que capturan la esencia de nuestro trabajo regenerativo
                         </p>
                     </div>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                        <div class="text-center group">
-                            <div class="text-4xl md:text-5xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">
-                                1,200+
+                    
+                    <!-- Grid de galería reorganizada: 2 grandes arriba, fila pequeña abajo -->
+                    <div class="flex flex-col gap-6">
+                        <!-- Fila superior: 2 fotos grandes -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Foto 1 - Grande -->
+                            <div class="relative overflow-hidden rounded-2xl aspect-video bg-gradient-to-br from-gray-200 to-gray-100 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                <div class="text-center text-gray-400">
+                                    <svg class="w-12 h-12 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v12h16V6H4zm2 2h12v8H6V8zm2 2v4h8v-4H8z"/>
+                                    </svg>
+                                    <p class="text-sm font-medium">Imagen Principal 1</p>
+                                </div>
                             </div>
-                            <p class="text-sm font-medium uppercase tracking-wider text-white/90">Personas Beneficiadas</p>
-                        </div>
-                        <div class="text-center group">
-                            <div class="text-4xl md:text-5xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">
-                                25+
+                            
+                            <!-- Foto 2 - Grande -->
+                            <div class="relative overflow-hidden rounded-2xl aspect-video bg-gradient-to-br from-gray-200 to-gray-100 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                <div class="text-center text-gray-400">
+                                    <svg class="w-12 h-12 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v12h16V6H4zm2 2h12v8H6V8zm2 2v4h8v-4H8z"/>
+                                    </svg>
+                                    <p class="text-sm font-medium">Imagen Principal 2</p>
+                                </div>
                             </div>
-                            <p class="text-sm font-medium uppercase tracking-wider text-white/90">Comunidades Atendidas</p>
                         </div>
-                        <div class="text-center group">
-                            <div class="text-4xl md:text-5xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">
-                                15+
+                        
+                        <!-- Fila inferior: fotos pequeñas -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <!-- Foto 3 - Pequeña -->
+                            <div class="relative overflow-hidden rounded-xl aspect-square bg-gradient-to-br from-gray-200 to-gray-100 flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                                <div class="text-center text-gray-400">
+                                    <svg class="w-6 h-6 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v12h16V6H4zm2 2h12v8H6V8zm2 2v4h8v-4H8z"/>
+                                    </svg>
+                                    <p class="text-xs font-medium">Foto 3</p>
+                                </div>
                             </div>
-                            <p class="text-sm font-medium uppercase tracking-wider text-white/90">Proyectos Exitosos</p>
-                        </div>
-                        <div class="text-center group">
-                            <div class="text-4xl md:text-5xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">
-                                98%
+                            
+                            <!-- Foto 4 - Pequeña -->
+                            <div class="relative overflow-hidden rounded-xl aspect-square bg-gradient-to-br from-gray-200 to-gray-100 flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                                <div class="text-center text-gray-400">
+                                    <svg class="w-6 h-6 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v12h16V6H4zm2 2h12v8H6V8zm2 2v4h8v-4H8z"/>
+                                    </svg>
+                                    <p class="text-xs font-medium">Foto 4</p>
+                                </div>
                             </div>
-                            <p class="text-sm font-medium uppercase tracking-wider text-white/90">Satisfacción</p>
+                            
+                            <!-- Foto 5 - Pequeña -->
+                            <div class="relative overflow-hidden rounded-xl aspect-square bg-gradient-to-br from-gray-200 to-gray-100 flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                                <div class="text-center text-gray-400">
+                                    <svg class="w-6 h-6 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v12h16V6H4zm2 2h12v8H6V8zm2 2v4h8v-4H8z"/>
+                                    </svg>
+                                    <p class="text-xs font-medium">Foto 5</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Foto 6 - Pequeña -->
+                            <div class="relative overflow-hidden rounded-xl aspect-square bg-gradient-to-br from-gray-200 to-gray-100 flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                                <div class="text-center text-gray-400">
+                                    <svg class="w-6 h-6 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v12h16V6H4zm2 2h12v8H6V8zm2 2v4h8v-4H8z"/>
+                                    </svg>
+                                    <p class="text-xs font-medium">Foto 6</p>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    
+                    <!-- Texto descriptivo -->
+                    <div class="text-center mt-8 pt-8 border-t border-accent/20">
+                        <p class="text-sm text-gray-500 italic">
+                            Cada imagen cuenta una historia de transformación y esperanza
+                        </p>
                     </div>
                 </div>
             </div>
