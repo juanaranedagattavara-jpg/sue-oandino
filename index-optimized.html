@@ -39,14 +39,11 @@
         <div class="container">
             <nav class="flex items-center justify-between" style="height: 5rem;" role="navigation" aria-label="Navegación principal">
                 <!-- Logo -->
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-gradient-to-br from-accent to-accent/80 rounded-xl flex items-center justify-center shadow-lg">
-                        <span class="text-white font-bold text-xl" style="font-family: 'Playfair Display', serif;">SA</span>
-                    </div>
-                    <div>
-                        <div class="text-primary font-bold text-xl" style="font-family: 'Playfair Display', serif;">Sueño Andino</div>
-                        <div class="text-accent text-xs uppercase tracking-wider font-semibold">Desarrollo Regenerativo</div>
-                    </div>
+                <div class="flex items-center">
+                    <img src="assets/img/logo-sueno-andino.jpg" 
+                         alt="Sueño Andino Logo" 
+                         style="width:8rem;height:auto;object-fit:contain;max-height:6rem;"
+                         aria-label="Logo de Sueño Andino">
                 </div>
                 
                 <!-- Navigation -->
@@ -370,17 +367,12 @@
 
         <!-- Separador horizontal para fotografía -->
         <section class="w-full" style="padding: 0; margin: 0;">
-            <div class="w-full h-96 bg-gray-200 flex items-center justify-center" style="background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);">
-                <!-- Placeholder para fotografía -->
-                <div class="text-center text-gray-500">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-gray-300 rounded-full flex items-center justify-center">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" class="text-gray-400">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v12h16V6H4zm2 2h12v8H6V8zm2 2v4h8v-4H8z"/>
-                        </svg>
-                    </div>
-                    <p class="text-lg font-medium">Fotografía de impacto</p>
-                    <p class="text-sm text-gray-400">Espacio reservado para imagen representativa</p>
-                </div>
+            <div class="w-full h-96 relative overflow-hidden">
+                <img src="assets/img/separador-timeline-servicios.jpg" 
+                     alt="Separador visual entre secciones" 
+                     class="w-full h-full object-cover object-center">
+                <!-- Overlay sutil para mejorar legibilidad si es necesario -->
+                <div class="absolute inset-0 bg-black bg-opacity-10 z-10"></div>
             </div>
         </section>
 
