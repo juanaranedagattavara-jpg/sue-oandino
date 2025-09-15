@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sueño Andino - Transformando Vidas en los Andes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="assets/img/hero-background.jpg">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/premium.css">
@@ -11,44 +14,44 @@
 </head>
 <body style="background-color:#e5d5c0;">
     <!-- Header -->
-    <header id="header" class="wp-block-group" style="position:absolute;top:0;left:0;right:0;z-index:1000;background:linear-gradient(135deg, rgba(42,67,81,0.95) 0%, rgba(30,58,71,0.95) 100%);backdrop-filter:blur(20px);border-bottom:1px solid rgba(211,96,15,0.3);padding:1.5rem 0;transition:all 0.3s ease">
+    <header id="header" class="wp-block-group header-sticky">
         <div style="max-width:1400px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center">
             <!-- Logo -->
             <div style="display:flex;align-items:center">
                 <img src="assets/img/logo-sa-blanco.png" 
-                     alt="Sueño Andino Logo" 
-                     style="width:8rem;height:auto;object-fit:contain;max-height:6rem;">
+                     alt="Logo de Sueño Andino - Transformando Vidas en los Andes" 
+                     style="width:8rem;height:auto;object-fit:contain;max-height:6rem;"
+                     loading="eager"
+                     decoding="async">
             </div>
             
             <!-- Navigation -->
-            <nav style="display:flex;gap:3rem;align-items:center">
-                <a href="#servicios" style="color:white;text-decoration:none;font-weight:500;transition:all 0.3s ease;font-size:1rem;position:relative;padding:0.5rem 0" onmouseover="this.style.color='#d3600f'" onmouseout="this.style.color='white'">
+            <nav class="nav-main" aria-label="Navegación principal">
+                <a href="#servicios" class="nav-link" aria-label="Ir a la sección de servicios">
                     Servicios
-                    <div style="position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg, #d3600f 0%, #c16134 100%);transition:width 0.3s ease"></div>
                 </a>
-                <a href="#equipo" style="color:white;text-decoration:none;font-weight:500;transition:all 0.3s ease;font-size:1rem;position:relative;padding:0.5rem 0" onmouseover="this.style.color='#d3600f'" onmouseout="this.style.color='white'">
+                <a href="#equipo" class="nav-link" aria-label="Ir a la sección de nosotros">
                     Nosotros
-                    <div style="position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg, #d3600f 0%, #c16134 100%);transition:width 0.3s ease"></div>
                 </a>
-                <a href="blog.html" style="color:white;text-decoration:none;font-weight:500;transition:all 0.3s ease;font-size:1rem;position:relative;padding:0.5rem 0" onmouseover="this.style.color='#d3600f'" onmouseout="this.style.color='white'">
+                <a href="blog.html" class="nav-link" aria-label="Ir al blog">
                     Blog
-                    <div style="position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg, #d3600f 0%, #c16134 100%);transition:width 0.3s ease"></div>
                 </a>
-                <a href="#contacto" style="color:white;text-decoration:none;font-weight:500;transition:all 0.3s ease;font-size:1rem;position:relative;padding:0.5rem 0" onmouseover="this.style.color='#d3600f'" onmouseout="this.style.color='white'">
+                <a href="#contacto" class="nav-link" aria-label="Ir a la sección de contacto">
                     Contacto
-                    <div style="position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg, #d3600f 0%, #c16134 100%);transition:width 0.3s ease"></div>
                 </a>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <div id="hero" class="wp-block-group" style="position:relative;min-height:140vh;display:flex;align-items:center;justify-content:center;padding-top:6rem;padding-bottom:6rem;margin-top:0">
+    <div id="hero" class="wp-block-group hero-optimized">
         <!-- Imagen de fondo -->
         <div style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:0">
         <img src="assets/img/hero-background.jpg" 
-             alt="Paisaje andino regenerativo" 
-             style="width:100%;height:100%;object-fit:cover;background:linear-gradient(135deg, #2a4351 0%, #1e3a47 100%);">
+             alt="Paisaje andino regenerativo con montañas y comunidades" 
+             style="width:100%;height:100%;object-fit:cover;background:linear-gradient(135deg, #2a4351 0%, #1e3a47 100%);"
+             loading="eager"
+             decoding="async">
             <!-- Overlay minimalista para legibilidad -->
             <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.3) 100%)"></div>
         </div>
@@ -103,7 +106,7 @@
     </div>
 
     <!-- Golden Circle Section - Diseño Minimalista Premium -->
-    <div class="wp-block-group" style="background:linear-gradient(135deg, #fafafa 0%, #ffffff 100%);padding-top:5rem;padding-bottom:5rem;position:relative" id="nosotros">
+    <div class="wp-block-group golden-circle-optimized" id="nosotros">
         <!-- Elemento decorativo de fondo sutil -->
         <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 20% 80%, rgba(211,96,15,0.02) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(42,67,81,0.02) 0%, transparent 50%);z-index:0"></div>
         
@@ -244,7 +247,7 @@
     </div>
 
     <!-- Timeline Section - Rediseño Minimalista -->
-    <div class="wp-block-group" style="position:relative;background-color:#ffffff;padding-top:8rem;padding-bottom:8rem;background-image:url('assets/img/timeline-background.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+    <div class="wp-block-group section-optimized" style="position:relative;background-color:#ffffff;background-image:url('assets/img/timeline-background.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;scroll-margin-top:100px">
         <!-- Overlay 20% para 80% de nitidez -->
         <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,0.2);z-index:1"></div>
         
@@ -354,7 +357,7 @@
 
 
     <!-- Servicios Section - World Class Design -->
-    <div class="wp-block-group" style="background-color:#ffffff;padding-top:6rem;padding-bottom:6rem" id="servicios">
+    <div class="wp-block-group section-optimized" style="background-color:#ffffff;scroll-margin-top:100px" id="servicios">
         <div style="max-width:1400px;margin:0 auto;padding:0 2rem">
             <!-- Header elegante -->
             <div style="text-align:center;margin-bottom:4rem">
@@ -488,7 +491,7 @@
     </div>
 
     <!-- Equipo y Directorio Section -->
-    <div class="wp-block-group" style="background:linear-gradient(135deg, rgba(193,97,52,0.05) 0%, #ffffff 100%);padding-top:6rem;padding-bottom:6rem;position:relative" id="equipo">
+    <div class="wp-block-group section-optimized" style="background:linear-gradient(135deg, rgba(193,97,52,0.05) 0%, #ffffff 100%);position:relative;scroll-margin-top:100px" id="equipo">
         <!-- Contenido -->
         <div>
         <div style="max-width:1400px;margin:0 auto;padding:0 1rem">
@@ -647,7 +650,7 @@
     </div>
 
     <!-- Casos de Éxito Section -->
-    <div class="wp-block-group" style="background:linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);padding-top:5rem;padding-bottom:5rem;background-image:url('assets/img/fondo-casosexito.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;position:relative">
+    <div class="wp-block-group section-optimized" style="background:linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);background-image:url('assets/img/fondo-casosexito.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;position:relative;scroll-margin-top:100px">
         <!-- Overlay para mejorar legibilidad -->
         <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,249,250,0.8) 100%);z-index:1"></div>
         <!-- Contenido -->
@@ -812,15 +815,19 @@
                         <!-- Foto 1 - Grande -->
                         <div style="position:relative;overflow:hidden;border-radius:1rem;aspect-ratio:16/9;background:linear-gradient(135deg, #e5e7eb 0%, #f3f4f6 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 25px rgba(0,0,0,0.1);transition:transform 0.3s ease" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
                             <img src="assets/img/galeria1.jpg" 
-                                 alt="Galería Sueño Andino 1" 
-                                 style="width:100%;height:100%;object-fit:cover;object-position:center;">
+                                 alt="Comunidad andina trabajando en proyecto regenerativo" 
+                                 style="width:100%;height:100%;object-fit:cover;object-position:center;"
+                                 loading="lazy"
+                                 decoding="async">
                         </div>
                         
                         <!-- Foto 2 - Grande -->
                         <div style="position:relative;overflow:hidden;border-radius:1rem;aspect-ratio:16/9;background:linear-gradient(135deg, #e5e7eb 0%, #f3f4f6 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 25px rgba(0,0,0,0.1);transition:transform 0.3s ease" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
                             <img src="assets/img/galeria2.jpg" 
-                                 alt="Galería Sueño Andino 2" 
-                                 style="width:100%;height:100%;object-fit:cover;object-position:center;">
+                                 alt="Escuela rural en los Andes con estudiantes aprendiendo" 
+                                 style="width:100%;height:100%;object-fit:cover;object-position:center;"
+                                 loading="lazy"
+                                 decoding="async">
                         </div>
                     </div>
                     
@@ -829,29 +836,37 @@
                         <!-- Foto 3 - Pequeña -->
                         <div style="position:relative;overflow:hidden;border-radius:0.75rem;aspect-ratio:4/3;background:linear-gradient(135deg, #e5e7eb 0%, #f3f4f6 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,0.08);transition:transform 0.3s ease" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
                             <img src="assets/img/galeria3.jpg" 
-                                 alt="Galería Sueño Andino 3" 
-                                 style="width:100%;height:100%;object-fit:cover;object-position:center;">
+                                 alt="Taller de emprendimiento comunitario en los Andes" 
+                                 style="width:100%;height:100%;object-fit:cover;object-position:center;"
+                                 loading="lazy"
+                                 decoding="async">
                         </div>
                         
                         <!-- Foto 4 - Pequeña -->
                         <div style="position:relative;overflow:hidden;border-radius:0.75rem;aspect-ratio:4/3;background:linear-gradient(135deg, #e5e7eb 0%, #f3f4f6 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,0.08);transition:transform 0.3s ease" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
                             <img src="assets/img/galeria4.jpg" 
-                                 alt="Galería Sueño Andino 4" 
-                                 style="width:100%;height:100%;object-fit:cover;object-position:center;">
+                                 alt="Reunión comunitaria para planificación de proyectos" 
+                                 style="width:100%;height:100%;object-fit:cover;object-position:center;"
+                                 loading="lazy"
+                                 decoding="async">
                         </div>
                         
                         <!-- Foto 5 - Pequeña -->
                         <div style="position:relative;overflow:hidden;border-radius:0.75rem;aspect-ratio:4/3;background:linear-gradient(135deg, #e5e7eb 0%, #f3f4f6 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,0.08);transition:transform 0.3s ease" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
                             <img src="assets/img/galeria5.jpg" 
-                                 alt="Galería Sueño Andino 5" 
-                                 style="width:100%;height:100%;object-fit:cover;object-position:center;">
+                                 alt="Celebración de logros comunitarios en los Andes" 
+                                 style="width:100%;height:100%;object-fit:cover;object-position:center;"
+                                 loading="lazy"
+                                 decoding="async">
                         </div>
                         
                         <!-- Foto 6 - Pequeña -->
                         <div style="position:relative;overflow:hidden;border-radius:0.75rem;aspect-ratio:4/3;background:linear-gradient(135deg, #e5e7eb 0%, #f3f4f6 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,0.08);transition:transform 0.3s ease" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
                             <img src="assets/img/galeria6.jpg" 
-                                 alt="Galería Sueño Andino 6" 
-                                 style="width:100%;height:100%;object-fit:cover;object-position:center;">
+                                 alt="Paisaje andino con infraestructura comunitaria" 
+                                 style="width:100%;height:100%;object-fit:cover;object-position:center;"
+                                 loading="lazy"
+                                 decoding="async">
                         </div>
                     </div>
                 </div>
@@ -1008,7 +1023,7 @@
     </style>
 
     <!-- Contacto Section -->
-    <div class="wp-block-group" style="background:linear-gradient(135deg, #2a4351 0%, #1e3a47 100%);padding-top:6rem;padding-bottom:6rem;box-shadow:0 -10px 30px rgba(0,0,0,0.1)" id="contacto">
+    <div class="wp-block-group section-optimized" style="background:linear-gradient(135deg, #2a4351 0%, #1e3a47 100%);box-shadow:0 -10px 30px rgba(0,0,0,0.1);scroll-margin-top:100px" id="contacto">
         <div style="max-width:800px;margin:0 auto;padding:0 1rem">
             <!-- Header -->
             <div style="text-align:center;margin-bottom:4rem">
@@ -1029,21 +1044,21 @@
                     <div style="display:grid;grid-template-columns:repeat(1,1fr);gap:1.5rem;margin-bottom:2rem">
                         <div>
                             <label style="display:block;color:white;font-weight:500;margin-bottom:0.5rem;font-size:0.875rem">Nombre Completo</label>
-                            <input type="text" required style="width:100%;padding:1rem;border:1px solid rgba(255,255,255,0.3);border-radius:0.75rem;background:rgba(255,255,255,0.1);color:white;font-size:1rem;transition:all 0.3s ease" placeholder="Tu nombre completo" onfocus="this.style.borderColor='#d3600f';this.style.background='rgba(255,255,255,0.15)'" onblur="this.style.borderColor='rgba(255,255,255,0.3)';this.style.background='rgba(255,255,255,0.1)'">
+                            <input type="text" required class="form-input" placeholder="Tu nombre completo">
                         </div>
                         
                         <div>
                             <label style="display:block;color:white;font-weight:500;margin-bottom:0.5rem;font-size:0.875rem">Email</label>
-                            <input type="email" required style="width:100%;padding:1rem;border:1px solid rgba(255,255,255,0.3);border-radius:0.75rem;background:rgba(255,255,255,0.1);color:white;font-size:1rem;transition:all 0.3s ease" placeholder="tu@email.com" onfocus="this.style.borderColor='#d3600f';this.style.background='rgba(255,255,255,0.15)'" onblur="this.style.borderColor='rgba(255,255,255,0.3)';this.style.background='rgba(255,255,255,0.1)'">
+                            <input type="email" required class="form-input" placeholder="tu@email.com">
                         </div>
                         
                         <div>
                             <label style="display:block;color:white;font-weight:500;margin-bottom:0.5rem;font-size:0.875rem">Mensaje</label>
-                            <textarea required rows="5" style="width:100%;padding:1rem;border:1px solid rgba(255,255,255,0.3);border-radius:0.75rem;background:rgba(255,255,255,0.1);color:white;font-size:1rem;resize:vertical;transition:all 0.3s ease" placeholder="Cuéntanos sobre tu proyecto y cómo podemos ayudarte..." onfocus="this.style.borderColor='#d3600f';this.style.background='rgba(255,255,255,0.15)'" onblur="this.style.borderColor='rgba(255,255,255,0.3)';this.style.background='rgba(255,255,255,0.1)'"></textarea>
+                            <textarea required rows="5" class="form-input" placeholder="Cuéntanos sobre tu proyecto y cómo podemos ayudarte..."></textarea>
                         </div>
                     </div>
                     
-                    <button type="submit" style="width:100%;background:linear-gradient(135deg, #d3600f 0%, #c16134 100%);color:white;padding:1.25rem 2rem;border:none;border-radius:0.75rem;font-size:1.125rem;font-weight:700;cursor:pointer;transition:all 0.3s ease;text-transform:uppercase;letter-spacing:0.05em" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 25px -5px rgba(211,96,15,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <button type="submit" class="btn-optimized" style="width:100%;padding:1.25rem 2rem;font-size:1.125rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em">
                         Enviar Mensaje
                     </button>
                 </form>
