@@ -13,6 +13,7 @@
         initLogoClick();
         initAccessibility();
         initPerformanceOptimizations();
+        initGalleryCarousel();
     });
 
     /**
@@ -220,6 +221,86 @@
             link.href = resource;
             link.as = 'style';
             document.head.appendChild(link);
+        });
+    }
+
+    /**
+     * Galería Carrusel - Rotación automática de fotos en 4 columnas fijas
+     */
+    function initGalleryCarousel() {
+        // Array con todas las fotos de la galería (3-8)
+        const fotosGaleria = [
+            { src: 'assets/img/galeria3.jpg', alt: 'Taller de emprendimiento comunitario en los Andes' },
+            { src: 'assets/img/galeria4.jpg', alt: 'Reunión comunitaria para planificación de proyectos' },
+            { src: 'assets/img/galeria5.jpg', alt: 'Celebración de logros comunitarios en los Andes' },
+            { src: 'assets/img/galeria6.jpg', alt: 'Paisaje andino con infraestructura comunitaria' },
+            { src: 'assets/img/galeria7.jpg', alt: 'Proyecto de desarrollo comunitario en los Andes' },
+            { src: 'assets/img/galeria8.jpg', alt: 'Comunidad andina trabajando en proyectos sostenibles' }
+        ];
+
+        let currentIndex = 0;
+        let autoSlideInterval;
+
+        // Función para mostrar un conjunto específico de fotos
+        function mostrarSlide(index) {
+            currentIndex = index;
+            
+            // Calcular qué fotos mostrar en cada columna
+            for (let i = 1; i <= 4; i++) {
+                const fotoIndex = (index + i - 1) % fotosGaleria.length;
+                const img = document.getElementById(`foto-columna-${i}`);
+                if (img) {
+                    // Efecto de fade out/in
+                    img.style.opacity = '0';
+                    setTimeout(() => {
+                        img.src = fotosGaleria[fotoIndex].src;
+                        img.alt = fotosGaleria[fotoIndex].alt;
+                        img.style.opacity = '1';
+                    }, 250);
+                }
+            }
+        }
+
+        // Función para avanzar al siguiente slide
+        function nextSlide() {
+            const nextIndex = (currentIndex + 1) % 3; // 3 conjuntos diferentes
+            mostrarSlide(nextIndex);
+        }
+
+        // Función para iniciar la rotación automática
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 3000); // Cambiar cada 3 segundos
+        }
+
+        // Función para detener la rotación automática
+        function stopAutoSlide() {
+            if (autoSlideInterval) {
+                clearInterval(autoSlideInterval);
+                autoSlideInterval = null;
+            }
+        }
+
+        // Pausar carrusel al hacer hover en las columnas
+        const columnas = document.querySelectorAll('.carrusel-columna');
+        columnas.forEach(columna => {
+            columna.addEventListener('mouseenter', stopAutoSlide);
+            columna.addEventListener('mouseleave', startAutoSlide);
+        });
+
+        // Hacer la función mostrarSlide global (por si se necesita en el futuro)
+        window.mostrarSlide = mostrarSlide;
+
+        // Inicializar con el primer conjunto de fotos
+        mostrarSlide(0);
+        startAutoSlide();
+
+        // Pausar carrusel cuando la página no está visible (optimización)
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                stopAutoSlide();
+            } else {
+                startAutoSlide();
+            }
         });
     }
 
