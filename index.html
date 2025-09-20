@@ -44,12 +44,12 @@
     </header>
 
     <!-- Hero Section -->
-    <div id="hero" class="wp-block-group hero-optimized">
+    <div id="hero" class="wp-block-group hero-optimized" style="height:100vh;overflow:hidden;position:relative;margin:0;padding:0">
         <!-- Imagen de fondo -->
-        <div style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:0">
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:0;width:100%;height:100%">
         <img src="assets/img/hero-background.jpg" 
              alt="Paisaje andino regenerativo con montañas y comunidades" 
-             style="width:100%;height:100%;object-fit:cover;background:linear-gradient(135deg, #2a4351 0%, #1e3a47 100%);"
+             style="width:100%;height:100%;object-fit:cover;object-position:center top;background:linear-gradient(135deg, #2a4351 0%, #1e3a47 100%);display:block;margin:0;padding:0"
              loading="eager"
              decoding="async">
             <!-- Overlay mejorado para legibilidad del texto -->
@@ -57,15 +57,13 @@
         </div>
         
         <!-- Contenido centrado premium -->
-        <div style="position:relative;z-index:10;text-align:center;color:white;max-width:900px;margin:0 auto;padding:0 2rem;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh">
-            <h1 class="wp-block-heading" style="font-size:clamp(2.5rem, 6vw, 4rem);font-weight:800;margin:0 0 3rem 0;line-height:1.1;font-family:'Playfair Display',serif;text-shadow:0 6px 12px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.4);color:white;letter-spacing:-0.02em">
-                <div style="white-space:nowrap;display:inline-block">
-                    <div style="display:block;color:white;text-shadow:0 8px 16px rgba(0,0,0,0.7), 0 4px 8px rgba(0,0,0,0.5);white-space:nowrap;margin-bottom:0.5rem">DESARROLLO TERRITORIAL REGENERATIVO</div>
-                    <div style="display:block;color:#d3600f;text-shadow:0 8px 16px rgba(0,0,0,0.7), 0 4px 8px rgba(0,0,0,0.5);white-space:nowrap">DESDE Y HACIA LATINOAMÉRICA</div>
-                </div>
+        <div style="position:relative;z-index:10;text-align:center;color:white;max-width:1000px;margin:0 auto;padding:0 2rem;display:flex;flex-direction:column;justify-content:center;align-items:center;height:100vh;width:100%;left:0;right:0;overflow:hidden">
+            <h1 class="wp-block-heading" style="font-size:clamp(2.25rem, 5.5vw, 3.75rem);font-weight:800;margin:0 auto 3rem auto;line-height:1.1;font-family:'Playfair Display',serif;text-shadow:0 6px 12px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.4);color:white;letter-spacing:-0.01em;text-align:center;max-width:100%;display:block">
+                <div style="display:block;color:white;text-shadow:0 8px 16px rgba(0,0,0,0.7), 0 4px 8px rgba(0,0,0,0.5);margin:0 auto 0.5rem auto;line-height:1.1;text-align:center;width:100%">DESARROLLO TERRITORIAL<br>REGENERATIVO</div>
+                <div style="display:block;color:#d3600f;text-shadow:0 8px 16px rgba(0,0,0,0.7), 0 4px 8px rgba(0,0,0,0.5);margin:0 auto;line-height:1.1;text-align:center;width:100%">DESDE Y HACIA<br>LATINOAMÉRICA</div>
             </h1>
             
-            <p style="font-size:clamp(1.5rem, 4vw, 2.25rem);font-weight:300;line-height:1.4;margin:0 0 4rem 0;max-width:1800px;margin-left:auto;margin-right:auto;text-shadow:0 2px 4px rgba(0,0,0,0.3);white-space:nowrap">
+            <p style="font-size:clamp(1.375rem, 3.8vw, 2rem);font-weight:300;line-height:1.6;margin:0 auto 4rem auto;max-width:100%;text-shadow:0 2px 4px rgba(0,0,0,0.3);text-align:center;word-spacing:0.1em;letter-spacing:0.01em;padding:0 2rem;display:block">
                 Impulsamos proyectos de desarrollo territorial que devuelven vitalidad a los ecosistemas, fortalecen comunidades y generan prosperidad consciente y regenerativa
             </p>
             
@@ -83,9 +81,9 @@
         </div>
         
         <!-- Franja de Impacto en Números - Parte más baja del Hero -->
-        <div style="position:absolute;bottom:0;left:0;right:0;width:100vw;background:#2a4351;backdrop-filter:blur(10px);border-top:1px solid rgba(211,96,15,0.3);padding:1rem 0;z-index:5">
+        <div style="position:absolute;bottom:0;left:0;right:0;width:100%;background:#2a4351;backdrop-filter:blur(10px);border-top:1px solid rgba(211,96,15,0.3);padding:1rem 0;z-index:5">
             <div style="width:100%;padding:0 1rem">
-                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center">
+                <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));gap:1rem;text-align:center">
                     <div>
                         <div style="font-size:2rem;font-weight:800;color:#d3600f;line-height:1;margin-bottom:0.25rem;font-family:'Playfair Display',serif">1,200+</div>
                         <div style="font-size:0.75rem;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.1em;font-weight:500">Personas Beneficiadas</div>
@@ -112,16 +110,16 @@
         <!-- Elemento decorativo de fondo sutil -->
         <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 20% 80%, rgba(211,96,15,0.02) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(42,67,81,0.02) 0%, transparent 50%);z-index:0"></div>
         
-        <div style="max-width:1400px;margin:0 auto;padding:0 2rem;position:relative;z-index:1">
+        <div style="max-width:1400px;margin:0 auto;padding:0 2rem;position:relative;z-index:1;width:100%;left:0;right:0">
             <!-- Header minimalista -->
-            <div style="text-align:center;margin-bottom:4rem">
+            <div style="text-align:center;margin-bottom:4rem;display:flex;flex-direction:column;align-items:center;justify-content:center">
                 <div style="display:inline-block;margin-bottom:1.5rem;padding:0.75rem 2rem;background:rgba(211,96,15,0.05);border-radius:3rem;border:1px solid rgba(211,96,15,0.1)">
                     <span style="color:#d3600f;font-weight:500;font-size:0.875rem;text-transform:uppercase;letter-spacing:0.15em">Nuestra Propuesta</span>
                 </div>
-                <h2 class="wp-block-heading" style="font-size:clamp(2.5rem, 5vw, 3.5rem);font-weight:300;color:#2a4351;margin:0 0 2rem 0;line-height:1.1;font-family:'Playfair Display',serif;letter-spacing:-0.02em">
+                <h2 class="wp-block-heading" style="font-size:clamp(2rem, 4.5vw, 3rem);font-weight:300;color:#2a4351;margin:0 0 2rem 0;line-height:1.2;font-family:'Playfair Display',serif;letter-spacing:-0.01em;text-align:center;max-width:100%;word-wrap:break-word;hyphens:auto">
                     ¿Por qué Sueño Andino?
                 </h2>
-                <p style="font-size:clamp(1.125rem, 2.5vw, 1.375rem);color:#6b7280;line-height:1.6;margin:0 auto;max-width:800px;font-weight:300;letter-spacing:-0.01em">
+                <p style="font-size:clamp(1rem, 2.2vw, 1.25rem);color:#6b7280;line-height:1.6;margin:0 auto;max-width:700px;font-weight:300;letter-spacing:-0.01em;text-align:center;word-wrap:break-word;hyphens:auto;padding:0 1rem">
                     Transformamos territorios combinando <span style="color:#d3600f;font-weight:500">sabiduría ancestral</span> con <span style="color:#d3600f;font-weight:500">innovación moderna</span>.
                 </p>
             </div>
@@ -360,16 +358,16 @@
 
     <!-- Servicios Section - World Class Design -->
     <div class="wp-block-group section-optimized" style="background-color:#ffffff;scroll-margin-top:100px" id="servicios">
-        <div style="max-width:1400px;margin:0 auto;padding:0 2rem">
+        <div style="max-width:1400px;margin:0 auto;padding:0 2rem;width:100%;left:0;right:0">
             <!-- Header elegante -->
-            <div style="text-align:center;margin-bottom:4rem">
+            <div style="text-align:center;margin-bottom:4rem;display:flex;flex-direction:column;align-items:center;justify-content:center">
                 <div style="display:inline-block;margin-bottom:1.5rem;background:rgba(211,96,15,0.08);padding:0.625rem 1.75rem;border-radius:2.5rem;border:1px solid rgba(211,96,15,0.15)">
                     <span style="color:#d3600f;font-weight:600;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.12em">Nuestros Servicios</span>
                 </div>
-                <h2 class="wp-block-heading" style="font-size:clamp(2.75rem, 5.5vw, 3.75rem);font-weight:400;color:#2a4351;margin:0 0 1.75rem 0;line-height:1.15;font-family:'Playfair Display',serif;letter-spacing:-0.015em">
+                <h2 class="wp-block-heading" style="font-size:clamp(2.25rem, 5vw, 3.25rem);font-weight:400;color:#2a4351;margin:0 0 1.75rem 0;line-height:1.2;font-family:'Playfair Display',serif;letter-spacing:-0.01em;text-align:center;max-width:100%;word-wrap:break-word;hyphens:auto">
                     Soluciones Especializadas
                 </h2>
-                <p style="font-size:clamp(1.125rem, 2.5vw, 1.375rem);color:#6b6b6b;line-height:1.6;margin:0;max-width:800px;margin-left:auto;margin-right:auto;font-weight:300">
+                <p style="font-size:clamp(1rem, 2.2vw, 1.25rem);color:#6b6b6b;line-height:1.6;margin:0;max-width:700px;margin-left:auto;margin-right:auto;font-weight:300;text-align:center;word-wrap:break-word;hyphens:auto;padding:0 1rem">
                     Desarrollamos programas integrales que combinan metodologías probadas con innovación constante para cada tipo de organización.
                 </p>
             </div>
@@ -496,16 +494,16 @@
     <div class="wp-block-group section-optimized" style="background:linear-gradient(135deg, rgba(193,97,52,0.05) 0%, #ffffff 100%);position:relative;scroll-margin-top:100px" id="equipo">
         <!-- Contenido -->
         <div>
-        <div style="max-width:1400px;margin:0 auto;padding:0 1rem">
+        <div style="max-width:1400px;margin:0 auto;padding:0 1rem;width:100%;left:0;right:0">
             <!-- Header -->
-            <div style="text-align:center;margin-bottom:6rem">
+            <div style="text-align:center;margin-bottom:6rem;display:flex;flex-direction:column;align-items:center;justify-content:center">
                 <div style="display:inline-block;margin-bottom:1.5rem">
                     <span style="color:#d3600f;font-weight:600;font-size:0.875rem;text-transform:uppercase;letter-spacing:0.1em">Nuestro Equipo</span>
                 </div>
-                <h2 class="wp-block-heading" style="font-size:clamp(3rem, 6vw, 4.5rem);font-weight:700;color:#2a4351;margin:0 0 2rem 0;line-height:1.1;font-family:'Playfair Display',serif">
+                <h2 class="wp-block-heading" style="font-size:clamp(2.5rem, 5.5vw, 3.75rem);font-weight:700;color:#2a4351;margin:0 0 2rem 0;line-height:1.2;font-family:'Playfair Display',serif;text-align:center;max-width:100%;word-wrap:break-word;hyphens:auto">
                     Conoce a Nuestro Equipo
                 </h2>
-                <p style="font-size:clamp(1.25rem, 3vw, 1.5rem);color:#6b7280;line-height:1.6;margin:0 auto;max-width:800px;font-weight:300">
+                <p style="font-size:clamp(1.125rem, 2.8vw, 1.375rem);color:#6b7280;line-height:1.6;margin:0 auto;max-width:700px;font-weight:300;text-align:center;word-wrap:break-word;hyphens:auto;padding:0 1rem">
                     Profesionales comprometidos con la <span style="color:#d3600f;font-weight:600">transformación social</span> y el desarrollo regenerativo en los Andes.
                 </p>
             </div>
@@ -652,21 +650,21 @@
     </div>
 
     <!-- Casos de Éxito Section -->
-    <div class="wp-block-group section-optimized" style="background:linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);background-image:url('assets/img/fondo-casosexito.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;position:relative;scroll-margin-top:100px">
+    <div class="wp-block-group section-optimized" style="background:linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);background-image:url('assets/img/fondo-casosexito.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;position:relative;scroll-margin-top:100px;filter:contrast(1.15)">
         <!-- Overlay para mejorar legibilidad -->
-        <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,249,250,0.8) 100%);z-index:1"></div>
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(248,249,250,0.65) 100%);z-index:1"></div>
         <!-- Contenido -->
         <div style="position:relative;z-index:2">
-        <div style="max-width:1400px;margin:0 auto;padding:0 1rem">
+        <div style="max-width:1400px;margin:0 auto;padding:0 1rem;width:100%;left:0;right:0">
             <!-- Header mejorado -->
-            <div style="text-align:center;margin-bottom:5rem">
+            <div style="text-align:center;margin-bottom:5rem;display:flex;flex-direction:column;align-items:center;justify-content:center">
                 <div style="display:inline-block;margin-bottom:1.5rem">
                     <span style="color:#d3600f;font-weight:600;font-size:0.875rem;text-transform:uppercase;letter-spacing:0.1em">Nuestro Impacto</span>
                 </div>
-                <h2 class="wp-block-heading" style="font-size:clamp(3rem, 6vw, 4.5rem);font-weight:700;color:#2a4351;margin:0 0 2rem 0;line-height:1.1;font-family:'Playfair Display',serif">
+                <h2 class="wp-block-heading" style="font-size:clamp(2.5rem, 5.5vw, 3.75rem);font-weight:700;color:#2a4351;margin:0 0 2rem 0;line-height:1.2;font-family:'Playfair Display',serif;text-align:center;max-width:100%;word-wrap:break-word;hyphens:auto">
                     Casos de Éxito
                 </h2>
-                <p style="font-size:clamp(1.25rem, 3vw, 1.5rem);color:#6b7280;line-height:1.6;margin:0;max-width:800px;margin-left:auto;margin-right:auto;font-weight:300">
+                <p style="font-size:clamp(1.125rem, 2.8vw, 1.375rem);color:#6b7280;line-height:1.6;margin:0;max-width:700px;margin-left:auto;margin-right:auto;font-weight:300;text-align:center;word-wrap:break-word;hyphens:auto;padding:0 1rem">
                     Historias reales de transformación que demuestran el impacto positivo de nuestro trabajo en las comunidades andinas.
                 </p>
             </div>
@@ -910,13 +908,215 @@
 
 
     <style>
+        /* Prevenir desbordamiento horizontal global */
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Hero sin scroll - imagen completa desde arriba */
+        #hero {
+            height: 100vh !important;
+            overflow: hidden !important;
+            position: relative !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        .hero-optimized {
+            height: 100vh !important;
+            overflow: hidden !important;
+            position: relative !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        /* Imagen del hero completa desde arriba */
+        #hero img {
+            object-fit: cover !important;
+            object-position: center top !important;
+            width: 100% !important;
+            height: 100% !important;
+            display: block !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        /* Contenedor de imagen del hero */
+        #hero > div:first-child {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            z-index: 0 !important;
+        }
+        
+        /* Mejorar el manejo de texto en toda la página */
+        h1, h2, h3, h4, h5, h6 {
+            word-wrap: break-word;
+            hyphens: auto;
+            overflow-wrap: break-word;
+        }
+        
+        p, span, div {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        /* Asegurar que los textos largos se ajusten */
+        .wp-block-heading {
+            max-width: 100%;
+            overflow-wrap: break-word;
+        }
+        
+        /* Centrado global mejorado */
+        .wp-block-group[style*="text-align:center"] {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100% !important;
+        }
+        
+        .wp-block-group[style*="text-align:center"] h1,
+        .wp-block-group[style*="text-align:center"] h2,
+        .wp-block-group[style*="text-align:center"] h3,
+        .wp-block-group[style*="text-align:center"] p {
+            margin: 0 auto !important;
+            text-align: center !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+        
+        /* Centrado individual para cada línea de texto */
+        .wp-block-group[style*="text-align:center"] h1 div,
+        .wp-block-group[style*="text-align:center"] h2 div,
+        .wp-block-group[style*="text-align:center"] h3 div {
+            margin: 0 auto !important;
+            text-align: center !important;
+            width: 100% !important;
+            display: block !important;
+        }
+        
+        /* Asegurar centrado perfecto en contenedores principales */
+        .wp-block-group[style*="max-width:1400px"],
+        .wp-block-group[style*="max-width:1200px"],
+        .wp-block-group[style*="max-width:1000px"],
+        .wp-block-group[style*="max-width:800px"] {
+            margin-left: auto !important;
+            margin-right: auto !important;
+            left: 0 !important;
+            right: 0 !important;
+        }
+        
+        /* Contenedores principales con ancho máximo */
+        .wp-block-group {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        
+        /* Ajustar contenedores específicos que causan desbordamiento */
+        .wp-block-group[style*="max-width:1400px"] {
+            max-width: min(1400px, 100vw) !important;
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+        
+        .wp-block-group[style*="max-width:1200px"] {
+            max-width: min(1200px, 100vw) !important;
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+        
+        .wp-block-group[style*="max-width:1000px"] {
+            max-width: min(1000px, 100vw) !important;
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+        
+        .wp-block-group[style*="max-width:800px"] {
+            max-width: min(800px, 100vw) !important;
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+        
+        /* Ajustar grids que causan desbordamiento */
+        .wp-block-group[style*="grid-template-columns:repeat(4,1fr)"] {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+            gap: 1.5rem !important;
+        }
+        
+        .wp-block-group[style*="grid-template-columns:repeat(5,1fr)"] {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+            gap: 1rem !important;
+        }
+        
+        .wp-block-group[style*="grid-template-columns:repeat(3,1fr)"] {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+            gap: 2rem !important;
+        }
+        
+        /* Ajustar elementos con ancho fijo problemático */
+        .wp-block-group[style*="width:100vw"] {
+            width: 100% !important;
+        }
+        
+        /* Responsive para móviles */
         @media (max-width: 768px) {
             .wp-block-columns {
                 grid-template-columns: 1fr !important;
             }
+            
+            /* Ajustes específicos para el hero en móvil */
+            .wp-block-group[style*="min-height:100vh"] h1 {
+                font-size: clamp(1.75rem, 8vw, 2.5rem) !important;
+                max-width: 100% !important;
+                padding: 0 1rem !important;
+            }
+            
+            .wp-block-group[style*="min-height:100vh"] p {
+                font-size: clamp(1.125rem, 4vw, 1.5rem) !important;
+                max-width: 100% !important;
+                padding: 0 1rem !important;
+                line-height: 1.5 !important;
+            }
+            
+            /* Grid de números del hero en móvil */
+            .wp-block-group[style*="grid-template-columns:repeat(auto-fit, minmax(150px, 1fr))"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.5rem !important;
+            }
+            
+            .wp-block-group[style*="grid-template-columns:repeat(4,1fr)"] {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+            
+            .wp-block-group[style*="grid-template-columns:repeat(5,1fr)"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1rem !important;
+            }
+            
             .wp-block-group[style*="grid-template-columns:repeat(3,1fr)"] {
                 grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
             }
+            
             h1 {
                 font-size: 2rem !important;
             }
@@ -924,36 +1124,21 @@
                 font-size: 2rem !important;
             }
             
-            /* Mejoras para la sección de 4 cuadros en una fila - Diseño minimalista */
-            .wp-block-group[style*="grid-template-columns:repeat(4,1fr)"] {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 2rem !important;
-            }
-            
-            @media (max-width: 1024px) {
-                .wp-block-group[style*="grid-template-columns:repeat(4,1fr)"] {
-                    grid-template-columns: 1fr !important;
-                    gap: 1.5rem !important;
-                }
-            }
-            
             /* Ajustes específicos para la nueva sección minimalista */
-            @media (max-width: 768px) {
-                .wp-block-group[style*="padding:3rem 2.5rem"] {
-                    padding: 2rem 1.5rem !important;
-                }
-                
-                .wp-block-group[style*="margin-bottom:8rem"] {
-                    margin-bottom: 4rem !important;
-                }
-                
-                .wp-block-group[style*="font-size:clamp(3.5rem, 7vw, 5rem)"] {
-                    font-size: clamp(2.5rem, 8vw, 3.5rem) !important;
-                }
-                
-                .wp-block-group[style*="font-size:clamp(1.375rem, 3.5vw, 1.75rem)"] {
-                    font-size: clamp(1.125rem, 4vw, 1.375rem) !important;
-                }
+            .wp-block-group[style*="padding:3rem 2.5rem"] {
+                padding: 2rem 1rem !important;
+            }
+            
+            .wp-block-group[style*="margin-bottom:8rem"] {
+                margin-bottom: 4rem !important;
+            }
+            
+            .wp-block-group[style*="font-size:clamp(3.5rem, 7vw, 5rem)"] {
+                font-size: clamp(2.5rem, 8vw, 3.5rem) !important;
+            }
+            
+            .wp-block-group[style*="font-size:clamp(1.375rem, 3.5vw, 1.75rem)"] {
+                font-size: clamp(1.125rem, 4vw, 1.375rem) !important;
             }
             
             /* Ajustes para los números de sección world-class en móvil */
@@ -974,12 +1159,7 @@
             
             /* Ajustes para el padding world-class en móvil */
             .wp-block-group[style*="padding:3.5rem"] {
-                padding: 2.5rem !important;
-            }
-            
-            /* Ajustes para el call-to-action en móvil */
-            .wp-block-group[style*="padding:3.5rem"] {
-                padding: 2rem !important;
+                padding: 2rem 1rem !important;
             }
         }
         
@@ -1070,16 +1250,16 @@
 
     <!-- Contacto Section -->
     <div class="wp-block-group section-optimized" style="background:linear-gradient(135deg, #2a4351 0%, #1e3a47 100%);box-shadow:0 -10px 30px rgba(0,0,0,0.1);scroll-margin-top:100px" id="contacto">
-        <div style="max-width:800px;margin:0 auto;padding:0 1rem">
+        <div style="max-width:800px;margin:0 auto;padding:0 1rem;width:100%;left:0;right:0">
             <!-- Header -->
-            <div style="text-align:center;margin-bottom:4rem">
+            <div style="text-align:center;margin-bottom:4rem;display:flex;flex-direction:column;align-items:center;justify-content:center">
                 <div style="display:inline-block;margin-bottom:1.5rem">
                     <span style="color:#d3600f;font-weight:600;font-size:0.875rem;text-transform:uppercase;letter-spacing:0.1em">Contacto</span>
                 </div>
-                <h2 class="wp-block-heading" style="font-size:clamp(3rem, 6vw, 4.5rem);font-weight:700;color:white;margin:0 0 2rem 0;line-height:1.1;font-family:'Playfair Display',serif">
+                <h2 class="wp-block-heading" style="font-size:clamp(2.5rem, 5.5vw, 3.75rem);font-weight:700;color:white;margin:0 0 2rem 0;line-height:1.2;font-family:'Playfair Display',serif;text-align:center;max-width:100%;word-wrap:break-word;hyphens:auto">
                     Trabajemos Juntos
                 </h2>
-                <p style="font-size:clamp(1.25rem, 3vw, 1.5rem);color:rgba(255,255,255,0.8);line-height:1.6;margin:0 auto;max-width:600px;font-weight:300">
+                <p style="font-size:clamp(1.125rem, 2.8vw, 1.375rem);color:rgba(255,255,255,0.8);line-height:1.6;margin:0 auto;max-width:600px;font-weight:300;text-align:center;word-wrap:break-word;hyphens:auto;padding:0 1rem">
                     ¿Listo para transformar tu territorio? Conectemos y exploremos cómo podemos impulsar el desarrollo regenerativo en tu región.
                 </p>
             </div>
