@@ -331,6 +331,51 @@
             width: 100%;
         }
         
+        /* Eliminar marcos naranjas de focus */
+        .nav-link-premium:focus,
+        .nav-link-premium:focus-visible,
+        .nav-link-premium:active {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        
+        button:focus,
+        button:focus-visible,
+        button:active {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        
+        a:focus,
+        a:focus-visible,
+        a:active {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        
+        input:focus,
+        input:focus-visible {
+            outline: none !important;
+        }
+        
+        /* Eliminar marcos de focus globalmente */
+        *:focus,
+        *:focus-visible,
+        *:active {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        
+        /* Mantener solo el efecto de hover personalizado */
+        .nav-link-premium:hover {
+            color: #d3600f;
+            transform: translateY(-1px);
+        }
+        
+        .nav-link-premium:hover::after {
+            width: 100%;
+        }
+        
         /* Responsive Header */
         @media (max-width: 768px) {
             .header-container {
