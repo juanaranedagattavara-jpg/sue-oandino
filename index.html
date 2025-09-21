@@ -67,11 +67,14 @@
                 Impulsamos proyectos de desarrollo territorial que devuelven vitalidad a los ecosistemas, fortalecen comunidades y generan prosperidad consciente y regenerativa
             </p>
             
-            <!-- Botón CTA más pequeño -->
-            <div style="display:flex;justify-content:center;margin-bottom:4rem">
+            <!-- Botones CTA -->
+            <div style="display:flex;justify-content:center;gap:2rem;margin-bottom:4rem;flex-wrap:wrap">
                 <a href="#servicios" style="background:linear-gradient(135deg, #d3600f 0%, #c16134 100%);color:white;padding:1rem 2.5rem;border-radius:0.75rem;text-decoration:none;font-weight:700;font-size:1rem;transition:all 0.4s ease;box-shadow:0 10px 25px -5px rgba(211,96,15,0.4);text-transform:uppercase;letter-spacing:0.05em" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 15px 30px -5px rgba(211,96,15,0.6)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 25px -5px rgba(211,96,15,0.4)'">
                     Conoce Nuestros Servicios
                 </a>
+                <button id="leadMagnetBtn" style="background:linear-gradient(135deg, #2a4351 0%, #1e3a47 100%);color:white;padding:1rem 2.5rem;border-radius:0.75rem;border:2px solid rgba(255,255,255,0.2);font-weight:700;font-size:1rem;transition:all 0.4s ease;box-shadow:0 10px 25px -5px rgba(42,67,81,0.4);text-transform:uppercase;letter-spacing:0.05em;cursor:pointer" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 15px 30px -5px rgba(42,67,81,0.6)';this.style.borderColor='rgba(255,255,255,0.4)';this.style.background='linear-gradient(135deg, #3a5561 0%, #2e4a57 100%)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 25px -5px rgba(42,67,81,0.4)';this.style.borderColor='rgba(255,255,255,0.2)';this.style.background='linear-gradient(135deg, #2a4351 0%, #1e3a47 100%)'">
+                    Descarga Guía Gratuita
+                </button>
             </div>
             
             <!-- Indicador de scroll premium -->
@@ -1316,7 +1319,301 @@
             if (modal.style.display === 'block') {
                 e.preventDefault();
             }
-        }, { passive: false });
+        }, { passive: false         });
+    </script>
+
+    <!-- Modal Lead Magnet -->
+    <div id="leadMagnetModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:10000;backdrop-filter:blur(5px)">
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);background:white;border-radius:1.5rem;padding:3rem;max-width:500px;width:90%;box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);animation:modalSlideIn 0.3s ease-out">
+            <button id="closeModal" style="position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#666;padding:0.5rem;transition:color 0.3s ease" onmouseover="this.style.color='#d3600f'" onmouseout="this.style.color='#666'">&times;</button>
+            
+            <div style="text-align:center;margin-bottom:2rem">
+                <div style="width:60px;height:60px;background:linear-gradient(135deg, #d3600f 0%, #c16134 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem auto;box-shadow:0 8px 20px rgba(211,96,15,0.3)">
+                    <span style="font-size:1.5rem;color:white">🎁</span>
+                </div>
+                <h3 style="color:#2a4351;font-size:1.75rem;margin-bottom:0.5rem;font-family:'Playfair Display',serif;font-weight:700">Guía Gratuita</h3>
+                <p style="color:#666;font-size:1.1rem;line-height:1.6;margin:0">Descarga nuestra guía completa sobre <span style="color:#d3600f;font-weight:600">desarrollo territorial regenerativo</span></p>
+            </div>
+            
+            <form id="leadMagnetForm" style="display:flex;flex-direction:column;gap:1.5rem">
+                <div>
+                    <label style="display:block;color:#2a4351;font-weight:600;margin-bottom:0.5rem;font-size:0.9rem">Nombre Completo *</label>
+                    <input type="text" name="nombre" placeholder="Tu nombre completo" required style="width:100%;padding:1rem;border:2px solid #e5d5c0;border-radius:0.75rem;font-size:1rem;transition:all 0.3s ease;box-sizing:border-box;background:#fafafa" onfocus="this.style.borderColor='#d3600f';this.style.background='white';this.style.boxShadow='0 0 0 3px rgba(211,96,15,0.1)'" onblur="this.style.borderColor='#e5d5c0';this.style.background='#fafafa';this.style.boxShadow='none'">
+                    <div id="nombreError" style="color:#e53e3e;font-size:0.8rem;margin-top:0.25rem;display:none">El nombre es requerido</div>
+                </div>
+                <div>
+                    <label style="display:block;color:#2a4351;font-weight:600;margin-bottom:0.5rem;font-size:0.9rem">Email *</label>
+                    <input type="email" name="email" placeholder="tu@email.com" required style="width:100%;padding:1rem;border:2px solid #e5d5c0;border-radius:0.75rem;font-size:1rem;transition:all 0.3s ease;box-sizing:border-box;background:#fafafa" onfocus="this.style.borderColor='#d3600f';this.style.background='white';this.style.boxShadow='0 0 0 3px rgba(211,96,15,0.1)'" onblur="this.style.borderColor='#e5d5c0';this.style.background='#fafafa';this.style.boxShadow='none'">
+                    <div id="emailError" style="color:#e53e3e;font-size:0.8rem;margin-top:0.25rem;display:none">Ingresa un email válido</div>
+                </div>
+                <div>
+                    <label style="display:block;color:#2a4351;font-weight:600;margin-bottom:0.5rem;font-size:0.9rem">Teléfono (Opcional)</label>
+                    <input type="tel" name="telefono" placeholder="+51 999 888 777" style="width:100%;padding:1rem;border:2px solid #e5d5c0;border-radius:0.75rem;font-size:1rem;transition:all 0.3s ease;box-sizing:border-box;background:#fafafa" onfocus="this.style.borderColor='#d3600f';this.style.background='white';this.style.boxShadow='0 0 0 3px rgba(211,96,15,0.1)'" onblur="this.style.borderColor='#e5d5c0';this.style.background='#fafafa';this.style.boxShadow='none'">
+                </div>
+                <button type="submit" style="background:linear-gradient(135deg, #d3600f 0%, #c16134 100%);color:white;padding:1.25rem;border:none;border-radius:0.75rem;font-size:1.1rem;font-weight:700;cursor:pointer;transition:all 0.3s ease;text-transform:uppercase;letter-spacing:0.05em;box-shadow:0 8px 20px rgba(211,96,15,0.3)" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 25px rgba(211,96,15,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 20px rgba(211,96,15,0.3)'">
+                    Descargar Guía Ahora
+                </button>
+            </form>
+            
+            <p style="font-size:0.8rem;color:#999;text-align:center;margin-top:1.5rem;line-height:1.4">Al descargar, aceptas recibir contenido de valor de Sueño Andino. Respetamos tu privacidad.</p>
+        </div>
+    </div>
+
+    <!-- CTA Flotante (Sticky) -->
+    <div id="floatingCTA" style="position:fixed;bottom:2rem;right:2rem;z-index:9999;display:none;animation:slideInUp 0.5s ease-out">
+        <button id="floatingBtn" style="background:linear-gradient(135deg, #d3600f 0%, #c16134 100%);color:white;padding:1rem 1.5rem;border:none;border-radius:2rem;font-weight:700;font-size:0.9rem;cursor:pointer;box-shadow:0 10px 25px -5px rgba(211,96,15,0.4);transition:all 0.3s ease;text-transform:uppercase;letter-spacing:0.05em;display:flex;align-items:center;gap:0.5rem" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 15px 30px -5px rgba(211,96,15,0.6)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 25px -5px rgba(211,96,15,0.4)'">
+            <span>🎁</span>
+            <span>Guía Gratuita</span>
+        </button>
+    </div>
+
+    <!-- Exit Intent Modal -->
+    <div id="exitIntentModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:10001;backdrop-filter:blur(5px)">
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);background:white;border-radius:1.5rem;padding:2.5rem;max-width:450px;width:90%;box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);animation:modalSlideIn 0.3s ease-out;text-align:center">
+            <div style="width:60px;height:60px;background:linear-gradient(135deg, #d3600f 0%, #c16134 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem auto;box-shadow:0 8px 20px rgba(211,96,15,0.3)">
+                <span style="font-size:1.5rem;color:white">🚀</span>
+            </div>
+            <h3 style="color:#2a4351;font-size:1.5rem;margin-bottom:1rem;font-family:'Playfair Display',serif;font-weight:700">¡Espera! 🚀</h3>
+            <p style="color:#666;font-size:1rem;line-height:1.6;margin-bottom:2rem">No te vayas sin descargar nuestra guía gratuita sobre desarrollo regenerativo</p>
+            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+                <button id="exitIntentBtn" style="background:linear-gradient(135deg, #d3600f 0%, #c16134 100%);color:white;padding:1rem 2rem;border:none;border-radius:0.75rem;font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.3s ease;text-transform:uppercase;letter-spacing:0.05em;box-shadow:0 8px 20px rgba(211,96,15,0.3)" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 25px rgba(211,96,15,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 20px rgba(211,96,15,0.3)'">
+                    Descargar Ahora
+                </button>
+                <button id="exitIntentClose" style="background:none;color:#666;padding:1rem 2rem;border:2px solid #e5d5c0;border-radius:0.75rem;font-size:1rem;cursor:pointer;transition:all 0.3s ease" onmouseover="this.style.borderColor='#d3600f';this.style.color='#d3600f'" onmouseout="this.style.borderColor='#e5d5c0';this.style.color='#666'">
+                    No, gracias
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <style>
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translate(-50%, -60%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+        
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(100px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive para CTAs flotantes */
+        @media (max-width: 768px) {
+            #floatingCTA {
+                bottom: 1rem !important;
+                right: 1rem !important;
+            }
+            
+            #floatingBtn {
+                padding: 0.75rem 1rem !important;
+                font-size: 0.8rem !important;
+            }
+        }
+        
+        /* Responsive para botones del Hero */
+        @media (max-width: 768px) {
+            .hero-optimized div[style*="gap:2rem"] {
+                flex-direction: column !important;
+                gap: 1rem !important;
+            }
+            
+            .hero-optimized div[style*="gap:2rem"] a,
+            .hero-optimized div[style*="gap:2rem"] button {
+                width: 100% !important;
+                max-width: 300px !important;
+            }
+        }
+    </style>
+
+    <script>
+        // Lead Magnet Modal
+        const leadMagnetBtn = document.getElementById('leadMagnetBtn');
+        const modal = document.getElementById('leadMagnetModal');
+        const closeModal = document.getElementById('closeModal');
+        const form = document.getElementById('leadMagnetForm');
+
+        // CTA Flotante
+        const floatingCTA = document.getElementById('floatingCTA');
+        const floatingBtn = document.getElementById('floatingBtn');
+
+        // Exit Intent
+        const exitIntentModal = document.getElementById('exitIntentModal');
+        const exitIntentBtn = document.getElementById('exitIntentBtn');
+        const exitIntentClose = document.getElementById('exitIntentClose');
+
+        // Mostrar CTA flotante después de scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                floatingCTA.style.display = 'block';
+            } else {
+                floatingCTA.style.display = 'none';
+            }
+        });
+
+        // Exit Intent Detection
+        let exitIntentShown = false;
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY <= 0 && !exitIntentShown) {
+                exitIntentModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                exitIntentShown = true;
+                trackEvent('exit_intent_modal_open');
+            }
+        });
+
+        // Event Listeners
+        leadMagnetBtn.addEventListener('click', () => {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            trackEvent('lead_magnet_modal_open');
+        });
+
+        floatingBtn.addEventListener('click', () => {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            trackEvent('floating_cta_click');
+        });
+
+        exitIntentBtn.addEventListener('click', () => {
+            exitIntentModal.style.display = 'none';
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            trackEvent('exit_intent_conversion');
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        exitIntentClose.addEventListener('click', () => {
+            exitIntentModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        exitIntentModal.addEventListener('click', (e) => {
+            if (e.target === exitIntentModal) {
+                exitIntentModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Validación en tiempo real
+        const nombreInput = form.querySelector('input[name="nombre"]');
+        const emailInput = form.querySelector('input[name="email"]');
+        const nombreError = document.getElementById('nombreError');
+        const emailError = document.getElementById('emailError');
+
+        nombreInput.addEventListener('input', () => {
+            if (nombreInput.value.trim().length < 2) {
+                nombreError.style.display = 'block';
+                nombreInput.style.borderColor = '#e53e3e';
+            } else {
+                nombreError.style.display = 'none';
+                nombreInput.style.borderColor = '#d3600f';
+            }
+        });
+
+        emailInput.addEventListener('input', () => {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value)) {
+                emailError.style.display = 'block';
+                emailInput.style.borderColor = '#e53e3e';
+            } else {
+                emailError.style.display = 'none';
+                emailInput.style.borderColor = '#d3600f';
+            }
+        });
+
+        // Envío del formulario
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            
+            // Validación final
+            let isValid = true;
+            
+            if (data.nombre.trim().length < 2) {
+                nombreError.style.display = 'block';
+                nombreInput.style.borderColor = '#e53e3e';
+                isValid = false;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                emailError.style.display = 'block';
+                emailInput.style.borderColor = '#e53e3e';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Simular envío
+                trackEvent('lead_magnet_form_submit', {
+                    nombre: data.nombre,
+                    email: data.email,
+                    telefono: data.telefono
+                });
+                
+                // Mostrar mensaje de éxito
+                alert('¡Gracias! Te enviaremos la guía por email en los próximos minutos.');
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                form.reset();
+            }
+        });
+
+        // Tracking de conversiones
+        function trackEvent(eventName, data = {}) {
+            console.log('Event tracked:', eventName, data);
+            
+            // Google Analytics 4
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, {
+                    event_category: 'conversion',
+                    event_label: 'lead_magnet',
+                    value: 1,
+                    custom_parameters: data
+                });
+            }
+            
+            // Facebook Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Lead Magnet Form',
+                    content_category: 'Conversion'
+                });
+            }
+            
+            // Google Tag Manager
+            if (typeof dataLayer !== 'undefined') {
+                dataLayer.push({
+                    'event': eventName,
+                    'event_category': 'conversion',
+                    'event_label': 'lead_magnet',
+                    'value': 1,
+                    ...data
+                });
+            }
+            
+            // Local Storage para analytics interno
+            const analyticsData = JSON.parse(localStorage.getItem('sueñoAndinoAnalytics') || '[]');
+            analyticsData.push({
+                event: eventName,
+                timestamp: new Date().toISOString(),
+                data: data
+            });
+            localStorage.setItem('sueñoAndinoAnalytics', JSON.stringify(analyticsData));
+        }
     </script>
 </body>
 </html>
