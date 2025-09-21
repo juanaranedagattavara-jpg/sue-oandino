@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+    
+    <!-- Página Principal -->
+    <url>
+        <loc>https://sueñoandino.org/</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://sueñoandino.org/assets/img/hero-background.jpg</image:loc>
+            <image:title>Sueño Andino - Desarrollo Territorial Regenerativo</image:title>
+            <image:caption>Paisaje andino regenerativo con montañas y comunidades</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Blog -->
+    <url>
+        <loc>https://sueñoandino.org/blog.html</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Secciones de la página principal -->
+    <url>
+        <loc>https://sueñoandino.org/#servicios</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://sueñoandino.org/#equipo</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>https://sueñoandino.org/#contacto</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- Artículos de Blog (ejemplos) -->
+    <url>
+        <loc>https://sueñoandino.org/blog/desarrollo-sostenible-andes</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://sueñoandino.org/blog/comunidades-resilientes</loc>
+        <lastmod>2024-12-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://sueñoandino.org/blog/tecnologia-tradicion</loc>
+        <lastmod>2024-12-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://sueñoandino.org/blog/historias-transformacion</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://sueñoandino.org/blog/educacion-rural</loc>
+        <lastmod>2024-11-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <!-- Páginas de servicios -->
+    <url>
+        <loc>https://sueñoandino.org/servicios/consultoria</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://sueñoandino.org/servicios/fortalecimiento-comunitario</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://sueñoandino.org/servicios/educacion-rural</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Páginas estáticas -->
+    <url>
+        <loc>https://sueñoandino.org/acerca-de</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>https://sueñoandino.org/contacto</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>https://sueñoandino.org/privacidad</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+    <url>
+        <loc>https://sueñoandino.org/terminos</loc>
+        <lastmod>2024-12-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+</urlset>

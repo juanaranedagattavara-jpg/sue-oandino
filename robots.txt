@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sueñoandino.org/sitemap.xml
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/themes/
+Disallow: /wp-content/uploads/
+
+# Allow important files
+Allow: /assets/
+Allow: /css/
+Allow: /js/
+Allow: /img/
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Host directive
+Host: https://sueñoandino.org
