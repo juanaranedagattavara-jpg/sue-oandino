@@ -232,6 +232,135 @@
             transform: translateY(-1px);
         }
         
+        /* Header Premium Sticky */
+        .header-premium {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, rgba(42,67,81,0.95) 0%, rgba(30,58,71,0.95) 100%);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(211,96,15,0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 70px;
+        }
+        
+        .header-premium.scrolled {
+            background: linear-gradient(135deg, rgba(42,67,81,0.98) 0%, rgba(30,58,71,0.98) 100%);
+            backdrop-filter: blur(25px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            height: 65px;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .header-logo {
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .header-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .header-logo img {
+            width: 6rem;
+            height: auto;
+            object-fit: contain;
+            max-height: 4rem;
+            transition: all 0.3s ease;
+        }
+        
+        .header-premium.scrolled .header-logo img {
+            width: 5.5rem;
+            max-height: 3.5rem;
+        }
+        
+        .header-nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        
+        .nav-link-premium {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 0.02em;
+        }
+        
+        .nav-link-premium::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #d3600f 0%, #c16134 100%);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link-premium:hover {
+            color: #d3600f;
+            transform: translateY(-1px);
+        }
+        
+        .nav-link-premium:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link-premium.active {
+            color: #d3600f;
+        }
+        
+        .nav-link-premium.active::after {
+            width: 100%;
+        }
+        
+        /* Responsive Header */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 1.5rem;
+            }
+            
+            .header-nav {
+                gap: 1.5rem;
+            }
+            
+            .nav-link-premium {
+                font-size: 0.9rem;
+            }
+            
+            .header-logo img {
+                width: 5rem;
+                max-height: 3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-nav {
+                gap: 1rem;
+            }
+            
+            .nav-link-premium {
+                font-size: 0.85rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .blog-hero {
                 padding: 6rem 0 3rem 0;
@@ -261,42 +390,39 @@
     </style>
 </head>
 <body style="background-color:#f8fafc;">
-    <!-- Header -->
-    <header id="header" class="wp-block-group" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:linear-gradient(135deg, rgba(42,67,81,0.95) 0%, rgba(30,58,71,0.95) 100%);backdrop-filter:blur(20px);border-bottom:1px solid rgba(211,96,15,0.3);padding:1.5rem 0;transition:all 0.3s ease">
-        <div style="max-width:1400px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center">
+    <!-- Header Premium Sticky -->
+    <header id="header" class="header-premium">
+        <div class="header-container">
             <!-- Logo -->
-            <div style="display:flex;align-items:center">
+            <div class="header-logo">
                 <a href="index.html" style="text-decoration:none">
                     <img src="assets/img/logo-sa-blanco.png" 
                          alt="Sueño Andino Logo" 
-                         style="width:8rem;height:auto;object-fit:contain;max-height:6rem;">
+                         loading="eager"
+                         decoding="async">
                 </a>
             </div>
             
             <!-- Navigation -->
-            <nav style="display:flex;gap:3rem;align-items:center">
-                <a href="index.html#servicios" style="color:white;text-decoration:none;font-weight:500;transition:all 0.3s ease;font-size:1rem;position:relative;padding:0.5rem 0" onmouseover="this.style.color='#d3600f'" onmouseout="this.style.color='white'">
+            <nav class="header-nav" aria-label="Navegación principal">
+                <a href="index.html#servicios" class="nav-link-premium" aria-label="Ir a la sección de servicios">
                     Servicios
-                    <div style="position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg, #d3600f 0%, #c16134 100%);transition:width 0.3s ease"></div>
                 </a>
-                <a href="index.html#equipo" style="color:white;text-decoration:none;font-weight:500;transition:all 0.3s ease;font-size:1rem;position:relative;padding:0.5rem 0" onmouseover="this.style.color='#d3600f'" onmouseout="this.style.color='white'">
+                <a href="index.html#equipo" class="nav-link-premium" aria-label="Ir a la sección de nosotros">
                     Nosotros
-                    <div style="position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg, #d3600f 0%, #c16134 100%);transition:width 0.3s ease"></div>
                 </a>
-                <a href="blog.html" style="color:#d3600f;text-decoration:none;font-weight:600;transition:all 0.3s ease;font-size:1rem;position:relative;padding:0.5rem 0">
+                <a href="blog.html" class="nav-link-premium active" aria-label="Ir al blog">
                     Blog
-                    <div style="position:absolute;bottom:-2px;left:0;width:100%;height:2px;background:linear-gradient(90deg, #d3600f 0%, #c16134 100%);transition:width 0.3s ease"></div>
                 </a>
-                <a href="index.html#contacto" style="color:white;text-decoration:none;font-weight:500;transition:all 0.3s ease;font-size:1rem;position:relative;padding:0.5rem 0" onmouseover="this.style.color='#d3600f'" onmouseout="this.style.color='white'">
+                <a href="index.html#contacto" class="nav-link-premium" aria-label="Ir a la sección de contacto">
                     Contacto
-                    <div style="position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg, #d3600f 0%, #c16134 100%);transition:width 0.3s ease"></div>
                 </a>
             </nav>
         </div>
     </header>
 
     <!-- Blog Hero Section -->
-    <section class="blog-hero">
+    <section class="blog-hero" style="padding-top: 70px;">
         <div class="blog-hero-content">
             <h1>Nuestro Blog</h1>
             <p>Ideas, reflexiones y aprendizajes sobre desarrollo regenerativo y transformación social en los Andes</p>
@@ -572,16 +698,31 @@
             });
         });
 
-        // Header scroll effect
+        // Header Premium Sticky Effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'linear-gradient(135deg, rgba(42,67,81,0.98) 0%, rgba(30,58,71,0.98) 100%)';
-                header.style.backdropFilter = 'blur(20px)';
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
             } else {
-                header.style.background = 'linear-gradient(135deg, rgba(42,67,81,0.95) 0%, rgba(30,58,71,0.95) 100%)';
-                header.style.backdropFilter = 'blur(20px)';
+                header.classList.remove('scrolled');
             }
+        });
+        
+        // Smooth scrolling para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.getElementById('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
     </script>
 </body>
