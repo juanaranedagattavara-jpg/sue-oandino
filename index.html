@@ -1704,10 +1704,10 @@
         </div>
     </div>
 
-    <!-- Footer Premium -->
-    <div style="background: #2a4351; color: white; padding: 4rem 0 2rem 0; margin-top: 4rem;">
-        <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
+    <!-- Footer Premium - FORZADO CON DIV -->
+    <div id="footer-premium" style="background:#2a4351 !important;color:white !important;padding:4rem 0 2rem 0 !important;margin-top:4rem !important;width:100% !important;display:block !important;position:relative !important;z-index:999 !important">
+        <div style="max-width:1400px;margin:0 auto;padding:0 2rem">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:3rem;margin-bottom:3rem">
                 <div>
                     <img src="assets/img/logo-sa-blanco.png" alt="Sueño Andino Logo" style="width:8rem;height:auto;margin-bottom:1.5rem">
                     <p style="color:rgba(255,255,255,0.8);line-height:1.6;margin:0 0 1.5rem 0">
@@ -1735,10 +1735,10 @@
                 <div>
                     <h4 style="color:#d3600f;font-size:1.125rem;font-weight:700;margin:0 0 1.5rem 0;font-family:'Playfair Display',serif">Enlaces Rápidos</h4>
                     <div style="display:flex;flex-direction:column;gap:0.75rem">
-                        <a href="#servicios" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.3s ease">Servicios</a>
-                        <a href="#equipo" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.3s ease">Nosotros</a>
-                        <a href="blog.html" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.3s ease">Blog</a>
-                        <a href="#contacto" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.3s ease">Contacto</a>
+                        <a href="#servicios" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.3s ease" onmouseover="this.style.color='#d3600f'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Servicios</a>
+                        <a href="#equipo" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.3s ease" onmouseover="this.style.color='#d3600f'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Nosotros</a>
+                        <a href="blog.html" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.3s ease" onmouseover="this.style.color='#d3600f'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Blog</a>
+                        <a href="#contacto" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.3s ease" onmouseover="this.style.color='#d3600f'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Contacto</a>
                     </div>
                 </div>
                 
@@ -1768,12 +1768,6 @@
             </div>
             
             <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:2rem;text-align:center;color:rgba(255,255,255,0.6);font-size:0.875rem">
-                <div style="margin-bottom:1rem">
-                    <a href="politica-privacidad.html" style="color:rgba(255,255,255,0.6);text-decoration:none;margin:0 1rem;transition:color 0.3s ease">Política de Privacidad</a>
-                    <a href="terminos-condiciones.html" style="color:rgba(255,255,255,0.6);text-decoration:none;margin:0 1rem;transition:color 0.3s ease">Términos y Condiciones</a>
-                    <a href="cookies-policy.html" style="color:rgba(255,255,255,0.6);text-decoration:none;margin:0 1rem;transition:color 0.3s ease">Política de Cookies</a>
-                    <button onclick="showCookieSettings()" style="background:none;border:none;color:rgba(255,255,255,0.6);margin:0 1rem;cursor:pointer;transition:color 0.3s ease">Gestionar Cookies</button>
-                </div>
                 <p style="margin:0">© 2024 Sueño Andino. Todos los derechos reservados.</p>
             </div>
         </div>
@@ -1782,36 +1776,49 @@
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
     
-    <!-- Script para forzar estilos del footer -->
+    <!-- Script para forzar footer premium -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Forzar estilos del footer
-            const footer = document.querySelector('footer');
-            if (footer) {
-                footer.style.background = '#2a4351';
-                footer.style.backgroundColor = '#2a4351';
-                footer.style.color = 'white';
-                footer.style.padding = '4rem 0 2rem 0';
-                footer.style.marginTop = '4rem';
-            }
-            
-            // Forzar estilos de todos los elementos footer
-            const allFooters = document.querySelectorAll('footer, .footer, [class*="footer"]');
-            allFooters.forEach(footer => {
-                footer.style.background = '#2a4351';
-                footer.style.backgroundColor = '#2a4351';
-                footer.style.color = 'white';
+            // Ocultar todos los footers viejos
+            const oldFooters = document.querySelectorAll('footer:not(#footer-premium)');
+            oldFooters.forEach(footer => {
+                footer.style.display = 'none';
+                footer.style.visibility = 'hidden';
+                footer.style.opacity = '0';
+                footer.style.height = '0';
+                footer.style.overflow = 'hidden';
             });
+            
+            // Asegurar que el footer premium sea visible
+            const premiumFooter = document.getElementById('footer-premium');
+            if (premiumFooter) {
+                premiumFooter.style.display = 'block';
+                premiumFooter.style.visibility = 'visible';
+                premiumFooter.style.opacity = '1';
+                premiumFooter.style.height = 'auto';
+                premiumFooter.style.overflow = 'visible';
+            }
         });
         
         // También ejecutar después de un delay para asegurar
         setTimeout(function() {
-            const allFooters = document.querySelectorAll('footer, .footer, [class*="footer"]');
-            allFooters.forEach(footer => {
-                footer.style.background = '#2a4351';
-                footer.style.backgroundColor = '#2a4351';
-                footer.style.color = 'white';
+            const oldFooters = document.querySelectorAll('footer:not(#footer-premium)');
+            oldFooters.forEach(footer => {
+                footer.style.display = 'none';
+                footer.style.visibility = 'hidden';
+                footer.style.opacity = '0';
+                footer.style.height = '0';
+                footer.style.overflow = 'hidden';
             });
+            
+            const premiumFooter = document.getElementById('footer-premium');
+            if (premiumFooter) {
+                premiumFooter.style.display = 'block';
+                premiumFooter.style.visibility = 'visible';
+                premiumFooter.style.opacity = '1';
+                premiumFooter.style.height = 'auto';
+                premiumFooter.style.overflow = 'visible';
+            }
         }, 1000);
     </script>
     
