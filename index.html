@@ -47,12 +47,14 @@
     <!-- <link rel="stylesheet" href="assets/css/base.css"> -->
     <!-- <link rel="stylesheet" href="assets/css/premium.css"> -->
     
-    <!-- CSS NUCLEAR PARA FOOTER -->
+    <!-- CSS NUCLEAR PARA ELIMINAR FOOTER VIEJO -->
     <style>
-        /* ELIMINAR TODOS LOS FOOTERS VIEJOS */
+        /* ELIMINAR COMPLETAMENTE TODOS LOS FOOTERS VIEJOS */
         footer:not(#footer-premium),
         .footer:not(#footer-premium),
-        [class*="footer"]:not(#footer-premium) {
+        [class*="footer"]:not(#footer-premium),
+        section[class*="footer"],
+        div[class*="footer"] {
             display: none !important;
             visibility: hidden !important;
             opacity: 0 !important;
@@ -79,6 +81,7 @@
             width: 100% !important;
         }
     </style>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Footer Styles v4 - NUCLEAR -->
