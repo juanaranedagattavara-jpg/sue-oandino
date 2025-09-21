@@ -43,43 +43,40 @@
     <link rel="preload" as="image" href="assets/img/hero-background.jpg">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/premium.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- <link rel="stylesheet" href="assets/css/base.css"> -->
+    <!-- <link rel="stylesheet" href="assets/css/premium.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Footer Styles v2 -->
+    <!-- Footer Styles v3 - FORZADO -->
     <style>
-        .footer {
+        /* NUCLEAR OPTION - Sobrescribir TODO */
+        footer,
+        .footer,
+        footer.footer,
+        .wp-block-group.footer,
+        footer.wp-block-group,
+        footer[class*="footer"],
+        *[class*="footer"],
+        div[class*="footer"] {
             background: #2a4351 !important;
+            background-color: #2a4351 !important;
             color: white !important;
             padding: 4rem 0 2rem 0 !important;
             margin-top: 4rem !important;
         }
         
-        /* Forzar estilos del footer */
-        footer.footer {
-            background: #2a4351 !important;
+        /* Forzar todos los elementos dentro del footer */
+        footer *,
+        .footer * {
             color: white !important;
         }
         
-        /* Sobrescribir cualquier estilo de wp-block-group */
-        .wp-block-group.footer,
-        footer.wp-block-group {
+        /* Sobrescribir cualquier estilo inline */
+        footer[style*="background"],
+        .footer[style*="background"] {
             background: #2a4351 !important;
-            color: white !important;
-        }
-        
-        /* Estilo más específico para el footer */
-        footer[class*="footer"] {
-            background: #2a4351 !important;
-            color: white !important;
-        }
-        
-        /* Forzar todos los estilos del footer */
-        *[class*="footer"] {
-            background: #2a4351 !important;
-            color: white !important;
+            background-color: #2a4351 !important;
         }
 
         .footer-container {
@@ -1707,13 +1704,15 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
+    <!-- Footer Premium -->
+    <div style="background: #2a4351; color: white; padding: 4rem 0 2rem 0; margin-top: 4rem;">
+        <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
+                <div>
                     <img src="assets/img/logo-sa-blanco.png" alt="Sueño Andino Logo" style="width:8rem;height:auto;margin-bottom:1.5rem">
-                    <p>Transformando vidas y regenerando territorios en los Andes a través del desarrollo sostenible y la innovación social.</p>
+                    <p style="color:rgba(255,255,255,0.8);line-height:1.6;margin:0 0 1.5rem 0">
+                        Transformando vidas y regenerando territorios en los Andes a través del desarrollo sostenible y la innovación social.
+                    </p>
                     <div style="display:flex;gap:1rem">
                         <a href="#" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.3s ease" onmouseover="this.style.color='#d3600f'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -1733,32 +1732,32 @@
                     </div>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Enlaces Rápidos</h4>
-                    <div class="footer-links">
-                        <a href="#servicios">Servicios</a>
-                        <a href="#equipo">Nosotros</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="#contacto">Contacto</a>
+                <div>
+                    <h4 style="color:#d3600f;font-size:1.125rem;font-weight:700;margin:0 0 1.5rem 0;font-family:'Playfair Display',serif">Enlaces Rápidos</h4>
+                    <div style="display:flex;flex-direction:column;gap:0.75rem">
+                        <a href="#servicios" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.3s ease">Servicios</a>
+                        <a href="#equipo" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.3s ease">Nosotros</a>
+                        <a href="blog.html" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.3s ease">Blog</a>
+                        <a href="#contacto" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.3s ease">Contacto</a>
                     </div>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <div class="footer-contact">
-                        <div class="footer-contact-item">
+                <div>
+                    <h4 style="color:#d3600f;font-size:1.125rem;font-weight:700;margin:0 0 1.5rem 0;font-family:'Playfair Display',serif">Contacto</h4>
+                    <div style="display:flex;flex-direction:column;gap:0.75rem;color:rgba(255,255,255,0.8)">
+                        <div style="display:flex;align-items:center;gap:0.75rem">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                             </svg>
                             Lima, Perú
                         </div>
-                        <div class="footer-contact-item">
+                        <div style="display:flex;align-items:center;gap:0.75rem">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                             </svg>
                             +51 999 888 777
                         </div>
-                        <div class="footer-contact-item">
+                        <div style="display:flex;align-items:center;gap:0.75rem">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                             </svg>
@@ -1768,20 +1767,53 @@
                 </div>
             </div>
             
-            <div class="footer-bottom">
-                <div class="footer-legal">
-                    <a href="politica-privacidad.html">Política de Privacidad</a>
-                    <a href="terminos-condiciones.html">Términos y Condiciones</a>
-                    <a href="cookies-policy.html">Política de Cookies</a>
-                    <button onclick="showCookieSettings()">Gestionar Cookies</button>
+            <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:2rem;text-align:center;color:rgba(255,255,255,0.6);font-size:0.875rem">
+                <div style="margin-bottom:1rem">
+                    <a href="politica-privacidad.html" style="color:rgba(255,255,255,0.6);text-decoration:none;margin:0 1rem;transition:color 0.3s ease">Política de Privacidad</a>
+                    <a href="terminos-condiciones.html" style="color:rgba(255,255,255,0.6);text-decoration:none;margin:0 1rem;transition:color 0.3s ease">Términos y Condiciones</a>
+                    <a href="cookies-policy.html" style="color:rgba(255,255,255,0.6);text-decoration:none;margin:0 1rem;transition:color 0.3s ease">Política de Cookies</a>
+                    <button onclick="showCookieSettings()" style="background:none;border:none;color:rgba(255,255,255,0.6);margin:0 1rem;cursor:pointer;transition:color 0.3s ease">Gestionar Cookies</button>
                 </div>
-                <p>© 2024 Sueño Andino. Todos los derechos reservados.</p>
+                <p style="margin:0">© 2024 Sueño Andino. Todos los derechos reservados.</p>
             </div>
         </div>
-    </footer>
+    </div>
     
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
+    
+    <!-- Script para forzar estilos del footer -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Forzar estilos del footer
+            const footer = document.querySelector('footer');
+            if (footer) {
+                footer.style.background = '#2a4351';
+                footer.style.backgroundColor = '#2a4351';
+                footer.style.color = 'white';
+                footer.style.padding = '4rem 0 2rem 0';
+                footer.style.marginTop = '4rem';
+            }
+            
+            // Forzar estilos de todos los elementos footer
+            const allFooters = document.querySelectorAll('footer, .footer, [class*="footer"]');
+            allFooters.forEach(footer => {
+                footer.style.background = '#2a4351';
+                footer.style.backgroundColor = '#2a4351';
+                footer.style.color = 'white';
+            });
+        });
+        
+        // También ejecutar después de un delay para asegurar
+        setTimeout(function() {
+            const allFooters = document.querySelectorAll('footer, .footer, [class*="footer"]');
+            allFooters.forEach(footer => {
+                footer.style.background = '#2a4351';
+                footer.style.backgroundColor = '#2a4351';
+                footer.style.color = 'white';
+            });
+        }, 1000);
+    </script>
     
     <!-- Performance Optimizations -->
     <style>
