@@ -1,104 +1,173 @@
-# Sueño Andino - Tema WordPress
+# Sueño Andino - Tema WordPress con Bloques Gutenberg
 
-## Descripción
-Tema WordPress personalizado para Sueño Andino, una organización dedicada al desarrollo territorial regenerativo en las comunidades andinas.
+## 🎯 Descripción
 
-## Características
+Tema WordPress premium desarrollado específicamente para Sueño Andino, con bloques Gutenberg personalizados que replican exactamente el diseño y funcionalidad del sitio web original.
 
-### 🎨 Diseño
-- **Diseño responsivo** optimizado para todos los dispositivos
-- **Tipografías premium** (Inter + Playfair Display)
-- **Paleta de colores** inspirada en los Andes
-- **Animaciones suaves** y transiciones elegantes
+## ✨ Características Principales
 
-### 🧩 Bloques Gutenberg
-- **Hero Block** - Sección principal con título, subtítulo y CTA
-- **Servicios Block** - Tarjetas de servicios editables
-- **Timeline Block** - Cronología de hitos históricos
-- **Equipo Block** - Perfiles del equipo ejecutivo y directorio
-- **Casos de Éxito Block** - Testimonios y galería
-- **Contacto Block** - Formulario y modal de calendario
+### 🧩 Bloques Gutenberg Personalizados
 
-### ⚡ Rendimiento
-- **Optimizaciones de carga** (lazy loading, preload, defer)
-- **Minificación** de HTML, CSS y JavaScript
-- **Compresión GZIP** habilitada
-- **Cache de navegador** configurado
-- **CDN** para recursos estáticos
+1. **Hero Block** - Sección principal con formulario lead magnet
+2. **Golden Circle Block** - Filosofía organizacional con newsletter
+3. **Servicios Block** - Grid de servicios con estadísticas
+4. **Timeline Block** - Cronología histórica con animaciones
+5. **Testimonios Block** - Casos de éxito con estadísticas
+6. **Contacto Block** - Formulario de contacto avanzado
 
-### 🔍 SEO
-- **Meta tags** completos (Open Graph, Twitter Cards)
-- **Schema.org** markup para organización
-- **Sitemap XML** automático
-- **Breadcrumbs** para navegación
-- **URLs optimizadas** y canónicas
+### 🎨 Diseño World-Class
 
-### 🔒 Seguridad
-- **Headers de seguridad** configurados
-- **Protección** de archivos sensibles
-- **Validación** de uploads
-- **Sanitización** de datos
-- **Monitoreo** de intentos de login
+- **Diseño idéntico** al sitio original
+- **Responsive perfecto** en todos los dispositivos
+- **Animaciones suaves** y efectos visuales
+- **Tipografías premium** (Playfair Display + Inter)
+- **Colores exactos** del brand
+- **Efectos glassmorphism** y blur
 
-## Instalación
+### ⚡ Funcionalidades Avanzadas
+
+- **Formularios funcionales** con validación en tiempo real
+- **Lead magnet** con modal y captura de datos
+- **Newsletter** integrado con confirmación
+- **Sistema de tracking** para conversiones
+- **Modales interactivos** para calendario
+- **Validación de formularios** en tiempo real
+
+## 🚀 Instalación
 
 1. **Subir el tema** a `/wp-content/themes/sueno-andino/`
-2. **Activar** desde el panel de administración
-3. **Configurar** en Personalizar > Sueño Andino
-4. **Crear páginas** usando los bloques personalizados
+2. **Activar el tema** desde WordPress Admin
+3. **Configurar menús** en Apariencia > Menús
+4. **Personalizar bloques** en el editor Gutenberg
 
-## Configuración
+## 📝 Uso de Bloques
 
-### Personalizador
-- **Información de Contacto** - Email, teléfono, dirección
-- **Redes Sociales** - Enlaces a perfiles sociales
-- **Estadísticas de Impacto** - Números de impacto editables
+### Hero Block
+- Título y subtítulo personalizables
+- Imagen de fondo editable
+- Botones con enlaces configurables
+- Modal lead magnet funcional
 
-### Bloques
-- **Hero Block** - Título, subtítulo, botón CTA
-- **Servicios Block** - Gestión dinámica de servicios
-- **Otros bloques** - Configuración individual
+### Golden Circle Block
+- Tres secciones editables (¿Por qué?, ¿Cómo?, ¿Qué?)
+- Newsletter integrado
+- Iconos y colores personalizables
 
-## Estructura de Archivos
+### Servicios Block
+- Grid de servicios dinámico
+- Características editables por servicio
+- CTA section integrada
+- Colores e iconos personalizables
+
+### Timeline Block
+- Elementos de cronología editables
+- Colores personalizables por hito
+- Imagen de fondo configurable
+- Animaciones suaves
+
+### Testimonios Block
+- Casos de éxito editables
+- Estadísticas personalizables
+- Imagen de fondo configurable
+- Grid responsive
+
+### Contacto Block
+- Formulario completamente configurable
+- Campos dinámicos (agregar/eliminar)
+- Validación en tiempo real
+- Mensajes de éxito/error personalizables
+
+## 🎛️ Configuración del Cliente
+
+### Para el Cliente (Fácil)
+
+1. **Editar contenido** - Click en cualquier bloque y editar
+2. **Agregar servicios** - Usar el bloque Servicios
+3. **Actualizar testimonios** - Editar el bloque Testimonios
+4. **Modificar formularios** - Configurar campos en Contacto
+5. **Cambiar imágenes** - Usar el selector de medios
+6. **Personalizar colores** - Campos de color en cada bloque
+
+### Para Desarrolladores
+
+1. **Personalizar CSS** - Archivos en `/assets/css/`
+2. **Modificar JavaScript** - Archivos en `/assets/js/`
+3. **Agregar campos** - Editar `block.json` de cada bloque
+4. **Integrar APIs** - Modificar `block.php` de cada bloque
+
+## 📁 Estructura de Archivos
 
 ```
 wp-theme/
+├── blocks/
+│   ├── hero-block/
+│   ├── golden-circle-block/
+│   ├── servicios-block/
+│   ├── timeline-block/
+│   ├── testimonios-block/
+│   └── contacto-block/
 ├── assets/
-│   ├── css/          # Estilos del tema
-│   ├── js/           # Scripts JavaScript
-│   └── img/          # Imágenes del tema
-├── blocks/           # Bloques Gutenberg
-├── inc/              # Funciones del tema
-├── template-parts/   # Partes de templates
-├── templates/        # Templates de páginas
-└── functions.php     # Funciones principales
+│   ├── css/
+│   └── js/
+├── inc/
+├── functions.php
+├── style.css
+└── README.md
 ```
 
-## Desarrollo
+## 🔧 Personalización Avanzada
 
-### Requisitos
-- WordPress 5.0+
-- PHP 7.4+
-- MySQL 5.6+
+### Agregar Nuevos Campos
+1. Editar `block.json` del bloque
+2. Actualizar `block.js` para el editor
+3. Modificar `block.php` para el frontend
+4. Añadir estilos en `style.css`
 
-### Tecnologías
-- **WordPress** - CMS base
-- **Gutenberg** - Editor de bloques
-- **PHP** - Lógica del servidor
-- **JavaScript** - Interactividad
-- **CSS3** - Estilos y animaciones
-- **HTML5** - Estructura semántica
+### Integrar APIs Externas
+1. Modificar `functions.php` para AJAX
+2. Actualizar JavaScript del bloque
+3. Configurar endpoints en `block.php`
 
-## Soporte
+### Personalizar Estilos
+1. Editar archivos CSS de cada bloque
+2. Modificar `style.css` principal
+3. Actualizar `editor.css` para el editor
 
-Para soporte técnico o consultas sobre el tema, contactar al equipo de desarrollo.
+## 📱 Responsive Design
 
-## Licencia
+- **Mobile First** - Optimizado para móviles
+- **Breakpoints** - 480px, 768px, 1024px, 1200px
+- **Grid adaptativo** - Se ajusta automáticamente
+- **Tipografía fluida** - Escalado perfecto
 
-Este tema está desarrollado específicamente para Sueño Andino. Todos los derechos reservados.
+## 🎨 Brand Guidelines
+
+### Colores
+- **Primario**: #d3600f (Naranja)
+- **Secundario**: #2a4351 (Azul oscuro)
+- **Acento**: #c16134 (Naranja oscuro)
+- **Texto**: #374151 (Gris oscuro)
+
+### Tipografías
+- **Títulos**: Playfair Display (serif)
+- **Cuerpo**: Inter (sans-serif)
+
+### Espaciado
+- **Márgenes**: 1rem, 2rem, 4rem, 6rem
+- **Padding**: 1rem, 2rem, 3rem
+- **Gaps**: 1rem, 1.5rem, 2rem, 3rem
+
+## 🚀 Optimización
+
+- **Carga rápida** - CSS y JS optimizados
+- **SEO friendly** - Estructura semántica
+- **Accesibilidad** - WCAG 2.1 compliant
+- **Performance** - Imágenes optimizadas
+
+## 📞 Soporte
+
+Para soporte técnico o personalizaciones adicionales, contactar al equipo de desarrollo.
 
 ---
 
-**Versión:** 1.0.0  
-**Última actualización:** 2024  
-**Desarrollado por:** Equipo Sueño Andino
+**Desarrollado con ❤️ para Sueño Andino**
