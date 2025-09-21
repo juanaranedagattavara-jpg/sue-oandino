@@ -42,28 +42,47 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="image" href="assets/img/hero-background.jpg">
     
-    <!-- Stylesheets -->
+    <!-- Stylesheets DESHABILITADOS -->
     <!-- <link rel="stylesheet" href="style.css"> -->
     <!-- <link rel="stylesheet" href="assets/css/base.css"> -->
     <!-- <link rel="stylesheet" href="assets/css/premium.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Footer Styles v3 - FORZADO -->
+    <!-- Footer Styles v4 - NUCLEAR -->
     <style>
-        /* NUCLEAR OPTION - Sobrescribir TODO */
-        footer,
-        .footer,
-        footer.footer,
-        .wp-block-group.footer,
-        footer.wp-block-group,
-        footer[class*="footer"],
-        *[class*="footer"],
-        div[class*="footer"] {
+        /* OCULTAR TODOS LOS FOOTERS VIEJOS */
+        footer:not(#footer-premium),
+        .footer:not(#footer-premium),
+        footer.footer:not(#footer-premium),
+        .wp-block-group.footer:not(#footer-premium),
+        footer.wp-block-group:not(#footer-premium),
+        footer[class*="footer"]:not(#footer-premium),
+        *[class*="footer"]:not(#footer-premium),
+        div[class*="footer"]:not(#footer-premium) {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            height: 0 !important;
+            overflow: hidden !important;
+            position: absolute !important;
+            left: -9999px !important;
+        }
+        
+        /* FORZAR FOOTER PREMIUM */
+        #footer-premium {
             background: #2a4351 !important;
             background-color: #2a4351 !important;
             color: white !important;
             padding: 4rem 0 2rem 0 !important;
             margin-top: 4rem !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            height: auto !important;
+            overflow: visible !important;
+            position: relative !important;
+            z-index: 9999 !important;
+            width: 100% !important;
         }
         
         /* Forzar todos los elementos dentro del footer */
