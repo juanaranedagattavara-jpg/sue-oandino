@@ -1,36 +1,25 @@
-// ===========================================
-// SUEÑO ANDINO - SERVICE WORKER
-// ===========================================
-
+// Service Worker para Sueño Andino
 const CACHE_NAME = 'sueño-andino-v1.0.0';
 const STATIC_CACHE = 'static-v1.0.0';
 const DYNAMIC_CACHE = 'dynamic-v1.0.0';
 
-// Recursos críticos para cachear
+// Recursos críticos para cache
 const STATIC_ASSETS = [
     '/',
     '/index.html',
-    '/assets/css/base.css',
     '/assets/css/premium.css',
-    '/assets/css/style.css',
+    '/assets/css/base.css',
+    '/style.css',
+    '/assets/js/main.js',
     '/assets/img/hero-background.jpg',
     '/assets/img/logo-sa-blanco.png',
-    '/assets/js/main.js'
-];
-
-// Recursos dinámicos
-const DYNAMIC_ASSETS = [
     '/assets/img/galeria1.jpg',
     '/assets/img/galeria2.jpg',
     '/assets/img/galeria3.jpg',
     '/assets/img/galeria4.jpg',
     '/assets/img/galeria5.jpg',
     '/assets/img/galeria6.jpg',
-    '/assets/img/galeria7.jpg',
-    '/assets/img/galeria8.jpg',
-    '/assets/img/timeline-background.jpg',
-    '/assets/img/fondo-casosexito.jpg',
-    '/assets/img/equipo-fondo.jpg'
+    'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap'
 ];
 
 // Instalación del Service Worker
@@ -81,18 +70,13 @@ self.addEventListener('fetch', event => {
     const { request } = event;
     const url = new URL(request.url);
     
-    // Solo procesar requests GET
-    if (request.method !== 'GET') {
-        return;
-    }
-    
     // Estrategia para recursos estáticos
-    if (STATIC_ASSETS.includes(url.pathname)) {
+    if (STATIC_ASSETS.includes(url.pathname) || url.pathname.endsWith('.css') || url.pathname.endsWith('.js')) {
         event.respondWith(
             caches.match(request)
                 .then(response => {
                     if (response) {
-                        console.log('Service Worker: Sirviendo desde cache estático', url.pathname);
+                        console.log('Service Worker: Sirviendo desde cache', url.pathname);
                         return response;
                     }
                     
@@ -100,118 +84,60 @@ self.addEventListener('fetch', event => {
                         .then(fetchResponse => {
                             const responseClone = fetchResponse.clone();
                             caches.open(STATIC_CACHE)
-                                .then(cache => cache.put(request, responseClone));
+                                .then(cache => {
+                                    cache.put(request, responseClone);
+                                });
                             return fetchResponse;
                         });
                 })
         );
-        return;
     }
     
     // Estrategia para imágenes
-    if (url.pathname.match(/\.(jpg|jpeg|png|gif|webp|svg)$/)) {
+    else if (url.pathname.match(/\.(jpg|jpeg|png|gif|webp|svg)$/)) {
         event.respondWith(
             caches.match(request)
                 .then(response => {
                     if (response) {
-                        console.log('Service Worker: Sirviendo imagen desde cache', url.pathname);
                         return response;
                     }
                     
                     return fetch(request)
                         .then(fetchResponse => {
-                            if (fetchResponse.status === 200) {
-                                const responseClone = fetchResponse.clone();
-                                caches.open(DYNAMIC_CACHE)
-                                    .then(cache => cache.put(request, responseClone));
-                            }
+                            const responseClone = fetchResponse.clone();
+                            caches.open(DYNAMIC_CACHE)
+                                .then(cache => {
+                                    cache.put(request, responseClone);
+                                });
+                            return fetchResponse;
+                        });
+                })
+        );
+    }
+    
+    // Estrategia para HTML
+    else if (request.headers.get('accept').includes('text/html')) {
+        event.respondWith(
+            caches.match(request)
+                .then(response => {
+                    if (response) {
+                        return response;
+                    }
+                    
+                    return fetch(request)
+                        .then(fetchResponse => {
+                            const responseClone = fetchResponse.clone();
+                            caches.open(DYNAMIC_CACHE)
+                                .then(cache => {
+                                    cache.put(request, responseClone);
+                                });
                             return fetchResponse;
                         })
                         .catch(() => {
-                            // Fallback para imágenes
-                            return new Response(
-                                '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="400" height="300" fill="#f3f4f6"/><text x="200" y="150" text-anchor="middle" fill="#6b7280" font-family="Arial, sans-serif">Imagen no disponible</text></svg>',
-                                { headers: { 'Content-Type': 'image/svg+xml' } }
-                            );
+                            return caches.match('/index.html');
                         });
                 })
         );
-        return;
-    }
-    
-    // Estrategia para CSS y JS
-    if (url.pathname.match(/\.(css|js)$/)) {
-        event.respondWith(
-            caches.match(request)
-                .then(response => {
-                    if (response) {
-                        console.log('Service Worker: Sirviendo recurso desde cache', url.pathname);
-                        return response;
-                    }
-                    
-                    return fetch(request)
-                        .then(fetchResponse => {
-                            if (fetchResponse.status === 200) {
-                                const responseClone = fetchResponse.clone();
-                                caches.open(STATIC_CACHE)
-                                    .then(cache => cache.put(request, responseClone));
-                            }
-                            return fetchResponse;
-                        });
-                })
-        );
-        return;
-    }
-    
-    // Estrategia para HTML (Network First)
-    if (request.headers.get('accept').includes('text/html')) {
-        event.respondWith(
-            fetch(request)
-                .then(fetchResponse => {
-                    if (fetchResponse.status === 200) {
-                        const responseClone = fetchResponse.clone();
-                        caches.open(DYNAMIC_CACHE)
-                            .then(cache => cache.put(request, responseClone));
-                    }
-                    return fetchResponse;
-                })
-                .catch(() => {
-                    return caches.match(request)
-                        .then(response => {
-                            if (response) {
-                                console.log('Service Worker: Sirviendo HTML desde cache offline', url.pathname);
-                                return response;
-                            }
-                            
-                            // Página offline
-                            return new Response(
-                                `<!DOCTYPE html>
-                                <html>
-                                <head>
-                                    <title>Sueño Andino - Sin conexión</title>
-                                    <meta charset="utf-8">
-                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                    <style>
-                                        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f3f4f6; }
-                                        .offline { max-width: 400px; margin: 0 auto; }
-                                        h1 { color: #2a4351; }
-                                        p { color: #6b7280; }
-                                    </style>
-                                </head>
-                                <body>
-                                    <div class="offline">
-                                        <h1>Sin conexión</h1>
-                                        <p>No se pudo cargar la página. Verifica tu conexión a internet.</p>
-                                        <button onclick="window.location.reload()">Reintentar</button>
-                                    </div>
-                                </body>
-                                </html>`,
-                                { headers: { 'Content-Type': 'text/html' } }
-                            );
-                        });
-                })
-        );
-        return;
     }
 });
 
@@ -219,19 +145,41 @@ self.addEventListener('fetch', event => {
 self.addEventListener('message', event => {
     if (event.data && event.data.type === 'CLEAN_CACHE') {
         caches.open(DYNAMIC_CACHE)
-            .then(cache => cache.keys())
+            .then(cache => {
+                return cache.keys();
+            })
             .then(keys => {
-                keys.forEach(key => {
-                    cache.delete(key);
+                keys.forEach((key, index) => {
+                    if (index < keys.length - 50) { // Mantener solo las últimas 50 entradas
+                        caches.open(DYNAMIC_CACHE)
+                            .then(cache => {
+                                cache.delete(key);
+                            });
+                    }
                 });
-                console.log('Service Worker: Cache dinámico limpiado');
             });
     }
 });
 
-// Manejar actualizaciones
-self.addEventListener('message', event => {
-    if (event.data && event.data.type === 'SKIP_WAITING') {
-        self.skipWaiting();
+// Notificaciones push (para futuras implementaciones)
+self.addEventListener('push', event => {
+    if (event.data) {
+        const data = event.data.json();
+        const options = {
+            body: data.body,
+            icon: '/assets/img/logo-sa-blanco.png',
+            badge: '/assets/img/logo-sa-blanco.png',
+            vibrate: [100, 50, 100],
+            data: {
+                dateOfArrival: Date.now(),
+                primaryKey: 1
+            }
+        };
+        
+        event.waitUntil(
+            self.registration.showNotification(data.title, options)
+        );
     }
 });
+
+console.log('Service Worker: Cargado correctamente');

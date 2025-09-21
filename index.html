@@ -201,7 +201,8 @@
              alt="Paisaje andino regenerativo con montañas y comunidades" 
              style="width:100%;height:100%;object-fit:cover;background:linear-gradient(135deg, #2a4351 0%, #1e3a47 100%);"
              loading="eager"
-             decoding="async">
+             decoding="async"
+             fetchpriority="high">
             <!-- Overlay mejorado para legibilidad del texto -->
             <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.5) 100%)"></div>
         </div>
@@ -976,7 +977,8 @@
                                  alt="Comunidad andina trabajando en proyecto regenerativo" 
                                  style="width:100%;height:100%;object-fit:cover;object-position:center;"
                                  loading="lazy"
-                                 decoding="async">
+                                 decoding="async"
+                                 data-src="assets/img/galeria1.jpg">
                         </div>
                         
                         <!-- Foto 2 - Grande -->
@@ -985,7 +987,8 @@
                                  alt="Escuela rural en los Andes con estudiantes aprendiendo" 
                                  style="width:100%;height:100%;object-fit:cover;object-position:center;"
                                  loading="lazy"
-                                 decoding="async">
+                                 decoding="async"
+                                 data-src="assets/img/galeria2.jpg">
                         </div>
                     </div>
                     
@@ -999,7 +1002,8 @@
                                      alt="Taller de emprendimiento comunitario en los Andes" 
                                      style="width:100%;height:100%;object-fit:cover;object-position:center;transition:opacity 0.5s ease"
                                      loading="lazy"
-                                     decoding="async">
+                                     decoding="async"
+                                     data-src="assets/img/galeria3.jpg">
                             </div>
                             
                             <!-- Columna 2 -->
@@ -1008,7 +1012,8 @@
                                      alt="Reunión comunitaria para planificación de proyectos" 
                                      style="width:100%;height:100%;object-fit:cover;object-position:center;transition:opacity 0.5s ease"
                                      loading="lazy"
-                                     decoding="async">
+                                     decoding="async"
+                                     data-src="assets/img/galeria4.jpg">
                             </div>
                             
                             <!-- Columna 3 -->
@@ -1017,7 +1022,8 @@
                                      alt="Celebración de logros comunitarios en los Andes" 
                                      style="width:100%;height:100%;object-fit:cover;object-position:center;transition:opacity 0.5s ease"
                                      loading="lazy"
-                                     decoding="async">
+                                     decoding="async"
+                                     data-src="assets/img/galeria5.jpg">
                             </div>
                             
                             <!-- Columna 4 -->
@@ -1026,7 +1032,8 @@
                                      alt="Paisaje andino con infraestructura comunitaria" 
                                      style="width:100%;height:100%;object-fit:cover;object-position:center;transition:opacity 0.5s ease"
                                      loading="lazy"
-                                     decoding="async">
+                                     decoding="async"
+                                     data-src="assets/img/galeria6.jpg">
                             </div>
                         </div>
                         
@@ -1588,6 +1595,302 @@
     
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
+    
+    <!-- Performance Optimizations -->
+    <style>
+        /* Optimizaciones de Performance */
+        img[loading="lazy"] {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        img[loading="lazy"].loaded {
+            opacity: 1;
+        }
+        
+        /* Preload crítico */
+        .preload-critical {
+            font-display: swap;
+        }
+        
+        /* Optimización de fuentes */
+        @font-face {
+            font-family: 'Inter';
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Playfair Display';
+            font-display: swap;
+        }
+        
+        /* Optimización de animaciones */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Optimización de scroll */
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        
+        /* Optimización de imágenes */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Optimización de contenedores */
+        .container-optimized {
+            contain: layout style paint;
+        }
+        
+        /* Critical CSS inlined */
+        .critical-css {
+            display: block;
+        }
+    </style>
+    
+    <!-- Lazy Loading Script -->
+    <script>
+        // Lazy loading con Intersection Observer
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.classList.add('loaded');
+                            observer.unobserve(img);
+                        }
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // Preload crítico
+        function preloadCriticalResources() {
+            const criticalImages = [
+                'assets/img/hero-background.jpg',
+                'assets/img/logo-sa-blanco.png'
+            ];
+            
+            criticalImages.forEach(src => {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = src;
+                document.head.appendChild(link);
+            });
+        }
+        
+        // Ejecutar optimizaciones
+        document.addEventListener('DOMContentLoaded', function() {
+            preloadCriticalResources();
+            
+            // Optimización de scroll
+            document.documentElement.style.scrollBehavior = 'smooth';
+            
+            // Optimización de fuentes
+            if ('fonts' in document) {
+                document.fonts.ready.then(() => {
+                    document.body.classList.add('fonts-loaded');
+                });
+            }
+            
+            // Registrar Service Worker
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registrado correctamente:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('Error al registrar Service Worker:', error);
+                    });
+            }
+            
+            // A/B Testing y Conversión
+            initializeConversionOptimization();
+        });
+        
+        // Optimización de Conversión
+        function initializeConversionOptimization() {
+            // A/B Testing para CTAs
+            const ctaVariants = {
+                'hero-cta': [
+                    'Conoce Nuestros Servicios',
+                    'Descubre Nuestros Servicios',
+                    'Explora Nuestros Servicios'
+                ],
+                'lead-magnet': [
+                    'Descarga Guía Gratuita',
+                    'Obtén Guía Gratuita',
+                    'Consigue Guía Gratuita'
+                ]
+            };
+            
+            // Aplicar variantes A/B
+            Object.keys(ctaVariants).forEach(ctaId => {
+                const element = document.querySelector(`#${ctaId}`);
+                if (element) {
+                    const variants = ctaVariants[ctaId];
+                    const randomVariant = variants[Math.floor(Math.random() * variants.length)];
+                    element.textContent = randomVariant;
+                    
+                    // Track A/B test
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'ab_test', {
+                            'experiment_name': ctaId,
+                            'variant': randomVariant
+                        });
+                    }
+                }
+            });
+            
+            // Optimización de formularios
+            optimizeForms();
+            
+            // Scroll tracking
+            trackScrollDepth();
+            
+            // Time on page tracking
+            trackTimeOnPage();
+            
+            // Exit intent detection
+            setupExitIntent();
+        }
+        
+        // Optimización de formularios
+        function optimizeForms() {
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                // Autocomplete mejorado
+                const inputs = form.querySelectorAll('input[type="email"], input[type="text"]');
+                inputs.forEach(input => {
+                    input.setAttribute('autocomplete', 'on');
+                    input.setAttribute('spellcheck', 'false');
+                });
+                
+                // Validación en tiempo real
+                inputs.forEach(input => {
+                    input.addEventListener('blur', validateField);
+                    input.addEventListener('input', clearErrors);
+                });
+            });
+        }
+        
+        // Validación de campos
+        function validateField(event) {
+            const field = event.target;
+            const value = field.value.trim();
+            
+            if (field.type === 'email') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) {
+                    showFieldError(field, 'Ingresa un email válido');
+                }
+            } else if (field.required && !value) {
+                showFieldError(field, 'Este campo es requerido');
+            }
+        }
+        
+        // Mostrar error en campo
+        function showFieldError(field, message) {
+            clearErrors({ target: field });
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'field-error';
+            errorDiv.textContent = message;
+            errorDiv.style.color = '#e53e3e';
+            errorDiv.style.fontSize = '0.75rem';
+            errorDiv.style.marginTop = '0.25rem';
+            field.parentNode.appendChild(errorDiv);
+        }
+        
+        // Limpiar errores
+        function clearErrors(event) {
+            const field = event.target;
+            const error = field.parentNode.querySelector('.field-error');
+            if (error) {
+                error.remove();
+            }
+        }
+        
+        // Track scroll depth
+        function trackScrollDepth() {
+            let maxScroll = 0;
+            const milestones = [25, 50, 75, 90, 100];
+            const trackedMilestones = new Set();
+            
+            window.addEventListener('scroll', () => {
+                const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+                maxScroll = Math.max(maxScroll, scrollPercent);
+                
+                milestones.forEach(milestone => {
+                    if (maxScroll >= milestone && !trackedMilestones.has(milestone)) {
+                        trackedMilestones.add(milestone);
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'scroll_depth', {
+                                'scroll_percentage': milestone
+                            });
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Track time on page
+        function trackTimeOnPage() {
+            const startTime = Date.now();
+            const timeMilestones = [30, 60, 120, 300]; // segundos
+            const trackedTimes = new Set();
+            
+            setInterval(() => {
+                const timeOnPage = Math.floor((Date.now() - startTime) / 1000);
+                
+                timeMilestones.forEach(milestone => {
+                    if (timeOnPage >= milestone && !trackedTimes.has(milestone)) {
+                        trackedTimes.add(milestone);
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'time_on_page', {
+                                'time_seconds': milestone
+                            });
+                        }
+                    }
+                });
+            }, 1000);
+        }
+        
+        // Exit intent detection
+        function setupExitIntent() {
+            let exitIntentShown = false;
+            
+            document.addEventListener('mouseleave', (e) => {
+                if (e.clientY <= 0 && !exitIntentShown) {
+                    exitIntentShown = true;
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'exit_intent', {
+                            'event_category': 'engagement'
+                        });
+                    }
+                    
+                    // Mostrar exit intent modal si existe
+                    const exitModal = document.getElementById('exitIntentModal');
+                    if (exitModal) {
+                        exitModal.style.display = 'block';
+                    }
+                }
+            });
+        }
+    </script>
     
     <!-- JavaScript para el modal de calendario -->
     <script>
