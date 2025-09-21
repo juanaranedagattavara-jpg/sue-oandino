@@ -42,7 +42,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="image" href="assets/img/hero-background.jpg">
     
-    <!-- Stylesheets DESHABILITADOS -->
+    <!-- Stylesheets COMPLETAMENTE ELIMINADOS -->
     <!-- <link rel="stylesheet" href="style.css"> -->
     <!-- <link rel="stylesheet" href="assets/css/base.css"> -->
     <!-- <link rel="stylesheet" href="assets/css/premium.css"> -->
@@ -50,7 +50,7 @@
     
     <!-- Footer Styles v4 - NUCLEAR -->
     <style>
-        /* OCULTAR TODOS LOS FOOTERS VIEJOS */
+        /* OCULTAR TODOS LOS FOOTERS VIEJOS - NUCLEAR */
         footer:not(#footer-premium),
         .footer:not(#footer-premium),
         footer.footer:not(#footer-premium),
@@ -58,7 +58,14 @@
         footer.wp-block-group:not(#footer-premium),
         footer[class*="footer"]:not(#footer-premium),
         *[class*="footer"]:not(#footer-premium),
-        div[class*="footer"]:not(#footer-premium) {
+        div[class*="footer"]:not(#footer-premium),
+        section[class*="footer"],
+        div[class*="footer"],
+        .footer-section,
+        .footer-container,
+        .footer-content,
+        .footer-bottom,
+        .footer-legal {
             display: none !important;
             visibility: hidden !important;
             opacity: 0 !important;
@@ -66,6 +73,16 @@
             overflow: hidden !important;
             position: absolute !important;
             left: -9999px !important;
+            top: -9999px !important;
+        }
+        
+        /* OCULTAR CUALQUIER ELEMENTO QUE CONTENGA TEXTO DE FOOTER VIEJO */
+        *:has-text("Transformando vidas a través de la educación"),
+        *:has-text("info@sueñoandino.com"),
+        *:has-text("Política de Privacidad"),
+        *:has-text("Términos y Condiciones"),
+        *:has-text("Política de Cookies") {
+            display: none !important;
         }
         
         /* FORZAR FOOTER PREMIUM */
@@ -1795,17 +1812,37 @@
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
     
-    <!-- Script para forzar footer premium -->
+    <!-- Script NUCLEAR para forzar footer premium -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        function hideOldFooters() {
             // Ocultar todos los footers viejos
-            const oldFooters = document.querySelectorAll('footer:not(#footer-premium)');
+            const oldFooters = document.querySelectorAll('footer:not(#footer-premium), .footer:not(#footer-premium), [class*="footer"]:not(#footer-premium)');
             oldFooters.forEach(footer => {
                 footer.style.display = 'none';
                 footer.style.visibility = 'hidden';
                 footer.style.opacity = '0';
                 footer.style.height = '0';
                 footer.style.overflow = 'hidden';
+                footer.style.position = 'absolute';
+                footer.style.left = '-9999px';
+                footer.style.top = '-9999px';
+            });
+            
+            // Buscar y ocultar elementos que contengan texto del footer viejo
+            const allElements = document.querySelectorAll('*');
+            allElements.forEach(element => {
+                const text = element.textContent || '';
+                if (text.includes('Transformando vidas a través de la educación') || 
+                    text.includes('info@sueñoandino.com') ||
+                    text.includes('Política de Privacidad') ||
+                    text.includes('Términos y Condiciones') ||
+                    text.includes('Política de Cookies')) {
+                    element.style.display = 'none';
+                    element.style.visibility = 'hidden';
+                    element.style.opacity = '0';
+                    element.style.height = '0';
+                    element.style.overflow = 'hidden';
+                }
             });
             
             // Asegurar que el footer premium sea visible
@@ -1816,29 +1853,25 @@
                 premiumFooter.style.opacity = '1';
                 premiumFooter.style.height = 'auto';
                 premiumFooter.style.overflow = 'visible';
+                premiumFooter.style.position = 'relative';
+                premiumFooter.style.zIndex = '9999';
             }
-        });
+        }
         
-        // También ejecutar después de un delay para asegurar
-        setTimeout(function() {
-            const oldFooters = document.querySelectorAll('footer:not(#footer-premium)');
-            oldFooters.forEach(footer => {
-                footer.style.display = 'none';
-                footer.style.visibility = 'hidden';
-                footer.style.opacity = '0';
-                footer.style.height = '0';
-                footer.style.overflow = 'hidden';
-            });
-            
-            const premiumFooter = document.getElementById('footer-premium');
-            if (premiumFooter) {
-                premiumFooter.style.display = 'block';
-                premiumFooter.style.visibility = 'visible';
-                premiumFooter.style.opacity = '1';
-                premiumFooter.style.height = 'auto';
-                premiumFooter.style.overflow = 'visible';
-            }
-        }, 1000);
+        // Ejecutar inmediatamente
+        hideOldFooters();
+        
+        // Ejecutar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', hideOldFooters);
+        
+        // Ejecutar después de un delay
+        setTimeout(hideOldFooters, 100);
+        setTimeout(hideOldFooters, 500);
+        setTimeout(hideOldFooters, 1000);
+        setTimeout(hideOldFooters, 2000);
+        
+        // Ejecutar cuando la página esté completamente cargada
+        window.addEventListener('load', hideOldFooters);
     </script>
     
     <!-- Performance Optimizations -->
