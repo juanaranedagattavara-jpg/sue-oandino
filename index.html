@@ -28,7 +28,7 @@
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sueño Andino - Transformando Vidas en los Andes">
+    <meta name="twitter:title" content="Sueño - Transformando Vidas en los Andes">
     <meta name="twitter:description" content="Desarrollo territorial regenerativo en comunidades andinas. Educación, emprendimiento y sostenibilidad desde y hacia Latinoamérica.">
     <meta name="twitter:image" content="https://sueñoandino.com/assets/img/hero-background.jpg">
     <meta name="twitter:site" content="@sueñoandino">
@@ -79,6 +79,572 @@
             padding: 4rem 0 2rem 0 !important;
             margin-top: 4rem !important;
             width: 100% !important;
+        }
+    </style>
+    
+    <!-- SISTEMA DE TIPOGRAFÍA FLUIDA DE ÉLITE -->
+    <style>
+        /* SISTEMA DE TIPOGRAFÍA FLUIDA RESPONSIVE */
+        
+        /* Variables CSS para tipografía */
+        :root {
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            
+            /* Escalas de tipografía fluidas */
+            --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+            --text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+            --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+            --text-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+            --text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+            --text-2xl: clamp(1.5rem, 1.3rem + 1vw, 1.875rem);
+            --text-3xl: clamp(1.875rem, 1.6rem + 1.375vw, 2.25rem);
+            --text-4xl: clamp(2.25rem, 1.9rem + 1.75vw, 3rem);
+            --text-5xl: clamp(3rem, 2.5rem + 2.5vw, 4rem);
+            --text-6xl: clamp(3.75rem, 3rem + 3.75vw, 5rem);
+            --text-7xl: clamp(4.5rem, 3.5rem + 5vw, 6rem);
+            
+            /* Line heights optimizados */
+            --leading-tight: 1.1;
+            --leading-snug: 1.2;
+            --leading-normal: 1.4;
+            --leading-relaxed: 1.6;
+            --leading-loose: 1.8;
+            
+            /* Letter spacing */
+            --tracking-tight: -0.025em;
+            --tracking-normal: 0;
+            --tracking-wide: 0.025em;
+            --tracking-wider: 0.05em;
+            --tracking-widest: 0.1em;
+        }
+        
+        /* Reset tipográfico base */
+        * {
+            font-family: var(--font-primary);
+        }
+        
+        /* Títulos principales */
+        h1, .h1 {
+            font-family: var(--font-display);
+            font-size: var(--text-6xl);
+            font-weight: 700;
+            line-height: var(--leading-tight);
+            letter-spacing: var(--tracking-tight);
+            margin: 0;
+        }
+        
+        h2, .h2 {
+            font-family: var(--font-display);
+            font-size: var(--text-5xl);
+            font-weight: 600;
+            line-height: var(--leading-snug);
+            letter-spacing: var(--tracking-tight);
+            margin: 0;
+        }
+        
+        h3, .h3 {
+            font-family: var(--font-display);
+            font-size: var(--text-4xl);
+            font-weight: 600;
+            line-height: var(--leading-snug);
+            letter-spacing: var(--tracking-normal);
+            margin: 0;
+        }
+        
+        h4, .h4 {
+            font-family: var(--font-display);
+            font-size: var(--text-3xl);
+            font-weight: 600;
+            line-height: var(--leading-normal);
+            letter-spacing: var(--tracking-normal);
+            margin: 0;
+        }
+        
+        h5, .h5 {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            font-weight: 500;
+            line-height: var(--leading-normal);
+            letter-spacing: var(--tracking-normal);
+            margin: 0;
+        }
+        
+        h6, .h6 {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: 500;
+            line-height: var(--leading-normal);
+            letter-spacing: var(--tracking-normal);
+            margin: 0;
+        }
+        
+        /* Textos de cuerpo */
+        p, .text {
+            font-size: var(--text-base);
+            line-height: var(--leading-relaxed);
+            letter-spacing: var(--tracking-normal);
+            margin: 0 0 1rem 0;
+        }
+        
+        .text-sm {
+            font-size: var(--text-sm);
+            line-height: var(--leading-normal);
+        }
+        
+        .text-lg {
+            font-size: var(--text-lg);
+            line-height: var(--leading-relaxed);
+        }
+        
+        .text-xl {
+            font-size: var(--text-xl);
+            line-height: var(--leading-relaxed);
+        }
+        
+        /* Textos especiales */
+        .text-hero {
+            font-family: var(--font-display);
+            font-size: var(--text-7xl);
+            font-weight: 700;
+            line-height: var(--leading-tight);
+            letter-spacing: var(--tracking-tight);
+        }
+        
+        .text-subtitle {
+            font-size: var(--text-xl);
+            font-weight: 300;
+            line-height: var(--leading-relaxed);
+            letter-spacing: var(--tracking-wide);
+        }
+        
+        .text-caption {
+            font-size: var(--text-xs);
+            font-weight: 500;
+            line-height: var(--leading-normal);
+            letter-spacing: var(--tracking-wider);
+            text-transform: uppercase;
+        }
+        
+        .text-label {
+            font-size: var(--text-sm);
+            font-weight: 600;
+            line-height: var(--leading-normal);
+            letter-spacing: var(--tracking-wide);
+        }
+        
+        /* Botones */
+        .btn {
+            font-size: var(--text-base);
+            font-weight: 600;
+            line-height: var(--leading-normal);
+            letter-spacing: var(--tracking-wide);
+        }
+        
+        .btn-sm {
+            font-size: var(--text-sm);
+            font-weight: 600;
+            line-height: var(--leading-normal);
+            letter-spacing: var(--tracking-wide);
+        }
+        
+        .btn-lg {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            line-height: var(--leading-normal);
+            letter-spacing: var(--tracking-wide);
+        }
+        
+        /* Navegación */
+        .nav-link {
+            font-size: var(--text-base);
+            font-weight: 500;
+            line-height: var(--leading-normal);
+            letter-spacing: var(--tracking-normal);
+        }
+        
+        /* Cards y componentes */
+        .card-title {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            line-height: var(--leading-snug);
+            letter-spacing: var(--tracking-normal);
+        }
+        
+        .card-text {
+            font-size: var(--text-base);
+            line-height: var(--leading-relaxed);
+            letter-spacing: var(--tracking-normal);
+        }
+        
+        /* Footer */
+        .footer-title {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: 700;
+            line-height: var(--leading-normal);
+            letter-spacing: var(--tracking-normal);
+        }
+        
+        .footer-text {
+            font-size: var(--text-sm);
+            line-height: var(--leading-relaxed);
+            letter-spacing: var(--tracking-normal);
+        }
+        
+        .footer-link {
+            font-size: var(--text-sm);
+            font-weight: 400;
+            line-height: var(--leading-normal);
+            letter-spacing: var(--tracking-normal);
+        }
+        
+        /* Optimizaciones para móvil */
+        @media (max-width: 768px) {
+            :root {
+                --leading-tight: 1.15;
+                --leading-snug: 1.25;
+                --leading-normal: 1.45;
+                --leading-relaxed: 1.65;
+                --leading-loose: 1.85;
+            }
+            
+            /* Ajustes específicos para móvil */
+            .text-hero {
+                font-size: var(--text-6xl);
+                line-height: var(--leading-tight);
+            }
+            
+            h1, .h1 {
+                font-size: var(--text-5xl);
+            }
+            
+            h2, .h2 {
+                font-size: var(--text-4xl);
+            }
+            
+            h3, .h3 {
+                font-size: var(--text-3xl);
+            }
+            
+            /* Mejorar legibilidad en móvil */
+            p, .text {
+                line-height: var(--leading-relaxed);
+            }
+            
+            .nav-link {
+                font-size: var(--text-sm);
+                font-weight: 600;
+            }
+        }
+        
+        /* Optimizaciones para tablet */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .text-hero {
+                font-size: var(--text-7xl);
+            }
+            
+            h1, .h1 {
+                font-size: var(--text-6xl);
+            }
+            
+            h2, .h2 {
+                font-size: var(--text-5xl);
+            }
+        }
+        
+        /* Mejoras de accesibilidad */
+        @media (prefers-reduced-motion: no-preference) {
+            * {
+                transition: font-size 0.3s ease, line-height 0.3s ease;
+            }
+        }
+        
+        /* Optimización de renderizado */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        
+        /* PREVENIR OVERFLOW HORIZONTAL - CSS NUCLEAR */
+        html, body {
+            overflow-x: hidden !important;
+            max-width: 100% !important;
+            width: 100% !important;
+        }
+        
+        * {
+            box-sizing: border-box !important;
+        }
+        
+        /* Asegurar que todos los contenedores respeten el ancho */
+        .wp-block-group,
+        .section-optimized,
+        .golden-circle-optimized {
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+            width: 100% !important;
+        }
+        
+        /* FORZAR CONTENEDOR GOLDEN CIRCLE */
+        .golden-circle-optimized {
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+            padding: 2rem 0 !important;
+        }
+        
+        .golden-circle-optimized > div {
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+        }
+        
+        /* FORZAR GRID EN MÓVIL */
+        @media (max-width: 768px) {
+            .golden-circle-optimized > div {
+                padding: 0 0.5rem !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+            
+            .golden-circle-grid {
+                width: 100% !important;
+                max-width: 100% !important;
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                grid-template-rows: repeat(2, 1fr) !important;
+                gap: 0.5rem !important;
+            }
+        }
+        
+        /* FORZAR GRID 2x2 EN MÓVIL - CSS NUCLEAR */
+        .golden-circle-grid {
+            display: grid !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 auto !important;
+            gap: 0.5rem !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            grid-template-rows: repeat(2, 1fr) !important;
+        }
+        
+        /* MÓVIL: FORZAR 2x2 CUADRADO */
+        @media (max-width: 768px) {
+            .golden-circle-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                grid-template-rows: repeat(2, 1fr) !important;
+                gap: 0.5rem !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            
+            .golden-circle-grid > div {
+                aspect-ratio: 1 !important;
+                width: 100% !important;
+                height: 100% !important;
+                min-height: unset !important;
+                max-height: unset !important;
+            }
+            
+            .golden-circle-grid > div > div {
+                width: 100% !important;
+                height: 100% !important;
+                border-radius: 0.5rem !important;
+                display: flex !important;
+                flex-direction: column !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            
+            .golden-circle-grid > div > div > div:first-child {
+                height: 40% !important;
+                border-radius: 0.5rem 0.5rem 0 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding: 0.5rem !important;
+            }
+            
+            .golden-circle-grid > div > div > div:first-child > div {
+                text-align: center !important;
+            }
+            
+            .golden-circle-grid > div > div > div:first-child > div > svg {
+                width: 24px !important;
+                height: 24px !important;
+                margin-bottom: 0.25rem !important;
+            }
+            
+            .golden-circle-grid > div > div > div:first-child > div > div {
+                font-size: 0.5rem !important;
+                font-weight: 500 !important;
+                color: #9ca3af !important;
+            }
+            
+            .golden-circle-grid > div > div > div:last-child {
+                height: 60% !important;
+                padding: 0.5rem !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+            }
+            
+            .golden-circle-grid > div > div > div:last-child h3 {
+                font-size: 0.625rem !important;
+                line-height: 1.1 !important;
+                margin: 0 0 0.25rem 0 !important;
+                font-weight: 600 !important;
+                color: #2a4351 !important;
+            }
+            
+            .golden-circle-grid > div > div > div:last-child p {
+                font-size: 0.5rem !important;
+                line-height: 1.2 !important;
+                margin: 0 !important;
+                color: #6b7280 !important;
+            }
+        }
+        
+        /* TABLET: GRID 2x2 CON TARJETAS RECTANGULARES */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .golden-circle-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.5rem !important;
+            }
+            
+            .golden-circle-grid > div {
+                min-height: 280px !important;
+                width: 100% !important;
+            }
+            
+            .golden-circle-grid > div > div {
+                border-radius: 1rem !important;
+                height: 100% !important;
+            }
+            
+            .golden-circle-grid > div > div > div {
+                height: 120px !important;
+                border-radius: 1rem 1rem 0 0 !important;
+            }
+            
+            .golden-circle-grid > div > div > div > div > svg {
+                width: 40px !important;
+                height: 40px !important;
+            }
+        }
+        
+        /* DESKTOP: GRID 4x1 CON TARJETAS RECTANGULARES */
+        @media (min-width: 1024px) {
+            .golden-circle-grid {
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 2rem !important;
+            }
+            
+            .golden-circle-grid > div {
+                min-height: 320px !important;
+                width: 100% !important;
+            }
+            
+            .golden-circle-grid > div > div {
+                border-radius: 1.25rem !important;
+                height: 100% !important;
+            }
+            
+            .golden-circle-grid > div > div > div {
+                height: 150px !important;
+                border-radius: 1.25rem 1.25rem 0 0 !important;
+            }
+            
+            .golden-circle-grid > div > div > div > div > svg {
+                width: 44px !important;
+                height: 44px !important;
+            }
+        }
+        
+        /* PROPIEDADES BASE PARA TODAS LAS TARJETAS */
+        .golden-circle-grid > div {
+            display: flex !important;
+        }
+        
+        .golden-circle-grid > div > div {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+        }
+        
+        /* CSS RESPONSIVO ESPECÍFICO PARA GOLDEN CIRCLE */
+        .responsive-grid {
+            display: grid !important;
+            width: 100% !important;
+            gap: 0.75rem !important;
+        }
+        
+        /* MÓVIL: 2x2 GRID */
+        @media (max-width: 767px) {
+            .responsive-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                grid-template-rows: repeat(2, 1fr) !important;
+                gap: 0.5rem !important;
+            }
+            
+            .responsive-grid > div {
+                aspect-ratio: 1 !important;
+                min-height: 120px !important;
+            }
+            
+            .responsive-grid > div > div:first-child {
+                height: 35% !important;
+            }
+            
+            .responsive-grid > div > div:last-child {
+                height: 65% !important;
+                padding: 0.5rem !important;
+            }
+            
+            .responsive-grid > div > div:last-child h3 {
+                font-size: 0.625rem !important;
+                margin: 0 0 0.25rem 0 !important;
+            }
+            
+            .responsive-grid > div > div:last-child p {
+                font-size: 0.5rem !important;
+            }
+            
+            .responsive-grid > div > div:first-child > svg {
+                width: 24px !important;
+                height: 24px !important;
+            }
+        }
+        
+        /* TABLET: 2x2 GRID */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .responsive-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1rem !important;
+            }
+            
+            .responsive-grid > div {
+                aspect-ratio: 1 !important;
+                min-height: 200px !important;
+            }
+        }
+        
+        /* DESKTOP: 4x1 GRID */
+        @media (min-width: 1024px) {
+            .responsive-grid {
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 1.5rem !important;
+            }
+            
+            .responsive-grid > div {
+                aspect-ratio: 1 !important;
+                min-height: 250px !important;
+            }
         }
     </style>
     
@@ -423,21 +989,21 @@
         
         <!-- Contenido centrado premium -->
         <div style="position:relative;z-index:10;text-align:center;color:white;max-width:900px;margin:0 auto;padding:0 2rem;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh">
-            <h1 class="wp-block-heading" style="font-size:clamp(2.25rem, 5.5vw, 3.75rem);font-weight:800;margin:0 0 3rem 0;line-height:1.2;font-family:'Playfair Display',serif;text-shadow:0 6px 12px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.4);color:white;letter-spacing:-0.02em;text-align:center;max-width:100%">
-                <div style="display:block;color:white;text-shadow:0 8px 16px rgba(0,0,0,0.7), 0 4px 8px rgba(0,0,0,0.5);margin-bottom:0.5rem;line-height:1.2">DESARROLLO TERRITORIAL<br>REGENERATIVO</div>
-                <div style="display:block;color:#d3600f;text-shadow:0 8px 16px rgba(0,0,0,0.7), 0 4px 8px rgba(0,0,0,0.5);line-height:1.2">DESDE Y HACIA<br>LATINOAMÉRICA</div>
+            <h1 class="text-hero" style="margin:0 0 3rem 0;text-shadow:0 6px 12px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.4);color:white;text-align:center;max-width:100%">
+                <div style="display:block;color:white;text-shadow:0 8px 16px rgba(0,0,0,0.7), 0 4px 8px rgba(0,0,0,0.5);margin-bottom:0.5rem">DESARROLLO TERRITORIAL<br>REGENERATIVO</div>
+                <div style="display:block;color:#d3600f;text-shadow:0 8px 16px rgba(0,0,0,0.7), 0 4px 8px rgba(0,0,0,0.5)">DESDE Y HACIA<br>LATINOAMÉRICA</div>
             </h1>
             
-            <p style="font-size:clamp(1.25rem, 3.5vw, 1.875rem);font-weight:300;line-height:1.6;margin:0 0 4rem 0;max-width:800px;margin-left:auto;margin-right:auto;text-shadow:0 2px 4px rgba(0,0,0,0.3);text-align:center;padding:0 1rem">
+            <p class="text-subtitle" style="margin:0 0 4rem 0;max-width:800px;margin-left:auto;margin-right:auto;text-shadow:0 2px 4px rgba(0,0,0,0.3);text-align:center;padding:0 1rem">
                 Impulsamos proyectos de desarrollo territorial que devuelven vitalidad a los ecosistemas, fortalecen comunidades y generan prosperidad consciente y regenerativa
             </p>
             
             <!-- Botones CTA -->
             <div style="display:flex;justify-content:center;gap:2rem;margin-bottom:4rem;flex-wrap:wrap">
-                <a href="#servicios" style="background:linear-gradient(135deg, #d3600f 0%, #c16134 100%);color:white;padding:1rem 2.5rem;border-radius:0.75rem;text-decoration:none;font-weight:700;font-size:1rem;transition:all 0.4s ease;box-shadow:0 10px 25px -5px rgba(211,96,15,0.4);text-transform:uppercase;letter-spacing:0.05em" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 15px 30px -5px rgba(211,96,15,0.6)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 25px -5px rgba(211,96,15,0.4)'">
+                <a href="#servicios" class="btn btn-lg" style="background:linear-gradient(135deg, #d3600f 0%, #c16134 100%);color:white;padding:1rem 2.5rem;border-radius:0.75rem;text-decoration:none;transition:all 0.4s ease;box-shadow:0 10px 25px -5px rgba(211,96,15,0.4);text-transform:uppercase" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 15px 30px -5px rgba(211,96,15,0.6)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 25px -5px rgba(211,96,15,0.4)'">
                     Conoce Nuestros Servicios
                 </a>
-                <button id="leadMagnetBtn" style="background:linear-gradient(135deg, #2a4351 0%, #1e3a47 100%);color:white;padding:1rem 2.5rem;border-radius:0.75rem;border:2px solid rgba(255,255,255,0.2);font-weight:700;font-size:1rem;transition:all 0.4s ease;box-shadow:0 10px 25px -5px rgba(42,67,81,0.4);text-transform:uppercase;letter-spacing:0.05em;cursor:pointer" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 15px 30px -5px rgba(42,67,81,0.6)';this.style.borderColor='rgba(255,255,255,0.4)';this.style.background='linear-gradient(135deg, #3a5561 0%, #2e4a57 100%)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 25px -5px rgba(42,67,81,0.4)';this.style.borderColor='rgba(255,255,255,0.2)';this.style.background='linear-gradient(135deg, #2a4351 0%, #1e3a47 100%)'">
+                <button id="leadMagnetBtn" class="btn btn-lg" style="background:linear-gradient(135deg, #2a4351 0%, #1e3a47 100%);color:white;padding:1rem 2.5rem;border-radius:0.75rem;border:2px solid rgba(255,255,255,0.2);transition:all 0.4s ease;box-shadow:0 10px 25px -5px rgba(42,67,81,0.4);text-transform:uppercase;cursor:pointer" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 15px 30px -5px rgba(42,67,81,0.6)';this.style.borderColor='rgba(255,255,255,0.4)';this.style.background='linear-gradient(135deg, #3a5561 0%, #2e4a57 100%)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 25px -5px rgba(42,67,81,0.4)';this.style.borderColor='rgba(255,255,255,0.2)';this.style.background='linear-gradient(135deg, #2a4351 0%, #1e3a47 100%)'">
                     Descarga Guía Gratuita
                 </button>
             </div>
@@ -449,171 +1015,75 @@
             <div style="width:100%;padding:0 1rem">
                 <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center">
                     <div>
-                        <div style="font-size:2rem;font-weight:800;color:#d3600f;line-height:1;margin-bottom:0.25rem;font-family:'Playfair Display',serif">1,200+</div>
-                        <div style="font-size:0.75rem;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.1em;font-weight:500">Personas Beneficiadas</div>
+                        <div class="h2" style="color:#d3600f;margin-bottom:0.25rem">1,200+</div>
+                        <div class="text-caption" style="color:rgba(255,255,255,0.8)">Personas Beneficiadas</div>
                     </div>
                     <div>
-                        <div style="font-size:2rem;font-weight:800;color:#d3600f;line-height:1;margin-bottom:0.25rem;font-family:'Playfair Display',serif">25+</div>
-                        <div style="font-size:0.75rem;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.1em;font-weight:500">Comunidades Atendidas</div>
+                        <div class="h2" style="color:#d3600f;margin-bottom:0.25rem">25+</div>
+                        <div class="text-caption" style="color:rgba(255,255,255,0.8)">Comunidades Atendidas</div>
                     </div>
                     <div>
-                        <div style="font-size:2rem;font-weight:800;color:#d3600f;line-height:1;margin-bottom:0.25rem;font-family:'Playfair Display',serif">15+</div>
-                        <div style="font-size:0.75rem;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.1em;font-weight:500">Proyectos Exitosos</div>
+                        <div class="h2" style="color:#d3600f;margin-bottom:0.25rem">15+</div>
+                        <div class="text-caption" style="color:rgba(255,255,255,0.8)">Proyectos Exitosos</div>
                     </div>
                     <div>
-                        <div style="font-size:2rem;font-weight:800;color:#d3600f;line-height:1;margin-bottom:0.25rem;font-family:'Playfair Display',serif">98%</div>
-                        <div style="font-size:0.75rem;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.1em;font-weight:500">Satisfacción</div>
+                        <div class="h2" style="color:#d3600f;margin-bottom:0.25rem">98%</div>
+                        <div class="text-caption" style="color:rgba(255,255,255,0.8)">Satisfacción</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Golden Circle Section - Diseño Minimalista Premium -->
-    <div class="wp-block-group golden-circle-optimized" id="nosotros">
-        <!-- Elemento decorativo de fondo sutil -->
-        <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 20% 80%, rgba(211,96,15,0.02) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(42,67,81,0.02) 0%, transparent 50%);z-index:0"></div>
-        
-        <div style="max-width:1400px;margin:0 auto;padding:0 2rem;position:relative;z-index:1">
-            <!-- Header minimalista -->
-            <div style="text-align:center;margin-bottom:4rem">
-                <div style="display:inline-block;margin-bottom:1.5rem;padding:0.75rem 2rem;background:rgba(211,96,15,0.05);border-radius:3rem;border:1px solid rgba(211,96,15,0.1)">
-                    <span style="color:#d3600f;font-weight:500;font-size:0.875rem;text-transform:uppercase;letter-spacing:0.15em">Nuestra Propuesta</span>
-                </div>
-                <h2 class="wp-block-heading" style="font-size:clamp(2.5rem, 5vw, 3.5rem);font-weight:300;color:#2a4351;margin:0 0 2rem 0;line-height:1.1;font-family:'Playfair Display',serif;letter-spacing:-0.02em">
+    <!-- Golden Circle Section - SIMPLE Y FUNCIONAL -->
+    <div id="nosotros" style="background:#f8fafc;padding:2rem 0;width:100%;overflow-x:hidden">
+        <div style="max-width:1000px;margin:0 auto;padding:0 1rem">
+            <!-- Header -->
+            <div style="text-align:center;margin-bottom:2rem">
+                <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:600;color:#2a4351;margin:0 0 1rem 0">
                     ¿Por qué Sueño Andino?
                 </h2>
-                <p style="font-size:clamp(1.125rem, 2.5vw, 1.375rem);color:#6b7280;line-height:1.6;margin:0 auto;max-width:800px;font-weight:300;letter-spacing:-0.01em">
-                    Transformamos territorios combinando <span style="color:#d3600f;font-weight:500">sabiduría ancestral</span> con <span style="color:#d3600f;font-weight:500">innovación moderna</span>.
+                <p style="font-size:1rem;color:#6b7280;margin:0 auto;max-width:600px">
+                    Transformamos territorios combinando sabiduría ancestral con innovación moderna.
                 </p>
             </div>
             
-            <!-- Grid minimalista con placeholders de fotos -->
-            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem;margin-bottom:4rem">
-                <!-- Por qué lo hacemos -->
-                <div style="position:relative;group">
-                    <div style="background:white;border-radius:1.5rem;padding:0;height:100%;transition:all 0.5s cubic-bezier(0.4, 0, 0.2, 1);border:1px solid rgba(0,0,0,0.04);position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.04)" onmouseover="this.style.transform='translateY(-12px)';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.08)';this.style.borderColor='rgba(211,96,15,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)';this.style.borderColor='rgba(0,0,0,0.04)'">
-                        <!-- Elemento decorativo minimalista -->
-                        <div style="position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg, #d3600f 0%, #c16134 100%);border-radius:1.5rem 1.5rem 0 0;z-index:2"></div>
-                        
-                        <!-- Placeholder de foto - Ancho completo desde arriba -->
-                        <div style="width:100%;height:180px;background:linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);border-radius:1.5rem 1.5rem 0 0;display:flex;align-items:center;justify-content:center;border:2px dashed #d1d5db;position:relative">
-                            <div style="text-align:center;color:#9ca3af">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="margin-bottom:0.75rem">
-                                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                                </svg>
-                                <div style="font-size:0.875rem;font-weight:500">Foto placeholder</div>
-                            </div>
-                        </div>
-                        
-                        <!-- Contenido -->
-                        <div style="padding:2rem">
-                            <h3 style="font-size:1.25rem;font-weight:600;color:#2a4351;margin:0 0 1rem 0;line-height:1.3;font-family:'Playfair Display',serif;letter-spacing:-0.01em">¿Por qué lo hacemos?</h3>
-                            <p style="color:#6b7280;line-height:1.5;margin:0;font-size:0.875rem;font-weight:400;letter-spacing:-0.005em">
-                                Cada persona en los Andes merece oportunidades equitativas para <span style="color:#d3600f;font-weight:500">desarrollarse y prosperar</span>.
-                            </p>
-                        </div>
+            <!-- Grid 2x2 Simple -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:1rem;margin-bottom:2rem">
+                <!-- Tarjeta 1 -->
+                <div style="background:white;border-radius:0.5rem;padding:1rem;box-shadow:0 2px 4px rgba(0,0,0,0.1);border:1px solid #e5e7eb;text-align:center;aspect-ratio:1">
+                    <div style="width:40px;height:40px;background:#d3600f;border-radius:50%;margin:0 auto 0.5rem;display:flex;align-items:center;justify-content:center">
+                        <span style="color:white;font-size:1.2rem">★</span>
                     </div>
+                    <h3 style="font-size:0.9rem;font-weight:600;color:#2a4351;margin:0 0 0.5rem 0">¿Por qué?</h3>
+                    <p style="font-size:0.75rem;color:#6b7280;margin:0">Cada persona merece oportunidades para desarrollarse.</p>
                 </div>
                 
-                <!-- Cómo lo hacemos -->
-                <div style="position:relative;group">
-                    <div style="background:white;border-radius:1.5rem;padding:0;height:100%;transition:all 0.5s cubic-bezier(0.4, 0, 0.2, 1);border:1px solid rgba(0,0,0,0.04);position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.04)" onmouseover="this.style.transform='translateY(-12px)';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.08)';this.style.borderColor='rgba(211,96,15,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)';this.style.borderColor='rgba(0,0,0,0.04)'">
-                        <!-- Elemento decorativo minimalista -->
-                        <div style="position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg, #2a4351 0%, #1e3a47 100%);border-radius:1.5rem 1.5rem 0 0;z-index:2"></div>
-                        
-                        <!-- Placeholder de foto - Ancho completo desde arriba -->
-                        <div style="width:100%;height:180px;background:linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);border-radius:1.5rem 1.5rem 0 0;display:flex;align-items:center;justify-content:center;border:2px dashed #d1d5db;position:relative">
-                            <div style="text-align:center;color:#9ca3af">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="margin-bottom:0.75rem">
-                                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                                </svg>
-                                <div style="font-size:0.875rem;font-weight:500">Foto placeholder</div>
-                            </div>
-                        </div>
-                        
-                        <!-- Contenido -->
-                        <div style="padding:2rem">
-                            <h3 style="font-size:1.25rem;font-weight:600;color:#2a4351;margin:0 0 1rem 0;line-height:1.3;font-family:'Playfair Display',serif;letter-spacing:-0.01em">¿Cómo lo hacemos?</h3>
-                            <p style="color:#6b7280;line-height:1.5;margin:0;font-size:0.875rem;font-weight:400;letter-spacing:-0.005em">
-                                Trabajamos directamente con las comunidades usando un <span style="color:#2a4351;font-weight:500">enfoque participativo</span>.
-                            </p>
-                        </div>
+                <!-- Tarjeta 2 -->
+                <div style="background:white;border-radius:0.5rem;padding:1rem;box-shadow:0 2px 4px rgba(0,0,0,0.1);border:1px solid #e5e7eb;text-align:center;aspect-ratio:1">
+                    <div style="width:40px;height:40px;background:#2a4351;border-radius:50%;margin:0 auto 0.5rem;display:flex;align-items:center;justify-content:center">
+                        <span style="color:white;font-size:1.2rem">✓</span>
                     </div>
+                    <h3 style="font-size:0.9rem;font-weight:600;color:#2a4351;margin:0 0 0.5rem 0">¿Cómo?</h3>
+                    <p style="font-size:0.75rem;color:#6b7280;margin:0">Trabajamos con enfoque participativo.</p>
                 </div>
                 
-                <!-- Qué hacemos -->
-                <div style="position:relative;group">
-                    <div style="background:white;border-radius:1.5rem;padding:0;height:100%;transition:all 0.5s cubic-bezier(0.4, 0, 0.2, 1);border:1px solid rgba(0,0,0,0.04);position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.04)" onmouseover="this.style.transform='translateY(-12px)';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.08)';this.style.borderColor='rgba(211,96,15,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)';this.style.borderColor='rgba(0,0,0,0.04)'">
-                        <!-- Elemento decorativo minimalista -->
-                        <div style="position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg, #6b7280 0%, #4b5563 100%);border-radius:1.5rem 1.5rem 0 0;z-index:2"></div>
-                        
-                        <!-- Placeholder de foto - Ancho completo desde arriba -->
-                        <div style="width:100%;height:180px;background:linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);border-radius:1.5rem 1.5rem 0 0;display:flex;align-items:center;justify-content:center;border:2px dashed #d1d5db;position:relative">
-                            <div style="text-align:center;color:#9ca3af">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="margin-bottom:0.75rem">
-                                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                                </svg>
-                                <div style="font-size:0.875rem;font-weight:500">Foto placeholder</div>
-                            </div>
-                        </div>
-                        
-                        <!-- Contenido -->
-                        <div style="padding:2rem">
-                            <h3 style="font-size:1.25rem;font-weight:600;color:#2a4351;margin:0 0 1rem 0;line-height:1.3;font-family:'Playfair Display',serif;letter-spacing:-0.01em">¿Qué hacemos?</h3>
-                            <p style="color:#6b7280;line-height:1.5;margin:0;font-size:0.875rem;font-weight:400;letter-spacing:-0.005em">
-                                Desarrollamos programas educativos combinando <span style="color:#6b7280;font-weight:500">saberes ancestrales con metodologías modernas</span>.
-                            </p>
-                        </div>
+                <!-- Tarjeta 3 -->
+                <div style="background:white;border-radius:0.5rem;padding:1rem;box-shadow:0 2px 4px rgba(0,0,0,0.1);border:1px solid #e5e7eb;text-align:center;aspect-ratio:1">
+                    <div style="width:40px;height:40px;background:#6b7280;border-radius:50%;margin:0 auto 0.5rem;display:flex;align-items:center;justify-content:center">
+                        <span style="color:white;font-size:1.2rem">📋</span>
                     </div>
+                    <h3 style="font-size:0.9rem;font-weight:600;color:#2a4351;margin:0 0 0.5rem 0">¿Qué?</h3>
+                    <p style="font-size:0.75rem;color:#6b7280;margin:0">Desarrollamos programas educativos.</p>
                 </div>
                 
-                <!-- Para quién -->
-                <div style="position:relative;group">
-                    <div style="background:white;border-radius:1.5rem;padding:0;height:100%;transition:all 0.5s cubic-bezier(0.4, 0, 0.2, 1);border:1px solid rgba(0,0,0,0.04);position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.04)" onmouseover="this.style.transform='translateY(-12px)';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.08)';this.style.borderColor='rgba(211,96,15,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)';this.style.borderColor='rgba(0,0,0,0.04)'">
-                        <!-- Elemento decorativo minimalista -->
-                        <div style="position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg, #16a34a 0%, #15803d 100%);border-radius:1.5rem 1.5rem 0 0;z-index:2"></div>
-                        
-                        <!-- Placeholder de foto - Ancho completo desde arriba -->
-                        <div style="width:100%;height:180px;background:linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);border-radius:1.5rem 1.5rem 0 0;display:flex;align-items:center;justify-content:center;border:2px dashed #d1d5db;position:relative">
-                            <div style="text-align:center;color:#9ca3af">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="margin-bottom:0.75rem">
-                                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                                </svg>
-                                <div style="font-size:0.875rem;font-weight:500">Foto placeholder</div>
-                            </div>
-                        </div>
-                        
-                        <!-- Contenido -->
-                        <div style="padding:2rem">
-                            <h3 style="font-size:1.25rem;font-weight:600;color:#2a4351;margin:0 0 1rem 0;line-height:1.3;font-family:'Playfair Display',serif;letter-spacing:-0.01em">¿Para quién?</h3>
-                            <p style="color:#6b7280;line-height:1.5;margin:0;font-size:0.875rem;font-weight:400;letter-spacing:-0.005em">
-                                Trabajamos con <span style="color:#16a34a;font-weight:500">comunidades andinas, empresas y gobiernos</span> comprometidos.
-                            </p>
-                        </div>
+                <!-- Tarjeta 4 -->
+                <div style="background:white;border-radius:0.5rem;padding:1rem;box-shadow:0 2px 4px rgba(0,0,0,0.1);border:1px solid #e5e7eb;text-align:center;aspect-ratio:1">
+                    <div style="width:40px;height:40px;background:#16a34a;border-radius:50%;margin:0 auto 0.5rem;display:flex;align-items:center;justify-content:center">
+                        <span style="color:white;font-size:1.2rem">👥</span>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Línea divisoria minimalista -->
-            <div style="width:100%;height:1px;background:linear-gradient(90deg, transparent 0%, rgba(211,96,15,0.2) 50%, transparent 100%);margin:4rem 0"></div>
-            
-            <!-- Newsletter minimalista -->
-            <div style="text-align:center;max-width:500px;margin:0 auto">
-                <p style="font-size:1.25rem;color:#6b7280;margin:0 0 2rem 0;font-weight:300;letter-spacing:-0.01em">
-                    Mantente al día con nuestras últimas iniciativas
-                </p>
-                <form id="newsletterForm" style="display:flex;gap:1rem;align-items:center;justify-content:center;flex-wrap:wrap">
-                    <div style="flex:1;min-width:250px">
-                        <input type="email" id="newsletterEmail" placeholder="tu@email.com" required style="width:100%;padding:1rem 1.5rem;border:2px solid #e5d5c0;border-radius:3rem;font-size:1rem;transition:all 0.3s ease;box-sizing:border-box;background:#fafafa;outline:none" onfocus="this.style.borderColor='#d3600f';this.style.background='white';this.style.boxShadow='0 0 0 3px rgba(211,96,15,0.1)'" onblur="this.style.borderColor='#e5d5c0';this.style.background='#fafafa';this.style.boxShadow='none'">
-                        <div id="newsletterError" style="color:#e53e3e;font-size:0.8rem;margin-top:0.5rem;text-align:left;display:none">Ingresa un email válido</div>
-                    </div>
-                    <button type="submit" style="padding:1rem 2rem;background:linear-gradient(135deg, #d3600f 0%, #c16134 100%);color:white;border:none;border-radius:3rem;font-weight:500;font-size:1rem;cursor:pointer;transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);letter-spacing:0.01em;box-shadow:0 8px 25px rgba(211,96,15,0.2);white-space:nowrap" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 35px rgba(211,96,15,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 25px rgba(211,96,15,0.2)'">
-                        Suscribirse
-                    </button>
-                </form>
-                <div id="newsletterSuccess" style="margin-top:1rem;padding:1rem;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:0.75rem;color:#16a34a;font-size:0.9rem;display:none">
-                    ✅ ¡Gracias! Te has suscrito exitosamente a nuestro newsletter.
+                    <h3 style="font-size:0.9rem;font-weight:600;color:#2a4351;margin:0 0 0.5rem 0">¿Para quién?</h3>
+                    <p style="font-size:0.75rem;color:#6b7280;margin:0">Trabajamos con comunidades.</p>
                 </div>
             </div>
         </div>
@@ -735,12 +1205,12 @@
             <!-- Header elegante -->
             <div style="text-align:center;margin-bottom:4rem">
                 <div style="display:inline-block;margin-bottom:1.5rem;background:rgba(211,96,15,0.08);padding:0.625rem 1.75rem;border-radius:2.5rem;border:1px solid rgba(211,96,15,0.15)">
-                    <span style="color:#d3600f;font-weight:600;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.12em">Nuestros Servicios</span>
+                    <span class="text-caption" style="color:#d3600f">Nuestros Servicios</span>
                 </div>
-                <h2 class="wp-block-heading" style="font-size:clamp(2.75rem, 5.5vw, 3.75rem);font-weight:400;color:#2a4351;margin:0 0 1.75rem 0;line-height:1.15;font-family:'Playfair Display',serif;letter-spacing:-0.015em">
+                <h2 class="h2" style="color:#2a4351;margin:0 0 1.75rem 0">
                     Soluciones Especializadas
                 </h2>
-                <p style="font-size:clamp(1.125rem, 2.5vw, 1.375rem);color:#6b6b6b;line-height:1.6;margin:0;max-width:800px;margin-left:auto;margin-right:auto;font-weight:300">
+                <p class="text-lg" style="color:#6b6b6b;margin:0;max-width:800px;margin-left:auto;margin-right:auto">
                     Desarrollamos programas integrales que combinan metodologías probadas con innovación constante para cada tipo de organización.
                 </p>
             </div>
