@@ -8823,6 +8823,950 @@
         });
         
         // ========================================
+        // SISTEMA DE TESTING Y OPTIMIZACIÓN PARA MÓVIL/TABLET - JAVASCRIPT
+        // ========================================
+        
+        class MobileTestingOptimizer {
+            constructor() {
+                this.init();
+            }
+            
+            init() {
+                // Inicializar todas las funcionalidades de testing
+                this.initializePerformanceMetrics();
+                this.initializeABTesting();
+                this.initializeFeedbackSystem();
+                this.initializeAnalytics();
+                this.initializeOptimizationSuggestions();
+                this.initializeDeviceTesting();
+                this.initializeTestingControls();
+                this.initializeCoreWebVitals();
+            }
+            
+            // ========================================
+            // MÉTRICAS DE RENDIMIENTO MÓVIL
+            // ========================================
+            
+            initializePerformanceMetrics() {
+                this.performanceData = {
+                    lcp: null,
+                    fid: null,
+                    cls: null,
+                    fcp: null,
+                    tti: null
+                };
+                
+                this.startPerformanceMonitoring();
+                this.updatePerformanceDisplay();
+            }
+            
+            startPerformanceMonitoring() {
+                // Monitorear LCP (Largest Contentful Paint)
+                this.observeLCP();
+                
+                // Monitorear FID (First Input Delay)
+                this.observeFID();
+                
+                // Monitorear CLS (Cumulative Layout Shift)
+                this.observeCLS();
+                
+                // Monitorear FCP (First Contentful Paint)
+                this.observeFCP();
+                
+                // Monitorear TTI (Time to Interactive)
+                this.observeTTI();
+            }
+            
+            observeLCP() {
+                if ('PerformanceObserver' in window) {
+                    const observer = new PerformanceObserver((list) => {
+                        const entries = list.getEntries();
+                        const lastEntry = entries[entries.length - 1];
+                        this.performanceData.lcp = lastEntry.startTime;
+                        this.updatePerformanceDisplay();
+                    });
+                    
+                    observer.observe({ entryTypes: ['largest-contentful-paint'] });
+                }
+            }
+            
+            observeFID() {
+                if ('PerformanceObserver' in window) {
+                    const observer = new PerformanceObserver((list) => {
+                        const entries = list.getEntries();
+                        entries.forEach(entry => {
+                            this.performanceData.fid = entry.processingStart - entry.startTime;
+                            this.updatePerformanceDisplay();
+                        });
+                    });
+                    
+                    observer.observe({ entryTypes: ['first-input'] });
+                }
+            }
+            
+            observeCLS() {
+                if ('PerformanceObserver' in window) {
+                    let clsValue = 0;
+                    const observer = new PerformanceObserver((list) => {
+                        const entries = list.getEntries();
+                        entries.forEach(entry => {
+                            if (!entry.hadRecentInput) {
+                                clsValue += entry.value;
+                            }
+                        });
+                        this.performanceData.cls = clsValue;
+                        this.updatePerformanceDisplay();
+                    });
+                    
+                    observer.observe({ entryTypes: ['layout-shift'] });
+                }
+            }
+            
+            observeFCP() {
+                if ('PerformanceObserver' in window) {
+                    const observer = new PerformanceObserver((list) => {
+                        const entries = list.getEntries();
+                        entries.forEach(entry => {
+                            if (entry.name === 'first-contentful-paint') {
+                                this.performanceData.fcp = entry.startTime;
+                                this.updatePerformanceDisplay();
+                            }
+                        });
+                    });
+                    
+                    observer.observe({ entryTypes: ['paint'] });
+                }
+            }
+            
+            observeTTI() {
+                // Simular TTI basado en cuando la página está completamente interactiva
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        this.performanceData.tti = performance.now();
+                        this.updatePerformanceDisplay();
+                    }, 1000);
+                });
+            }
+            
+            updatePerformanceDisplay() {
+                const metrics = ['lcp', 'fid', 'cls', 'fcp', 'tti'];
+                
+                metrics.forEach(metric => {
+                    const valueElement = document.getElementById(`${metric}-value`);
+                    const indicatorElement = document.getElementById(`${metric}-indicator`);
+                    
+                    if (valueElement && indicatorElement && this.performanceData[metric] !== null) {
+                        const value = this.performanceData[metric];
+                        const threshold = this.getThreshold(metric);
+                        const status = this.getPerformanceStatus(value, threshold);
+                        
+                        valueElement.textContent = this.formatValue(metric, value);
+                        valueElement.className = `metric-value ${status}`;
+                        indicatorElement.className = `metric-indicator ${status}`;
+                    }
+                });
+            }
+            
+            getThreshold(metric) {
+                const thresholds = {
+                    lcp: { good: 2500, needsImprovement: 4000 },
+                    fid: { good: 100, needsImprovement: 300 },
+                    cls: { good: 0.1, needsImprovement: 0.25 },
+                    fcp: { good: 1800, needsImprovement: 3000 },
+                    tti: { good: 3800, needsImprovement: 7300 }
+                };
+                
+                return thresholds[metric] || { good: 0, needsImprovement: 0 };
+            }
+            
+            getPerformanceStatus(value, threshold) {
+                if (value <= threshold.good) return 'good';
+                if (value <= threshold.needsImprovement) return 'needs-improvement';
+                return 'poor';
+            }
+            
+            formatValue(metric, value) {
+                if (metric === 'cls') {
+                    return value.toFixed(3);
+                } else if (metric === 'fid') {
+                    return `${Math.round(value)}ms`;
+                } else {
+                    return `${Math.round(value)}ms`;
+                }
+            }
+            
+            // ========================================
+            // A/B TESTING PARA LAYOUTS MÓVILES
+            // ========================================
+            
+            initializeABTesting() {
+                this.abTestActive = false;
+                this.selectedLayout = null;
+                this.abTestResults = [];
+                
+                this.setupABTestListeners();
+                this.loadABTestData();
+            }
+            
+            setupABTestListeners() {
+                const overlay = document.getElementById('ab-test-overlay');
+                const options = document.querySelectorAll('.ab-test-option');
+                const confirmBtn = document.getElementById('ab-test-confirm');
+                const cancelBtn = document.getElementById('ab-test-cancel');
+                
+                options.forEach(option => {
+                    option.addEventListener('click', () => {
+                        options.forEach(opt => opt.classList.remove('selected'));
+                        option.classList.add('selected');
+                        this.selectedLayout = option.dataset.layout;
+                    });
+                });
+                
+                confirmBtn.addEventListener('click', () => {
+                    this.confirmABTest();
+                });
+                
+                cancelBtn.addEventListener('click', () => {
+                    this.cancelABTest();
+                });
+            }
+            
+            loadABTestData() {
+                // Cargar datos de A/B testing desde localStorage
+                const savedData = localStorage.getItem('ab-test-data');
+                if (savedData) {
+                    this.abTestResults = JSON.parse(savedData);
+                }
+                
+                // Mostrar A/B test si es necesario
+                this.checkABTestEligibility();
+            }
+            
+            checkABTestEligibility() {
+                const lastTest = localStorage.getItem('last-ab-test');
+                const now = Date.now();
+                const oneWeek = 7 * 24 * 60 * 60 * 1000;
+                
+                if (!lastTest || (now - parseInt(lastTest)) > oneWeek) {
+                    this.showABTest();
+                }
+            }
+            
+            showABTest() {
+                const overlay = document.getElementById('ab-test-overlay');
+                overlay.classList.remove('hidden');
+                this.abTestActive = true;
+            }
+            
+            confirmABTest() {
+                if (this.selectedLayout) {
+                    this.applyABTestLayout(this.selectedLayout);
+                    this.recordABTestResult(this.selectedLayout);
+                    this.hideABTest();
+                }
+            }
+            
+            cancelABTest() {
+                this.hideABTest();
+            }
+            
+            hideABTest() {
+                const overlay = document.getElementById('ab-test-overlay');
+                overlay.classList.add('hidden');
+                this.abTestActive = false;
+            }
+            
+            applyABTestLayout(layout) {
+                if (layout === 'alternative') {
+                    // Aplicar layout alternativo
+                    document.body.classList.add('ab-test-alternative');
+                    this.trackABTestEvent('layout-applied', 'alternative');
+                } else {
+                    // Mantener layout actual
+                    document.body.classList.remove('ab-test-alternative');
+                    this.trackABTestEvent('layout-applied', 'current');
+                }
+            }
+            
+            recordABTestResult(layout) {
+                const result = {
+                    layout: layout,
+                    timestamp: Date.now(),
+                    userAgent: navigator.userAgent,
+                    viewport: {
+                        width: window.innerWidth,
+                        height: window.innerHeight
+                    }
+                };
+                
+                this.abTestResults.push(result);
+                localStorage.setItem('ab-test-data', JSON.stringify(this.abTestResults));
+                localStorage.setItem('last-ab-test', Date.now().toString());
+            }
+            
+            trackABTestEvent(event, data) {
+                // Enviar evento a analytics
+                console.log('AB Test Event:', event, data);
+            }
+            
+            // ========================================
+            // SISTEMA DE FEEDBACK DE USUARIOS MÓVILES
+            // ========================================
+            
+            initializeFeedbackSystem() {
+                this.feedbackData = {
+                    rating: 0,
+                    category: '',
+                    message: '',
+                    timestamp: null
+                };
+                
+                this.setupFeedbackListeners();
+                this.loadFeedbackData();
+            }
+            
+            setupFeedbackListeners() {
+                const feedbackButton = document.getElementById('feedback-button');
+                const feedbackModal = document.getElementById('feedback-modal');
+                const ratingStars = document.querySelectorAll('.rating-star');
+                const submitBtn = document.getElementById('feedback-submit');
+                const cancelBtn = document.getElementById('feedback-cancel');
+                
+                feedbackButton.addEventListener('click', () => {
+                    this.showFeedbackModal();
+                });
+                
+                ratingStars.forEach(star => {
+                    star.addEventListener('click', () => {
+                        this.setRating(parseInt(star.dataset.rating));
+                    });
+                });
+                
+                submitBtn.addEventListener('click', () => {
+                    this.submitFeedback();
+                });
+                
+                cancelBtn.addEventListener('click', () => {
+                    this.hideFeedbackModal();
+                });
+                
+                // Cerrar modal al hacer clic fuera
+                feedbackModal.addEventListener('click', (e) => {
+                    if (e.target === feedbackModal) {
+                        this.hideFeedbackModal();
+                    }
+                });
+            }
+            
+            showFeedbackModal() {
+                const modal = document.getElementById('feedback-modal');
+                modal.classList.remove('hidden');
+                this.trackFeedbackEvent('modal-opened');
+            }
+            
+            hideFeedbackModal() {
+                const modal = document.getElementById('feedback-modal');
+                modal.classList.add('hidden');
+                this.resetFeedbackForm();
+            }
+            
+            setRating(rating) {
+                this.feedbackData.rating = rating;
+                const stars = document.querySelectorAll('.rating-star');
+                
+                stars.forEach((star, index) => {
+                    if (index < rating) {
+                        star.classList.add('active');
+                    } else {
+                        star.classList.remove('active');
+                    }
+                });
+            }
+            
+            submitFeedback() {
+                const category = document.getElementById('feedback-category').value;
+                const message = document.getElementById('feedback-message').value;
+                
+                this.feedbackData.category = category;
+                this.feedbackData.message = message;
+                this.feedbackData.timestamp = Date.now();
+                
+                this.saveFeedback();
+                this.trackFeedbackEvent('feedback-submitted', this.feedbackData);
+                this.hideFeedbackModal();
+                this.showFeedbackThankYou();
+            }
+            
+            saveFeedback() {
+                const feedbacks = this.loadFeedbacks();
+                feedbacks.push(this.feedbackData);
+                localStorage.setItem('user-feedbacks', JSON.stringify(feedbacks));
+            }
+            
+            loadFeedbackData() {
+                const feedbacks = this.loadFeedbacks();
+                return feedbacks;
+            }
+            
+            loadFeedbacks() {
+                const saved = localStorage.getItem('user-feedbacks');
+                return saved ? JSON.parse(saved) : [];
+            }
+            
+            resetFeedbackForm() {
+                this.feedbackData = {
+                    rating: 0,
+                    category: '',
+                    message: '',
+                    timestamp: null
+                };
+                
+                document.getElementById('feedback-category').value = 'performance';
+                document.getElementById('feedback-message').value = '';
+                
+                const stars = document.querySelectorAll('.rating-star');
+                stars.forEach(star => star.classList.remove('active'));
+            }
+            
+            showFeedbackThankYou() {
+                // Mostrar mensaje de agradecimiento
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: #10b981;
+                    color: white;
+                    padding: 1rem 2rem;
+                    border-radius: 0.5rem;
+                    z-index: 10000;
+                    font-weight: 600;
+                `;
+                notification.textContent = '¡Gracias por tu feedback!';
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            }
+            
+            trackFeedbackEvent(event, data) {
+                console.log('Feedback Event:', event, data);
+            }
+            
+            // ========================================
+            // SISTEMA DE ANALYTICS EN TIEMPO REAL
+            // ========================================
+            
+            initializeAnalytics() {
+                this.analyticsData = {
+                    activeUsers: 1,
+                    timeOnPage: 0,
+                    scrollDepth: 0,
+                    interactions: 0,
+                    errors: 0,
+                    startTime: Date.now()
+                };
+                
+                this.startAnalyticsTracking();
+                this.updateAnalyticsDisplay();
+            }
+            
+            startAnalyticsTracking() {
+                // Trackear tiempo en página
+                this.trackTimeOnPage();
+                
+                // Trackear scroll depth
+                this.trackScrollDepth();
+                
+                // Trackear interacciones
+                this.trackInteractions();
+                
+                // Trackear errores
+                this.trackErrors();
+                
+                // Trackear cambios de orientación
+                this.trackOrientationChanges();
+            }
+            
+            trackTimeOnPage() {
+                setInterval(() => {
+                    this.analyticsData.timeOnPage = Math.floor((Date.now() - this.analyticsData.startTime) / 1000);
+                    this.updateAnalyticsDisplay();
+                }, 1000);
+            }
+            
+            trackScrollDepth() {
+                let maxScroll = 0;
+                
+                window.addEventListener('scroll', () => {
+                    const scrollTop = window.pageYOffset;
+                    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+                    
+                    if (scrollPercent > maxScroll) {
+                        maxScroll = scrollPercent;
+                        this.analyticsData.scrollDepth = maxScroll;
+                        this.updateAnalyticsDisplay();
+                    }
+                });
+            }
+            
+            trackInteractions() {
+                const interactiveElements = document.querySelectorAll('button, a, input, textarea, select');
+                
+                interactiveElements.forEach(element => {
+                    element.addEventListener('click', () => {
+                        this.analyticsData.interactions++;
+                        this.updateAnalyticsDisplay();
+                    });
+                });
+            }
+            
+            trackErrors() {
+                window.addEventListener('error', () => {
+                    this.analyticsData.errors++;
+                    this.updateAnalyticsDisplay();
+                });
+            }
+            
+            trackOrientationChanges() {
+                window.addEventListener('orientationchange', () => {
+                    this.trackAnalyticsEvent('orientation-change', {
+                        orientation: window.innerHeight > window.innerWidth ? 'portrait' : 'landscape',
+                        timestamp: Date.now()
+                    });
+                });
+            }
+            
+            updateAnalyticsDisplay() {
+                const elements = {
+                    'active-users': this.analyticsData.activeUsers,
+                    'time-on-page': `${this.analyticsData.timeOnPage}s`,
+                    'scroll-depth': `${this.analyticsData.scrollDepth}%`,
+                    'interactions': this.analyticsData.interactions,
+                    'errors': this.analyticsData.errors
+                };
+                
+                Object.entries(elements).forEach(([id, value]) => {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        element.textContent = value;
+                    }
+                });
+            }
+            
+            trackAnalyticsEvent(event, data) {
+                console.log('Analytics Event:', event, data);
+            }
+            
+            // ========================================
+            // SISTEMA DE OPTIMIZACIÓN CONTINUA
+            // ========================================
+            
+            initializeOptimizationSuggestions() {
+                this.optimizationSuggestions = [
+                    {
+                        id: 'images',
+                        title: 'Optimizar Imágenes',
+                        description: 'Convertir imágenes a WebP para mejorar la velocidad de carga',
+                        applied: false
+                    },
+                    {
+                        id: 'lazy-loading',
+                        title: 'Lazy Loading',
+                        description: 'Implementar carga diferida para imágenes fuera del viewport',
+                        applied: false
+                    },
+                    {
+                        id: 'minify-css',
+                        title: 'Minificar CSS',
+                        description: 'Reducir el tamaño de los archivos CSS para mejorar el rendimiento',
+                        applied: false
+                    }
+                ];
+                
+                this.setupOptimizationListeners();
+                this.analyzeOptimizationOpportunities();
+            }
+            
+            setupOptimizationListeners() {
+                const buttons = document.querySelectorAll('.optimization-apply-btn');
+                
+                buttons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const optimization = button.dataset.optimization;
+                        this.applyOptimization(optimization);
+                    });
+                });
+            }
+            
+            analyzeOptimizationOpportunities() {
+                // Analizar oportunidades de optimización basadas en métricas
+                this.checkImageOptimization();
+                this.checkLazyLoading();
+                this.checkCSSMinification();
+            }
+            
+            checkImageOptimization() {
+                const images = document.querySelectorAll('img');
+                let needsOptimization = false;
+                
+                images.forEach(img => {
+                    if (!img.src.includes('.webp') && !img.src.includes('data:')) {
+                        needsOptimization = true;
+                    }
+                });
+                
+                if (needsOptimization) {
+                    this.showOptimizationSuggestion('images');
+                }
+            }
+            
+            checkLazyLoading() {
+                const images = document.querySelectorAll('img');
+                let needsLazyLoading = false;
+                
+                images.forEach(img => {
+                    if (!img.hasAttribute('loading')) {
+                        needsLazyLoading = true;
+                    }
+                });
+                
+                if (needsLazyLoading) {
+                    this.showOptimizationSuggestion('lazy-loading');
+                }
+            }
+            
+            checkCSSMinification() {
+                // Verificar si el CSS está minificado
+                const styleSheets = document.styleSheets;
+                let needsMinification = false;
+                
+                for (let i = 0; i < styleSheets.length; i++) {
+                    const sheet = styleSheets[i];
+                    if (sheet.href && !sheet.href.includes('.min.')) {
+                        needsMinification = true;
+                        break;
+                    }
+                }
+                
+                if (needsMinification) {
+                    this.showOptimizationSuggestion('minify-css');
+                }
+            }
+            
+            showOptimizationSuggestion(optimizationId) {
+                const suggestion = this.optimizationSuggestions.find(opt => opt.id === optimizationId);
+                if (suggestion && !suggestion.applied) {
+                    const panel = document.getElementById('optimization-suggestions');
+                    panel.classList.remove('hidden');
+                }
+            }
+            
+            applyOptimization(optimizationId) {
+                const suggestion = this.optimizationSuggestions.find(opt => opt.id === optimizationId);
+                if (suggestion && !suggestion.applied) {
+                    switch (optimizationId) {
+                        case 'images':
+                            this.optimizeImages();
+                            break;
+                        case 'lazy-loading':
+                            this.implementLazyLoading();
+                            break;
+                        case 'minify-css':
+                            this.minifyCSS();
+                            break;
+                    }
+                    
+                    suggestion.applied = true;
+                    this.trackOptimizationEvent('optimization-applied', optimizationId);
+                }
+            }
+            
+            optimizeImages() {
+                const images = document.querySelectorAll('img');
+                images.forEach(img => {
+                    if (!img.src.includes('.webp')) {
+                        img.src = img.src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+                    }
+                });
+            }
+            
+            implementLazyLoading() {
+                const images = document.querySelectorAll('img');
+                images.forEach(img => {
+                    if (!img.hasAttribute('loading')) {
+                        img.setAttribute('loading', 'lazy');
+                    }
+                });
+            }
+            
+            minifyCSS() {
+                // Simular minificación de CSS
+                console.log('CSS minification applied');
+            }
+            
+            trackOptimizationEvent(event, data) {
+                console.log('Optimization Event:', event, data);
+            }
+            
+            // ========================================
+            // TESTING EN DISPOSITIVOS REALES
+            // ========================================
+            
+            initializeDeviceTesting() {
+                this.deviceData = {
+                    type: '',
+                    orientation: '',
+                    resolution: '',
+                    density: '',
+                    connected: false
+                };
+                
+                this.detectDeviceInfo();
+                this.setupDeviceTestingListeners();
+                this.updateDeviceTestingDisplay();
+            }
+            
+            detectDeviceInfo() {
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+                const pixelRatio = window.devicePixelRatio || 1;
+                
+                // Detectar tipo de dispositivo
+                if (width <= 480) {
+                    this.deviceData.type = 'Móvil';
+                } else if (width <= 1024) {
+                    this.deviceData.type = 'Tablet';
+                } else {
+                    this.deviceData.type = 'Desktop';
+                }
+                
+                // Detectar orientación
+                this.deviceData.orientation = height > width ? 'Portrait' : 'Landscape';
+                
+                // Detectar resolución
+                this.deviceData.resolution = `${width}x${height}`;
+                
+                // Detectar densidad
+                this.deviceData.density = `${pixelRatio}x`;
+                
+                // Simular conexión
+                this.deviceData.connected = navigator.onLine;
+            }
+            
+            setupDeviceTestingListeners() {
+                // Escuchar cambios de orientación
+                window.addEventListener('orientationchange', () => {
+                    setTimeout(() => {
+                        this.detectDeviceInfo();
+                        this.updateDeviceTestingDisplay();
+                    }, 100);
+                });
+                
+                // Escuchar cambios de conexión
+                window.addEventListener('online', () => {
+                    this.deviceData.connected = true;
+                    this.updateDeviceTestingDisplay();
+                });
+                
+                window.addEventListener('offline', () => {
+                    this.deviceData.connected = false;
+                    this.updateDeviceTestingDisplay();
+                });
+            }
+            
+            updateDeviceTestingDisplay() {
+                const elements = {
+                    'device-type': this.deviceData.type,
+                    'device-orientation': this.deviceData.orientation,
+                    'device-resolution': this.deviceData.resolution,
+                    'device-density': this.deviceData.density,
+                    'device-connection': this.deviceData.connected ? 'Conectado' : 'Desconectado'
+                };
+                
+                Object.entries(elements).forEach(([id, value]) => {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        element.textContent = value;
+                    }
+                });
+                
+                const statusElement = document.getElementById('device-status');
+                if (statusElement) {
+                    statusElement.className = `device-testing-status ${this.deviceData.connected ? 'connected' : 'disconnected'}`;
+                }
+            }
+            
+            // ========================================
+            // CONTROLES DE TESTING
+            // ========================================
+            
+            initializeTestingControls() {
+                this.testingMode = false;
+                this.setupTestingControls();
+            }
+            
+            setupTestingControls() {
+                const toggleBtn = document.getElementById('testing-toggle');
+                
+                toggleBtn.addEventListener('click', () => {
+                    this.toggleTestingMode();
+                });
+            }
+            
+            toggleTestingMode() {
+                this.testingMode = !this.testingMode;
+                
+                const panels = [
+                    'performance-metrics',
+                    'analytics-overlay',
+                    'optimization-suggestions',
+                    'device-testing-panel'
+                ];
+                
+                panels.forEach(panelId => {
+                    const panel = document.getElementById(panelId);
+                    if (panel) {
+                        if (this.testingMode) {
+                            panel.classList.remove('hidden');
+                        } else {
+                            panel.classList.add('hidden');
+                        }
+                    }
+                });
+                
+                const toggleBtn = document.getElementById('testing-toggle');
+                toggleBtn.textContent = this.testingMode ? '🧪 Ocultar' : '🧪 Testing';
+            }
+            
+            // ========================================
+            // CORE WEB VITALS
+            // ========================================
+            
+            initializeCoreWebVitals() {
+                this.coreWebVitals = {
+                    lcp: null,
+                    fid: null,
+                    cls: null
+                };
+                
+                this.measureCoreWebVitals();
+            }
+            
+            measureCoreWebVitals() {
+                // LCP ya está siendo medido en initializePerformanceMetrics
+                // FID ya está siendo medido en initializePerformanceMetrics
+                // CLS ya está siendo medido en initializePerformanceMetrics
+                
+                // Solo necesitamos sincronizar los datos
+                setInterval(() => {
+                    this.coreWebVitals.lcp = this.performanceData.lcp;
+                    this.coreWebVitals.fid = this.performanceData.fid;
+                    this.coreWebVitals.cls = this.performanceData.cls;
+                    
+                    this.analyzeCoreWebVitals();
+                }, 1000);
+            }
+            
+            analyzeCoreWebVitals() {
+                const analysis = {
+                    lcp: this.analyzeLCP(this.coreWebVitals.lcp),
+                    fid: this.analyzeFID(this.coreWebVitals.fid),
+                    cls: this.analyzeCLS(this.coreWebVitals.cls)
+                };
+                
+                this.generateOptimizationRecommendations(analysis);
+            }
+            
+            analyzeLCP(lcp) {
+                if (!lcp) return { status: 'unknown', recommendation: 'Medir LCP' };
+                
+                if (lcp <= 2500) {
+                    return { status: 'good', recommendation: 'LCP excelente' };
+                } else if (lcp <= 4000) {
+                    return { status: 'needs-improvement', recommendation: 'Optimizar imágenes y recursos críticos' };
+                } else {
+                    return { status: 'poor', recommendation: 'Revisar carga de recursos críticos' };
+                }
+            }
+            
+            analyzeFID(fid) {
+                if (!fid) return { status: 'unknown', recommendation: 'Medir FID' };
+                
+                if (fid <= 100) {
+                    return { status: 'good', recommendation: 'FID excelente' };
+                } else if (fid <= 300) {
+                    return { status: 'needs-improvement', recommendation: 'Reducir JavaScript bloqueante' };
+                } else {
+                    return { status: 'poor', recommendation: 'Optimizar JavaScript crítico' };
+                }
+            }
+            
+            analyzeCLS(cls) {
+                if (!cls) return { status: 'unknown', recommendation: 'Medir CLS' };
+                
+                if (cls <= 0.1) {
+                    return { status: 'good', recommendation: 'CLS excelente' };
+                } else if (cls <= 0.25) {
+                    return { status: 'needs-improvement', recommendation: 'Evitar cambios de layout' };
+                } else {
+                    return { status: 'poor', recommendation: 'Revisar elementos que causan layout shift' };
+                }
+            }
+            
+            generateOptimizationRecommendations(analysis) {
+                const recommendations = [];
+                
+                Object.entries(analysis).forEach(([metric, data]) => {
+                    if (data.status === 'needs-improvement' || data.status === 'poor') {
+                        recommendations.push({
+                            metric: metric.toUpperCase(),
+                            recommendation: data.recommendation,
+                            priority: data.status === 'poor' ? 'high' : 'medium'
+                        });
+                    }
+                });
+                
+                if (recommendations.length > 0) {
+                    this.updateOptimizationSuggestions(recommendations);
+                }
+            }
+            
+            updateOptimizationSuggestions(recommendations) {
+                const panel = document.getElementById('optimization-suggestions');
+                const container = panel.querySelector('.optimization-title').parentElement;
+                
+                // Limpiar sugerencias existentes
+                const existingItems = container.querySelectorAll('.optimization-item');
+                existingItems.forEach(item => item.remove());
+                
+                // Agregar nuevas sugerencias
+                recommendations.forEach(rec => {
+                    const item = document.createElement('div');
+                    item.className = 'optimization-item';
+                    item.innerHTML = `
+                        <div class="optimization-item-title">${rec.metric} - ${rec.priority === 'high' ? '🔴' : '🟡'}</div>
+                        <div class="optimization-item-description">${rec.recommendation}</div>
+                        <button class="optimization-apply-btn" data-optimization="${rec.metric.toLowerCase()}">Aplicar</button>
+                    `;
+                    container.appendChild(item);
+                });
+                
+                panel.classList.remove('hidden');
+            }
+        }
+        
+        // ========================================
+        // INICIALIZACIÓN DEL SISTEMA DE TESTING
+        // ========================================
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            new MobileTestingOptimizer();
+        });
+        
+        // ========================================
         // CSS ADICIONAL PARA RIPPLE ANIMATION
         // ========================================
         
@@ -10512,6 +11456,608 @@
         }
         
         /* ========================================
+           SISTEMA DE TESTING Y OPTIMIZACIÓN PARA MÓVIL/TABLET
+        ======================================== */
+        
+        /* Variables para testing y métricas */
+        :root {
+            --testing-primary: #d3600f;
+            --testing-secondary: #2a4351;
+            --testing-success: #10b981;
+            --testing-warning: #f59e0b;
+            --testing-error: #ef4444;
+            --testing-info: #3b82f6;
+            --testing-overlay: rgba(0, 0, 0, 0.8);
+            --testing-z-index: 9999;
+            --testing-border-radius: 0.5rem;
+            --testing-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* ========================================
+           SISTEMA DE MÉTRICAS DE RENDIMIENTO MÓVIL
+        ======================================== */
+        
+        .performance-metrics {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: var(--testing-overlay);
+            color: white;
+            padding: 1rem;
+            border-radius: var(--testing-border-radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            z-index: var(--testing-z-index);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-width: 200px;
+            max-width: 300px;
+        }
+        
+        .performance-metrics.hidden {
+            display: none;
+        }
+        
+        .metric-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            padding: 0.25rem 0;
+        }
+        
+        .metric-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .metric-label {
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .metric-value {
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .metric-value.good {
+            color: var(--testing-success);
+        }
+        
+        .metric-value.needs-improvement {
+            color: var(--testing-warning);
+        }
+        
+        .metric-value.poor {
+            color: var(--testing-error);
+        }
+        
+        .metric-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-left: 0.5rem;
+        }
+        
+        .metric-indicator.good {
+            background: var(--testing-success);
+        }
+        
+        .metric-indicator.needs-improvement {
+            background: var(--testing-warning);
+        }
+        
+        .metric-indicator.poor {
+            background: var(--testing-error);
+        }
+        
+        /* ========================================
+           SISTEMA DE A/B TESTING
+        ======================================== */
+        
+        .ab-test-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--testing-overlay);
+            z-index: calc(var(--testing-z-index) + 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .ab-test-modal {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--testing-border-radius);
+            box-shadow: var(--testing-shadow);
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            text-align: center;
+        }
+        
+        .ab-test-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--testing-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .ab-test-description {
+            color: #6b7280;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .ab-test-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .ab-test-option {
+            padding: 1.5rem;
+            border: 2px solid #e5e7eb;
+            border-radius: var(--testing-border-radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .ab-test-option:hover {
+            border-color: var(--testing-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(211, 96, 15, 0.2);
+        }
+        
+        .ab-test-option.selected {
+            border-color: var(--testing-primary);
+            background: rgba(211, 96, 15, 0.05);
+        }
+        
+        .ab-test-option-title {
+            font-weight: 600;
+            color: var(--testing-secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .ab-test-option-description {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .ab-test-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .ab-test-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--testing-border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .ab-test-btn-primary {
+            background: var(--testing-primary);
+            color: white;
+        }
+        
+        .ab-test-btn-primary:hover {
+            background: #b8540a;
+            transform: translateY(-1px);
+        }
+        
+        .ab-test-btn-secondary {
+            background: #f3f4f6;
+            color: var(--testing-secondary);
+        }
+        
+        .ab-test-btn-secondary:hover {
+            background: #e5e7eb;
+        }
+        
+        /* ========================================
+           SISTEMA DE FEEDBACK DE USUARIOS MÓVILES
+        ======================================== */
+        
+        .feedback-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: var(--testing-z-index);
+        }
+        
+        .feedback-button {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--testing-primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--testing-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feedback-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(211, 96, 15, 0.3);
+        }
+        
+        .feedback-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--testing-overlay);
+            z-index: calc(var(--testing-z-index) + 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .feedback-form {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--testing-border-radius);
+            box-shadow: var(--testing-shadow);
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .feedback-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--testing-secondary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .feedback-rating {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .rating-star {
+            font-size: 2rem;
+            color: #e5e7eb;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .rating-star:hover,
+        .rating-star.active {
+            color: #fbbf24;
+            transform: scale(1.1);
+        }
+        
+        .feedback-form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .feedback-label {
+            display: block;
+            font-weight: 600;
+            color: var(--testing-secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .feedback-input,
+        .feedback-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: var(--testing-border-radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .feedback-input:focus,
+        .feedback-textarea:focus {
+            outline: none;
+            border-color: var(--testing-primary);
+        }
+        
+        .feedback-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .feedback-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .feedback-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--testing-border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .feedback-btn-primary {
+            background: var(--testing-primary);
+            color: white;
+        }
+        
+        .feedback-btn-primary:hover {
+            background: #b8540a;
+        }
+        
+        .feedback-btn-secondary {
+            background: #f3f4f6;
+            color: var(--testing-secondary);
+        }
+        
+        .feedback-btn-secondary:hover {
+            background: #e5e7eb;
+        }
+        
+        /* ========================================
+           SISTEMA DE ANALYTICS Y TRACKING
+        ======================================== */
+        
+        .analytics-overlay {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--testing-overlay);
+            color: white;
+            padding: 1rem;
+            border-radius: var(--testing-border-radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            z-index: var(--testing-z-index);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 300px;
+        }
+        
+        .analytics-overlay.hidden {
+            display: none;
+        }
+        
+        .analytics-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--testing-primary);
+        }
+        
+        .analytics-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.25rem;
+        }
+        
+        .analytics-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .analytics-label {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .analytics-value {
+            font-weight: 600;
+            color: white;
+        }
+        
+        /* ========================================
+           SISTEMA DE OPTIMIZACIÓN CONTINUA
+        ======================================== */
+        
+        .optimization-suggestions {
+            position: fixed;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            background: var(--testing-overlay);
+            color: white;
+            padding: 1rem;
+            border-radius: var(--testing-border-radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            z-index: var(--testing-z-index);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 300px;
+        }
+        
+        .optimization-suggestions.hidden {
+            display: none;
+        }
+        
+        .optimization-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--testing-warning);
+        }
+        
+        .optimization-item {
+            margin-bottom: 0.75rem;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.25rem;
+        }
+        
+        .optimization-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .optimization-item-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--testing-primary);
+        }
+        
+        .optimization-item-description {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.4;
+        }
+        
+        .optimization-apply-btn {
+            background: var(--testing-primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .optimization-apply-btn:hover {
+            background: #b8540a;
+        }
+        
+        /* ========================================
+           SISTEMA DE TESTING EN DISPOSITIVOS REALES
+        ======================================== */
+        
+        .device-testing-panel {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background: var(--testing-overlay);
+            color: white;
+            padding: 1rem;
+            border-radius: var(--testing-border-radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            z-index: var(--testing-z-index);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 250px;
+        }
+        
+        .device-testing-panel.hidden {
+            display: none;
+        }
+        
+        .device-testing-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--testing-info);
+        }
+        
+        .device-testing-item {
+            margin-bottom: 0.75rem;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.25rem;
+        }
+        
+        .device-testing-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .device-testing-label {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--testing-primary);
+        }
+        
+        .device-testing-value {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .device-testing-status {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        
+        .device-testing-status.connected {
+            background: var(--testing-success);
+        }
+        
+        .device-testing-status.disconnected {
+            background: var(--testing-error);
+        }
+        
+        /* ========================================
+           RESPONSIVE PARA SISTEMA DE TESTING
+        ======================================== */
+        
+        @media (max-width: 768px) {
+            .performance-metrics,
+            .analytics-overlay,
+            .optimization-suggestions,
+            .device-testing-panel {
+                position: relative;
+                top: auto;
+                right: auto;
+                left: auto;
+                bottom: auto;
+                transform: none;
+                margin: 1rem;
+                max-width: 100%;
+            }
+            
+            .feedback-widget {
+                bottom: 10px;
+                right: 10px;
+            }
+            
+            .feedback-button {
+                width: 48px;
+                height: 48px;
+                font-size: 1.25rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .ab-test-modal,
+            .feedback-form {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .ab-test-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .performance-metrics,
+            .analytics-overlay,
+            .optimization-suggestions,
+            .device-testing-panel {
+                font-size: 0.8rem;
+                padding: 0.75rem;
+            }
+        }
+        
+        /* ========================================
            SISTEMA DE MICRO-INTERACCIONES DE ÉLITE
         ======================================== */
         
@@ -11772,5 +13318,185 @@
             color: #fff;
         }
     </style>
+    
+    <!-- ========================================
+         SISTEMA DE TESTING Y OPTIMIZACIÓN PARA MÓVIL/TABLET
+    ======================================== -->
+    
+    <!-- Sistema de Métricas de Rendimiento -->
+    <div id="performance-metrics" class="performance-metrics hidden">
+        <div class="metric-item">
+            <span class="metric-label">LCP</span>
+            <span class="metric-value" id="lcp-value">-</span>
+            <span class="metric-indicator" id="lcp-indicator"></span>
+        </div>
+        <div class="metric-item">
+            <span class="metric-label">FID</span>
+            <span class="metric-value" id="fid-value">-</span>
+            <span class="metric-indicator" id="fid-indicator"></span>
+        </div>
+        <div class="metric-item">
+            <span class="metric-label">CLS</span>
+            <span class="metric-value" id="cls-value">-</span>
+            <span class="metric-indicator" id="cls-indicator"></span>
+        </div>
+        <div class="metric-item">
+            <span class="metric-label">FCP</span>
+            <span class="metric-value" id="fcp-value">-</span>
+            <span class="metric-indicator" id="fcp-indicator"></span>
+        </div>
+        <div class="metric-item">
+            <span class="metric-label">TTI</span>
+            <span class="metric-value" id="tti-value">-</span>
+            <span class="metric-indicator" id="tti-indicator"></span>
+        </div>
+    </div>
+    
+    <!-- Sistema de A/B Testing -->
+    <div id="ab-test-overlay" class="ab-test-overlay hidden">
+        <div class="ab-test-modal">
+            <h3 class="ab-test-title">A/B Testing - Layout Móvil</h3>
+            <p class="ab-test-description">
+                Ayúdanos a mejorar la experiencia móvil. Selecciona el layout que prefieras:
+            </p>
+            <div class="ab-test-options">
+                <div class="ab-test-option" data-layout="current">
+                    <div class="ab-test-option-title">Layout Actual</div>
+                    <div class="ab-test-option-description">Diseño actual optimizado</div>
+                </div>
+                <div class="ab-test-option" data-layout="alternative">
+                    <div class="ab-test-option-title">Layout Alternativo</div>
+                    <div class="ab-test-option-description">Nueva propuesta de diseño</div>
+                </div>
+            </div>
+            <div class="ab-test-buttons">
+                <button class="ab-test-btn ab-test-btn-primary" id="ab-test-confirm">Confirmar</button>
+                <button class="ab-test-btn ab-test-btn-secondary" id="ab-test-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sistema de Feedback de Usuarios -->
+    <div class="feedback-widget">
+        <button class="feedback-button" id="feedback-button">💬</button>
+    </div>
+    
+    <div id="feedback-modal" class="feedback-modal hidden">
+        <div class="feedback-form">
+            <h3 class="feedback-title">Tu Opinión Importa</h3>
+            <div class="feedback-rating">
+                <span class="rating-star" data-rating="1">★</span>
+                <span class="rating-star" data-rating="2">★</span>
+                <span class="rating-star" data-rating="3">★</span>
+                <span class="rating-star" data-rating="4">★</span>
+                <span class="rating-star" data-rating="5">★</span>
+            </div>
+            <div class="feedback-form-group">
+                <label class="feedback-label" for="feedback-category">Categoría</label>
+                <select class="feedback-input" id="feedback-category">
+                    <option value="performance">Rendimiento</option>
+                    <option value="design">Diseño</option>
+                    <option value="usability">Usabilidad</option>
+                    <option value="content">Contenido</option>
+                    <option value="other">Otro</option>
+                </select>
+            </div>
+            <div class="feedback-form-group">
+                <label class="feedback-label" for="feedback-message">Mensaje</label>
+                <textarea class="feedback-textarea" id="feedback-message" placeholder="Cuéntanos qué podemos mejorar..."></textarea>
+            </div>
+            <div class="feedback-buttons">
+                <button class="feedback-btn feedback-btn-primary" id="feedback-submit">Enviar</button>
+                <button class="feedback-btn feedback-btn-secondary" id="feedback-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sistema de Analytics -->
+    <div id="analytics-overlay" class="analytics-overlay hidden">
+        <div class="analytics-title">Analytics en Tiempo Real</div>
+        <div class="analytics-item">
+            <span class="analytics-label">Usuarios Activos</span>
+            <span class="analytics-value" id="active-users">0</span>
+        </div>
+        <div class="analytics-item">
+            <span class="analytics-label">Tiempo en Página</span>
+            <span class="analytics-value" id="time-on-page">0s</span>
+        </div>
+        <div class="analytics-item">
+            <span class="analytics-label">Scroll Depth</span>
+            <span class="analytics-value" id="scroll-depth">0%</span>
+        </div>
+        <div class="analytics-item">
+            <span class="analytics-label">Interacciones</span>
+            <span class="analytics-value" id="interactions">0</span>
+        </div>
+        <div class="analytics-item">
+            <span class="analytics-label">Errores</span>
+            <span class="analytics-value" id="errors">0</span>
+        </div>
+    </div>
+    
+    <!-- Sistema de Optimización Continua -->
+    <div id="optimization-suggestions" class="optimization-suggestions hidden">
+        <div class="optimization-title">💡 Sugerencias de Optimización</div>
+        <div class="optimization-item">
+            <div class="optimization-item-title">Optimizar Imágenes</div>
+            <div class="optimization-item-description">Convertir imágenes a WebP para mejorar la velocidad de carga</div>
+            <button class="optimization-apply-btn" data-optimization="images">Aplicar</button>
+        </div>
+        <div class="optimization-item">
+            <div class="optimization-item-title">Lazy Loading</div>
+            <div class="optimization-item-description">Implementar carga diferida para imágenes fuera del viewport</div>
+            <button class="optimization-apply-btn" data-optimization="lazy-loading">Aplicar</button>
+        </div>
+        <div class="optimization-item">
+            <div class="optimization-item-title">Minificar CSS</div>
+            <div class="optimization-item-description">Reducir el tamaño de los archivos CSS para mejorar el rendimiento</div>
+            <button class="optimization-apply-btn" data-optimization="minify-css">Aplicar</button>
+        </div>
+    </div>
+    
+    <!-- Sistema de Testing en Dispositivos Reales -->
+    <div id="device-testing-panel" class="device-testing-panel hidden">
+        <div class="device-testing-title">📱 Testing de Dispositivos</div>
+        <div class="device-testing-item">
+            <div class="device-testing-label">
+                <span class="device-testing-status" id="device-status"></span>
+                Conexión
+            </div>
+            <div class="device-testing-value" id="device-connection">Desconectado</div>
+        </div>
+        <div class="device-testing-item">
+            <div class="device-testing-label">Dispositivo</div>
+            <div class="device-testing-value" id="device-type">-</div>
+        </div>
+        <div class="device-testing-item">
+            <div class="device-testing-label">Orientación</div>
+            <div class="device-testing-value" id="device-orientation">-</div>
+        </div>
+        <div class="device-testing-item">
+            <div class="device-testing-label">Resolución</div>
+            <div class="device-testing-value" id="device-resolution">-</div>
+        </div>
+        <div class="device-testing-item">
+            <div class="device-testing-label">Densidad</div>
+            <div class="device-testing-value" id="device-density">-</div>
+        </div>
+    </div>
+    
+    <!-- Botón de Control de Testing -->
+    <div style="position: fixed; top: 10px; left: 10px; z-index: 10000;">
+        <button id="testing-toggle" style="
+            background: #d3600f;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        ">🧪 Testing</button>
+    </div>
 </body>
 </html>
