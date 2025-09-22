@@ -8257,6 +8257,572 @@
         });
         
         // ========================================
+        // SISTEMA DE OPTIMIZACIÓN PARA ORIENTACIONES Y DISPOSITIVOS - JAVASCRIPT
+        // ========================================
+        
+        class OrientationDeviceOptimizer {
+            constructor() {
+                this.init();
+            }
+            
+            init() {
+                // Inicializar todas las optimizaciones
+                this.initializeOrientationDetection();
+                this.initializeDeviceDetection();
+                this.initializeSafeAreas();
+                this.initializeFoldableSupport();
+                this.initializePixelDensityOptimization();
+                this.initializeViewportOptimization();
+                this.initializeLayoutSwitching();
+                this.initializeResponsiveImages();
+            }
+            
+            // ========================================
+            // DETECCIÓN DE ORIENTACIÓN
+            // ========================================
+            
+            initializeOrientationDetection() {
+                // Detectar orientación inicial
+                this.detectOrientation();
+                
+                // Escuchar cambios de orientación
+                window.addEventListener('orientationchange', () => {
+                    setTimeout(() => {
+                        this.detectOrientation();
+                        this.optimizeLayoutForOrientation();
+                    }, 100);
+                });
+                
+                // Escuchar cambios de tamaño de ventana
+                window.addEventListener('resize', () => {
+                    this.detectOrientation();
+                    this.optimizeLayoutForOrientation();
+                });
+            }
+            
+            detectOrientation() {
+                const orientation = window.innerHeight > window.innerWidth ? 'portrait' : 'landscape';
+                const aspectRatio = window.innerWidth / window.innerHeight;
+                
+                // Aplicar clases de orientación
+                document.body.classList.remove('orientation-portrait', 'orientation-landscape');
+                document.body.classList.add(`orientation-${orientation}`);
+                
+                // Aplicar clases específicas por ratio
+                this.applyAspectRatioClasses(aspectRatio);
+                
+                // Guardar información de orientación
+                this.currentOrientation = orientation;
+                this.currentAspectRatio = aspectRatio;
+            }
+            
+            applyAspectRatioClasses(aspectRatio) {
+                // Remover clases anteriores
+                document.body.classList.remove(
+                    'ultra-wide-layout',
+                    'square-layout',
+                    'tall-layout',
+                    'foldable-layout',
+                    'foldable-unfolded-layout'
+                );
+                
+                // Aplicar clases basadas en ratio
+                if (aspectRatio >= 2.1) {
+                    document.body.classList.add('ultra-wide-layout');
+                } else if (aspectRatio >= 0.9 && aspectRatio <= 1.1) {
+                    document.body.classList.add('square-layout');
+                } else if (aspectRatio >= 0.75 && aspectRatio <= 0.8) {
+                    document.body.classList.add('tall-layout');
+                } else if (aspectRatio <= 0.43) {
+                    // Dispositivo plegable plegado
+                    document.body.classList.add('foldable-layout');
+                } else if (aspectRatio >= 0.75 && aspectRatio <= 0.8 && window.innerWidth >= 768) {
+                    // Dispositivo plegable desplegado
+                    document.body.classList.add('foldable-unfolded-layout');
+                }
+            }
+            
+            optimizeLayoutForOrientation() {
+                const sections = document.querySelectorAll('section');
+                
+                sections.forEach(section => {
+                    if (this.currentOrientation === 'portrait') {
+                        section.classList.add('portrait-specific');
+                        section.classList.remove('landscape-specific');
+                    } else {
+                        section.classList.add('landscape-specific');
+                        section.classList.remove('portrait-specific');
+                    }
+                });
+            }
+            
+            // ========================================
+            // DETECCIÓN DE DISPOSITIVOS
+            // ========================================
+            
+            initializeDeviceDetection() {
+                this.detectDeviceType();
+                this.detectScreenSize();
+                this.detectPixelDensity();
+            }
+            
+            detectDeviceType() {
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+                
+                // Remover clases anteriores
+                document.body.classList.remove(
+                    'device-mobile',
+                    'device-tablet',
+                    'device-desktop',
+                    'tablet-landscape-detected',
+                    'foldable-detected',
+                    'notch-detected',
+                    'ultra-wide-detected'
+                );
+                
+                // Detectar tipo de dispositivo
+                if (width <= 480) {
+                    document.body.classList.add('device-mobile');
+                } else if (width <= 1024) {
+                    document.body.classList.add('device-tablet');
+                } else {
+                    document.body.classList.add('device-desktop');
+                }
+                
+                // Detectar características específicas
+                this.detectSpecificFeatures(width, height);
+            }
+            
+            detectSpecificFeatures(width, height) {
+                // Detectar tablet en landscape
+                if (width >= 768 && width <= 1024 && height < width) {
+                    document.body.classList.add('tablet-landscape-detected');
+                }
+                
+                // Detectar dispositivo plegable
+                if (width >= 280 && width <= 653 && height >= 280 && height <= 653) {
+                    document.body.classList.add('foldable-detected');
+                }
+                
+                // Detectar pantalla ultra-wide
+                const aspectRatio = width / height;
+                if (aspectRatio >= 2.1) {
+                    document.body.classList.add('ultra-wide-detected');
+                }
+                
+                // Detectar dispositivo con notch (aproximado)
+                if (width <= 430 && height >= 800) {
+                    document.body.classList.add('notch-detected');
+                }
+            }
+            
+            detectScreenSize() {
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+                
+                // Aplicar clases de tamaño
+                if (width <= 320) {
+                    document.body.classList.add('compact');
+                } else if (width >= 1200) {
+                    document.body.classList.add('spacious');
+                } else {
+                    document.body.classList.add('space-efficient');
+                }
+            }
+            
+            detectPixelDensity() {
+                const pixelRatio = window.devicePixelRatio || 1;
+                
+                // Remover clases anteriores
+                document.body.classList.remove(
+                    'high-density-optimized',
+                    'ultra-high-density-optimized'
+                );
+                
+                // Aplicar clases de densidad
+                if (pixelRatio >= 2) {
+                    document.body.classList.add('high-density-optimized');
+                }
+                
+                if (pixelRatio >= 3) {
+                    document.body.classList.add('ultra-high-density-optimized');
+                }
+                
+                // Actualizar variable CSS
+                document.documentElement.style.setProperty('--device-pixel-ratio', pixelRatio);
+            }
+            
+            // ========================================
+            // SAFE AREAS PARA DISPOSITIVOS CON NOTCH
+            // ========================================
+            
+            initializeSafeAreas() {
+                // Aplicar safe areas a elementos específicos
+                this.applySafeAreas();
+                
+                // Escuchar cambios de orientación para actualizar safe areas
+                window.addEventListener('orientationchange', () => {
+                    setTimeout(() => {
+                        this.applySafeAreas();
+                    }, 100);
+                });
+            }
+            
+            applySafeAreas() {
+                // Aplicar safe areas al header
+                const header = document.querySelector('header');
+                if (header) {
+                    header.classList.add('safe-area-header');
+                }
+                
+                // Aplicar safe areas al footer
+                const footer = document.querySelector('footer, #footer-premium');
+                if (footer) {
+                    footer.classList.add('safe-area-footer');
+                }
+                
+                // Aplicar safe areas al contenido principal
+                const main = document.querySelector('main');
+                if (main) {
+                    main.classList.add('safe-area-content');
+                }
+                
+                // Aplicar safe areas al contenedor principal
+                const container = document.querySelector('.container, .grid-container');
+                if (container) {
+                    container.classList.add('safe-area-container');
+                }
+            }
+            
+            // ========================================
+            // SOPORTE PARA DISPOSITIVOS PLEGABLES
+            // ========================================
+            
+            initializeFoldableSupport() {
+                // Detectar si es un dispositivo plegable
+                this.detectFoldableDevice();
+                
+                // Escuchar cambios de orientación para dispositivos plegables
+                window.addEventListener('orientationchange', () => {
+                    setTimeout(() => {
+                        this.handleFoldableOrientationChange();
+                    }, 100);
+                });
+            }
+            
+            detectFoldableDevice() {
+                // Detectar características de dispositivo plegable
+                const isFoldable = this.isFoldableDevice();
+                
+                if (isFoldable) {
+                    document.body.classList.add('foldable-device');
+                    this.optimizeForFoldable();
+                }
+            }
+            
+            isFoldableDevice() {
+                // Detectar dispositivos plegables basado en dimensiones y características
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+                const aspectRatio = width / height;
+                
+                // Criterios para dispositivos plegables
+                return (
+                    (width >= 280 && width <= 653 && height >= 280 && height <= 653) ||
+                    (aspectRatio <= 0.43) ||
+                    (width >= 768 && height >= 1024 && aspectRatio >= 0.75 && aspectRatio <= 0.8)
+                );
+            }
+            
+            optimizeForFoldable() {
+                // Optimizar layout para dispositivos plegables
+                const sections = document.querySelectorAll('section');
+                
+                sections.forEach(section => {
+                    section.classList.add('foldable-optimized');
+                });
+                
+                // Ajustar grid para dispositivos plegables
+                const gridContainers = document.querySelectorAll('.grid-container');
+                gridContainers.forEach(container => {
+                    container.classList.add('foldable-grid');
+                });
+            }
+            
+            handleFoldableOrientationChange() {
+                if (this.isFoldableDevice()) {
+                    this.optimizeForFoldable();
+                }
+            }
+            
+            // ========================================
+            // OPTIMIZACIÓN DE DENSIDAD DE PÍXELES
+            // ========================================
+            
+            initializePixelDensityOptimization() {
+                this.optimizeImagesForDensity();
+                this.optimizeTextForDensity();
+                this.optimizeBordersForDensity();
+            }
+            
+            optimizeImagesForDensity() {
+                const images = document.querySelectorAll('img');
+                const pixelRatio = window.devicePixelRatio || 1;
+                
+                images.forEach(img => {
+                    if (pixelRatio >= 2) {
+                        img.style.imageRendering = 'crisp-edges';
+                    }
+                    
+                    // Ajustar srcset para alta densidad
+                    if (img.srcset && pixelRatio >= 2) {
+                        const srcset = img.srcset;
+                        const highDensitySrcset = srcset.replace(/\s1x/g, ` ${pixelRatio}x`);
+                        img.srcset = highDensitySrcset;
+                    }
+                });
+            }
+            
+            optimizeTextForDensity() {
+                const pixelRatio = window.devicePixelRatio || 1;
+                
+                if (pixelRatio >= 2) {
+                    document.body.style.textRendering = 'optimizeLegibility';
+                }
+            }
+            
+            optimizeBordersForDensity() {
+                const pixelRatio = window.devicePixelRatio || 1;
+                
+                if (pixelRatio >= 3) {
+                    // Ajustar bordes para ultra alta densidad
+                    const style = document.createElement('style');
+                    style.textContent = `
+                        .ultra-high-density-optimized * {
+                            border-width: 0.5px;
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+            }
+            
+            // ========================================
+            // OPTIMIZACIÓN DE VIEWPORT
+            // ========================================
+            
+            initializeViewportOptimization() {
+                this.setViewportMeta();
+                this.optimizeViewportHeight();
+                this.handleViewportChanges();
+            }
+            
+            setViewportMeta() {
+                // Asegurar que el viewport meta esté optimizado
+                let viewportMeta = document.querySelector('meta[name="viewport"]');
+                
+                if (!viewportMeta) {
+                    viewportMeta = document.createElement('meta');
+                    viewportMeta.name = 'viewport';
+                    document.head.appendChild(viewportMeta);
+                }
+                
+                viewportMeta.content = 'width=device-width, initial-scale=1.0, viewport-fit=cover';
+            }
+            
+            optimizeViewportHeight() {
+                // Usar dvh (dynamic viewport height) cuando esté disponible
+                const vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+                
+                // Actualizar en resize
+                window.addEventListener('resize', () => {
+                    const vh = window.innerHeight * 0.01;
+                    document.documentElement.style.setProperty('--vh', `${vh}px`);
+                });
+            }
+            
+            handleViewportChanges() {
+                // Escuchar cambios de viewport
+                window.addEventListener('resize', () => {
+                    this.updateViewportVariables();
+                });
+                
+                // Escuchar cambios de orientación
+                window.addEventListener('orientationchange', () => {
+                    setTimeout(() => {
+                        this.updateViewportVariables();
+                    }, 100);
+                });
+            }
+            
+            updateViewportVariables() {
+                const vh = window.innerHeight * 0.01;
+                const vw = window.innerWidth * 0.01;
+                
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+                document.documentElement.style.setProperty('--vw', `${vw}px`);
+            }
+            
+            // ========================================
+            // CAMBIO DE LAYOUT AUTOMÁTICO
+            // ========================================
+            
+            initializeLayoutSwitching() {
+                this.applyOptimalLayout();
+                
+                // Escuchar cambios para reaplicar layout
+                window.addEventListener('resize', () => {
+                    this.applyOptimalLayout();
+                });
+                
+                window.addEventListener('orientationchange', () => {
+                    setTimeout(() => {
+                        this.applyOptimalLayout();
+                    }, 100);
+                });
+            }
+            
+            applyOptimalLayout() {
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+                const orientation = height > width ? 'portrait' : 'landscape';
+                
+                // Remover clases de layout anteriores
+                document.body.classList.remove(
+                    'portrait-layout',
+                    'landscape-layout',
+                    'tablet-landscape-layout',
+                    'space-efficient-layout',
+                    'compact-layout'
+                );
+                
+                // Aplicar layout óptimo
+                if (orientation === 'portrait') {
+                    document.body.classList.add('portrait-layout');
+                } else {
+                    document.body.classList.add('landscape-layout');
+                }
+                
+                // Aplicar layout específico por dispositivo
+                if (width >= 768 && width <= 1024 && orientation === 'landscape') {
+                    document.body.classList.add('tablet-landscape-layout');
+                } else if (width <= 480) {
+                    document.body.classList.add('compact-layout');
+                } else {
+                    document.body.classList.add('space-efficient-layout');
+                }
+            }
+            
+            // ========================================
+            // OPTIMIZACIÓN DE IMÁGENES RESPONSIVAS
+            // ========================================
+            
+            initializeResponsiveImages() {
+                this.optimizeImagesForDevice();
+                this.handleImageLoading();
+            }
+            
+            optimizeImagesForDevice() {
+                const images = document.querySelectorAll('img');
+                const pixelRatio = window.devicePixelRatio || 1;
+                const width = window.innerWidth;
+                
+                images.forEach(img => {
+                    // Ajustar srcset basado en densidad de píxeles
+                    if (img.srcset) {
+                        const srcset = img.srcset;
+                        const optimizedSrcset = this.optimizeSrcset(srcset, pixelRatio, width);
+                        img.srcset = optimizedSrcset;
+                    }
+                    
+                    // Ajustar sizes basado en viewport
+                    if (img.sizes) {
+                        const optimizedSizes = this.optimizeSizes(img.sizes, width);
+                        img.sizes = optimizedSizes;
+                    }
+                });
+            }
+            
+            optimizeSrcset(srcset, pixelRatio, width) {
+                // Optimizar srcset para diferentes densidades
+                return srcset.replace(/\s1x/g, ` ${pixelRatio}x`);
+            }
+            
+            optimizeSizes(sizes, width) {
+                // Optimizar sizes basado en viewport
+                if (width <= 480) {
+                    return '(max-width: 480px) 100vw, 50vw';
+                } else if (width <= 768) {
+                    return '(max-width: 768px) 50vw, 33vw';
+                } else {
+                    return '(max-width: 1024px) 33vw, 25vw';
+                }
+            }
+            
+            handleImageLoading() {
+                // Optimizar carga de imágenes para diferentes dispositivos
+                const images = document.querySelectorAll('img[loading="lazy"]');
+                
+                images.forEach(img => {
+                    // Ajustar threshold basado en dispositivo
+                    const threshold = window.innerWidth <= 480 ? 0.1 : 0.3;
+                    
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.loading = 'eager';
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold });
+                    
+                    observer.observe(img);
+                });
+            }
+            
+            // ========================================
+            // MÉTODOS DE UTILIDAD
+            // ========================================
+            
+            getCurrentOrientation() {
+                return this.currentOrientation || 'portrait';
+            }
+            
+            getCurrentAspectRatio() {
+                return this.currentAspectRatio || 1;
+            }
+            
+            isMobile() {
+                return window.innerWidth <= 480;
+            }
+            
+            isTablet() {
+                return window.innerWidth > 480 && window.innerWidth <= 1024;
+            }
+            
+            isDesktop() {
+                return window.innerWidth > 1024;
+            }
+            
+            isFoldable() {
+                return this.isFoldableDevice();
+            }
+            
+            hasNotch() {
+                return window.innerWidth <= 430 && window.innerHeight >= 800;
+            }
+        }
+        
+        // ========================================
+        // INICIALIZACIÓN DEL SISTEMA DE OPTIMIZACIÓN
+        // ========================================
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            new OrientationDeviceOptimizer();
+        });
+        
+        // ========================================
         // CSS ADICIONAL PARA RIPPLE ANIMATION
         // ========================================
         
@@ -9436,6 +10002,514 @@
         .animate-easing-ease-in { animation-timing-function: var(--animation-easing-ease-in); }
         .animate-easing-bounce { animation-timing-function: var(--animation-easing-bounce); }
         .animate-easing-elastic { animation-timing-function: var(--animation-easing-elastic); }
+        
+        /* ========================================
+           SISTEMA DE OPTIMIZACIÓN PARA ORIENTACIONES Y DISPOSITIVOS
+        ======================================== */
+        
+        /* Variables para orientaciones y dispositivos */
+        :root {
+            --safe-area-top: env(safe-area-inset-top, 0px);
+            --safe-area-right: env(safe-area-inset-right, 0px);
+            --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+            --safe-area-left: env(safe-area-inset-left, 0px);
+            --device-pixel-ratio: 1;
+            --viewport-height: 100vh;
+            --viewport-height-dynamic: 100dvh;
+            --viewport-width: 100vw;
+            --viewport-width-dynamic: 100dvw;
+        }
+        
+        /* ========================================
+           LAYOUTS PARA PORTRAIT Y LANDSCAPE
+        ======================================== */
+        
+        /* Layout base para portrait */
+        .portrait-layout {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            min-height: var(--viewport-height-dynamic);
+        }
+        
+        .portrait-layout .hero-section {
+            height: 100vh;
+            height: var(--viewport-height-dynamic);
+            min-height: 600px;
+        }
+        
+        .portrait-layout .content-section {
+            padding: 2rem 1rem;
+            max-width: 100%;
+        }
+        
+        .portrait-layout .grid-container {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        /* Layout optimizado para landscape */
+        .landscape-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            min-height: var(--viewport-height-dynamic);
+        }
+        
+        .landscape-layout .hero-section {
+            grid-column: 1 / -1;
+            height: 60vh;
+            height: calc(var(--viewport-height-dynamic) * 0.6);
+        }
+        
+        .landscape-layout .content-section {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .landscape-layout .grid-container {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        /* ========================================
+           BREAKPOINTS ESPECÍFICOS PARA TABLETS EN LANDSCAPE
+        ======================================== */
+        
+        /* Tablet landscape específico */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            .tablet-landscape-layout {
+                display: grid;
+                grid-template-areas: 
+                    "hero hero"
+                    "content sidebar"
+                    "footer footer";
+                grid-template-columns: 2fr 1fr;
+                grid-template-rows: auto 1fr auto;
+                min-height: 100vh;
+                min-height: var(--viewport-height-dynamic);
+            }
+            
+            .tablet-landscape-layout .hero-section {
+                grid-area: hero;
+                height: 50vh;
+                height: calc(var(--viewport-height-dynamic) * 0.5);
+            }
+            
+            .tablet-landscape-layout .content-section {
+                grid-area: content;
+                padding: 2rem;
+            }
+            
+            .tablet-landscape-layout .sidebar {
+                grid-area: sidebar;
+                padding: 2rem 1rem;
+                background: rgba(42, 67, 81, 0.05);
+            }
+            
+            .tablet-landscape-layout .grid-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .tablet-landscape-layout .grid-item {
+                min-height: 200px;
+            }
+        }
+        
+        /* ========================================
+           OPTIMIZACIÓN PARA DIFERENTES RATIOS DE PANTALLA
+        ======================================== */
+        
+        /* Pantallas ultra-wide (21:9) */
+        @media (min-aspect-ratio: 21/9) {
+            .ultra-wide-layout {
+                display: grid;
+                grid-template-columns: 1fr 2fr 1fr;
+                max-width: 100vw;
+            }
+            
+            .ultra-wide-layout .hero-section {
+                grid-column: 1 / -1;
+                height: 40vh;
+                height: calc(var(--viewport-height-dynamic) * 0.4);
+            }
+            
+            .ultra-wide-layout .content-section {
+                grid-column: 2;
+                padding: 3rem 2rem;
+            }
+        }
+        
+        /* Pantallas cuadradas (1:1) */
+        @media (aspect-ratio: 1/1) {
+            .square-layout {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .square-layout .hero-section {
+                height: 50vh;
+                height: calc(var(--viewport-height-dynamic) * 0.5);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            .square-layout .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 80%;
+            }
+        }
+        
+        /* Pantallas altas (3:4) */
+        @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/5) {
+            .tall-layout {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .tall-layout .hero-section {
+                height: 70vh;
+                height: calc(var(--viewport-height-dynamic) * 0.7);
+            }
+            
+            .tall-layout .content-section {
+                padding: 1rem;
+                flex: 1;
+            }
+        }
+        
+        /* ========================================
+           SOPORTE PARA DISPOSITIVOS PLEGABLES
+        ======================================== */
+        
+        /* Dispositivos plegables - pantalla plegada */
+        @media (max-width: 280px) and (max-height: 653px) {
+            .foldable-layout {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                min-height: var(--viewport-height-dynamic);
+            }
+            
+            .foldable-layout .hero-section {
+                height: 40vh;
+                height: calc(var(--viewport-height-dynamic) * 0.4);
+                padding: 1rem;
+            }
+            
+            .foldable-layout .content-section {
+                padding: 1rem;
+                flex: 1;
+            }
+            
+            .foldable-layout .grid-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .foldable-layout .grid-item {
+                min-height: 120px;
+                padding: 1rem;
+            }
+        }
+        
+        /* Dispositivos plegables - pantalla desplegada */
+        @media (min-width: 768px) and (min-height: 1024px) and (orientation: portrait) {
+            .foldable-unfolded-layout {
+                display: grid;
+                grid-template-areas: 
+                    "hero"
+                    "content"
+                    "sidebar";
+                grid-template-rows: auto 1fr auto;
+                min-height: 100vh;
+                min-height: var(--viewport-height-dynamic);
+            }
+            
+            .foldable-unfolded-layout .hero-section {
+                grid-area: hero;
+                height: 50vh;
+                height: calc(var(--viewport-height-dynamic) * 0.5);
+            }
+            
+            .foldable-unfolded-layout .content-section {
+                grid-area: content;
+                padding: 2rem;
+            }
+            
+            .foldable-unfolded-layout .sidebar {
+                grid-area: sidebar;
+                padding: 1rem 2rem;
+                background: rgba(42, 67, 81, 0.05);
+            }
+        }
+        
+        /* ========================================
+           SAFE AREAS PARA DISPOSITIVOS CON NOTCH
+        ======================================== */
+        
+        .safe-area-container {
+            padding-top: var(--safe-area-top);
+            padding-right: var(--safe-area-right);
+            padding-bottom: var(--safe-area-bottom);
+            padding-left: var(--safe-area-left);
+        }
+        
+        .safe-area-header {
+            padding-top: var(--safe-area-top);
+            padding-left: var(--safe-area-left);
+            padding-right: var(--safe-area-right);
+        }
+        
+        .safe-area-footer {
+            padding-bottom: var(--safe-area-bottom);
+            padding-left: var(--safe-area-left);
+            padding-right: var(--safe-area-right);
+        }
+        
+        .safe-area-content {
+            padding-left: var(--safe-area-left);
+            padding-right: var(--safe-area-right);
+        }
+        
+        /* Ajustes específicos para dispositivos con notch */
+        @media (max-width: 430px) and (min-height: 800px) {
+            .notch-device-layout {
+                padding-top: calc(var(--safe-area-top) + 1rem);
+            }
+            
+            .notch-device-layout .hero-section {
+                height: calc(100vh - var(--safe-area-top) - var(--safe-area-bottom));
+                height: calc(var(--viewport-height-dynamic) - var(--safe-area-top) - var(--safe-area-bottom));
+            }
+        }
+        
+        /* ========================================
+           LAYOUTS QUE APROVECHAN EL ESPACIO DISPONIBLE
+        ======================================== */
+        
+        .space-efficient-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+        
+        .space-efficient-layout .hero-section {
+            grid-column: 1 / -1;
+            height: min(100vh, 600px);
+            height: min(var(--viewport-height-dynamic), 600px);
+        }
+        
+        .space-efficient-layout .content-section {
+            grid-column: 1 / -1;
+            padding: 2rem 0;
+        }
+        
+        .space-efficient-layout .grid-container {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        /* Layout compacto para pantallas pequeñas */
+        .compact-layout {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            min-height: var(--viewport-height-dynamic);
+        }
+        
+        .compact-layout .hero-section {
+            height: 50vh;
+            height: calc(var(--viewport-height-dynamic) * 0.5);
+            padding: 1rem;
+        }
+        
+        .compact-layout .content-section {
+            padding: 1rem;
+            flex: 1;
+        }
+        
+        .compact-layout .grid-container {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        /* ========================================
+           OPTIMIZACIÓN PARA DIFERENTES DENSIDADES DE PÍXELES
+        ======================================== */
+        
+        /* Dispositivos de alta densidad (Retina, etc.) */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .high-density-optimized {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+            
+            .high-density-optimized img {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+            
+            .high-density-optimized .hero-image {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+        }
+        
+        /* Dispositivos de muy alta densidad (4K, etc.) */
+        @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+            .ultra-high-density-optimized {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+            
+            .ultra-high-density-optimized .grid-item {
+                border-width: 0.5px;
+            }
+            
+            .ultra-high-density-optimized .btn-touch-accessible {
+                border-width: 0.5px;
+            }
+        }
+        
+        /* ========================================
+           RESPONSIVE ESPECÍFICO POR ORIENTACIÓN
+        ======================================== */
+        
+        /* Portrait específico */
+        @media (orientation: portrait) {
+            .portrait-specific {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .portrait-specific .hero-title {
+                font-size: clamp(2rem, 8vw, 4rem);
+                line-height: 1.2;
+            }
+            
+            .portrait-specific .hero-subtitle {
+                font-size: clamp(1rem, 4vw, 1.5rem);
+                line-height: 1.4;
+            }
+            
+            .portrait-specific .grid-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+        
+        /* Landscape específico */
+        @media (orientation: landscape) {
+            .landscape-specific {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+            
+            .landscape-specific .hero-title {
+                font-size: clamp(2.5rem, 6vw, 5rem);
+                line-height: 1.1;
+            }
+            
+            .landscape-specific .hero-subtitle {
+                font-size: clamp(1.2rem, 3vw, 2rem);
+                line-height: 1.3;
+            }
+            
+            .landscape-specific .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+        
+        /* ========================================
+           UTILIDADES DE ORIENTACIÓN Y DISPOSITIVO
+        ======================================== */
+        
+        .orientation-portrait {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .orientation-landscape {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .device-mobile {
+            padding: 1rem;
+        }
+        
+        .device-tablet {
+            padding: 2rem;
+        }
+        
+        .device-desktop {
+            padding: 3rem;
+        }
+        
+        .space-efficient {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .compact {
+            padding: 0.5rem;
+        }
+        
+        .spacious {
+            padding: 3rem;
+        }
+        
+        /* ========================================
+           MEDIA QUERIES AVANZADAS
+        ======================================== */
+        
+        /* Detección de dispositivos plegables */
+        @media (min-width: 280px) and (max-width: 653px) and (min-height: 280px) and (max-height: 653px) {
+            .foldable-detected {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                min-height: var(--viewport-height-dynamic);
+            }
+        }
+        
+        /* Detección de tablets en landscape */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            .tablet-landscape-detected {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                min-height: 100vh;
+                min-height: var(--viewport-height-dynamic);
+            }
+        }
+        
+        /* Detección de pantallas ultra-wide */
+        @media (min-aspect-ratio: 21/9) {
+            .ultra-wide-detected {
+                max-width: 100vw;
+                overflow-x: hidden;
+            }
+        }
+        
+        /* Detección de dispositivos con notch */
+        @media (max-width: 430px) and (min-height: 800px) {
+            .notch-detected {
+                padding-top: var(--safe-area-top);
+                padding-bottom: var(--safe-area-bottom);
+            }
+        }
         
         /* ========================================
            SISTEMA DE MICRO-INTERACCIONES DE ÉLITE
