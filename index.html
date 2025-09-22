@@ -473,6 +473,442 @@
             max-width: 100%;
             padding: 0 2rem;
         }
+        
+        /* ========================================
+           SISTEMA DE NAVEGACIÓN DE ÉLITE
+        ======================================== */
+        
+        /* Variables del sistema de navegación */
+        :root {
+            --nav-height: 80px;
+            --nav-height-scrolled: 65px;
+            --nav-bg: linear-gradient(135deg, rgba(42,67,81,0.95) 0%, rgba(30,58,71,0.95) 100%);
+            --nav-bg-scrolled: linear-gradient(135deg, rgba(42,67,81,0.98) 0%, rgba(30,58,71,0.98) 100%);
+            --nav-blur: blur(20px);
+            --nav-blur-scrolled: blur(25px);
+            --nav-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            --nav-shadow-scrolled: 0 8px 32px rgba(0,0,0,0.15);
+            --nav-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --hamburger-size: 44px;
+            --menu-width: 320px;
+            --menu-bg: rgba(42,67,81,0.98);
+            --menu-blur: blur(30px);
+            --menu-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            --breadcrumb-height: 50px;
+        }
+        
+        /* Header principal mejorado */
+        .header-premium {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--nav-height);
+            background: var(--nav-bg);
+            backdrop-filter: var(--nav-blur);
+            box-shadow: var(--nav-shadow);
+            transition: var(--nav-transition);
+            border-bottom: 1px solid rgba(211,96,15,0.2);
+        }
+        
+        .header-premium.scrolled {
+            height: var(--nav-height-scrolled);
+            background: var(--nav-bg-scrolled);
+            backdrop-filter: var(--nav-blur-scrolled);
+            box-shadow: var(--nav-shadow-scrolled);
+        }
+        
+        .header-premium.hidden {
+            transform: translateY(-100%);
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            position: relative;
+        }
+        
+        /* Logo mejorado */
+        .header-logo {
+            display: flex;
+            align-items: center;
+            transition: var(--nav-transition);
+            z-index: 1001;
+        }
+        
+        .header-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .header-logo img {
+            width: 6rem;
+            height: auto;
+            object-fit: contain;
+            max-height: 4rem;
+            transition: var(--nav-transition);
+        }
+        
+        .header-premium.scrolled .header-logo img {
+            width: 5.5rem;
+            max-height: 3.5rem;
+        }
+        
+        /* Navegación desktop */
+        .header-nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        
+        .nav-link-premium {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+            transition: var(--nav-transition);
+            position: relative;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nav-link-premium:hover {
+            color: #d3600f;
+            background: rgba(211,96,15,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link-premium.active {
+            color: #d3600f;
+            background: rgba(211,96,15,0.15);
+            box-shadow: 0 4px 12px rgba(211,96,15,0.2);
+        }
+        
+        .nav-link-premium.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: #d3600f;
+            border-radius: 50%;
+        }
+        
+        /* Botón hamburguesa */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: var(--hamburger-size);
+            height: var(--hamburger-size);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+            position: relative;
+            transition: var(--nav-transition);
+        }
+        
+        .hamburger:hover {
+            background: rgba(211,96,15,0.1);
+            border-radius: 50%;
+        }
+        
+        .hamburger-line {
+            width: 24px;
+            height: 3px;
+            background: #d3600f;
+            border-radius: 2px;
+            transition: var(--nav-transition);
+            transform-origin: center;
+        }
+        
+        .hamburger-line:nth-child(1) {
+            margin-bottom: 6px;
+        }
+        
+        .hamburger-line:nth-child(2) {
+            margin-bottom: 6px;
+        }
+        
+        /* Animación del hamburguesa */
+        .hamburger.active .hamburger-line:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        
+        .hamburger.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        
+        .hamburger.active .hamburger-line:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+        
+        /* Menú lateral deslizable */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: var(--menu-width);
+            height: 100vh;
+            background: var(--menu-bg);
+            backdrop-filter: var(--menu-blur);
+            box-shadow: var(--menu-shadow);
+            transition: var(--nav-transition);
+            z-index: 999;
+            overflow-y: auto;
+            padding-top: var(--nav-height);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--nav-transition);
+            z-index: 998;
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Navegación móvil */
+        .mobile-nav {
+            padding: 2rem 0;
+        }
+        
+        .mobile-nav-item {
+            display: block;
+            padding: 1rem 2rem;
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: var(--nav-transition);
+            border-left: 4px solid transparent;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .mobile-nav-item:hover {
+            color: #d3600f;
+            background: rgba(211,96,15,0.1);
+            border-left-color: #d3600f;
+            padding-left: 2.5rem;
+        }
+        
+        .mobile-nav-item.active {
+            color: #d3600f;
+            background: rgba(211,96,15,0.15);
+            border-left-color: #d3600f;
+        }
+        
+        /* Breadcrumbs */
+        .breadcrumbs {
+            position: fixed;
+            top: var(--nav-height);
+            left: 0;
+            right: 0;
+            background: rgba(42,67,81,0.95);
+            backdrop-filter: blur(20px);
+            padding: 0.75rem 2rem;
+            z-index: 999;
+            transform: translateY(-100%);
+            transition: var(--nav-transition);
+            border-bottom: 1px solid rgba(211,96,15,0.2);
+        }
+        
+        .breadcrumbs.show {
+            transform: translateY(0);
+        }
+        
+        .breadcrumbs-list {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .breadcrumb-item:not(:last-child)::after {
+            content: '›';
+            margin-left: 0.5rem;
+            color: #d3600f;
+            font-weight: bold;
+        }
+        
+        .breadcrumb-link {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            transition: var(--nav-transition);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .breadcrumb-link:hover {
+            color: #d3600f;
+            background: rgba(211,96,15,0.1);
+        }
+        
+        .breadcrumb-current {
+            color: #d3600f;
+            font-weight: 600;
+        }
+        
+        /* Indicadores de scroll */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #d3600f 0%, #c16134 100%);
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .header-nav {
+                display: none;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .header-container {
+                padding: 0 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .breadcrumbs {
+                padding: 0.5rem 1rem;
+            }
+            
+            .breadcrumb-item {
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-container {
+                padding: 0 1rem;
+            }
+            
+            .header-logo img {
+                width: 4.5rem;
+                max-height: 2.5rem;
+            }
+            
+            .hamburger {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .hamburger-line {
+                width: 20px;
+                height: 2px;
+            }
+        }
+        
+        /* Animaciones de entrada */
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .mobile-nav-item {
+            animation: slideInRight 0.3s ease forwards;
+        }
+        
+        .mobile-nav-item:nth-child(1) { animation-delay: 0.1s; }
+        .mobile-nav-item:nth-child(2) { animation-delay: 0.2s; }
+        .mobile-nav-item:nth-child(3) { animation-delay: 0.3s; }
+        .mobile-nav-item:nth-child(4) { animation-delay: 0.4s; }
+        .mobile-nav-item:nth-child(5) { animation-delay: 0.5s; }
+        
+        /* Mejoras de accesibilidad */
+        .hamburger:focus,
+        .mobile-nav-item:focus,
+        .breadcrumb-link:focus {
+            outline: 2px solid #d3600f;
+            outline-offset: 2px;
+        }
+        
+        /* Prefers reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .hamburger,
+            .mobile-menu,
+            .mobile-menu-overlay,
+            .breadcrumbs,
+            .scroll-indicator,
+            .mobile-nav-item {
+                transition: none;
+                animation: none;
+            }
+        }
     </style>
     
     <!-- SISTEMA DE TIPOGRAFÍA FLUIDA DE ÉLITE -->
@@ -1337,7 +1773,7 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     
-    <!-- Header Premium Sticky -->
+    <!-- Header Premium Sticky con Navegación de Élite -->
     <header id="header" class="header-premium">
         <div class="header-container">
             <!-- Logo -->
@@ -1348,7 +1784,7 @@
                      decoding="async">
             </div>
             
-            <!-- Navigation -->
+            <!-- Navigation Desktop -->
             <nav class="header-nav" aria-label="Navegación principal">
                 <a href="#servicios" class="nav-link-premium" aria-label="Ir a la sección de servicios">
                     Servicios
@@ -1363,8 +1799,49 @@
                     Contacto
                 </a>
             </nav>
+            
+            <!-- Botón Hamburguesa -->
+            <button class="hamburger" id="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </div>
     </header>
+    
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" id="breadcrumbs" aria-label="Navegación de migas de pan">
+        <ol class="breadcrumbs-list" id="breadcrumbsList">
+            <li class="breadcrumb-item">
+                <a href="#hero" class="breadcrumb-link">Inicio</a>
+            </li>
+        </ol>
+    </nav>
+    
+    <!-- Menú Móvil -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menú de navegación móvil">
+        <div class="mobile-nav">
+            <a href="#servicios" class="mobile-nav-item" data-section="servicios">
+                <span>Servicios</span>
+            </a>
+            <a href="#equipo" class="mobile-nav-item" data-section="equipo">
+                <span>Nosotros</span>
+            </a>
+            <a href="blog.html" class="mobile-nav-item" data-section="blog">
+                <span>Blog</span>
+            </a>
+            <a href="#contacto" class="mobile-nav-item" data-section="contacto">
+                <span>Contacto</span>
+            </a>
+            <a href="#hero" class="mobile-nav-item" data-section="hero">
+                <span>Inicio</span>
+            </a>
+        </div>
+    </nav>
+    
+    <!-- Indicador de Scroll -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
 
     <!-- Hero Section -->
     <div id="hero" class="wp-block-group hero-optimized" style="padding-top: 70px;">
@@ -3266,14 +3743,288 @@
         const exitIntentBtn = document.getElementById('exitIntentBtn');
         const exitIntentClose = document.getElementById('exitIntentClose');
 
-        // Header Premium Sticky Effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
+        // ========================================
+        // SISTEMA DE NAVEGACIÓN DE ÉLITE - JAVASCRIPT
+        // ========================================
+        
+        // Variables globales
+        let lastScrollY = window.scrollY;
+        let isMenuOpen = false;
+        let isScrolling = false;
+        let scrollTimeout;
+        
+        // Elementos del DOM
+        const header = document.getElementById('header');
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const breadcrumbs = document.getElementById('breadcrumbs');
+        const breadcrumbsList = document.getElementById('breadcrumbsList');
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        const navLinks = document.querySelectorAll('.nav-link-premium, .mobile-nav-item');
+        
+        // Mapa de secciones para breadcrumbs
+        const sectionMap = {
+            'hero': 'Inicio',
+            'servicios': 'Servicios',
+            'equipo': 'Nosotros',
+            'blog': 'Blog',
+            'contacto': 'Contacto'
+        };
+        
+        // ========================================
+        // HEADER STICKY INTELIGENTE
+        // ========================================
+        
+        function updateHeader() {
+            const scrollY = window.scrollY;
+            const headerHeight = header.offsetHeight;
+            
+            // Efecto scrolled
+            if (scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
+            
+            // Ocultar/mostrar header inteligentemente
+            if (scrollY > lastScrollY && scrollY > headerHeight) {
+                // Scrolling down - hide header
+                header.classList.add('hidden');
+            } else {
+                // Scrolling up - show header
+                header.classList.remove('hidden');
+            }
+            
+            lastScrollY = scrollY;
+        }
+        
+        // ========================================
+        // INDICADOR DE SCROLL
+        // ========================================
+        
+        function updateScrollIndicator() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollIndicator.style.width = scrollPercent + '%';
+        }
+        
+        // ========================================
+        // BREADCRUMBS DINÁMICOS
+        // ========================================
+        
+        function updateBreadcrumbs() {
+            const sections = document.querySelectorAll('section[id], div[id]');
+            const scrollY = window.scrollY;
+            const headerHeight = header.offsetHeight;
+            
+            let currentSection = 'hero';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - headerHeight - 100;
+                const sectionHeight = section.offsetHeight;
+                
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.id;
+                }
+            });
+            
+            // Actualizar breadcrumbs
+            if (currentSection !== 'hero') {
+                breadcrumbs.classList.add('show');
+                breadcrumbsList.innerHTML = `
+                    <li class="breadcrumb-item">
+                        <a href="#hero" class="breadcrumb-link">Inicio</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span class="breadcrumb-current">${sectionMap[currentSection] || currentSection}</span>
+                    </li>
+                `;
+            } else {
+                breadcrumbs.classList.remove('show');
+            }
+        }
+        
+        // ========================================
+        // MENÚ HAMBURGUESA
+        // ========================================
+        
+        function toggleMobileMenu() {
+            isMenuOpen = !isMenuOpen;
+            
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            mobileMenuOverlay.classList.toggle('active');
+            
+            // Actualizar aria-expanded
+            hamburger.setAttribute('aria-expanded', isMenuOpen);
+            
+            // Prevenir scroll del body cuando el menú está abierto
+            document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+            
+            // Cerrar menú al hacer clic en overlay
+            if (isMenuOpen) {
+                mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+            }
+        }
+        
+        function closeMobileMenu() {
+            isMenuOpen = false;
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+        
+        // ========================================
+        // NAVEGACIÓN ACTIVA
+        // ========================================
+        
+        function updateActiveNavigation() {
+            const sections = document.querySelectorAll('section[id], div[id]');
+            const scrollY = window.scrollY;
+            const headerHeight = header.offsetHeight;
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - headerHeight - 100;
+                const sectionHeight = section.offsetHeight;
+                
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            // Actualizar enlaces de navegación
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (href === `#${current}` || (current === 'hero' && href === '#hero')) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // ========================================
+        // GESTOS DE SWIPE
+        // ========================================
+        
+        let startX = 0;
+        let startY = 0;
+        let endX = 0;
+        let endY = 0;
+        
+        function handleTouchStart(e) {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        }
+        
+        function handleTouchEnd(e) {
+            endX = e.changedTouches[0].clientX;
+            endY = e.changedTouches[0].clientY;
+            
+            const diffX = startX - endX;
+            const diffY = startY - endY;
+            
+            // Swipe horizontal (mínimo 50px)
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    // Swipe izquierda - abrir menú
+                    if (!isMenuOpen && window.innerWidth <= 1024) {
+                        toggleMobileMenu();
+                    }
+                } else {
+                    // Swipe derecha - cerrar menú
+                    if (isMenuOpen) {
+                        closeMobileMenu();
+                    }
+                }
+            }
+        }
+        
+        // ========================================
+        // SCROLL SUAVE
+        // ========================================
+        
+        function smoothScrollTo(target) {
+            const element = document.querySelector(target);
+            if (element) {
+                const headerHeight = header.offsetHeight;
+                const targetPosition = element.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // ========================================
+        // EVENT LISTENERS
+        // ========================================
+        
+        // Scroll events
+        function handleScroll() {
+            if (!isScrolling) {
+                requestAnimationFrame(() => {
+                    updateHeader();
+                    updateScrollIndicator();
+                    updateBreadcrumbs();
+                    updateActiveNavigation();
+                    isScrolling = false;
+                });
+                isScrolling = true;
+            }
+        }
+        
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        
+        // Hamburger menu
+        hamburger.addEventListener('click', toggleMobileMenu);
+        
+        // Cerrar menú al hacer clic en enlaces
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    smoothScrollTo(href);
+                    closeMobileMenu();
+                }
+            });
+        });
+        
+        // Touch events para swipe
+        document.addEventListener('touchstart', handleTouchStart, { passive: true });
+        document.addEventListener('touchend', handleTouchEnd, { passive: true });
+        
+        // Cerrar menú con Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isMenuOpen) {
+                closeMobileMenu();
+            }
+        });
+        
+        // Resize events
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024 && isMenuOpen) {
+                closeMobileMenu();
+            }
+        });
+        
+        // ========================================
+        // INICIALIZACIÓN
+        // ========================================
+        
+        // Inicializar al cargar
+        document.addEventListener('DOMContentLoaded', () => {
+            updateHeader();
+            updateScrollIndicator();
+            updateBreadcrumbs();
+            updateActiveNavigation();
         });
         
         // Mostrar CTA flotante después de scroll
