@@ -909,6 +909,521 @@
                 animation: none;
             }
         }
+        
+        /* ========================================
+           SISTEMA DE INTERACCIÓN TÁCTIL DE ÉLITE
+        ======================================== */
+        
+        /* Variables para interacción táctil */
+        :root {
+            --touch-target-min: 44px;
+            --touch-feedback-duration: 0.2s;
+            --touch-scale-hover: 1.05;
+            --touch-scale-active: 0.95;
+            --touch-scale-tap: 0.98;
+            --ripple-duration: 0.6s;
+            --card-shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+            --card-shadow-active: 0 10px 20px rgba(0,0,0,0.1);
+            --card-border-radius: 1rem;
+            --card-padding: 1.5rem;
+            --swipe-threshold: 50px;
+        }
+        
+        /* ========================================
+           CARDS TÁCTILES DE ÉLITE
+        ======================================== */
+        
+        .touch-card {
+            position: relative;
+            background: white;
+            border-radius: var(--card-border-radius);
+            padding: var(--card-padding);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all var(--touch-feedback-duration) cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            overflow: hidden;
+            min-height: var(--touch-target-min);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .touch-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(211,96,15,0.05) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity var(--touch-feedback-duration) ease;
+            pointer-events: none;
+        }
+        
+        /* Estados de interacción táctil */
+        .touch-card:hover {
+            transform: translateY(-4px) scale(var(--touch-scale-hover));
+            box-shadow: var(--card-shadow-hover);
+        }
+        
+        .touch-card:hover::before {
+            opacity: 1;
+        }
+        
+        .touch-card:active {
+            transform: translateY(-2px) scale(var(--touch-scale-active));
+            box-shadow: var(--card-shadow-active);
+            transition-duration: 0.1s;
+        }
+        
+        .touch-card:active::before {
+            opacity: 0.8;
+        }
+        
+        /* Ripple effect */
+        .touch-card.ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .touch-card.ripple::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(211,96,15,0.3);
+            transform: translate(-50%, -50%);
+            transition: width var(--ripple-duration) ease, height var(--ripple-duration) ease;
+            pointer-events: none;
+        }
+        
+        .touch-card.ripple.active::after {
+            width: 300px;
+            height: 300px;
+        }
+        
+        /* ========================================
+           BOTONES TÁCTILES OPTIMIZADOS
+        ======================================== */
+        
+        .touch-button {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: var(--touch-target-min);
+            min-width: var(--touch-target-min);
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #d3600f 0%, #c16134 100%);
+            color: white;
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--touch-feedback-duration) cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(211,96,15,0.3);
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            overflow: hidden;
+        }
+        
+        .touch-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity var(--touch-feedback-duration) ease;
+        }
+        
+        .touch-button:hover {
+            transform: translateY(-2px) scale(var(--touch-scale-hover));
+            box-shadow: 0 8px 20px rgba(211,96,15,0.4);
+        }
+        
+        .touch-button:hover::before {
+            opacity: 1;
+        }
+        
+        .touch-button:active {
+            transform: translateY(0) scale(var(--touch-scale-tap));
+            box-shadow: 0 2px 8px rgba(211,96,15,0.3);
+            transition-duration: 0.1s;
+        }
+        
+        .touch-button:active::before {
+            opacity: 0.5;
+        }
+        
+        /* Variantes de botones */
+        .touch-button-secondary {
+            background: linear-gradient(135deg, #2a4351 0%, #1e3a47 100%);
+            box-shadow: 0 4px 12px rgba(42,67,81,0.3);
+        }
+        
+        .touch-button-outline {
+            background: transparent;
+            color: #d3600f;
+            border: 2px solid #d3600f;
+            box-shadow: 0 4px 12px rgba(211,96,15,0.1);
+        }
+        
+        .touch-button-outline:hover {
+            background: #d3600f;
+            color: white;
+        }
+        
+        /* ========================================
+           CARDS DEL EQUIPO TÁCTILES
+        ======================================== */
+        
+        .team-card {
+            position: relative;
+            background: white;
+            border-radius: var(--card-border-radius);
+            padding: 2rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all var(--touch-feedback-duration) cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            overflow: hidden;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(211,96,15,0.05) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity var(--touch-feedback-duration) ease;
+            pointer-events: none;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-8px) scale(var(--touch-scale-hover));
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .team-card:hover::before {
+            opacity: 1;
+        }
+        
+        .team-card:active {
+            transform: translateY(-4px) scale(var(--touch-scale-active));
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition-duration: 0.1s;
+        }
+        
+        .team-avatar {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            transition: all var(--touch-feedback-duration) ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-avatar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity var(--touch-feedback-duration) ease;
+        }
+        
+        .team-card:hover .team-avatar {
+            transform: scale(1.1);
+            box-shadow: 0 15px 25px -5px rgba(0,0,0,0.2);
+        }
+        
+        .team-card:hover .team-avatar::before {
+            opacity: 1;
+        }
+        
+        .team-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2a4351;
+            margin: 0 0 0.5rem 0;
+            transition: color var(--touch-feedback-duration) ease;
+        }
+        
+        .team-role {
+            color: #d3600f;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin: 0;
+            transition: color var(--touch-feedback-duration) ease;
+        }
+        
+        .team-card:hover .team-name {
+            color: #d3600f;
+        }
+        
+        .team-card:hover .team-role {
+            color: #2a4351;
+        }
+        
+        /* ========================================
+           CARRUSELES Y GALERÍAS TÁCTILES
+        ======================================== */
+        
+        .touch-carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--card-border-radius);
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .carousel-container {
+            display: flex;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+        
+        .carousel-item {
+            flex: 0 0 100%;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: var(--card-border-radius);
+            margin: 0 0.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all var(--touch-feedback-duration) ease;
+        }
+        
+        .carousel-item:first-child {
+            margin-left: 0;
+        }
+        
+        .carousel-item:last-child {
+            margin-right: 0;
+        }
+        
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(211,96,15,0.3);
+            cursor: pointer;
+            transition: all var(--touch-feedback-duration) ease;
+            min-height: var(--touch-target-min);
+            min-width: var(--touch-target-min);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .carousel-indicator.active {
+            background: #d3600f;
+            transform: scale(1.2);
+        }
+        
+        .carousel-indicator:hover {
+            background: rgba(211,96,15,0.6);
+            transform: scale(1.1);
+        }
+        
+        /* ========================================
+           INDICADORES DE SCROLL TÁCTILES
+        ======================================== */
+        
+        .scroll-indicators {
+            position: fixed;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .scroll-indicator-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(211,96,15,0.3);
+            cursor: pointer;
+            transition: all var(--touch-feedback-duration) ease;
+            min-height: var(--touch-target-min);
+            min-width: var(--touch-target-min);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .scroll-indicator-dot::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #d3600f;
+            opacity: 0;
+            transition: opacity var(--touch-feedback-duration) ease;
+        }
+        
+        .scroll-indicator-dot.active {
+            background: #d3600f;
+            transform: scale(1.2);
+        }
+        
+        .scroll-indicator-dot.active::before {
+            opacity: 1;
+        }
+        
+        .scroll-indicator-dot:hover {
+            background: rgba(211,96,15,0.6);
+            transform: scale(1.1);
+        }
+        
+        /* ========================================
+           RESPONSIVE TÁCTIL
+        ======================================== */
+        
+        @media (max-width: 768px) {
+            .touch-card {
+                padding: 1rem;
+                min-height: 120px;
+            }
+            
+            .team-card {
+                padding: 1.5rem 1rem;
+                min-height: 180px;
+            }
+            
+            .team-avatar {
+                width: 4rem;
+                height: 4rem;
+            }
+            
+            .carousel-item {
+                margin: 0 0.25rem;
+            }
+            
+            .scroll-indicators {
+                right: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .touch-card {
+                padding: 0.75rem;
+                min-height: 100px;
+            }
+            
+            .team-card {
+                padding: 1rem 0.75rem;
+                min-height: 160px;
+            }
+            
+            .team-avatar {
+                width: 3.5rem;
+                height: 3.5rem;
+            }
+            
+            .team-name {
+                font-size: 1.1rem;
+            }
+            
+            .team-role {
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* ========================================
+           ORIENTACIÓN LANDSCAPE
+        ======================================== */
+        
+        @media (orientation: landscape) and (max-height: 500px) {
+            .team-card {
+                min-height: 120px;
+                padding: 1rem;
+            }
+            
+            .team-avatar {
+                width: 3rem;
+                height: 3rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .team-name {
+                font-size: 1rem;
+                margin-bottom: 0.25rem;
+            }
+            
+            .team-role {
+                font-size: 0.75rem;
+            }
+        }
+        
+        /* ========================================
+           MEJORAS DE ACCESIBILIDAD TÁCTIL
+        ======================================== */
+        
+        .touch-card:focus,
+        .touch-button:focus,
+        .team-card:focus,
+        .carousel-indicator:focus,
+        .scroll-indicator-dot:focus {
+            outline: 2px solid #d3600f;
+            outline-offset: 2px;
+        }
+        
+        /* Prefers reduced motion para táctil */
+        @media (prefers-reduced-motion: reduce) {
+            .touch-card,
+            .touch-button,
+            .team-card,
+            .carousel-container,
+            .carousel-indicator,
+            .scroll-indicator-dot {
+                transition: none;
+                transform: none !important;
+            }
+        }
     </style>
     
     <!-- SISTEMA DE TIPOGRAFÍA FLUIDA DE ÉLITE -->
@@ -1842,6 +2357,15 @@
     
     <!-- Indicador de Scroll -->
     <div class="scroll-indicator" id="scrollIndicator"></div>
+    
+    <!-- Indicadores de Scroll Táctiles -->
+    <div class="scroll-indicators" id="scrollIndicators">
+        <div class="scroll-indicator-dot" data-section="hero" aria-label="Ir a la sección Hero"></div>
+        <div class="scroll-indicator-dot" data-section="servicios" aria-label="Ir a la sección Servicios"></div>
+        <div class="scroll-indicator-dot" data-section="nosotros" aria-label="Ir a la sección Golden Circle"></div>
+        <div class="scroll-indicator-dot" data-section="equipo" aria-label="Ir a la sección Equipo"></div>
+        <div class="scroll-indicator-dot" data-section="contacto" aria-label="Ir a la sección Contacto"></div>
+    </div>
 
     <!-- Hero Section -->
     <div id="hero" class="wp-block-group hero-optimized" style="padding-top: 70px;">
@@ -1868,12 +2392,12 @@
                 Impulsamos proyectos de desarrollo territorial que devuelven vitalidad a los ecosistemas, fortalecen comunidades y generan prosperidad consciente y regenerativa
             </p>
             
-            <!-- Botones CTA -->
+            <!-- Botones CTA Táctiles -->
             <div style="display:flex;justify-content:center;gap:2rem;margin-bottom:4rem;flex-wrap:wrap">
-                <a href="#servicios" class="btn btn-lg" style="background:linear-gradient(135deg, #d3600f 0%, #c16134 100%);color:white;padding:1rem 2.5rem;border-radius:0.75rem;text-decoration:none;transition:all 0.4s ease;box-shadow:0 10px 25px -5px rgba(211,96,15,0.4);text-transform:uppercase" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 15px 30px -5px rgba(211,96,15,0.6)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 25px -5px rgba(211,96,15,0.4)'">
+                <a href="#servicios" class="touch-button ripple" style="text-transform:uppercase;text-decoration:none">
                     Conoce Nuestros Servicios
                 </a>
-                <button id="leadMagnetBtn" class="btn btn-lg" style="background:linear-gradient(135deg, #2a4351 0%, #1e3a47 100%);color:white;padding:1rem 2.5rem;border-radius:0.75rem;border:2px solid rgba(255,255,255,0.2);transition:all 0.4s ease;box-shadow:0 10px 25px -5px rgba(42,67,81,0.4);text-transform:uppercase;cursor:pointer" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 15px 30px -5px rgba(42,67,81,0.6)';this.style.borderColor='rgba(255,255,255,0.4)';this.style.background='linear-gradient(135deg, #3a5561 0%, #2e4a57 100%)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 25px -5px rgba(42,67,81,0.4)';this.style.borderColor='rgba(255,255,255,0.2)';this.style.background='linear-gradient(135deg, #2a4351 0%, #1e3a47 100%)'">
+                <button id="leadMagnetBtn" class="touch-button touch-button-secondary ripple" style="text-transform:uppercase">
                     Descarga Guía Gratuita
                 </button>
             </div>
@@ -2233,56 +2757,56 @@
                         }
                     </style>
                     
-                    <!-- Equipo Ejecutivo -->
-                    <div class="equipo-grid" style="display:grid;grid-template-columns:repeat(1,1fr);gap:3rem">
-                        <div style="text-align:center">
-                            <div style="width:5rem;height:5rem;background:linear-gradient(135deg, #d3600f 0%, #c16134 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem auto;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1)">
+                    <!-- Equipo Ejecutivo con Cards Táctiles -->
+                    <div class="grid grid-5 gap-lg grid-center">
+                        <div class="team-card ripple" tabindex="0" role="button" aria-label="Pedro Smith - Director Ejecutivo">
+                            <div class="team-avatar" style="background:linear-gradient(135deg, #d3600f 0%, #c16134 100%)">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color:white">
                                     <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                                 </svg>
                             </div>
-                            <h4 style="font-size:1.25rem;font-weight:700;color:#2a4351;margin:0 0 0.5rem 0">Pedro Smith</h4>
-                            <p style="color:#d3600f;font-weight:600;font-size:0.875rem;margin:0">Director Ejecutivo</p>
+                            <h4 class="team-name">Pedro Smith</h4>
+                            <p class="team-role">Director Ejecutivo</p>
                         </div>
 
-                        <div style="text-align:center">
-                            <div style="width:5rem;height:5rem;background:linear-gradient(135deg, #2a4351 0%, #1e3a47 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem auto;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1)">
+                        <div class="team-card ripple" tabindex="0" role="button" aria-label="Martín Araneda - Director Desarrollo Territorial">
+                            <div class="team-avatar" style="background:linear-gradient(135deg, #2a4351 0%, #1e3a47 100%)">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color:white">
                                     <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                                 </svg>
                             </div>
-                            <h4 style="font-size:1.25rem;font-weight:700;color:#2a4351;margin:0 0 0.5rem 0">Martín Araneda</h4>
-                            <p style="color:#d3600f;font-weight:600;font-size:0.875rem;margin:0">Director Desarrollo Territorial</p>
+                            <h4 class="team-name">Martín Araneda</h4>
+                            <p class="team-role">Director Desarrollo Territorial</p>
                         </div>
 
-                        <div style="text-align:center">
-                            <div style="width:5rem;height:5rem;background:linear-gradient(135deg, #6b7280 0%, #4b5563 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem auto;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1)">
+                        <div class="team-card ripple" tabindex="0" role="button" aria-label="Goran Ahumada - Director Emprendimiento">
+                            <div class="team-avatar" style="background:linear-gradient(135deg, #6b7280 0%, #4b5563 100%)">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color:white">
                                     <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                                 </svg>
                             </div>
-                            <h4 style="font-size:1.25rem;font-weight:700;color:#2a4351;margin:0 0 0.5rem 0">Goran Ahumada</h4>
-                            <p style="color:#d3600f;font-weight:600;font-size:0.875rem;margin:0">Director Emprendimiento</p>
+                            <h4 class="team-name">Goran Ahumada</h4>
+                            <p class="team-role">Director Emprendimiento</p>
                         </div>
 
-                        <div style="text-align:center">
-                            <div style="width:5rem;height:5rem;background:linear-gradient(135deg, #d3600f 0%, #c16134 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem auto;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1)">
+                        <div class="team-card ripple" tabindex="0" role="button" aria-label="Ana Rodríguez - Directora de Programas">
+                            <div class="team-avatar" style="background:linear-gradient(135deg, #d3600f 0%, #c16134 100%)">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color:white">
                                     <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                                 </svg>
                             </div>
-                            <h4 style="font-size:1.25rem;font-weight:700;color:#2a4351;margin:0 0 0.5rem 0">Ana Rodríguez</h4>
-                            <p style="color:#d3600f;font-weight:600;font-size:0.875rem;margin:0">Directora de Programas</p>
+                            <h4 class="team-name">Ana Rodríguez</h4>
+                            <p class="team-role">Directora de Programas</p>
                         </div>
 
-                        <div style="text-align:center">
-                            <div style="width:5rem;height:5rem;background:linear-gradient(135deg, #2a4351 0%, #1e3a47 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem auto;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1)">
+                        <div class="team-card ripple" tabindex="0" role="button" aria-label="Carlos Mendoza - Director de Comunicaciones">
+                            <div class="team-avatar" style="background:linear-gradient(135deg, #2a4351 0%, #1e3a47 100%)">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color:white">
                                     <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                                 </svg>
                             </div>
-                            <h4 style="font-size:1.25rem;font-weight:700;color:#2a4351;margin:0 0 0.5rem 0">Carlos Mendoza</h4>
-                            <p style="color:#d3600f;font-weight:600;font-size:0.875rem;margin:0">Director de Comunicaciones</p>
+                            <h4 class="team-name">Carlos Mendoza</h4>
+                            <p class="team-role">Director de Comunicaciones</p>
                         </div>
                     </div>
                 </div>
@@ -4025,7 +4549,254 @@
             updateScrollIndicator();
             updateBreadcrumbs();
             updateActiveNavigation();
+            initializeTactileInteractions();
         });
+        
+        // ========================================
+        // SISTEMA DE INTERACCIÓN TÁCTIL - JAVASCRIPT
+        // ========================================
+        
+        function initializeTactileInteractions() {
+            // Ripple effects para cards
+            initializeRippleEffects();
+            
+            // Indicadores de scroll táctiles
+            initializeScrollIndicators();
+            
+            // Carruseles táctiles
+            initializeTouchCarousels();
+            
+            // Feedback táctil para botones
+            initializeTouchButtons();
+            
+            // Swipe gestures para carruseles
+            initializeSwipeGestures();
+        }
+        
+        // ========================================
+        // RIPPLE EFFECTS
+        // ========================================
+        
+        function initializeRippleEffects() {
+            const rippleElements = document.querySelectorAll('.ripple');
+            
+            rippleElements.forEach(element => {
+                element.addEventListener('click', function(e) {
+                    // Crear efecto ripple
+                    this.classList.add('active');
+                    
+                    // Remover clase después de la animación
+                    setTimeout(() => {
+                        this.classList.remove('active');
+                    }, 600);
+                });
+                
+                // Feedback táctil en touch
+                element.addEventListener('touchstart', function(e) {
+                    this.style.transform = 'scale(0.98)';
+                });
+                
+                element.addEventListener('touchend', function(e) {
+                    this.style.transform = '';
+                });
+            });
+        }
+        
+        // ========================================
+        // INDICADORES DE SCROLL TÁCTILES
+        // ========================================
+        
+        function initializeScrollIndicators() {
+            const scrollIndicators = document.getElementById('scrollIndicators');
+            const indicatorDots = document.querySelectorAll('.scroll-indicator-dot');
+            
+            // Actualizar indicadores activos
+            function updateScrollIndicators() {
+                const sections = document.querySelectorAll('section[id], div[id]');
+                const scrollY = window.scrollY;
+                const headerHeight = header.offsetHeight;
+                
+                let current = 'hero';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - headerHeight - 100;
+                    const sectionHeight = section.offsetHeight;
+                    
+                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                indicatorDots.forEach(dot => {
+                    dot.classList.remove('active');
+                    if (dot.dataset.section === current) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+            
+            // Click en indicadores
+            indicatorDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const targetSection = this.dataset.section;
+                    smoothScrollTo(`#${targetSection}`);
+                });
+            });
+            
+            // Actualizar en scroll
+            window.addEventListener('scroll', updateScrollIndicators, { passive: true });
+            
+            // Inicializar
+            updateScrollIndicators();
+        }
+        
+        // ========================================
+        // CARRUSELES TÁCTILES
+        // ========================================
+        
+        function initializeTouchCarousels() {
+            const carousels = document.querySelectorAll('.touch-carousel');
+            
+            carousels.forEach(carousel => {
+                const container = carousel.querySelector('.carousel-container');
+                const items = carousel.querySelectorAll('.carousel-item');
+                const indicators = carousel.querySelectorAll('.carousel-indicator');
+                
+                if (!container || items.length === 0) return;
+                
+                let currentIndex = 0;
+                const totalItems = items.length;
+                
+                // Función para actualizar carrusel
+                function updateCarousel() {
+                    const translateX = -currentIndex * 100;
+                    container.style.transform = `translateX(${translateX}%)`;
+                    
+                    // Actualizar indicadores
+                    indicators.forEach((indicator, index) => {
+                        indicator.classList.toggle('active', index === currentIndex);
+                    });
+                }
+                
+                // Navegación con indicadores
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', function() {
+                        currentIndex = index;
+                        updateCarousel();
+                    });
+                });
+                
+                // Auto-play (opcional)
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % totalItems;
+                    updateCarousel();
+                }, 5000);
+                
+                // Inicializar
+                updateCarousel();
+            });
+        }
+        
+        // ========================================
+        // BOTONES TÁCTILES
+        // ========================================
+        
+        function initializeTouchButtons() {
+            const touchButtons = document.querySelectorAll('.touch-button');
+            
+            touchButtons.forEach(button => {
+                // Feedback táctil
+                button.addEventListener('touchstart', function(e) {
+                    this.style.transform = 'scale(0.95)';
+                });
+                
+                button.addEventListener('touchend', function(e) {
+                    this.style.transform = '';
+                });
+                
+                // Ripple effect
+                button.addEventListener('click', function(e) {
+                    this.classList.add('active');
+                    setTimeout(() => {
+                        this.classList.remove('active');
+                    }, 200);
+                });
+            });
+        }
+        
+        // ========================================
+        // SWIPE GESTURES PARA CARRUSELES
+        // ========================================
+        
+        function initializeSwipeGestures() {
+            const carousels = document.querySelectorAll('.touch-carousel');
+            
+            carousels.forEach(carousel => {
+                const container = carousel.querySelector('.carousel-container');
+                const items = carousel.querySelectorAll('.carousel-item');
+                
+                if (!container || items.length === 0) return;
+                
+                let startX = 0;
+                let startY = 0;
+                let endX = 0;
+                let endY = 0;
+                let currentIndex = 0;
+                const totalItems = items.length;
+                
+                // Touch start
+                carousel.addEventListener('touchstart', function(e) {
+                    startX = e.touches[0].clientX;
+                    startY = e.touches[0].clientY;
+                }, { passive: true });
+                
+                // Touch end
+                carousel.addEventListener('touchend', function(e) {
+                    endX = e.changedTouches[0].clientX;
+                    endY = e.changedTouches[0].clientY;
+                    
+                    const diffX = startX - endX;
+                    const diffY = startY - endY;
+                    
+                    // Swipe horizontal (mínimo 50px)
+                    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                        if (diffX > 0) {
+                            // Swipe izquierda - siguiente
+                            currentIndex = Math.min(currentIndex + 1, totalItems - 1);
+                        } else {
+                            // Swipe derecha - anterior
+                            currentIndex = Math.max(currentIndex - 1, 0);
+                        }
+                        
+                        // Actualizar carrusel
+                        const translateX = -currentIndex * 100;
+                        container.style.transform = `translateX(${translateX}%)`;
+                        
+                        // Actualizar indicadores
+                        const indicators = carousel.querySelectorAll('.carousel-indicator');
+                        indicators.forEach((indicator, index) => {
+                            indicator.classList.toggle('active', index === currentIndex);
+                        });
+                    }
+                }, { passive: true });
+            });
+        }
+        
+        // ========================================
+        // OPTIMIZACIONES DE ORIENTACIÓN
+        // ========================================
+        
+        function handleOrientationChange() {
+            // Recalcular alturas y posiciones
+            setTimeout(() => {
+                updateScrollIndicators();
+                initializeTouchCarousels();
+            }, 100);
+        }
+        
+        // Escuchar cambios de orientación
+        window.addEventListener('orientationchange', handleOrientationChange);
+        window.addEventListener('resize', handleOrientationChange);
         
         // Mostrar CTA flotante después de scroll
         window.addEventListener('scroll', () => {
