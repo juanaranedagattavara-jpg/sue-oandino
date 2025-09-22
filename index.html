@@ -1934,6 +1934,558 @@
                 transform: none !important;
             }
         }
+        
+        /* ========================================
+           FORMULARIOS DE ÉLITE PARA MÓVIL Y TABLET
+        ======================================== */
+        
+        /* Variables para formularios */
+        :root {
+            --form-input-height: 56px;
+            --form-input-height-mobile: 52px;
+            --form-input-height-tablet: 54px;
+            --form-border-radius: 12px;
+            --form-border-radius-mobile: 10px;
+            --form-padding: 1rem 1.25rem;
+            --form-padding-mobile: 0.875rem 1rem;
+            --form-font-size: 1rem;
+            --form-font-size-mobile: 16px; /* Previene zoom en iOS */
+            --form-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --form-focus-ring: 0 0 0 3px rgba(211,96,15,0.2);
+            --form-error-color: #ef4444;
+            --form-success-color: #10b981;
+            --form-warning-color: #f59e0b;
+            --form-info-color: #3b82f6;
+        }
+        
+        /* ========================================
+           CAMPOS DE ENTRADA OPTIMIZADOS
+        ======================================== */
+        
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: var(--form-transition);
+        }
+        
+        .form-input {
+            width: 100%;
+            height: var(--form-input-height);
+            padding: var(--form-padding);
+            font-size: var(--form-font-size);
+            font-family: inherit;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: var(--form-border-radius);
+            color: white;
+            transition: var(--form-transition);
+            backdrop-filter: blur(10px);
+            -webkit-appearance: none;
+            appearance: none;
+            outline: none;
+            box-sizing: border-box;
+        }
+        
+        .form-input::placeholder {
+            color: rgba(255,255,255,0.6);
+            font-weight: 400;
+        }
+        
+        .form-input:focus {
+            border-color: #d3600f;
+            background: rgba(255,255,255,0.15);
+            box-shadow: var(--form-focus-ring);
+            transform: translateY(-2px);
+        }
+        
+        .form-input:valid {
+            border-color: var(--form-success-color);
+        }
+        
+        .form-input:invalid:not(:placeholder-shown) {
+            border-color: var(--form-error-color);
+        }
+        
+        /* Textarea específico */
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+            font-family: inherit;
+            line-height: 1.5;
+        }
+        
+        /* Select personalizado */
+        .form-select {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .form-select::after {
+            content: '▼';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.6);
+            pointer-events: none;
+            transition: var(--form-transition);
+        }
+        
+        .form-select:focus::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+        
+        /* ========================================
+           VALIDACIÓN EN TIEMPO REAL
+        ======================================== */
+        
+        .form-feedback {
+            position: absolute;
+            bottom: -1.5rem;
+            left: 0;
+            right: 0;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: var(--form-transition);
+            pointer-events: none;
+        }
+        
+        .form-feedback.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .form-feedback.error {
+            background: rgba(239,68,68,0.1);
+            color: var(--form-error-color);
+            border: 1px solid rgba(239,68,68,0.2);
+        }
+        
+        .form-feedback.success {
+            background: rgba(16,185,129,0.1);
+            color: var(--form-success-color);
+            border: 1px solid rgba(16,185,129,0.2);
+        }
+        
+        .form-feedback.warning {
+            background: rgba(245,158,11,0.1);
+            color: var(--form-warning-color);
+            border: 1px solid rgba(245,158,11,0.2);
+        }
+        
+        .form-feedback.info {
+            background: rgba(59,130,246,0.1);
+            color: var(--form-info-color);
+            border: 1px solid rgba(59,130,246,0.2);
+        }
+        
+        /* Iconos de validación */
+        .form-icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            opacity: 0;
+            transition: var(--form-transition);
+        }
+        
+        .form-icon.show {
+            opacity: 1;
+        }
+        
+        .form-icon.error {
+            color: var(--form-error-color);
+        }
+        
+        .form-icon.success {
+            color: var(--form-success-color);
+        }
+        
+        /* ========================================
+           BOTONES DE ENVÍO CON ESTADOS DE CARGA
+        ======================================== */
+        
+        .form-submit {
+            position: relative;
+            width: 100%;
+            height: var(--form-input-height);
+            background: linear-gradient(135deg, #d3600f 0%, #c16134 100%);
+            color: white;
+            border: none;
+            border-radius: var(--form-border-radius);
+            font-size: var(--form-font-size);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: var(--form-transition);
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(211,96,15,0.4);
+        }
+        
+        .form-submit:active {
+            transform: translateY(0);
+        }
+        
+        .form-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Estados de carga */
+        .form-submit.loading {
+            color: transparent;
+        }
+        
+        .form-submit.loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: formSpinner 1s linear infinite;
+        }
+        
+        @keyframes formSpinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Estados de éxito y error */
+        .form-submit.success {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .form-submit.error {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+        
+        /* ========================================
+           AUTOCOMPLETADO INTELIGENTE
+        ======================================== */
+        
+        .form-autocomplete {
+            position: relative;
+        }
+        
+        .form-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 0 0 var(--form-border-radius) var(--form-border-radius);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: var(--form-transition);
+            pointer-events: none;
+        }
+        
+        .form-suggestions.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .form-suggestion {
+            padding: 0.75rem 1rem;
+            color: #2a4351;
+            cursor: pointer;
+            transition: var(--form-transition);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .form-suggestion:hover,
+        .form-suggestion.active {
+            background: rgba(211,96,15,0.1);
+            color: #d3600f;
+        }
+        
+        .form-suggestion:last-child {
+            border-bottom: none;
+        }
+        
+        /* ========================================
+           FORMULARIOS PASO A PASO
+        ======================================== */
+        
+        .form-steps {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+        
+        .form-step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+            transition: var(--form-transition);
+            position: relative;
+        }
+        
+        .form-step.active {
+            background: #d3600f;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .form-step.completed {
+            background: var(--form-success-color);
+            color: white;
+        }
+        
+        .form-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 1rem;
+            height: 2px;
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-50%);
+        }
+        
+        .form-step:last-child::after {
+            display: none;
+        }
+        
+        .form-step.completed::after {
+            background: var(--form-success-color);
+        }
+        
+        .form-step-content {
+            display: none;
+        }
+        
+        .form-step-content.active {
+            display: block;
+            animation: formStepFadeIn 0.5s ease-out;
+        }
+        
+        @keyframes formStepFadeIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* ========================================
+           OPTIMIZACIONES PARA TECLADOS VIRTUALES
+        ======================================== */
+        
+        .form-input[type="email"] {
+            inputmode: email;
+        }
+        
+        .form-input[type="tel"] {
+            inputmode: tel;
+        }
+        
+        .form-input[type="url"] {
+            inputmode: url;
+        }
+        
+        .form-input[type="number"] {
+            inputmode: numeric;
+        }
+        
+        /* Prevenir zoom en iOS */
+        @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            .form-input {
+                font-size: 16px;
+            }
+        }
+        
+        /* ========================================
+           RESPONSIVE PARA MÓVIL Y TABLET
+        ======================================== */
+        
+        @media (max-width: 480px) {
+            .form-input {
+                height: var(--form-input-height-mobile);
+                padding: var(--form-padding-mobile);
+                font-size: var(--form-font-size-mobile);
+                border-radius: var(--form-border-radius-mobile);
+            }
+            
+            .form-submit {
+                height: var(--form-input-height-mobile);
+                font-size: 0.9rem;
+                padding: 0.875rem 1rem;
+            }
+            
+            .form-group {
+                margin-bottom: 1.25rem;
+            }
+            
+            .form-label {
+                font-size: 0.8rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .form-feedback {
+                font-size: 0.7rem;
+                bottom: -1.25rem;
+            }
+            
+            .form-steps {
+                gap: 0.5rem;
+            }
+            
+            .form-step {
+                width: 35px;
+                height: 35px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (min-width: 481px) and (max-width: 1024px) {
+            .form-input {
+                height: var(--form-input-height-tablet);
+            }
+            
+            .form-submit {
+                height: var(--form-input-height-tablet);
+            }
+        }
+        
+        /* ========================================
+           OPTIMIZACIONES PARA UN SOLO PULGAR
+        ======================================== */
+        
+        .form-thumb-optimized {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .form-thumb-optimized .form-group {
+            margin-bottom: 0;
+        }
+        
+        .form-thumb-optimized .form-input {
+            font-size: 18px; /* Tamaño mínimo para evitar zoom */
+            padding: 1rem 1.25rem;
+            height: 60px;
+        }
+        
+        .form-thumb-optimized .form-submit {
+            height: 60px;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+        
+        /* Botones de navegación para formularios paso a paso */
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .form-nav-button {
+            flex: 1;
+            height: 50px;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: var(--form-border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--form-transition);
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .form-nav-button:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        .form-nav-button.primary {
+            background: linear-gradient(135deg, #d3600f 0%, #c16134 100%);
+            border-color: #d3600f;
+        }
+        
+        .form-nav-button.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(211,96,15,0.4);
+        }
+        
+        /* ========================================
+           MEJORAS DE ACCESIBILIDAD
+        ======================================== */
+        
+        .form-input:focus,
+        .form-submit:focus,
+        .form-nav-button:focus {
+            outline: 2px solid #d3600f;
+            outline-offset: 2px;
+        }
+        
+        .form-suggestion:focus {
+            outline: 2px solid #d3600f;
+            outline-offset: -2px;
+        }
+        
+        /* Prefers reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .form-input,
+            .form-submit,
+            .form-feedback,
+            .form-icon,
+            .form-suggestions,
+            .form-step,
+            .form-step-content,
+            .form-nav-button {
+                transition: none;
+                animation: none;
+            }
+        }
     </style>
     
     <!-- SISTEMA DE TIPOGRAFÍA FLUIDA DE ÉLITE -->
@@ -4075,30 +4627,116 @@
                 </p>
             </div>
 
-            <!-- Formulario de contacto simplificado -->
+            <!-- Formulario de Contacto de Élite -->
             <div style="max-width:600px;margin:0 auto">
-                <form style="background:rgba(255,255,255,0.15);backdrop-filter:blur(15px);border-radius:1.5rem;padding:3rem;border:1px solid rgba(255,255,255,0.3);box-shadow:0 20px 40px rgba(0,0,0,0.2)">
-                    <div style="display:grid;grid-template-columns:repeat(1,1fr);gap:1.5rem;margin-bottom:2rem">
-                        <div>
-                            <label style="display:block;color:white;font-weight:500;margin-bottom:0.5rem;font-size:0.875rem">Nombre Completo</label>
-                            <input type="text" required class="form-input" placeholder="Tu nombre completo">
-                        </div>
-                        
-                        <div>
-                            <label style="display:block;color:white;font-weight:500;margin-bottom:0.5rem;font-size:0.875rem">Email</label>
-                            <input type="email" required class="form-input" placeholder="tu@email.com">
-                        </div>
-                        
-                        <div>
-                            <label style="display:block;color:white;font-weight:500;margin-bottom:0.5rem;font-size:0.875rem">Mensaje</label>
-                            <textarea required rows="5" class="form-input" placeholder="Cuéntanos sobre tu proyecto y cómo podemos ayudarte..."></textarea>
-                        </div>
+                <!-- Formulario Simple -->
+                <form id="contactForm" class="form-thumb-optimized" style="background:rgba(255,255,255,0.15);backdrop-filter:blur(15px);border-radius:1.5rem;padding:3rem;border:1px solid rgba(255,255,255,0.3);box-shadow:0 20px 40px rgba(0,0,0,0.2)">
+                    <div class="form-group">
+                        <label for="nombre" class="form-label">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Tu nombre completo" required>
+                        <div class="form-feedback" id="nombre-feedback"></div>
+                        <div class="form-icon" id="nombre-icon"></div>
                     </div>
                     
-                    <button type="submit" class="btn-optimized" style="width:100%;padding:1.25rem 2rem;font-size:1.125rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em">
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required>
+                        <div class="form-feedback" id="email-feedback"></div>
+                        <div class="form-icon" id="email-icon"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono" class="form-label">Teléfono (Opcional)</label>
+                        <input type="tel" id="telefono" name="telefono" class="form-input" placeholder="+51 999 888 777">
+                        <div class="form-feedback" id="telefono-feedback"></div>
+                        <div class="form-icon" id="telefono-icon"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="empresa" class="form-label">Empresa/Organización</label>
+                        <div class="form-autocomplete">
+                            <input type="text" id="empresa" name="empresa" class="form-input" placeholder="Nombre de tu empresa" autocomplete="organization">
+                            <div class="form-suggestions" id="empresa-suggestions"></div>
+                        </div>
+                        <div class="form-feedback" id="empresa-feedback"></div>
+                        <div class="form-icon" id="empresa-icon"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensaje" class="form-label">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" class="form-input form-textarea" placeholder="Cuéntanos sobre tu proyecto y cómo podemos ayudarte..." required></textarea>
+                        <div class="form-feedback" id="mensaje-feedback"></div>
+                        <div class="form-icon" id="mensaje-icon"></div>
+                    </div>
+                    
+                    <button type="submit" class="form-submit" id="submitBtn">
                         Enviar Mensaje
                     </button>
                 </form>
+                
+                <!-- Formulario Paso a Paso (Oculto por defecto) -->
+                <div id="stepForm" style="display:none;background:rgba(255,255,255,0.15);backdrop-filter:blur(15px);border-radius:1.5rem;padding:3rem;border:1px solid rgba(255,255,255,0.3);box-shadow:0 20px 40px rgba(0,0,0,0.2)">
+                    <!-- Indicadores de pasos -->
+                    <div class="form-steps">
+                        <div class="form-step active" data-step="1">1</div>
+                        <div class="form-step" data-step="2">2</div>
+                        <div class="form-step" data-step="3">3</div>
+                    </div>
+                    
+                    <!-- Paso 1: Información Personal -->
+                    <div class="form-step-content active" data-step="1">
+                        <h3 style="color:white;margin-bottom:2rem;text-align:center;font-family:'Playfair Display',serif">Información Personal</h3>
+                        <div class="form-group">
+                            <label for="step-nombre" class="form-label">Nombre Completo</label>
+                            <input type="text" id="step-nombre" name="step-nombre" class="form-input" placeholder="Tu nombre completo" required>
+                            <div class="form-feedback" id="step-nombre-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="step-email" class="form-label">Email</label>
+                            <input type="email" id="step-email" name="step-email" class="form-input" placeholder="tu@email.com" required>
+                            <div class="form-feedback" id="step-email-feedback"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Paso 2: Información Profesional -->
+                    <div class="form-step-content" data-step="2">
+                        <h3 style="color:white;margin-bottom:2rem;text-align:center;font-family:'Playfair Display',serif">Información Profesional</h3>
+                        <div class="form-group">
+                            <label for="step-empresa" class="form-label">Empresa/Organización</label>
+                            <input type="text" id="step-empresa" name="step-empresa" class="form-input" placeholder="Nombre de tu empresa">
+                            <div class="form-feedback" id="step-empresa-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="step-cargo" class="form-label">Cargo/Posición</label>
+                            <input type="text" id="step-cargo" name="step-cargo" class="form-input" placeholder="Tu cargo en la empresa">
+                            <div class="form-feedback" id="step-cargo-feedback"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Paso 3: Proyecto -->
+                    <div class="form-step-content" data-step="3">
+                        <h3 style="color:white;margin-bottom:2rem;text-align:center;font-family:'Playfair Display',serif">Cuéntanos sobre tu Proyecto</h3>
+                        <div class="form-group">
+                            <label for="step-mensaje" class="form-label">Mensaje</label>
+                            <textarea id="step-mensaje" name="step-mensaje" class="form-input form-textarea" placeholder="Describe tu proyecto y cómo podemos ayudarte..." required></textarea>
+                            <div class="form-feedback" id="step-mensaje-feedback"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navegación -->
+                    <div class="form-navigation">
+                        <button type="button" class="form-nav-button" id="prevBtn" style="display:none">Anterior</button>
+                        <button type="button" class="form-nav-button primary" id="nextBtn">Siguiente</button>
+                        <button type="submit" class="form-nav-button primary" id="finalSubmitBtn" style="display:none">Enviar</button>
+                    </div>
+                </div>
+                
+                <!-- Toggle para cambiar entre formularios -->
+                <div style="text-align:center;margin-top:2rem">
+                    <button type="button" id="toggleFormType" class="form-nav-button" style="width:auto;padding:0.75rem 1.5rem">
+                        Usar Formulario Paso a Paso
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -5629,7 +6267,490 @@
         document.addEventListener('DOMContentLoaded', () => {
             initializeHeroElite();
             optimizeHeroPerformance();
+            initializeEliteForms();
         });
+        
+        // ========================================
+        // FORMULARIOS DE ÉLITE - JAVASCRIPT
+        // ========================================
+        
+        function initializeEliteForms() {
+            // Validación en tiempo real
+            initializeRealTimeValidation();
+            
+            // Autocompletado inteligente
+            initializeSmartAutocomplete();
+            
+            // Formularios paso a paso
+            initializeStepForms();
+            
+            // Estados de carga de botones
+            initializeLoadingStates();
+            
+            // Optimizaciones para teclados virtuales
+            initializeVirtualKeyboardOptimizations();
+            
+            // Toggle entre formularios
+            initializeFormToggle();
+        }
+        
+        // ========================================
+        // VALIDACIÓN EN TIEMPO REAL
+        // ========================================
+        
+        function initializeRealTimeValidation() {
+            const inputs = document.querySelectorAll('.form-input');
+            
+            inputs.forEach(input => {
+                // Validación en tiempo real
+                input.addEventListener('input', function() {
+                    validateField(this);
+                });
+                
+                // Validación al perder el foco
+                input.addEventListener('blur', function() {
+                    validateField(this, true);
+                });
+                
+                // Limpiar validación al enfocar
+                input.addEventListener('focus', function() {
+                    clearFieldValidation(this);
+                });
+            });
+        }
+        
+        function validateField(input, showFeedback = false) {
+            const fieldName = input.name || input.id;
+            const value = input.value.trim();
+            const feedback = document.getElementById(fieldName + '-feedback');
+            const icon = document.getElementById(fieldName + '-icon');
+            
+            let isValid = true;
+            let message = '';
+            let type = 'success';
+            
+            // Limpiar estados anteriores
+            input.classList.remove('error', 'success');
+            if (feedback) feedback.classList.remove('show', 'error', 'success', 'warning', 'info');
+            if (icon) icon.classList.remove('show', 'error', 'success');
+            
+            // Validaciones específicas por tipo
+            if (input.type === 'email') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (value && !emailRegex.test(value)) {
+                    isValid = false;
+                    message = 'Por favor ingresa un email válido';
+                    type = 'error';
+                } else if (value && emailRegex.test(value)) {
+                    message = 'Email válido';
+                    type = 'success';
+                }
+            } else if (input.type === 'tel') {
+                const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+                if (value && !phoneRegex.test(value.replace(/\s/g, ''))) {
+                    isValid = false;
+                    message = 'Por favor ingresa un teléfono válido';
+                    type = 'error';
+                } else if (value && phoneRegex.test(value.replace(/\s/g, ''))) {
+                    message = 'Teléfono válido';
+                    type = 'success';
+                }
+            } else if (input.required && !value) {
+                isValid = false;
+                message = 'Este campo es obligatorio';
+                type = 'error';
+            } else if (value) {
+                message = 'Campo válido';
+                type = 'success';
+            }
+            
+            // Aplicar estilos y feedback
+            if (value) {
+                input.classList.add(isValid ? 'success' : 'error');
+                
+                if (feedback && (showFeedback || !isValid)) {
+                    feedback.textContent = message;
+                    feedback.classList.add('show', type);
+                }
+                
+                if (icon) {
+                    icon.classList.add('show', type);
+                    icon.innerHTML = isValid ? '✓' : '✕';
+                }
+            }
+            
+            return isValid;
+        }
+        
+        function clearFieldValidation(input) {
+            const fieldName = input.name || input.id;
+            const feedback = document.getElementById(fieldName + '-feedback');
+            const icon = document.getElementById(fieldName + '-icon');
+            
+            input.classList.remove('error', 'success');
+            if (feedback) feedback.classList.remove('show', 'error', 'success', 'warning', 'info');
+            if (icon) icon.classList.remove('show', 'error', 'success');
+        }
+        
+        // ========================================
+        // AUTOCOMPLETADO INTELIGENTE
+        // ========================================
+        
+        function initializeSmartAutocomplete() {
+            const autocompleteInputs = document.querySelectorAll('.form-autocomplete input');
+            
+            // Base de datos de sugerencias
+            const suggestionsDB = {
+                'empresa': [
+                    'Empresa Nacional de Petróleo',
+                    'Corporación Andina de Fomento',
+                    'Banco de Crédito del Perú',
+                    'Telefónica del Perú',
+                    'Grupo Romero',
+                    'Alicorp',
+                    'Backus',
+                    'Mifarma',
+                    'Ripley',
+                    'Falabella'
+                ],
+                'step-empresa': [
+                    'Empresa Nacional de Petróleo',
+                    'Corporación Andina de Fomento',
+                    'Banco de Crédito del Perú',
+                    'Telefónica del Perú',
+                    'Grupo Romero',
+                    'Alicorp',
+                    'Backus',
+                    'Mifarma',
+                    'Ripley',
+                    'Falabella'
+                ]
+            };
+            
+            autocompleteInputs.forEach(input => {
+                const suggestionsContainer = input.parentElement.querySelector('.form-suggestions');
+                let currentSuggestions = [];
+                let selectedIndex = -1;
+                
+                input.addEventListener('input', function() {
+                    const query = this.value.toLowerCase();
+                    const fieldName = this.name || this.id;
+                    
+                    if (query.length < 2) {
+                        hideSuggestions(suggestionsContainer);
+                        return;
+                    }
+                    
+                    // Filtrar sugerencias
+                    const db = suggestionsDB[fieldName] || [];
+                    currentSuggestions = db.filter(item => 
+                        item.toLowerCase().includes(query)
+                    ).slice(0, 5);
+                    
+                    if (currentSuggestions.length > 0) {
+                        showSuggestions(suggestionsContainer, currentSuggestions);
+                        selectedIndex = -1;
+                    } else {
+                        hideSuggestions(suggestionsContainer);
+                    }
+                });
+                
+                input.addEventListener('keydown', function(e) {
+                    if (!suggestionsContainer.classList.contains('show')) return;
+                    
+                    switch(e.key) {
+                        case 'ArrowDown':
+                            e.preventDefault();
+                            selectedIndex = Math.min(selectedIndex + 1, currentSuggestions.length - 1);
+                            updateSelection();
+                            break;
+                        case 'ArrowUp':
+                            e.preventDefault();
+                            selectedIndex = Math.max(selectedIndex - 1, -1);
+                            updateSelection();
+                            break;
+                        case 'Enter':
+                            e.preventDefault();
+                            if (selectedIndex >= 0) {
+                                selectSuggestion(currentSuggestions[selectedIndex]);
+                            }
+                            break;
+                        case 'Escape':
+                            hideSuggestions(suggestionsContainer);
+                            break;
+                    }
+                });
+                
+                input.addEventListener('blur', function() {
+                    setTimeout(() => {
+                        hideSuggestions(suggestionsContainer);
+                    }, 200);
+                });
+                
+                function showSuggestions(container, suggestions) {
+                    container.innerHTML = suggestions.map((suggestion, index) => 
+                        `<div class="form-suggestion" data-index="${index}">${suggestion}</div>`
+                    ).join('');
+                    
+                    container.classList.add('show');
+                    
+                    container.querySelectorAll('.form-suggestion').forEach((suggestion, index) => {
+                        suggestion.addEventListener('click', () => {
+                            selectSuggestion(suggestions[index]);
+                        });
+                        
+                        suggestion.addEventListener('mouseenter', () => {
+                            selectedIndex = index;
+                            updateSelection();
+                        });
+                    });
+                }
+                
+                function hideSuggestions(container) {
+                    container.classList.remove('show');
+                    selectedIndex = -1;
+                }
+                
+                function updateSelection() {
+                    const suggestions = container.querySelectorAll('.form-suggestion');
+                    suggestions.forEach((suggestion, index) => {
+                        suggestion.classList.toggle('active', index === selectedIndex);
+                    });
+                }
+                
+                function selectSuggestion(suggestion) {
+                    input.value = suggestion;
+                    hideSuggestions(suggestionsContainer);
+                    validateField(input, true);
+                }
+            });
+        }
+        
+        // ========================================
+        // FORMULARIOS PASO A PASO
+        // ========================================
+        
+        function initializeStepForms() {
+            const stepForm = document.getElementById('stepForm');
+            const steps = document.querySelectorAll('.form-step');
+            const stepContents = document.querySelectorAll('.form-step-content');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const finalSubmitBtn = document.getElementById('finalSubmitBtn');
+            
+            let currentStep = 1;
+            const totalSteps = steps.length;
+            
+            if (!stepForm) return;
+            
+            nextBtn.addEventListener('click', () => {
+                if (validateCurrentStep()) {
+                    if (currentStep < totalSteps) {
+                        currentStep++;
+                        updateStepDisplay();
+                    }
+                }
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                if (currentStep > 1) {
+                    currentStep--;
+                    updateStepDisplay();
+                }
+            });
+            
+            steps.forEach((step, index) => {
+                step.addEventListener('click', () => {
+                    const stepNumber = parseInt(step.dataset.step);
+                    if (stepNumber <= currentStep || validateAllPreviousSteps(stepNumber)) {
+                        currentStep = stepNumber;
+                        updateStepDisplay();
+                    }
+                });
+            });
+            
+            function validateCurrentStep() {
+                const currentStepContent = document.querySelector(`.form-step-content[data-step="${currentStep}"]`);
+                const inputs = currentStepContent.querySelectorAll('.form-input[required]');
+                let allValid = true;
+                
+                inputs.forEach(input => {
+                    if (!validateField(input, true)) {
+                        allValid = false;
+                    }
+                });
+                
+                return allValid;
+            }
+            
+            function validateAllPreviousSteps(targetStep) {
+                for (let i = 1; i < targetStep; i++) {
+                    const stepContent = document.querySelector(`.form-step-content[data-step="${i}"]`);
+                    const inputs = stepContent.querySelectorAll('.form-input[required]');
+                    
+                    for (let input of inputs) {
+                        if (!input.value.trim()) {
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+            
+            function updateStepDisplay() {
+                steps.forEach((step, index) => {
+                    const stepNumber = index + 1;
+                    step.classList.remove('active', 'completed');
+                    
+                    if (stepNumber < currentStep) {
+                        step.classList.add('completed');
+                    } else if (stepNumber === currentStep) {
+                        step.classList.add('active');
+                    }
+                });
+                
+                stepContents.forEach((content, index) => {
+                    const stepNumber = index + 1;
+                    content.classList.remove('active');
+                    
+                    if (stepNumber === currentStep) {
+                        content.classList.add('active');
+                    }
+                });
+                
+                prevBtn.style.display = currentStep > 1 ? 'block' : 'none';
+                
+                if (currentStep === totalSteps) {
+                    nextBtn.style.display = 'none';
+                    finalSubmitBtn.style.display = 'block';
+                } else {
+                    nextBtn.style.display = 'block';
+                    finalSubmitBtn.style.display = 'none';
+                }
+            }
+        }
+        
+        // ========================================
+        // ESTADOS DE CARGA DE BOTONES
+        // ========================================
+        
+        function initializeLoadingStates() {
+            const forms = document.querySelectorAll('form');
+            
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const submitBtn = form.querySelector('.form-submit, .form-nav-button[type="submit"]');
+                    if (!submitBtn) return;
+                    
+                    if (!validateForm(form)) {
+                        return;
+                    }
+                    
+                    showLoadingState(submitBtn);
+                    
+                    setTimeout(() => {
+                        showSuccessState(submitBtn);
+                        
+                        setTimeout(() => {
+                            resetFormState(submitBtn);
+                            form.reset();
+                            clearAllValidation(form);
+                        }, 3000);
+                    }, 2000);
+                });
+            });
+        }
+        
+        function validateForm(form) {
+            const inputs = form.querySelectorAll('.form-input[required]');
+            let allValid = true;
+            
+            inputs.forEach(input => {
+                if (!validateField(input, true)) {
+                    allValid = false;
+                }
+            });
+            
+            return allValid;
+        }
+        
+        function showLoadingState(button) {
+            button.classList.add('loading');
+            button.disabled = true;
+            button.textContent = 'Enviando...';
+        }
+        
+        function showSuccessState(button) {
+            button.classList.remove('loading');
+            button.classList.add('success');
+            button.textContent = '¡Enviado!';
+        }
+        
+        function resetFormState(button) {
+            button.classList.remove('loading', 'success', 'error');
+            button.disabled = false;
+            button.textContent = 'Enviar Mensaje';
+        }
+        
+        function clearAllValidation(form) {
+            const inputs = form.querySelectorAll('.form-input');
+            inputs.forEach(input => {
+                clearFieldValidation(input);
+            });
+        }
+        
+        // ========================================
+        // OPTIMIZACIONES PARA TECLADOS VIRTUALES
+        // ========================================
+        
+        function initializeVirtualKeyboardOptimizations() {
+            const inputs = document.querySelectorAll('.form-input');
+            
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    setTimeout(() => {
+                        this.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'center' 
+                        });
+                    }, 300);
+                });
+                
+                if (input.type === 'text' || input.type === 'email' || input.type === 'tel') {
+                    input.style.fontSize = '16px';
+                }
+            });
+        }
+        
+        // ========================================
+        // TOGGLE ENTRE FORMULARIOS
+        // ========================================
+        
+        function initializeFormToggle() {
+            const toggleBtn = document.getElementById('toggleFormType');
+            const simpleForm = document.getElementById('contactForm');
+            const stepForm = document.getElementById('stepForm');
+            
+            if (!toggleBtn || !simpleForm || !stepForm) return;
+            
+            let isStepForm = false;
+            
+            toggleBtn.addEventListener('click', function() {
+                isStepForm = !isStepForm;
+                
+                if (isStepForm) {
+                    simpleForm.style.display = 'none';
+                    stepForm.style.display = 'block';
+                    this.textContent = 'Usar Formulario Simple';
+                } else {
+                    stepForm.style.display = 'none';
+                    simpleForm.style.display = 'block';
+                    this.textContent = 'Usar Formulario Paso a Paso';
+                }
+            });
+        }
         
         // Mostrar CTA flotante después de scroll
         window.addEventListener('scroll', () => {
