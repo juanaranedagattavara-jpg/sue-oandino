@@ -29,6 +29,7 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sueño - Transformando Vidas en los Andes">
+    
     <meta name="twitter:description" content="Desarrollo territorial regenerativo en comunidades andinas. Educación, emprendimiento y sostenibilidad desde y hacia Latinoamérica.">
     <meta name="twitter:image" content="https://sueñoandino.com/assets/img/hero-background.jpg">
     <meta name="twitter:site" content="@sueñoandino">
@@ -1424,6 +1425,515 @@
                 transform: none !important;
             }
         }
+        
+        /* ========================================
+           HERO SECTION DE ÉLITE PARA MÓVIL Y TABLET
+        ======================================== */
+        
+        /* Variables del Hero */
+        :root {
+            --hero-min-height: 100vh;
+            --hero-min-height-mobile: 100vh;
+            --hero-min-height-tablet: 100vh;
+            --hero-min-height-landscape: 100vh;
+            --hero-padding-mobile: 1rem;
+            --hero-padding-tablet: 2rem;
+            --hero-padding-desktop: 3rem;
+            --hero-text-shadow: 0 4px 8px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.4);
+            --hero-text-shadow-strong: 0 6px 12px rgba(0,0,0,0.8), 0 3px 6px rgba(0,0,0,0.6);
+            --hero-overlay-mobile: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0.7) 100%);
+            --hero-overlay-tablet: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.6) 100%);
+            --hero-overlay-desktop: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%);
+        }
+        
+        /* ========================================
+           HERO CONTAINER RESPONSIVE
+        ======================================== */
+        
+        .hero-elite {
+            position: relative;
+            width: 100%;
+            min-height: var(--hero-min-height);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Alturas adaptativas */
+        @media (max-width: 480px) {
+            .hero-elite {
+                min-height: var(--hero-min-height-mobile);
+                padding: var(--hero-padding-mobile);
+            }
+        }
+        
+        @media (min-width: 481px) and (max-width: 1024px) {
+            .hero-elite {
+                min-height: var(--hero-min-height-tablet);
+                padding: var(--hero-padding-tablet);
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .hero-elite {
+                min-height: var(--hero-min-height-desktop);
+                padding: var(--hero-padding-desktop);
+            }
+        }
+        
+        /* Orientación landscape */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .hero-elite {
+                min-height: var(--hero-min-height-landscape);
+                padding: 0.5rem;
+            }
+        }
+        
+        /* ========================================
+           SISTEMA DE IMÁGENES RESPONSIVE
+        ======================================== */
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+        
+        /* Imágenes específicas por dispositivo */
+        .hero-image-mobile {
+            display: block;
+        }
+        
+        .hero-image-tablet {
+            display: none;
+        }
+        
+        .hero-image-desktop {
+            display: none;
+        }
+        
+        @media (min-width: 481px) and (max-width: 1024px) {
+            .hero-image-mobile {
+                display: none;
+            }
+            
+            .hero-image-tablet {
+                display: block;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .hero-image-mobile,
+            .hero-image-tablet {
+                display: none;
+            }
+            
+            .hero-image-desktop {
+                display: block;
+            }
+        }
+        
+        /* Parallax sutil para móvil */
+        .hero-background.parallax {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+        
+        .hero-image.parallax {
+            transform: translateY(0);
+            transition: transform 0.1s ease-out;
+        }
+        
+        /* ========================================
+           OVERLAYS ADAPTATIVOS
+        ======================================== */
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            background: var(--hero-overlay-mobile);
+        }
+        
+        @media (min-width: 481px) and (max-width: 1024px) {
+            .hero-overlay {
+                background: var(--hero-overlay-tablet);
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .hero-overlay {
+                background: var(--hero-overlay-desktop);
+            }
+        }
+        
+        /* ========================================
+           CONTENIDO DEL HERO RESPONSIVE
+        ======================================== */
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        
+        /* Título principal responsive */
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.1;
+            text-shadow: var(--hero-text-shadow-strong);
+            margin: 0 0 2rem 0;
+            text-align: center;
+            max-width: 100%;
+        }
+        
+        .hero-title-line1 {
+            display: block;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero-title-line2 {
+            display: block;
+            color: #d3600f;
+        }
+        
+        /* Tamaños de título por dispositivo */
+        .hero-title {
+            font-size: clamp(2rem, 8vw, 4rem);
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: clamp(1.5rem, 6vw, 2.5rem);
+                margin-bottom: 1.5rem;
+            }
+        }
+        
+        @media (orientation: landscape) and (max-height: 500px) {
+            .hero-title {
+                font-size: clamp(1.2rem, 4vw, 2rem);
+                margin-bottom: 1rem;
+            }
+        }
+        
+        /* Subtítulo responsive */
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            line-height: 1.6;
+            text-shadow: var(--hero-text-shadow);
+            margin: 0 0 3rem 0;
+            max-width: 800px;
+            text-align: center;
+            font-weight: 300;
+        }
+        
+        @media (max-width: 480px) {
+            .hero-subtitle {
+                font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+                margin-bottom: 2rem;
+                padding: 0 0.5rem;
+            }
+        }
+        
+        @media (orientation: landscape) and (max-height: 500px) {
+            .hero-subtitle {
+                font-size: clamp(0.8rem, 2vw, 1rem);
+                margin-bottom: 1.5rem;
+            }
+        }
+        
+        /* ========================================
+           BOTONES CTA RESPONSIVE
+        ======================================== */
+        
+        .hero-cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        
+        .hero-cta-button {
+            min-width: 200px;
+            min-height: 50px;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            padding: 1rem 2rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-radius: 0.75rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-cta-primary {
+            background: linear-gradient(135deg, #d3600f 0%, #c16134 100%);
+            color: white;
+            border: none;
+        }
+        
+        .hero-cta-secondary {
+            background: rgba(42,67,81,0.9);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero-cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+        }
+        
+        .hero-cta-button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+        
+        /* Responsive para botones */
+        @media (max-width: 480px) {
+            .hero-cta-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .hero-cta-button {
+                min-width: 250px;
+                min-height: 48px;
+                font-size: 0.9rem;
+                padding: 0.875rem 1.5rem;
+            }
+        }
+        
+        @media (orientation: landscape) and (max-height: 500px) {
+            .hero-cta-container {
+                flex-direction: row;
+                gap: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero-cta-button {
+                min-width: 180px;
+                min-height: 44px;
+                font-size: 0.8rem;
+                padding: 0.75rem 1.25rem;
+            }
+        }
+        
+        /* ========================================
+           FRANJA DE IMPACTO RESPONSIVE
+        ======================================== */
+        
+        .hero-stats {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(42,67,81,0.95);
+            backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(211,96,15,0.3);
+            padding: 1.5rem 0;
+            z-index: 5;
+        }
+        
+        .hero-stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .hero-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            text-align: center;
+        }
+        
+        .hero-stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .hero-stat-number {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: #d3600f;
+            margin-bottom: 0.25rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-stat-label {
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Responsive para stats */
+        @media (max-width: 480px) {
+            .hero-stats {
+                padding: 1rem 0;
+            }
+            
+            .hero-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+            
+            .hero-stat-number {
+                font-size: clamp(1.2rem, 3vw, 1.8rem);
+            }
+            
+            .hero-stat-label {
+                font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+            }
+        }
+        
+        @media (orientation: landscape) and (max-height: 500px) {
+            .hero-stats {
+                padding: 0.75rem 0;
+            }
+            
+            .hero-stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.5rem;
+            }
+            
+            .hero-stat-number {
+                font-size: clamp(1rem, 2.5vw, 1.5rem);
+            }
+            
+            .hero-stat-label {
+                font-size: clamp(0.5rem, 1.5vw, 0.7rem);
+            }
+        }
+        
+        /* ========================================
+           LAZY LOADING Y OPTIMIZACIONES
+        ======================================== */
+        
+        .hero-image[data-src] {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .hero-image.loaded {
+            opacity: 1;
+        }
+        
+        /* Placeholder mientras carga */
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #2a4351 0%, #1e3a47 100%);
+            z-index: 1;
+        }
+        
+        .hero-image.loaded + .hero-background::before {
+            display: none;
+        }
+        
+        /* ========================================
+           ANIMACIONES DE ENTRADA
+        ======================================== */
+        
+        @keyframes heroFadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes heroFadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .hero-content {
+            animation: heroFadeInUp 1s ease-out 0.5s both;
+        }
+        
+        .hero-stats {
+            animation: heroFadeIn 0.8s ease-out 1.2s both;
+        }
+        
+        /* ========================================
+           MEJORAS DE ACCESIBILIDAD
+        ======================================== */
+        
+        .hero-elite:focus-within {
+            outline: 2px solid #d3600f;
+            outline-offset: 2px;
+        }
+        
+        .hero-cta-button:focus {
+            outline: 2px solid #d3600f;
+            outline-offset: 2px;
+        }
+        
+        /* Prefers reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-content,
+            .hero-stats,
+            .hero-image {
+                animation: none;
+                transition: none;
+            }
+            
+            .hero-image.parallax {
+                transform: none !important;
+            }
+        }
     </style>
     
     <!-- SISTEMA DE TIPOGRAFÍA FLUIDA DE ÉLITE -->
@@ -2367,62 +2877,80 @@
         <div class="scroll-indicator-dot" data-section="contacto" aria-label="Ir a la sección Contacto"></div>
     </div>
 
-    <!-- Hero Section -->
-    <div id="hero" class="wp-block-group hero-optimized" style="padding-top: 70px;">
-        <!-- Imagen de fondo -->
-        <div style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:0">
-        <img src="assets/img/hero-background.jpg" 
-             alt="Paisaje andino regenerativo con montañas y comunidades" 
-             style="width:100%;height:100%;object-fit:cover;background:linear-gradient(135deg, #2a4351 0%, #1e3a47 100%);"
-             loading="eager"
-             decoding="async"
-             fetchpriority="high">
-            <!-- Overlay mejorado para legibilidad del texto -->
-            <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.5) 100%)"></div>
+    <!-- Hero Section de Élite -->
+    <div id="hero" class="hero-elite" style="padding-top: 70px;">
+        <!-- Sistema de Imágenes Responsive con Lazy Loading -->
+        <div class="hero-background parallax">
+            <!-- Imagen para móvil -->
+            <img class="hero-image hero-image-mobile parallax" 
+                 src="assets/img/hero-background.jpg" 
+                 data-src="assets/img/hero-background-mobile.webp"
+                 alt="Paisaje andino regenerativo - Móvil" 
+                 loading="eager"
+                 decoding="async"
+                 fetchpriority="high">
+            
+            <!-- Imagen para tablet -->
+            <img class="hero-image hero-image-tablet parallax" 
+                 src="assets/img/hero-background.jpg" 
+                 data-src="assets/img/hero-background-tablet.webp"
+                 alt="Paisaje andino regenerativo - Tablet" 
+                 loading="lazy"
+                 decoding="async">
+            
+            <!-- Imagen para desktop -->
+            <img class="hero-image hero-image-desktop parallax" 
+                 src="assets/img/hero-background.jpg" 
+                 data-src="assets/img/hero-background-desktop.webp"
+                 alt="Paisaje andino regenerativo - Desktop" 
+                 loading="lazy"
+                 decoding="async">
+            
+            <!-- Overlay adaptativo para legibilidad -->
+            <div class="hero-overlay"></div>
         </div>
         
-        <!-- Contenido centrado premium -->
-        <div style="position:relative;z-index:10;text-align:center;color:white;max-width:900px;margin:0 auto;padding:0 2rem;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh">
-            <h1 class="text-hero" style="margin:0 0 3rem 0;text-shadow:0 6px 12px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.4);color:white;text-align:center;max-width:100%">
-                <div style="display:block;color:white;text-shadow:0 8px 16px rgba(0,0,0,0.7), 0 4px 8px rgba(0,0,0,0.5);margin-bottom:0.5rem">DESARROLLO TERRITORIAL<br>REGENERATIVO</div>
-                <div style="display:block;color:#d3600f;text-shadow:0 8px 16px rgba(0,0,0,0.7), 0 4px 8px rgba(0,0,0,0.5)">DESDE Y HACIA<br>LATINOAMÉRICA</div>
+        <!-- Contenido del Hero Responsive -->
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="hero-title-line1">DESARROLLO TERRITORIAL<br>REGENERATIVO</span>
+                <span class="hero-title-line2">DESDE Y HACIA<br>LATINOAMÉRICA</span>
             </h1>
             
-            <p class="text-subtitle" style="margin:0 0 4rem 0;max-width:800px;margin-left:auto;margin-right:auto;text-shadow:0 2px 4px rgba(0,0,0,0.3);text-align:center;padding:0 1rem">
+            <p class="hero-subtitle">
                 Impulsamos proyectos de desarrollo territorial que devuelven vitalidad a los ecosistemas, fortalecen comunidades y generan prosperidad consciente y regenerativa
             </p>
             
-            <!-- Botones CTA Táctiles -->
-            <div style="display:flex;justify-content:center;gap:2rem;margin-bottom:4rem;flex-wrap:wrap">
-                <a href="#servicios" class="touch-button ripple" style="text-transform:uppercase;text-decoration:none">
+            <!-- Botones CTA Responsive -->
+            <div class="hero-cta-container">
+                <a href="#servicios" class="hero-cta-button hero-cta-primary ripple" aria-label="Conoce nuestros servicios">
                     Conoce Nuestros Servicios
                 </a>
-                <button id="leadMagnetBtn" class="touch-button touch-button-secondary ripple" style="text-transform:uppercase">
+                <button id="leadMagnetBtn" class="hero-cta-button hero-cta-secondary ripple" aria-label="Descarga guía gratuita">
                     Descarga Guía Gratuita
                 </button>
             </div>
-            
         </div>
         
-        <!-- Franja de Impacto en Números - Parte más baja del Hero -->
-        <div style="position:absolute;bottom:0;left:0;right:0;width:100%;background:#2a4351;backdrop-filter:blur(10px);border-top:1px solid rgba(211,96,15,0.3);padding:1rem 0;z-index:5">
-            <div style="width:100%;padding:0 1rem">
-                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center">
-                    <div>
-                        <div class="h2" style="color:#d3600f;margin-bottom:0.25rem">1,200+</div>
-                        <div class="text-caption" style="color:rgba(255,255,255,0.8)">Personas Beneficiadas</div>
+        <!-- Franja de Impacto Responsive -->
+        <div class="hero-stats">
+            <div class="hero-stats-container">
+                <div class="hero-stats-grid">
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-number">1,200+</div>
+                        <div class="hero-stat-label">Personas Beneficiadas</div>
                     </div>
-                    <div>
-                        <div class="h2" style="color:#d3600f;margin-bottom:0.25rem">25+</div>
-                        <div class="text-caption" style="color:rgba(255,255,255,0.8)">Comunidades Atendidas</div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-number">25+</div>
+                        <div class="hero-stat-label">Comunidades Atendidas</div>
                     </div>
-                    <div>
-                        <div class="h2" style="color:#d3600f;margin-bottom:0.25rem">15+</div>
-                        <div class="text-caption" style="color:rgba(255,255,255,0.8)">Proyectos Exitosos</div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-number">15+</div>
+                        <div class="hero-stat-label">Proyectos Exitosos</div>
                     </div>
-                    <div>
-                        <div class="h2" style="color:#d3600f;margin-bottom:0.25rem">98%</div>
-                        <div class="text-caption" style="color:rgba(255,255,255,0.8)">Satisfacción</div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-number">98%</div>
+                        <div class="hero-stat-label">Satisfacción</div>
                     </div>
                 </div>
             </div>
@@ -4797,6 +5325,311 @@
         // Escuchar cambios de orientación
         window.addEventListener('orientationchange', handleOrientationChange);
         window.addEventListener('resize', handleOrientationChange);
+        
+        // ========================================
+        // HERO SECTION DE ÉLITE - JAVASCRIPT
+        // ========================================
+        
+        function initializeHeroElite() {
+            // Lazy loading de imágenes
+            initializeHeroLazyLoading();
+            
+            // Parallax sutil
+            initializeHeroParallax();
+            
+            // Optimizaciones de carga
+            initializeHeroOptimizations();
+            
+            // Animaciones de entrada
+            initializeHeroAnimations();
+        }
+        
+        // ========================================
+        // LAZY LOADING DE IMÁGENES
+        // ========================================
+        
+        function initializeHeroLazyLoading() {
+            const heroImages = document.querySelectorAll('.hero-image[data-src]');
+            
+            // Intersection Observer para lazy loading
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        loadHeroImage(img);
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.1
+            });
+            
+            heroImages.forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        function loadHeroImage(img) {
+            const src = img.dataset.src;
+            if (src) {
+                // Crear nueva imagen para precargar
+                const newImg = new Image();
+                newImg.onload = () => {
+                    img.src = src;
+                    img.classList.add('loaded');
+                };
+                newImg.onerror = () => {
+                    // Fallback a imagen original si WebP falla
+                    img.classList.add('loaded');
+                };
+                newImg.src = src;
+            } else {
+                img.classList.add('loaded');
+            }
+        }
+        
+        // ========================================
+        // PARALLAX SUTIL PARA MÓVIL
+        // ========================================
+        
+        function initializeHeroParallax() {
+            const heroBackground = document.querySelector('.hero-background.parallax');
+            const heroImages = document.querySelectorAll('.hero-image.parallax');
+            
+            if (!heroBackground) return;
+            
+            let ticking = false;
+            
+            function updateParallax() {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                
+                heroImages.forEach(img => {
+                    img.style.transform = `translateY(${rate}px)`;
+                });
+                
+                ticking = false;
+            }
+            
+            function requestTick() {
+                if (!ticking) {
+                    requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            }
+            
+            // Solo activar parallax en dispositivos que no sean móviles pequeños
+            if (window.innerWidth > 480) {
+                window.addEventListener('scroll', requestTick, { passive: true });
+            }
+        }
+        
+        // ========================================
+        // OPTIMIZACIONES DE CARGA
+        // ========================================
+        
+        function initializeHeroOptimizations() {
+            // Precargar imágenes críticas
+            preloadCriticalImages();
+            
+            // Optimizar para diferentes orientaciones
+            handleOrientationOptimizations();
+            
+            // Gestión de memoria para imágenes
+            manageImageMemory();
+        }
+        
+        function preloadCriticalImages() {
+            // Precargar imagen móvil inmediatamente
+            const mobileImg = document.querySelector('.hero-image-mobile');
+            if (mobileImg && mobileImg.dataset.src) {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = mobileImg.dataset.src;
+                document.head.appendChild(link);
+            }
+        }
+        
+        function handleOrientationOptimizations() {
+            let currentOrientation = window.innerHeight > window.innerWidth ? 'portrait' : 'landscape';
+            
+            function checkOrientation() {
+                const newOrientation = window.innerHeight > window.innerWidth ? 'portrait' : 'landscape';
+                
+                if (newOrientation !== currentOrientation) {
+                    currentOrientation = newOrientation;
+                    
+                    // Recalcular alturas y posiciones
+                    setTimeout(() => {
+                        updateHeroLayout();
+                    }, 100);
+                }
+            }
+            
+            window.addEventListener('orientationchange', checkOrientation);
+            window.addEventListener('resize', checkOrientation);
+        }
+        
+        function updateHeroLayout() {
+            const heroElite = document.querySelector('.hero-elite');
+            if (heroElite) {
+                // Forzar recálculo de altura
+                heroElite.style.minHeight = '100vh';
+                
+                // Recalcular parallax si está activo
+                if (window.innerWidth > 480) {
+                    initializeHeroParallax();
+                }
+            }
+        }
+        
+        function manageImageMemory() {
+            // Limpiar imágenes no visibles para ahorrar memoria
+            const heroImages = document.querySelectorAll('.hero-image');
+            let currentVisible = null;
+            
+            function updateVisibleImage() {
+                const viewportHeight = window.innerHeight;
+                const scrollY = window.pageYOffset;
+                
+                heroImages.forEach(img => {
+                    const rect = img.getBoundingClientRect();
+                    const isVisible = rect.top < viewportHeight && rect.bottom > 0;
+                    
+                    if (isVisible && currentVisible !== img) {
+                        // Ocultar imagen anterior si existe
+                        if (currentVisible) {
+                            currentVisible.style.display = 'none';
+                        }
+                        
+                        // Mostrar imagen actual
+                        img.style.display = 'block';
+                        currentVisible = img;
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', updateVisibleImage, { passive: true });
+            updateVisibleImage();
+        }
+        
+        // ========================================
+        // ANIMACIONES DE ENTRADA
+        // ========================================
+        
+        function initializeHeroAnimations() {
+            // Animar números de estadísticas
+            animateStatsNumbers();
+            
+            // Efectos de entrada escalonados
+            staggerHeroElements();
+        }
+        
+        function animateStatsNumbers() {
+            const statNumbers = document.querySelectorAll('.hero-stat-number');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateNumber(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statNumbers.forEach(stat => {
+                observer.observe(stat);
+            });
+        }
+        
+        function animateNumber(element) {
+            const finalValue = element.textContent;
+            const numericValue = parseFloat(finalValue.replace(/[^\d.]/g, ''));
+            
+            if (isNaN(numericValue)) return;
+            
+            const duration = 2000;
+            const startTime = performance.now();
+            
+            function updateNumber(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                const currentValue = Math.floor(numericValue * progress);
+                const suffix = finalValue.replace(/[\d.]/g, '');
+                
+                element.textContent = currentValue + suffix;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateNumber);
+                }
+            }
+            
+            requestAnimationFrame(updateNumber);
+        }
+        
+        function staggerHeroElements() {
+            const heroContent = document.querySelector('.hero-content');
+            const heroStats = document.querySelector('.hero-stats');
+            
+            if (heroContent) {
+                heroContent.style.opacity = '0';
+                heroContent.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    heroContent.style.transition = 'all 1s ease-out';
+                    heroContent.style.opacity = '1';
+                    heroContent.style.transform = 'translateY(0)';
+                }, 500);
+            }
+            
+            if (heroStats) {
+                heroStats.style.opacity = '0';
+                
+                setTimeout(() => {
+                    heroStats.style.transition = 'opacity 0.8s ease-out';
+                    heroStats.style.opacity = '1';
+                }, 1200);
+            }
+        }
+        
+        // ========================================
+        // OPTIMIZACIONES DE RENDIMIENTO
+        // ========================================
+        
+        function optimizeHeroPerformance() {
+            // Debounce para eventos de scroll
+            let scrollTimeout;
+            const originalParallax = window.parallaxHandler;
+            
+            window.parallaxHandler = function() {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    if (originalParallax) originalParallax();
+                }, 16); // ~60fps
+            };
+            
+            // Optimizar para dispositivos de baja potencia
+            if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+                // Desactivar parallax en dispositivos de baja potencia
+                const parallaxElements = document.querySelectorAll('.parallax');
+                parallaxElements.forEach(el => {
+                    el.classList.remove('parallax');
+                });
+            }
+        }
+        
+        // ========================================
+        // INICIALIZACIÓN DEL HERO
+        // ========================================
+        
+        // Inicializar hero al cargar
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeHeroElite();
+            optimizeHeroPerformance();
+        });
         
         // Mostrar CTA flotante después de scroll
         window.addEventListener('scroll', () => {
