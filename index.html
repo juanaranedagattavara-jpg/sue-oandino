@@ -7747,6 +7747,529 @@
         document.addEventListener('DOMContentLoaded', () => {
             new TactileAccessibility();
         });
+        
+        // ========================================
+        // SISTEMA DE MICRO-INTERACCIONES DE ÉLITE - JAVASCRIPT
+        // ========================================
+        
+        class EliteMicroInteractions {
+            constructor() {
+                this.init();
+            }
+            
+            init() {
+                // Inicializar todas las micro-interacciones
+                this.initializeEntryAnimations();
+                this.initializeSectionTransitions();
+                this.initializeTactileFeedback();
+                this.initializeParallaxEffects();
+                this.initializeLoadingAnimations();
+                this.initializePageTransitions();
+                this.initializeHoverEffects();
+                this.initializeRippleEffects();
+                this.initializeScrollAnimations();
+            }
+            
+            // ========================================
+            // ANIMACIONES DE ENTRADA SUAVES
+            // ========================================
+            
+            initializeEntryAnimations() {
+                // Crear observer para animaciones de entrada
+                this.entryObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            this.animateElement(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+                
+                // Aplicar animaciones a elementos
+                this.applyEntryAnimations();
+            }
+            
+            applyEntryAnimations() {
+                const elements = document.querySelectorAll('.hero-title, .hero-subtitle, .grid-item, .team-card, .form-group');
+                
+                elements.forEach((el, index) => {
+                    // Aplicar clase de animación
+                    el.classList.add('animate-in');
+                    
+                    // Agregar delay escalonado
+                    el.style.animationDelay = `${index * 0.1}s`;
+                    
+                    // Observar elemento
+                    this.entryObserver.observe(el);
+                });
+            }
+            
+            animateElement(element) {
+                // Remover clase de animación y agregar visible
+                element.classList.remove('animate-in');
+                element.classList.add('visible');
+                
+                // Aplicar animación específica basada en el tipo de elemento
+                if (element.classList.contains('hero-title')) {
+                    element.classList.add('slide-in-up', 'animate-delay-1');
+                } else if (element.classList.contains('hero-subtitle')) {
+                    element.classList.add('slide-in-up', 'animate-delay-2');
+                } else if (element.classList.contains('grid-item')) {
+                    element.classList.add('scale-in', 'animate-delay-3');
+                } else if (element.classList.contains('team-card')) {
+                    element.classList.add('flip-in', 'animate-delay-4');
+                } else if (element.classList.contains('form-group')) {
+                    element.classList.add('slide-in-left', 'animate-delay-5');
+                }
+                
+                // Dejar de observar el elemento
+                this.entryObserver.unobserve(element);
+            }
+            
+            // ========================================
+            // TRANSICIONES FLUIDAS ENTRE SECCIONES
+            // ========================================
+            
+            initializeSectionTransitions() {
+                // Aplicar transiciones a secciones
+                const sections = document.querySelectorAll('section');
+                
+                sections.forEach(section => {
+                    section.classList.add('section-transition', 'section-fade');
+                    
+                    // Agregar evento de scroll para activar transición
+                    this.setupSectionScrollTrigger(section);
+                });
+            }
+            
+            setupSectionScrollTrigger(section) {
+                const sectionObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible', 'animate');
+                        }
+                    });
+                }, {
+                    threshold: 0.3
+                });
+                
+                sectionObserver.observe(section);
+            }
+            
+            // ========================================
+            // FEEDBACK VISUAL PARA INTERACCIONES TÁCTILES
+            // ========================================
+            
+            initializeTactileFeedback() {
+                // Aplicar efectos de ripple a botones
+                this.setupRippleEffects();
+                
+                // Aplicar efectos de hover mejorados
+                this.setupHoverEffects();
+                
+                // Aplicar efectos de focus
+                this.setupFocusEffects();
+                
+                // Aplicar efectos de active
+                this.setupActiveEffects();
+            }
+            
+            setupRippleEffects() {
+                const rippleElements = document.querySelectorAll('button, .btn, .touch-button, .nav-link');
+                
+                rippleElements.forEach(element => {
+                    element.classList.add('ripple-effect');
+                    
+                    element.addEventListener('click', (e) => {
+                        this.createRipple(e, element);
+                    });
+                });
+            }
+            
+            createRipple(event, element) {
+                const ripple = document.createElement('span');
+                const rect = element.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = event.clientX - rect.left - size / 2;
+                const y = event.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                element.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            }
+            
+            setupHoverEffects() {
+                const hoverElements = document.querySelectorAll('.grid-item, .team-card, .form-input');
+                
+                hoverElements.forEach(element => {
+                    element.classList.add('hover-lift', 'hover-scale');
+                });
+            }
+            
+            setupFocusEffects() {
+                const focusElements = document.querySelectorAll('input, textarea, select, button, a');
+                
+                focusElements.forEach(element => {
+                    element.classList.add('focus-ring');
+                });
+            }
+            
+            setupActiveEffects() {
+                const activeElements = document.querySelectorAll('button, .btn, .touch-button');
+                
+                activeElements.forEach(element => {
+                    element.classList.add('active-press');
+                });
+            }
+            
+            // ========================================
+            // EFECTOS DE PARALLAX OPTIMIZADOS PARA MÓVIL
+            // ========================================
+            
+            initializeParallaxEffects() {
+                // Solo aplicar parallax en dispositivos que no sean móviles
+                if (window.innerWidth > 768) {
+                    this.setupParallaxEffects();
+                }
+            }
+            
+            setupParallaxEffects() {
+                const parallaxElements = document.querySelectorAll('.parallax-element');
+                
+                window.addEventListener('scroll', () => {
+                    const scrolled = window.pageYOffset;
+                    const rate = scrolled * -0.5;
+                    
+                    parallaxElements.forEach(element => {
+                        const speed = element.dataset.speed || 0.5;
+                        element.style.transform = `translateY(${rate * speed}px)`;
+                    });
+                });
+            }
+            
+            // ========================================
+            // ANIMACIONES DE CARGA ELEGANTES
+            // ========================================
+            
+            initializeLoadingAnimations() {
+                // Crear spinner de carga
+                this.createLoadingSpinner();
+                
+                // Crear skeleton loading
+                this.createSkeletonLoading();
+                
+                // Crear progress bar
+                this.createProgressBar();
+                
+                // Crear loading dots
+                this.createLoadingDots();
+            }
+            
+            createLoadingSpinner() {
+                const spinner = document.createElement('div');
+                spinner.className = 'loading-spinner';
+                spinner.id = 'loading-spinner';
+                spinner.style.display = 'none';
+                document.body.appendChild(spinner);
+            }
+            
+            createSkeletonLoading() {
+                const skeletonElements = document.querySelectorAll('.grid-item, .team-card');
+                
+                skeletonElements.forEach(element => {
+                    const skeleton = document.createElement('div');
+                    skeleton.className = 'skeleton';
+                    skeleton.style.position = 'absolute';
+                    skeleton.style.top = '0';
+                    skeleton.style.left = '0';
+                    skeleton.style.width = '100%';
+                    skeleton.style.height = '100%';
+                    skeleton.style.zIndex = '1';
+                    
+                    element.style.position = 'relative';
+                    element.appendChild(skeleton);
+                    
+                    // Remover skeleton cuando el elemento esté cargado
+                    setTimeout(() => {
+                        skeleton.remove();
+                    }, 1000);
+                });
+            }
+            
+            createProgressBar() {
+                const progressBar = document.createElement('div');
+                progressBar.className = 'progress-bar';
+                progressBar.id = 'progress-bar';
+                progressBar.style.position = 'fixed';
+                progressBar.style.top = '0';
+                progressBar.style.left = '0';
+                progressBar.style.width = '100%';
+                progressBar.style.zIndex = '9999';
+                progressBar.style.display = 'none';
+                
+                const progressFill = document.createElement('div');
+                progressFill.className = 'progress-bar-fill';
+                progressBar.appendChild(progressFill);
+                
+                document.body.appendChild(progressBar);
+            }
+            
+            createLoadingDots() {
+                const loadingDots = document.createElement('div');
+                loadingDots.className = 'loading-dots';
+                loadingDots.id = 'loading-dots';
+                loadingDots.style.display = 'none';
+                
+                for (let i = 0; i < 3; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'loading-dot';
+                    loadingDots.appendChild(dot);
+                }
+                
+                document.body.appendChild(loadingDots);
+            }
+            
+            // ========================================
+            // TRANSICIONES DE PÁGINA FLUIDAS
+            // ========================================
+            
+            initializePageTransitions() {
+                // Crear overlay de transición
+                this.createPageTransitionOverlay();
+                
+                // Aplicar transiciones a enlaces
+                this.setupPageTransitions();
+            }
+            
+            createPageTransitionOverlay() {
+                const overlay = document.createElement('div');
+                overlay.className = 'page-transition';
+                overlay.id = 'page-transition';
+                document.body.appendChild(overlay);
+            }
+            
+            setupPageTransitions() {
+                const links = document.querySelectorAll('a[href^="#"]');
+                
+                links.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.animatePageTransition(link.getAttribute('href'));
+                    });
+                });
+            }
+            
+            animatePageTransition(target) {
+                const overlay = document.getElementById('page-transition');
+                const targetElement = document.querySelector(target);
+                
+                if (overlay && targetElement) {
+                    // Mostrar overlay
+                    overlay.classList.add('active');
+                    
+                    // Después de la animación, hacer scroll al elemento
+                    setTimeout(() => {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Ocultar overlay
+                        setTimeout(() => {
+                            overlay.classList.remove('active');
+                        }, 300);
+                    }, 500);
+                }
+            }
+            
+            // ========================================
+            // EFECTOS DE HOVER MEJORADOS
+            // ========================================
+            
+            initializeHoverEffects() {
+                const hoverElements = document.querySelectorAll('.grid-item, .team-card, .form-input');
+                
+                hoverElements.forEach(element => {
+                    element.classList.add('hover-lift', 'hover-scale');
+                    
+                    // Efectos específicos por tipo de elemento
+                    if (element.classList.contains('grid-item')) {
+                        element.classList.add('hover-rotate');
+                    }
+                });
+            }
+            
+            // ========================================
+            // EFECTOS DE RIPPLE MEJORADOS
+            // ========================================
+            
+            initializeRippleEffects() {
+                const rippleElements = document.querySelectorAll('button, .btn, .touch-button');
+                
+                rippleElements.forEach(element => {
+                    element.addEventListener('click', (e) => {
+                        this.createAdvancedRipple(e, element);
+                    });
+                });
+            }
+            
+            createAdvancedRipple(event, element) {
+                const ripple = document.createElement('span');
+                const rect = element.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = event.clientX - rect.left - size / 2;
+                const y = event.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255,255,255,0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple-animation 0.6s ease-out;
+                    pointer-events: none;
+                    z-index: 1;
+                `;
+                
+                element.style.position = 'relative';
+                element.style.overflow = 'hidden';
+                element.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            }
+            
+            // ========================================
+            // ANIMACIONES DE SCROLL
+            // ========================================
+            
+            initializeScrollAnimations() {
+                // Aplicar animaciones basadas en scroll
+                this.setupScrollAnimations();
+                
+                // Aplicar efectos de parallax
+                this.setupScrollParallax();
+            }
+            
+            setupScrollAnimations() {
+                const scrollElements = document.querySelectorAll('.animate-on-scroll');
+                
+                const scrollObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-in');
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+                
+                scrollElements.forEach(element => {
+                    scrollObserver.observe(element);
+                });
+            }
+            
+            setupScrollParallax() {
+                if (window.innerWidth > 768) {
+                    const parallaxElements = document.querySelectorAll('.parallax-element');
+                    
+                    window.addEventListener('scroll', () => {
+                        const scrolled = window.pageYOffset;
+                        
+                        parallaxElements.forEach(element => {
+                            const speed = element.dataset.speed || 0.5;
+                            const yPos = -(scrolled * speed);
+                            element.style.transform = `translateY(${yPos}px)`;
+                        });
+                    });
+                }
+            }
+            
+            // ========================================
+            // MÉTODOS DE UTILIDAD
+            // ========================================
+            
+            showLoading() {
+                const spinner = document.getElementById('loading-spinner');
+                if (spinner) {
+                    spinner.style.display = 'block';
+                }
+            }
+            
+            hideLoading() {
+                const spinner = document.getElementById('loading-spinner');
+                if (spinner) {
+                    spinner.style.display = 'none';
+                }
+            }
+            
+            showProgress(percent) {
+                const progressBar = document.getElementById('progress-bar');
+                const progressFill = progressBar?.querySelector('.progress-bar-fill');
+                
+                if (progressBar && progressFill) {
+                    progressBar.style.display = 'block';
+                    progressFill.style.width = `${percent}%`;
+                }
+            }
+            
+            hideProgress() {
+                const progressBar = document.getElementById('progress-bar');
+                if (progressBar) {
+                    progressBar.style.display = 'none';
+                }
+            }
+            
+            showLoadingDots() {
+                const loadingDots = document.getElementById('loading-dots');
+                if (loadingDots) {
+                    loadingDots.style.display = 'flex';
+                }
+            }
+            
+            hideLoadingDots() {
+                const loadingDots = document.getElementById('loading-dots');
+                if (loadingDots) {
+                    loadingDots.style.display = 'none';
+                }
+            }
+        }
+        
+        // ========================================
+        // INICIALIZACIÓN DEL SISTEMA DE MICRO-INTERACCIONES
+        // ========================================
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            new EliteMicroInteractions();
+        });
+        
+        // ========================================
+        // CSS ADICIONAL PARA RIPPLE ANIMATION
+        // ========================================
+        
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
     
     <!-- CSS adicional para optimizaciones de performance -->
@@ -8281,6 +8804,1898 @@
         
         .skip-link:focus {
             top: 6px;
+        }
+        
+        /* ========================================
+           SISTEMA DE MICRO-INTERACCIONES DE ÉLITE
+        ======================================== */
+        
+        /* Variables para micro-interacciones */
+        :root {
+            --animation-duration-fast: 0.2s;
+            --animation-duration-normal: 0.3s;
+            --animation-duration-slow: 0.5s;
+            --animation-duration-slower: 0.8s;
+            --animation-easing-ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --animation-easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+            --animation-easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+            --animation-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --animation-easing-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --parallax-intensity: 0.5;
+            --ripple-duration: 0.6s;
+            --ripple-scale: 2;
+        }
+        
+        /* ========================================
+           ANIMACIONES DE ENTRADA SUAVES
+        ======================================== */
+        
+        /* Animaciones de entrada base */
+        .animate-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all var(--animation-duration-normal) var(--animation-easing-ease);
+        }
+        
+        .animate-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Animaciones de entrada específicas */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn var(--animation-duration-normal) var(--animation-easing-ease) forwards;
+        }
+        
+        .slide-in-up {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideInUp var(--animation-duration-normal) var(--animation-easing-ease) forwards;
+        }
+        
+        .slide-in-down {
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: slideInDown var(--animation-duration-normal) var(--animation-easing-ease) forwards;
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft var(--animation-duration-normal) var(--animation-easing-ease) forwards;
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideInRight var(--animation-duration-normal) var(--animation-easing-ease) forwards;
+        }
+        
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: scaleIn var(--animation-duration-normal) var(--animation-easing-bounce) forwards;
+        }
+        
+        .rotate-in {
+            opacity: 0;
+            transform: rotate(-10deg) scale(0.8);
+            animation: rotateIn var(--animation-duration-normal) var(--animation-easing-ease) forwards;
+        }
+        
+        .flip-in {
+            opacity: 0;
+            transform: rotateY(-90deg);
+            animation: flipIn var(--animation-duration-normal) var(--animation-easing-ease) forwards;
+        }
+        
+        /* Keyframes para animaciones de entrada */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes rotateIn {
+            from {
+                opacity: 0;
+                transform: rotate(-10deg) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(0deg) scale(1);
+            }
+        }
+        
+        @keyframes flipIn {
+            from {
+                opacity: 0;
+                transform: rotateY(-90deg);
+            }
+            to {
+                opacity: 1;
+                transform: rotateY(0deg);
+            }
+        }
+        
+        /* ========================================
+           TRANSICIONES FLUIDAS ENTRE SECCIONES
+        ======================================== */
+        
+        .section-transition {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-transition::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left var(--animation-duration-slow) var(--animation-easing-ease);
+            z-index: 1;
+        }
+        
+        .section-transition.animate::before {
+            left: 100%;
+        }
+        
+        /* Transiciones de sección específicas */
+        .section-fade {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all var(--animation-duration-normal) var(--animation-easing-ease);
+        }
+        
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-slide {
+            transform: translateX(100%);
+            transition: transform var(--animation-duration-normal) var(--animation-easing-ease);
+        }
+        
+        .section-slide.visible {
+            transform: translateX(0);
+        }
+        
+        .section-scale {
+            transform: scale(0.95);
+            opacity: 0;
+            transition: all var(--animation-duration-normal) var(--animation-easing-ease);
+        }
+        
+        .section-scale.visible {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        /* ========================================
+           FEEDBACK VISUAL PARA INTERACCIONES TÁCTILES
+        ======================================== */
+        
+        /* Ripple effect para botones */
+        .ripple-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ripple-effect::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width var(--ripple-duration) var(--animation-easing-ease),
+                        height var(--ripple-duration) var(--animation-easing-ease);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .ripple-effect.active::before {
+            width: var(--ripple-scale) * 100%;
+            height: var(--ripple-scale) * 100%;
+        }
+        
+        /* Pulse effect para elementos interactivos */
+        .pulse-effect {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Bounce effect para elementos importantes */
+        .bounce-effect {
+            animation: bounce 1s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        /* Shake effect para errores */
+        .shake-effect {
+            animation: shake 0.5s ease-in-out;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        
+        /* Glow effect para elementos destacados */
+        .glow-effect {
+            position: relative;
+        }
+        
+        .glow-effect::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #d3600f, #ff6b35, #d3600f);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity var(--animation-duration-normal) var(--animation-easing-ease);
+        }
+        
+        .glow-effect:hover::after,
+        .glow-effect:focus::after {
+            opacity: 1;
+        }
+        
+        /* ========================================
+           RESPETO A PREFERS-REDUCED-MOTION
+        ======================================== */
+        
+        @media (prefers-reduced-motion: reduce) {
+            .animate-in,
+            .fade-in,
+            .slide-in-up,
+            .slide-in-down,
+            .slide-in-left,
+            .slide-in-right,
+            .scale-in,
+            .rotate-in,
+            .flip-in {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+            
+            .section-transition::before {
+                display: none;
+            }
+            
+            .pulse-effect,
+            .bounce-effect {
+                animation: none;
+            }
+            
+            .ripple-effect::before {
+                display: none;
+            }
+            
+            .glow-effect::after {
+                display: none;
+            }
+        }
+        
+        /* ========================================
+           PARALLAX OPTIMIZADO PARA MÓVIL
+        ======================================== */
+        
+        .parallax-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parallax-element {
+            will-change: transform;
+            transition: transform 0.1s ease-out;
+        }
+        
+        .parallax-slow {
+            transform: translateY(0);
+        }
+        
+        .parallax-medium {
+            transform: translateY(0);
+        }
+        
+        .parallax-fast {
+            transform: translateY(0);
+        }
+        
+        /* Parallax optimizado para móviles */
+        @media (max-width: 768px) {
+            .parallax-element {
+                transform: none !important;
+            }
+            
+            .parallax-slow,
+            .parallax-medium,
+            .parallax-fast {
+                transform: none !important;
+            }
+        }
+        
+        /* ========================================
+           ANIMACIONES DE CARGA ELEGANTES
+        ======================================== */
+        
+        /* Spinner de carga */
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(211,96,15,0.1);
+            border-left: 4px solid #d3600f;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Skeleton loading */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+        
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        /* Progress bar */
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(211,96,15,0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #d3600f, #ff6b35);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        
+        /* Loading dots */
+        .loading-dots {
+            display: flex;
+            gap: 4px;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .loading-dot {
+            width: 8px;
+            height: 8px;
+            background: #d3600f;
+            border-radius: 50%;
+            animation: loading-dot 1.4s infinite ease-in-out both;
+        }
+        
+        .loading-dot:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dot:nth-child(2) { animation-delay: -0.16s; }
+        .loading-dot:nth-child(3) { animation-delay: 0s; }
+        
+        @keyframes loading-dot {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+        
+        /* ========================================
+           TRANSICIONES DE PÁGINA FLUIDAS
+        ======================================== */
+        
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #2a4351;
+            z-index: 9999;
+            transform: translateY(100%);
+            transition: transform var(--animation-duration-slow) var(--animation-easing-ease);
+        }
+        
+        .page-transition.active {
+            transform: translateY(0);
+        }
+        
+        .page-transition.exit {
+            transform: translateY(-100%);
+        }
+        
+        /* Fade transition */
+        .fade-transition {
+            opacity: 0;
+            transition: opacity var(--animation-duration-normal) var(--animation-easing-ease);
+        }
+        
+        .fade-transition.active {
+            opacity: 1;
+        }
+        
+        /* Slide transition */
+        .slide-transition {
+            transform: translateX(100%);
+            transition: transform var(--animation-duration-normal) var(--animation-easing-ease);
+        }
+        
+        .slide-transition.active {
+            transform: translateX(0);
+        }
+        
+        /* Scale transition */
+        .scale-transition {
+            transform: scale(0.8);
+            opacity: 0;
+            transition: all var(--animation-duration-normal) var(--animation-easing-ease);
+        }
+        
+        .scale-transition.active {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        /* ========================================
+           MICRO-INTERACCIONES ESPECÍFICAS
+        ======================================== */
+        
+        /* Hover effects mejorados */
+        .hover-lift {
+            transition: transform var(--animation-duration-fast) var(--animation-easing-ease);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-4px);
+        }
+        
+        .hover-scale {
+            transition: transform var(--animation-duration-fast) var(--animation-easing-ease);
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .hover-rotate {
+            transition: transform var(--animation-duration-fast) var(--animation-easing-ease);
+        }
+        
+        .hover-rotate:hover {
+            transform: rotate(5deg);
+        }
+        
+        /* Focus effects */
+        .focus-ring {
+            transition: box-shadow var(--animation-duration-fast) var(--animation-easing-ease);
+        }
+        
+        .focus-ring:focus {
+            box-shadow: 0 0 0 3px rgba(211,96,15,0.3);
+        }
+        
+        /* Active states */
+        .active-press {
+            transition: transform var(--animation-duration-fast) var(--animation-easing-ease);
+        }
+        
+        .active-press:active {
+            transform: scale(0.95);
+        }
+        
+        /* ========================================
+           OPTIMIZACIONES PARA MÓVIL Y TABLET
+        ======================================== */
+        
+        @media (max-width: 480px) {
+            .animate-in {
+                transform: translateY(20px);
+            }
+            
+            .slide-in-up {
+                transform: translateY(30px);
+            }
+            
+            .slide-in-down {
+                transform: translateY(-30px);
+            }
+            
+            .slide-in-left {
+                transform: translateX(-30px);
+            }
+            
+            .slide-in-right {
+                transform: translateX(30px);
+            }
+            
+            .loading-spinner {
+                width: 30px;
+                height: 30px;
+                border-width: 3px;
+            }
+        }
+        
+        @media (min-width: 481px) and (max-width: 1024px) {
+            .animate-in {
+                transform: translateY(25px);
+            }
+            
+            .loading-spinner {
+                width: 35px;
+                height: 35px;
+            }
+        }
+        
+        /* ========================================
+           UTILIDADES DE ANIMACIÓN
+        ======================================== */
+        
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate-delay-3 { animation-delay: 0.3s; }
+        .animate-delay-4 { animation-delay: 0.4s; }
+        .animate-delay-5 { animation-delay: 0.5s; }
+        
+        .animate-duration-fast { animation-duration: var(--animation-duration-fast); }
+        .animate-duration-normal { animation-duration: var(--animation-duration-normal); }
+        .animate-duration-slow { animation-duration: var(--animation-duration-slow); }
+        .animate-duration-slower { animation-duration: var(--animation-duration-slower); }
+        
+        .animate-easing-ease { animation-timing-function: var(--animation-easing-ease); }
+        .animate-easing-ease-out { animation-timing-function: var(--animation-easing-ease-out); }
+        .animate-easing-ease-in { animation-timing-function: var(--animation-easing-ease-in); }
+        .animate-easing-bounce { animation-timing-function: var(--animation-easing-bounce); }
+        .animate-easing-elastic { animation-timing-function: var(--animation-easing-elastic); }
+        
+        /* ========================================
+           SISTEMA DE MICRO-INTERACCIONES DE ÉLITE
+        ======================================== */
+        
+        /* Variables para micro-interacciones */
+        :root {
+            --animation-duration-fast: 0.2s;
+            --animation-duration-normal: 0.3s;
+            --animation-duration-slow: 0.5s;
+            --animation-duration-slower: 0.8s;
+            --animation-easing-ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --animation-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --animation-easing-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --animation-easing-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --parallax-speed: 0.5;
+            --parallax-speed-slow: 0.3;
+            --parallax-speed-fast: 0.7;
+        }
+        
+        /* ========================================
+           ANIMACIONES DE ENTRADA SUAVES
+        ======================================== */
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp var(--animation-duration-normal) var(--animation-easing-ease) forwards;
+        }
+        
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: fadeInLeft var(--animation-duration-normal) var(--animation-easing-ease) forwards;
+        }
+        
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            animation: fadeInRight var(--animation-duration-normal) var(--animation-easing-ease) forwards;
+        }
+        
+        .fade-in-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            animation: fadeInScale var(--animation-duration-normal) var(--animation-easing-bounce) forwards;
+        }
+        
+        .fade-in-rotate {
+            opacity: 0;
+            transform: rotate(-5deg) scale(0.9);
+            animation: fadeInRotate var(--animation-duration-slow) var(--animation-easing-elastic) forwards;
+        }
+        
+        .slide-in-up {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideInUp var(--animation-duration-normal) var(--animation-easing-ease) forwards;
+        }
+        
+        .slide-in-down {
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: slideInDown var(--animation-duration-normal) var(--animation-easing-ease) forwards;
+        }
+        
+        .zoom-in {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: zoomIn var(--animation-duration-normal) var(--animation-easing-bounce) forwards;
+        }
+        
+        .flip-in {
+            opacity: 0;
+            transform: rotateY(-90deg);
+            animation: flipIn var(--animation-duration-slow) var(--animation-easing-ease) forwards;
+        }
+        
+        /* Keyframes para animaciones de entrada */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInScale {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes fadeInRotate {
+            to {
+                opacity: 1;
+                transform: rotate(0deg) scale(1);
+            }
+        }
+        
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes zoomIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes flipIn {
+            to {
+                opacity: 1;
+                transform: rotateY(0deg);
+            }
+        }
+        
+        /* ========================================
+           TRANSICIONES FLUIDAS ENTRE SECCIONES
+        ======================================== */
+        
+        .section-transition {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-transition::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: sectionSlideIn var(--animation-duration-slow) var(--animation-easing-ease) forwards;
+        }
+        
+        .section-fade-in {
+            opacity: 0;
+            animation: sectionFadeIn var(--animation-duration-slow) var(--animation-easing-ease) forwards;
+        }
+        
+        .section-slide-up {
+            transform: translateY(100px);
+            opacity: 0;
+            animation: sectionSlideUp var(--animation-duration-slow) var(--animation-easing-ease) forwards;
+        }
+        
+        .section-reveal {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-reveal::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #2a4351;
+            transform: translateX(-100%);
+            animation: sectionReveal var(--animation-duration-slower) var(--animation-easing-ease) forwards;
+        }
+        
+        @keyframes sectionSlideIn {
+            to {
+                left: 100%;
+            }
+        }
+        
+        @keyframes sectionFadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes sectionSlideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes sectionReveal {
+            to {
+                transform: translateX(100%);
+            }
+        }
+        
+        /* ========================================
+           FEEDBACK VISUAL PARA INTERACCIONES TÁCTILES
+        ======================================== */
+        
+        .touch-feedback {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .touch-feedback::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(211,96,15,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all var(--animation-duration-fast) var(--animation-easing-ease);
+            pointer-events: none;
+        }
+        
+        .touch-feedback:active::before {
+            width: 200px;
+            height: 200px;
+            opacity: 0;
+        }
+        
+        .ripple-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ripple-effect .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.6);
+            transform: scale(0);
+            animation: ripple var(--animation-duration-normal) var(--animation-easing-ease);
+            pointer-events: none;
+        }
+        
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        .pulse-feedback {
+            animation: pulseFeedback var(--animation-duration-fast) var(--animation-easing-ease);
+        }
+        
+        @keyframes pulseFeedback {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .shake-feedback {
+            animation: shakeFeedback var(--animation-duration-fast) var(--animation-easing-ease);
+        }
+        
+        @keyframes shakeFeedback {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        .bounce-feedback {
+            animation: bounceFeedback var(--animation-duration-normal) var(--animation-easing-bounce);
+        }
+        
+        @keyframes bounceFeedback {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* ========================================
+           RESPETO A PREFERS-REDUCED-MOTION
+        ======================================== */
+        
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in,
+            .fade-in-left,
+            .fade-in-right,
+            .fade-in-scale,
+            .fade-in-rotate,
+            .slide-in-up,
+            .slide-in-down,
+            .zoom-in,
+            .flip-in {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+            
+            .section-transition::before,
+            .section-reveal::after {
+                animation: none;
+                display: none;
+            }
+            
+            .touch-feedback::before,
+            .ripple-effect .ripple {
+                animation: none;
+                display: none;
+            }
+            
+            .pulse-feedback,
+            .shake-feedback,
+            .bounce-feedback {
+                animation: none;
+            }
+            
+            * {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+        
+        /* ========================================
+           EFECTOS DE PARALLAX OPTIMIZADOS PARA MÓVIL
+        ======================================== */
+        
+        .parallax-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parallax-element {
+            will-change: transform;
+            transform: translateZ(0);
+        }
+        
+        .parallax-slow {
+            transform: translateY(0);
+            transition: transform 0.1s ease-out;
+        }
+        
+        .parallax-medium {
+            transform: translateY(0);
+            transition: transform 0.1s ease-out;
+        }
+        
+        .parallax-fast {
+            transform: translateY(0);
+            transition: transform 0.1s ease-out;
+        }
+        
+        /* Parallax optimizado para móviles */
+        @media (max-width: 768px) {
+            .parallax-slow {
+                transform: translateY(0);
+            }
+            
+            .parallax-medium {
+                transform: translateY(0);
+            }
+            
+            .parallax-fast {
+                transform: translateY(0);
+            }
+        }
+        
+        /* ========================================
+           ANIMACIONES DE CARGA ELEGANTES
+        ======================================== */
+        
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(211,96,15,0.2);
+            border-top: 4px solid #d3600f;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        .loading-dots {
+            display: flex;
+            gap: 4px;
+        }
+        
+        .loading-dots .dot {
+            width: 8px;
+            height: 8px;
+            background: #d3600f;
+            border-radius: 50%;
+            animation: loadingDots 1.4s infinite ease-in-out both;
+        }
+        
+        .loading-dots .dot:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dots .dot:nth-child(2) { animation-delay: -0.16s; }
+        .loading-dots .dot:nth-child(3) { animation-delay: 0s; }
+        
+        .loading-skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: skeletonLoading 1.5s infinite;
+        }
+        
+        .loading-progress {
+            width: 100%;
+            height: 4px;
+            background: rgba(211,96,15,0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .loading-progress .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #d3600f, #c16134);
+            border-radius: 2px;
+            animation: progressLoading 2s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes loadingDots {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes skeletonLoading {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+        
+        @keyframes progressLoading {
+            0% {
+                width: 0%;
+            }
+            50% {
+                width: 70%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+        
+        /* ========================================
+           TRANSICIONES DE PÁGINA FLUIDAS
+        ======================================== */
+        
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #2a4351;
+            z-index: 9999;
+            transform: translateY(100%);
+            transition: transform var(--animation-duration-slow) var(--animation-easing-ease);
+        }
+        
+        .page-transition.active {
+            transform: translateY(0);
+        }
+        
+        .page-transition.fade-out {
+            transform: translateY(-100%);
+        }
+        
+        .page-slide-left {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #2a4351;
+            z-index: 9999;
+            transform: translateX(-100%);
+            transition: transform var(--animation-duration-slow) var(--animation-easing-ease);
+        }
+        
+        .page-slide-left.active {
+            transform: translateX(0);
+        }
+        
+        .page-slide-left.fade-out {
+            transform: translateX(100%);
+        }
+        
+        .page-zoom {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #2a4351;
+            z-index: 9999;
+            transform: scale(0);
+            transition: transform var(--animation-duration-slow) var(--animation-easing-bounce);
+        }
+        
+        .page-zoom.active {
+            transform: scale(1);
+        }
+        
+        .page-zoom.fade-out {
+            transform: scale(1.2);
+            opacity: 0;
+        }
+        
+        /* ========================================
+           ANIMACIONES DE HOVER Y FOCUS MEJORADAS
+        ======================================== */
+        
+        .hover-lift {
+            transition: transform var(--animation-duration-normal) var(--animation-easing-ease);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+        
+        .hover-scale {
+            transition: transform var(--animation-duration-normal) var(--animation-easing-ease);
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .hover-rotate {
+            transition: transform var(--animation-duration-normal) var(--animation-easing-ease);
+        }
+        
+        .hover-rotate:hover {
+            transform: rotate(2deg);
+        }
+        
+        .hover-glow {
+            transition: box-shadow var(--animation-duration-normal) var(--animation-easing-ease);
+        }
+        
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(211,96,15,0.5);
+        }
+        
+        .focus-ring {
+            transition: box-shadow var(--animation-duration-fast) var(--animation-easing-ease);
+        }
+        
+        .focus-ring:focus {
+            box-shadow: 0 0 0 3px rgba(211,96,15,0.3);
+            outline: none;
+        }
+        
+        /* ========================================
+           ANIMACIONES DE SCROLL
+        ======================================== */
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all var(--animation-duration-slow) var(--animation-easing-ease);
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-fade-in {
+            opacity: 0;
+            transition: opacity var(--animation-duration-slow) var(--animation-easing-ease);
+        }
+        
+        .scroll-fade-in.revealed {
+            opacity: 1;
+        }
+        
+        .scroll-slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all var(--animation-duration-slow) var(--animation-easing-ease);
+        }
+        
+        .scroll-slide-left.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scroll-slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all var(--animation-duration-slow) var(--animation-easing-ease);
+        }
+        
+        .scroll-slide-right.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* ========================================
+           ANIMACIONES DE TEXTO
+        ======================================== */
+        
+        .text-reveal {
+            overflow: hidden;
+        }
+        
+        .text-reveal .text-line {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(100%);
+            animation: textReveal var(--animation-duration-slow) var(--animation-easing-ease) forwards;
+        }
+        
+        .text-reveal .text-line:nth-child(1) { animation-delay: 0.1s; }
+        .text-reveal .text-line:nth-child(2) { animation-delay: 0.2s; }
+        .text-reveal .text-line:nth-child(3) { animation-delay: 0.3s; }
+        .text-reveal .text-line:nth-child(4) { animation-delay: 0.4s; }
+        .text-reveal .text-line:nth-child(5) { animation-delay: 0.5s; }
+        
+        @keyframes textReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid #d3600f;
+            white-space: nowrap;
+            animation: typewriter var(--animation-duration-slower) steps(40, end) forwards;
+        }
+        
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        /* ========================================
+           ANIMACIONES DE CARDS Y ELEMENTOS
+        ======================================== */
+        
+        .card-enter {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            animation: cardEnter var(--animation-duration-normal) var(--animation-easing-ease) forwards;
+        }
+        
+        .card-enter:nth-child(1) { animation-delay: 0.1s; }
+        .card-enter:nth-child(2) { animation-delay: 0.2s; }
+        .card-enter:nth-child(3) { animation-delay: 0.3s; }
+        .card-enter:nth-child(4) { animation-delay: 0.4s; }
+        .card-enter:nth-child(5) { animation-delay: 0.5s; }
+        .card-enter:nth-child(6) { animation-delay: 0.6s; }
+        
+        @keyframes cardEnter {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .stagger-animation {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: staggerAnimation var(--animation-duration-normal) var(--animation-easing-ease) forwards;
+        }
+        
+        .stagger-animation:nth-child(1) { animation-delay: 0.1s; }
+        .stagger-animation:nth-child(2) { animation-delay: 0.15s; }
+        .stagger-animation:nth-child(3) { animation-delay: 0.2s; }
+        .stagger-animation:nth-child(4) { animation-delay: 0.25s; }
+        .stagger-animation:nth-child(5) { animation-delay: 0.3s; }
+        .stagger-animation:nth-child(6) { animation-delay: 0.35s; }
+        
+        @keyframes staggerAnimation {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ========================================
+           OPTIMIZACIONES PARA MÓVIL Y TABLET
+        ======================================== */
+        
+        @media (max-width: 768px) {
+            .fade-in,
+            .fade-in-left,
+            .fade-in-right,
+            .slide-in-up,
+            .slide-in-down {
+                transform: translateY(20px);
+            }
+            
+            .fade-in-left {
+                transform: translateX(-20px);
+            }
+            
+            .fade-in-right {
+                transform: translateX(20px);
+            }
+            
+            .hover-lift:hover,
+            .hover-scale:hover,
+            .hover-rotate:hover {
+                transform: none;
+            }
+            
+            .parallax-slow,
+            .parallax-medium,
+            .parallax-fast {
+                transform: none;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .parallax-slow,
+            .parallax-medium,
+            .parallax-fast {
+                transform: none;
+            }
+            
+            .scroll-reveal,
+            .scroll-fade-in,
+            .scroll-slide-left,
+            .scroll-slide-right {
+                opacity: 1;
+                transform: none;
+            }
+            
+            .text-reveal .text-line {
+                opacity: 1;
+                transform: none;
+            }
+            
+            .typewriter {
+                animation: none;
+                width: 100%;
+                border-right: none;
+            }
+        }
+        
+        /* ========================================
+           SISTEMA DE TESTING Y OPTIMIZACIÓN MÓVIL
+        ======================================== */
+        
+        /* Variables para testing y optimización */
+        :root {
+            --safe-area-top: env(safe-area-inset-top);
+            --safe-area-right: env(safe-area-inset-right);
+            --safe-area-bottom: env(safe-area-inset-bottom);
+            --safe-area-left: env(safe-area-inset-left);
+            --device-pixel-ratio: 1;
+            --viewport-height: 100vh;
+            --viewport-height-dynamic: 100dvh;
+        }
+        
+        /* ========================================
+           OPTIMIZACIÓN PARA DIFERENTES ORIENTACIONES
+        ======================================== */
+        
+        /* Portrait (vertical) */
+        @media (orientation: portrait) {
+            .portrait-optimized {
+                display: block;
+            }
+            
+            .landscape-optimized {
+                display: none;
+            }
+            
+            .hero-elite {
+                height: 100vh;
+                height: 100dvh;
+            }
+            
+            .grid-portrait {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .text-portrait {
+                font-size: clamp(1rem, 4vw, 1.5rem);
+                line-height: 1.4;
+            }
+        }
+        
+        /* Landscape (horizontal) */
+        @media (orientation: landscape) {
+            .portrait-optimized {
+                display: none;
+            }
+            
+            .landscape-optimized {
+                display: block;
+            }
+            
+            .hero-elite {
+                height: 100vh;
+                height: 100dvh;
+            }
+            
+            .grid-landscape {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .text-landscape {
+                font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+                line-height: 1.3;
+            }
+        }
+        
+        /* ========================================
+           BREAKPOINTS ESPECÍFICOS PARA TABLETS
+        ======================================== */
+        
+        /* Tablets en portrait */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            .tablet-portrait {
+                display: block;
+            }
+            
+            .tablet-landscape {
+                display: none;
+            }
+            
+            .hero-elite {
+                height: 100vh;
+                height: 100dvh;
+            }
+            
+            .grid-tablet-portrait {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .text-tablet-portrait {
+                font-size: clamp(1.1rem, 3vw, 1.8rem);
+                line-height: 1.5;
+            }
+        }
+        
+        /* Tablets en landscape */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            .tablet-portrait {
+                display: none;
+            }
+            
+            .tablet-landscape {
+                display: block;
+            }
+            
+            .hero-elite {
+                height: 100vh;
+                height: 100dvh;
+            }
+            
+            .grid-tablet-landscape {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2.5rem;
+            }
+            
+            .text-tablet-landscape {
+                font-size: clamp(1rem, 2.5vw, 1.5rem);
+                line-height: 1.4;
+            }
+        }
+        
+        /* ========================================
+           SOPORTE PARA DISPOSITIVOS PLEGABLES
+        ======================================== */
+        
+        @media (min-width: 280px) and (max-width: 653px) and (min-height: 300px) {
+            .foldable-optimized {
+                display: block;
+            }
+            
+            .grid-foldable {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .text-foldable {
+                font-size: clamp(0.9rem, 3.5vw, 1.3rem);
+                line-height: 1.4;
+            }
+        }
+        
+        /* ========================================
+           SAFE AREAS PARA DISPOSITIVOS CON NOTCH
+        ======================================== */
+        
+        .safe-area-top {
+            padding-top: var(--safe-area-top);
+        }
+        
+        .safe-area-bottom {
+            padding-bottom: var(--safe-area-bottom);
+        }
+        
+        .safe-area-left {
+            padding-left: var(--safe-area-left);
+        }
+        
+        .safe-area-right {
+            padding-right: var(--safe-area-right);
+        }
+        
+        .safe-area-all {
+            padding-top: var(--safe-area-top);
+            padding-right: var(--safe-area-right);
+            padding-bottom: var(--safe-area-bottom);
+            padding-left: var(--safe-area-left);
+        }
+        
+        /* ========================================
+           OPTIMIZACIÓN PARA DIFERENTES DENSIDADES DE PÍXELES
+        ======================================== */
+        
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .high-dpi-optimized {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+        }
+        
+        @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+            .ultra-high-dpi-optimized {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+        }
+        
+        /* ========================================
+           SISTEMA DE MÉTRICAS DE RENDIMIENTO
+        ======================================== */
+        
+        .performance-metrics {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 10000;
+            display: none;
+        }
+        
+        .performance-metrics.show {
+            display: block;
+        }
+        
+        .metric-item {
+            margin-bottom: 5px;
+        }
+        
+        .metric-label {
+            font-weight: bold;
+            color: #d3600f;
+        }
+        
+        .metric-value {
+            color: #fff;
+        }
+        
+        /* ========================================
+           SISTEMA DE A/B TESTING
+        ======================================== */
+        
+        .ab-test-variant-a {
+            display: block;
+        }
+        
+        .ab-test-variant-b {
+            display: none;
+        }
+        
+        .ab-test-active .ab-test-variant-a {
+            display: none;
+        }
+        
+        .ab-test-active .ab-test-variant-b {
+            display: block;
+        }
+        
+        /* ========================================
+           SISTEMA DE FEEDBACK DE USUARIOS
+        ======================================== */
+        
+        .feedback-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #d3600f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(211,96,15,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .feedback-widget:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(211,96,15,0.4);
+        }
+        
+        .feedback-widget svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+        
+        .feedback-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+        
+        .feedback-modal.show {
+            display: flex;
+        }
+        
+        .feedback-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .feedback-rating {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .feedback-star {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            color: #ddd;
+            transition: color 0.2s ease;
+        }
+        
+        .feedback-star.active {
+            color: #ffd700;
+        }
+        
+        .feedback-star:hover {
+            color: #ffd700;
+        }
+        
+        /* ========================================
+           SISTEMA DE ANALYTICS Y TRACKING
+        ======================================== */
+        
+        .analytics-tracker {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 10000;
+            display: none;
+        }
+        
+        .analytics-tracker.show {
+            display: block;
+        }
+        
+        .analytics-item {
+            margin-bottom: 5px;
+        }
+        
+        .analytics-label {
+            font-weight: bold;
+            color: #d3600f;
+        }
+        
+        .analytics-value {
+            color: #fff;
+        }
+        
+        /* ========================================
+           OPTIMIZACIONES ESPECÍFICAS POR DISPOSITIVO
+        ======================================== */
+        
+        /* iPhone SE y similares */
+        @media (max-width: 375px) and (max-height: 667px) {
+            .hero-elite {
+                height: 100vh;
+                height: 100dvh;
+            }
+            
+            .text-small-screen {
+                font-size: clamp(0.8rem, 4vw, 1.2rem);
+                line-height: 1.3;
+            }
+            
+            .grid-small-screen {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+        }
+        
+        /* iPhone 12/13/14 Pro Max */
+        @media (min-width: 428px) and (max-width: 428px) and (min-height: 926px) {
+            .hero-elite {
+                height: 100vh;
+                height: 100dvh;
+            }
+            
+            .text-large-screen {
+                font-size: clamp(1rem, 3.5vw, 1.6rem);
+                line-height: 1.5;
+            }
+            
+            .grid-large-screen {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+        
+        /* iPad Mini */
+        @media (min-width: 768px) and (max-width: 1024px) and (min-height: 1024px) {
+            .hero-elite {
+                height: 100vh;
+                height: 100dvh;
+            }
+            
+            .text-ipad-mini {
+                font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+                line-height: 1.5;
+            }
+            
+            .grid-ipad-mini {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+        
+        /* iPad Pro */
+        @media (min-width: 1024px) and (max-width: 1366px) {
+            .hero-elite {
+                height: 100vh;
+                height: 100dvh;
+            }
+            
+            .text-ipad-pro {
+                font-size: clamp(1.2rem, 2vw, 2rem);
+                line-height: 1.6;
+            }
+            
+            .grid-ipad-pro {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2.5rem;
+            }
+        }
+        
+        /* ========================================
+           OPTIMIZACIONES DE RENDIMIENTO MÓVIL
+        ======================================== */
+        
+        .mobile-optimized {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .mobile-optimized img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+        
+        .mobile-optimized video {
+            object-fit: cover;
+        }
+        
+        /* ========================================
+           SISTEMA DE DETECCIÓN DE DISPOSITIVOS
+        ======================================== */
+        
+        .device-detector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 10000;
+            display: none;
+        }
+        
+        .device-detector.show {
+            display: block;
+        }
+        
+        .device-info {
+            margin-bottom: 5px;
+        }
+        
+        .device-label {
+            font-weight: bold;
+            color: #d3600f;
+        }
+        
+        .device-value {
+            color: #fff;
         }
     </style>
 </body>
