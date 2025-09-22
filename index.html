@@ -3694,7 +3694,7 @@
                 <div class="grid grid-3 gap-lg grid-center">
                 
                 <!-- Servicio 1: Personas -->
-                <div class="grid-item aspect-golden" style="position:relative;group">
+                <div class="grid-item aspect-golden" style="position:relative">
                     <div style="background:#2a4351;border-radius:2rem;padding:3rem 2.5rem;height:100%;box-shadow:0 0 0 1px rgba(0,0,0,0.04);transition:all 0.6s cubic-bezier(0.4, 0, 0.2, 1);border:1px solid rgba(42,67,81,0.2);position:relative;overflow:hidden;display:flex;flex-direction:column" onmouseover="this.style.transform='translateY(-12px)';this.style.boxShadow='0 40px 80px -12px rgba(0,0,0,0.15), 0 0 0 1px rgba(211,96,15,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 0 0 1px rgba(0,0,0,0.04)'">
                         <!-- Elemento decorativo sutil -->
                         <div style="position:absolute;top:-2rem;right:-2rem;width:8rem;height:8rem;background:linear-gradient(135deg, rgba(211,96,15,0.03) 0%, transparent 60%);border-radius:50%;z-index:0"></div>
@@ -3722,7 +3722,7 @@
                 </div>
                 
                 <!-- Servicio 2: Empresas -->
-                <div class="grid-item aspect-golden" style="position:relative;group">
+                <div class="grid-item aspect-golden" style="position:relative">
                     <div style="background:#2a4351;border-radius:2rem;padding:3rem 2.5rem;height:100%;box-shadow:0 0 0 1px rgba(0,0,0,0.04);transition:all 0.6s cubic-bezier(0.4, 0, 0.2, 1);border:1px solid rgba(42,67,81,0.2);position:relative;overflow:hidden;display:flex;flex-direction:column" onmouseover="this.style.transform='translateY(-12px)';this.style.boxShadow='0 40px 80px -12px rgba(0,0,0,0.15), 0 0 0 1px rgba(211,96,15,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 0 0 1px rgba(0,0,0,0.04)'">
                         <!-- Elemento decorativo sutil -->
                         <div style="position:absolute;top:-2rem;right:-2rem;width:8rem;height:8rem;background:linear-gradient(135deg, rgba(211,96,15,0.03) 0%, transparent 60%);border-radius:50%;z-index:0"></div>
@@ -3750,7 +3750,7 @@
                 </div>
                 
                 <!-- Servicio 3: Gobiernos -->
-                <div class="grid-item aspect-golden" style="position:relative;group">
+                <div class="grid-item aspect-golden" style="position:relative">
                     <div style="background:#2a4351;border-radius:2rem;padding:3rem 2.5rem;height:100%;box-shadow:0 0 0 1px rgba(0,0,0,0.04);transition:all 0.6s cubic-bezier(0.4, 0, 0.2, 1);border:1px solid rgba(42,67,81,0.2);position:relative;overflow:hidden;display:flex;flex-direction:column" onmouseover="this.style.transform='translateY(-12px)';this.style.boxShadow='0 40px 80px -12px rgba(0,0,0,0.15), 0 0 0 1px rgba(211,96,15,0.1)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 0 0 1px rgba(0,0,0,0.04)'">
                         <!-- Elemento decorativo sutil -->
                         <div style="position:absolute;top:-2rem;right:-2rem;width:8rem;height:8rem;background:linear-gradient(135deg, rgba(211,96,15,0.03) 0%, transparent 60%);border-radius:50%;z-index:0"></div>
@@ -4949,12 +4949,18 @@
         /* Optimización de fuentes */
         @font-face {
             font-family: 'Inter';
+            font-style: normal;
+            font-weight: 300 700;
             font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2') format('woff2');
         }
         
         @font-face {
             font-family: 'Playfair Display';
+            font-style: normal;
+            font-weight: 400 700;
             font-display: swap;
+            src: url('https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDYbtXK-F2qO0u.woff2') format('woff2');
         }
         
         /* Optimización de animaciones */
@@ -7015,6 +7021,282 @@
             });
             localStorage.setItem('sueñoAndinoAnalytics', JSON.stringify(analyticsData));
         }
+        
+        // ========================================
+        // OPTIMIZACIONES FINALES DE PERFORMANCE
+        // ========================================
+        
+        // Comprimir CSS inline en tiempo real
+        function compressInlineCSS() {
+            const styleElements = document.querySelectorAll('style');
+            styleElements.forEach(style => {
+                let css = style.textContent;
+                // Remover comentarios
+                css = css.replace(/\/\*[\s\S]*?\*\//g, '');
+                // Remover espacios innecesarios
+                css = css.replace(/\s+/g, ' ');
+                css = css.replace(/;\s*}/g, '}');
+                css = css.replace(/\s*{\s*/g, '{');
+                css = css.replace(/;\s*/g, ';');
+                css = css.replace(/\s*,\s*/g, ',');
+                css = css.replace(/\s*:\s*/g, ':');
+                style.textContent = css;
+            });
+        }
+        
+        // Optimizar imágenes con lazy loading mejorado
+        function optimizeImages() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                // Agregar loading="lazy" si no lo tiene
+                if (!img.hasAttribute('loading')) {
+                    img.setAttribute('loading', 'lazy');
+                }
+                
+                // Optimizar decoding
+                if (!img.hasAttribute('decoding')) {
+                    img.setAttribute('decoding', 'async');
+                }
+                
+                // Agregar fetchpriority para imágenes críticas
+                if (img.classList.contains('hero-image-mobile')) {
+                    img.setAttribute('fetchpriority', 'high');
+                }
+            });
+        }
+        
+        // Optimizar fuentes con font-display: swap
+        function optimizeFonts() {
+            // Precargar fuentes críticas
+            const fontPreloads = [
+                'https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDYbtXK-F2qO0u.woff2',
+                'https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2'
+            ];
+            
+            fontPreloads.forEach(font => {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'font';
+                link.type = 'font/woff2';
+                link.crossOrigin = 'anonymous';
+                link.href = font;
+                document.head.appendChild(link);
+            });
+        }
+        
+        // Optimizar animaciones para 60fps
+        function optimizeAnimations() {
+            // Usar will-change solo cuando sea necesario
+            const animatedElements = document.querySelectorAll('.hero-image, .hero-cta-button, .touch-card, .team-card, .form-input');
+            
+            animatedElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    el.style.willChange = 'transform';
+                });
+                
+                el.addEventListener('mouseleave', () => {
+                    el.style.willChange = 'auto';
+                });
+            });
+            
+            // Optimizar scroll con requestAnimationFrame
+            let scrollTicking = false;
+            function updateScroll() {
+                // Lógica de scroll optimizada
+                scrollTicking = false;
+            }
+            
+            function requestScrollTick() {
+                if (!scrollTicking) {
+                    requestAnimationFrame(updateScroll);
+                    scrollTicking = true;
+                }
+            }
+            
+            window.addEventListener('scroll', requestScrollTick, { passive: true });
+        }
+        
+        // Minimizar JavaScript
+        function minimizeJavaScript() {
+            // Debounce para eventos frecuentes
+            const debounce = (func, wait) => {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            };
+            
+            // Aplicar debounce a eventos
+            const debouncedResize = debounce(() => {
+                // Lógica de resize optimizada
+            }, 250);
+            
+            window.addEventListener('resize', debouncedResize, { passive: true });
+        }
+        
+        // Sistema de preloading inteligente
+        function intelligentPreloading() {
+            // Precargar recursos críticos inmediatamente
+            const criticalResources = [
+                'assets/img/hero-background-mobile.webp',
+                'assets/img/logo-sa-blanco.png'
+            ];
+            
+            criticalResources.forEach(resource => {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = resource;
+                document.head.appendChild(link);
+            });
+            
+            // Precargar recursos secundarios después de 2 segundos
+            setTimeout(() => {
+                const secondaryResources = [
+                    'assets/img/galeria1.jpg',
+                    'assets/img/galeria2.jpg',
+                    'assets/img/galeria3.jpg'
+                ];
+                
+                secondaryResources.forEach(resource => {
+                    const link = document.createElement('link');
+                    link.rel = 'prefetch';
+                    link.as = 'image';
+                    link.href = resource;
+                    document.head.appendChild(link);
+                });
+            }, 2000);
+        }
+        
+        // Optimizaciones específicas para móviles
+        function mobileOptimizations() {
+            if (window.innerWidth <= 768) {
+                // Reducir animaciones en móviles
+                document.body.classList.add('mobile-optimized');
+                
+                // Desactivar parallax en móviles
+                const parallaxElements = document.querySelectorAll('.parallax');
+                parallaxElements.forEach(el => {
+                    el.classList.remove('parallax');
+                });
+                
+                // Optimizar imágenes para móviles
+                const images = document.querySelectorAll('img');
+                images.forEach(img => {
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    }
+                });
+            }
+        }
+        
+        // Detectar dispositivos de baja potencia
+        function detectLowPowerDevices() {
+            const isLowPower = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4;
+            const isSlowConnection = navigator.connection && 
+                (navigator.connection.effectiveType === 'slow-2g' || 
+                 navigator.connection.effectiveType === '2g');
+            
+            if (isLowPower || isSlowConnection) {
+                document.body.classList.add('low-power-device');
+                
+                // Desactivar animaciones pesadas
+                const style = document.createElement('style');
+                style.textContent = `
+                    .low-power-device * {
+                        animation-duration: 0.01ms !important;
+                        animation-iteration-count: 1 !important;
+                        transition-duration: 0.01ms !important;
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+        
+        // Inicializar todas las optimizaciones
+        document.addEventListener('DOMContentLoaded', () => {
+            compressInlineCSS();
+            optimizeImages();
+            optimizeFonts();
+            optimizeAnimations();
+            minimizeJavaScript();
+            intelligentPreloading();
+            mobileOptimizations();
+            detectLowPowerDevices();
+        });
+        
+        // Optimización adicional después de la carga completa
+        window.addEventListener('load', () => {
+            // Comprimir CSS una vez más después de la carga
+            compressInlineCSS();
+            
+            // Limpiar event listeners innecesarios
+            const unusedElements = document.querySelectorAll('[data-cleanup]');
+            unusedElements.forEach(el => {
+                el.removeAttribute('data-cleanup');
+            });
+        });
     </script>
+    
+    <!-- CSS adicional para optimizaciones de performance -->
+    <style>
+        /* Optimizaciones de performance */
+        .mobile-optimized * {
+            animation-duration: 0.3s !important;
+            transition-duration: 0.3s !important;
+        }
+        
+        .low-power-device * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+        
+        /* Optimización de fuentes */
+        .fonts-loaded {
+            font-display: swap;
+        }
+        
+        /* Optimización de imágenes */
+        img[loading="lazy"] {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        img[loading="lazy"].loaded {
+            opacity: 1;
+        }
+        
+        /* Optimización de animaciones */
+        * {
+            will-change: auto;
+        }
+        
+        *:hover {
+            will-change: transform;
+        }
+        
+        /* Optimización de scroll */
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        
+        /* Optimización de touch */
+        .touch-optimized {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
 </body>
 </html>
