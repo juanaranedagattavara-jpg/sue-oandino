@@ -1,173 +1,85 @@
-# Sueño Andino - Tema WordPress con Bloques Gutenberg
+# Tema WordPress - Sueño Andino
 
-## 🎯 Descripción
+## 🚀 Características
 
-Tema WordPress premium desarrollado específicamente para Sueño Andino, con bloques Gutenberg personalizados que replican exactamente el diseño y funcionalidad del sitio web original.
+- **Bloques Gutenberg personalizados** para cada sección
+- **Diseño responsive** optimizado para móviles
+- **Performance optimizada** con lazy loading
+- **SEO friendly** con meta tags automáticos
+- **Formulario de contacto** con AJAX
 
-## ✨ Características Principales
+## 📦 Bloques Disponibles
 
-### 🧩 Bloques Gutenberg Personalizados
-
-1. **Hero Block** - Sección principal con formulario lead magnet
-2. **Golden Circle Block** - Filosofía organizacional con newsletter
-3. **Servicios Block** - Grid de servicios con estadísticas
-4. **Timeline Block** - Cronología histórica con animaciones
-5. **Testimonios Block** - Casos de éxito con estadísticas
-6. **Contacto Block** - Formulario de contacto avanzado
-
-### 🎨 Diseño World-Class
-
-- **Diseño idéntico** al sitio original
-- **Responsive perfecto** en todos los dispositivos
-- **Animaciones suaves** y efectos visuales
-- **Tipografías premium** (Playfair Display + Inter)
-- **Colores exactos** del brand
-- **Efectos glassmorphism** y blur
-
-### ⚡ Funcionalidades Avanzadas
-
-- **Formularios funcionales** con validación en tiempo real
-- **Lead magnet** con modal y captura de datos
-- **Newsletter** integrado con confirmación
-- **Sistema de tracking** para conversiones
-- **Modales interactivos** para calendario
-- **Validación de formularios** en tiempo real
-
-## 🚀 Instalación
-
-1. **Subir el tema** a `/wp-content/themes/sueno-andino/`
-2. **Activar el tema** desde WordPress Admin
-3. **Configurar menús** en Apariencia > Menús
-4. **Personalizar bloques** en el editor Gutenberg
-
-## 📝 Uso de Bloques
-
-### Hero Block
+### 1. Hero Block
 - Título y subtítulo personalizables
-- Imagen de fondo editable
-- Botones con enlaces configurables
-- Modal lead magnet funcional
+- Descripción editable
+- Botones de llamada a la acción
+- Imagen de fondo personalizable
+- Estadísticas configurables
 
-### Golden Circle Block
-- Tres secciones editables (¿Por qué?, ¿Cómo?, ¿Qué?)
-- Newsletter integrado
-- Iconos y colores personalizables
-
-### Servicios Block
-- Grid de servicios dinámico
-- Características editables por servicio
-- CTA section integrada
-- Colores e iconos personalizables
-
-### Timeline Block
-- Elementos de cronología editables
-- Colores personalizables por hito
-- Imagen de fondo configurable
-- Animaciones suaves
-
-### Testimonios Block
-- Casos de éxito editables
-- Estadísticas personalizables
-- Imagen de fondo configurable
+### 2. Servicios Block
+- Tarjetas de servicios editables
+- Iconos personalizables
+- Sección CTA configurable
 - Grid responsive
 
-### Contacto Block
-- Formulario completamente configurable
-- Campos dinámicos (agregar/eliminar)
-- Validación en tiempo real
-- Mensajes de éxito/error personalizables
+### 3. Equipo Block
+- Miembros del equipo editables
+- Fotos personalizables
+- Biografías opcionales
+- Grid responsive
 
-## 🎛️ Configuración del Cliente
+### 4. Contacto Block
+- Información de contacto editable
+- Formulario funcional con AJAX
+- Calendario integrado
+- Datos de contacto configurables
 
-### Para el Cliente (Fácil)
+## 🛠️ Instalación
 
-1. **Editar contenido** - Click en cualquier bloque y editar
-2. **Agregar servicios** - Usar el bloque Servicios
-3. **Actualizar testimonios** - Editar el bloque Testimonios
-4. **Modificar formularios** - Configurar campos en Contacto
-5. **Cambiar imágenes** - Usar el selector de medios
-6. **Personalizar colores** - Campos de color en cada bloque
+1. Subir carpeta `wp-theme` a `/wp-content/themes/`
+2. Activar tema desde WordPress Admin
+3. Crear nueva página y usar bloques personalizados
+4. Configurar menús desde Apariencia > Menús
 
-### Para Desarrolladores
+## 📝 Uso
 
-1. **Personalizar CSS** - Archivos en `/assets/css/`
-2. **Modificar JavaScript** - Archivos en `/assets/js/`
-3. **Agregar campos** - Editar `block.json` de cada bloque
-4. **Integrar APIs** - Modificar `block.php` de cada bloque
+1. **Crear página principal**: Usar plantilla "Página Principal"
+2. **Agregar bloques**: Buscar "Sueño Andino" en el editor
+3. **Personalizar**: Usar panel lateral para configurar cada bloque
+4. **Publicar**: Los cambios se reflejan inmediatamente
 
-## 📁 Estructura de Archivos
+## 🎨 Personalización
 
-```
-wp-theme/
-├── blocks/
-│   ├── hero-block/
-│   ├── golden-circle-block/
-│   ├── servicios-block/
-│   ├── timeline-block/
-│   ├── testimonios-block/
-│   └── contacto-block/
-├── assets/
-│   ├── css/
-│   └── js/
-├── inc/
-├── functions.php
-├── style.css
-└── README.md
-```
+- **Colores**: Editar variables CSS en `assets/css/`
+- **Fuentes**: Cambiar en `functions.php`
+- **Bloques**: Modificar archivos en `blocks/`
+- **Estilos**: Personalizar archivos CSS de cada bloque
 
-## 🔧 Personalización Avanzada
+## 📱 Responsive
 
-### Agregar Nuevos Campos
-1. Editar `block.json` del bloque
-2. Actualizar `block.js` para el editor
-3. Modificar `block.php` para el frontend
-4. Añadir estilos en `style.css`
+- **Mobile First**: Optimizado para móviles
+- **Breakpoints**: 768px, 1024px, 1200px
+- **Grid System**: CSS Grid y Flexbox
+- **Imágenes**: Lazy loading automático
 
-### Integrar APIs Externas
-1. Modificar `functions.php` para AJAX
-2. Actualizar JavaScript del bloque
-3. Configurar endpoints en `block.php`
+## ⚡ Performance
 
-### Personalizar Estilos
-1. Editar archivos CSS de cada bloque
-2. Modificar `style.css` principal
-3. Actualizar `editor.css` para el editor
+- **Lazy Loading**: Imágenes y scripts
+- **Minificación**: CSS y JS optimizados
+- **Caching**: Headers de cache configurados
+- **CDN Ready**: Preparado para CDN
 
-## 📱 Responsive Design
+## 🔧 Mantenimiento
 
-- **Mobile First** - Optimizado para móviles
-- **Breakpoints** - 480px, 768px, 1024px, 1200px
-- **Grid adaptativo** - Se ajusta automáticamente
-- **Tipografía fluida** - Escalado perfecto
-
-## 🎨 Brand Guidelines
-
-### Colores
-- **Primario**: #d3600f (Naranja)
-- **Secundario**: #2a4351 (Azul oscuro)
-- **Acento**: #c16134 (Naranja oscuro)
-- **Texto**: #374151 (Gris oscuro)
-
-### Tipografías
-- **Títulos**: Playfair Display (serif)
-- **Cuerpo**: Inter (sans-serif)
-
-### Espaciado
-- **Márgenes**: 1rem, 2rem, 4rem, 6rem
-- **Padding**: 1rem, 2rem, 3rem
-- **Gaps**: 1rem, 1.5rem, 2rem, 3rem
-
-## 🚀 Optimización
-
-- **Carga rápida** - CSS y JS optimizados
-- **SEO friendly** - Estructura semántica
-- **Accesibilidad** - WCAG 2.1 compliant
-- **Performance** - Imágenes optimizadas
+- **Actualizaciones**: Compatible con WordPress 6.0+
+- **Backup**: Respaldar antes de cambios
+- **Testing**: Probar en staging primero
+- **Logs**: Revisar logs de errores
 
 ## 📞 Soporte
 
-Para soporte técnico o personalizaciones adicionales, contactar al equipo de desarrollo.
-
----
-
-**Desarrollado con ❤️ para Sueño Andino**
+Para soporte técnico o consultas:
+- Email: hola@sueñoandino.com
+- Teléfono: +51 999 888 777
+- Web: https://sueñoandino.com

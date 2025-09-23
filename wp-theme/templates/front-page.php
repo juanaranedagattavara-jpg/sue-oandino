@@ -1,43 +1,30 @@
 <?php
 /**
- * Template para la página de inicio
+ * Template Name: Página Principal
  * 
- * @package Sueño Andino
+ * @package SueñoAndino
  */
 
 get_header(); ?>
 
-<main id="site-content" role="main">
+<main id="main" class="site-main">
     <?php
-    // Verificar si hay contenido de bloques
-    if ( have_posts() ) {
-        while ( have_posts() ) {
-            the_post();
-            
-            // Si hay contenido de bloques, mostrarlo
-            if ( get_the_content() ) {
-                the_content();
-            } else {
-                // Si no hay contenido, mostrar las secciones por defecto
-                get_template_part( 'template-parts/sections/hero' );
-                get_template_part( 'template-parts/sections/golden-circle' );
-                get_template_part( 'template-parts/sections/timeline' );
-                get_template_part( 'template-parts/sections/servicios' );
-                get_template_part( 'template-parts/sections/equipo' );
-                get_template_part( 'template-parts/sections/casos-exito' );
-                get_template_part( 'template-parts/sections/contacto' );
-            }
-        }
-    } else {
-        // Si no hay posts, mostrar las secciones por defecto
-        get_template_part( 'template-parts/sections/hero' );
-        get_template_part( 'template-parts/sections/golden-circle' );
-        get_template_part( 'template-parts/sections/timeline' );
-        get_template_part( 'template-parts/sections/servicios' );
-        get_template_part( 'template-parts/sections/equipo' );
-        get_template_part( 'template-parts/sections/casos-exito' );
-        get_template_part( 'template-parts/sections/contacto' );
-    }
+    // Mostrar bloques de la página
+    if (have_posts()) :
+        while (have_posts()) : the_post();
+            the_content();
+        endwhile;
+    else :
+        // Contenido por defecto si no hay bloques
+        ?>
+        <div class="container">
+            <div class="no-content">
+                <h1>Bienvenido a Sueño Andino</h1>
+                <p>Esta es la página principal. Agrega bloques desde el editor de WordPress.</p>
+            </div>
+        </div>
+        <?php
+    endif;
     ?>
 </main>
 

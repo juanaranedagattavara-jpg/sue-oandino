@@ -1,54 +1,61 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "sueno-andino/hero-block",
-    "version": "1.0.0",
-    "title": "Hero Section",
-    "category": "sueno-andino",
-    "icon": "admin-site-alt3",
-    "description": "Sección Hero principal con formulario lead magnet",
-    "keywords": ["hero", "lead", "magnet", "formulario"],
-    "supports": {
-        "html": false,
-        "align": ["full"],
-        "spacing": {
-            "padding": true,
-            "margin": true
-        }
+  "apiVersion": 3,
+  "title": "Hero Section",
+  "name": "sueño-andino/hero-block",
+  "category": "sueño-andino",
+  "icon": "format-image",
+  "description": "Sección principal con título, descripción y botones de llamada a la acción",
+  "keywords": ["hero", "principal", "banner"],
+  "version": "1.0.0",
+  "textdomain": "sueño-andino",
+  "supports": {
+    "html": false,
+    "align": ["full", "wide"],
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "DESARROLLO TERRITORIAL REGENERATIVO"
     },
-    "attributes": {
-        "title": {
-            "type": "string",
-            "default": "Transformando Vidas en los Andes"
-        },
-        "subtitle": {
-            "type": "string",
-            "default": "Desarrollamos comunidades sostenibles a través de la educación, el emprendimiento y la regeneración ambiental en las montañas andinas."
-        },
-        "backgroundImage": {
-            "type": "string",
-            "default": ""
-        },
-        "buttonText": {
-            "type": "string",
-            "default": "Conoce Nuestros Servicios"
-        },
-        "leadMagnetText": {
-            "type": "string",
-            "default": "Descarga Guía Gratuita"
-        },
-        "leadMagnetTitle": {
-            "type": "string",
-            "default": "Guía Gratuita: Desarrollo Sostenible en los Andes"
-        },
-        "leadMagnetDescription": {
-            "type": "string",
-            "default": "Descubre las claves para implementar proyectos de desarrollo sostenible en comunidades andinas."
-        }
+    "subtitle": {
+      "type": "string",
+      "default": "DESDE Y HACIA LATINOAMÉRICA"
     },
-    "textdomain": "sueno-andino",
-    "editorScript": "file:./block.js",
-    "editorStyle": "file:./editor.css",
-    "style": "file:./style.css"
+    "description": {
+      "type": "string",
+      "default": "Impulsamos proyectos de desarrollo territorial que devuelven vitalidad a los ecosistemas, fortalecen comunidades y generan prosperidad consciente y regenerativa"
+    },
+    "primaryButtonText": {
+      "type": "string",
+      "default": "Conoce Nuestros Servicios"
+    },
+    "primaryButtonLink": {
+      "type": "string",
+      "default": "#servicios"
+    },
+    "secondaryButtonText": {
+      "type": "string",
+      "default": "Descarga Guía Gratuita"
+    },
+    "backgroundImage": {
+      "type": "string",
+      "default": ""
+    },
+    "stats": {
+      "type": "array",
+      "default": [
+        { "number": "1,200+", "label": "Personas Beneficiadas" },
+        { "number": "25+", "label": "Comunidades Atendidas" },
+        { "number": "15+", "label": "Proyectos Exitosos" },
+        { "number": "98%", "label": "Satisfacción" }
+      ]
+    }
+  },
+  "providesContext": {
+    "sueño-andino/heroTitle": "title"
+  }
 }
-

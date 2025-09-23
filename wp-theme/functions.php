@@ -101,30 +101,11 @@ add_filter( 'block_categories_all', 'sueno_andino_block_categories', 10, 2 );
 
 // Registrar bloques personalizados
 function sueno_andino_register_blocks() {
-    // Registrar bloques desde archivos PHP
-    if ( file_exists( get_template_directory() . '/blocks/hero-block/block.php' ) ) {
-        include_once get_template_directory() . '/blocks/hero-block/block.php';
-    }
-    
-    if ( file_exists( get_template_directory() . '/blocks/golden-circle-block/block.php' ) ) {
-        include_once get_template_directory() . '/blocks/golden-circle-block/block.php';
-    }
-    
-    if ( file_exists( get_template_directory() . '/blocks/servicios-block/block.php' ) ) {
-        include_once get_template_directory() . '/blocks/servicios-block/block.php';
-    }
-    
-    if ( file_exists( get_template_directory() . '/blocks/timeline-block/block.php' ) ) {
-        include_once get_template_directory() . '/blocks/timeline-block/block.php';
-    }
-    
-    if ( file_exists( get_template_directory() . '/blocks/testimonios-block/block.php' ) ) {
-        include_once get_template_directory() . '/blocks/testimonios-block/block.php';
-    }
-    
-    if ( file_exists( get_template_directory() . '/blocks/contacto-block/block.php' ) ) {
-        include_once get_template_directory() . '/blocks/contacto-block/block.php';
-    }
+    // Registrar bloques dinámicos
+    register_block_type( get_template_directory() . '/blocks/hero-block' );
+    register_block_type( get_template_directory() . '/blocks/servicios-block' );
+    register_block_type( get_template_directory() . '/blocks/equipo-block' );
+    register_block_type( get_template_directory() . '/blocks/contacto-block' );
 }
 add_action( 'init', 'sueno_andino_register_blocks' );
 

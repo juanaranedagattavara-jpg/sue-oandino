@@ -1,0 +1,64 @@
+{
+  "apiVersion": 3,
+  "title": "Equipo",
+  "name": "sueño-andino/equipo-block",
+  "category": "sueño-andino",
+  "icon": "groups",
+  "description": "Sección de miembros del equipo con tarjetas personalizables",
+  "keywords": ["equipo", "miembros", "staff"],
+  "version": "1.0.0",
+  "textdomain": "sueño-andino",
+  "supports": {
+    "html": false,
+    "align": ["full", "wide"],
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Conoce a Nuestro Equipo"
+    },
+    "description": {
+      "type": "string",
+      "default": "Profesionales comprometidos con la transformación social y el desarrollo regenerativo."
+    },
+    "members": {
+      "type": "array",
+      "default": [
+        {
+          "name": "Pedro Smith",
+          "position": "Director Ejecutivo",
+          "image": "",
+          "bio": ""
+        },
+        {
+          "name": "Martín Araneda",
+          "position": "Director Desarrollo Territorial",
+          "image": "",
+          "bio": ""
+        },
+        {
+          "name": "Goran Ahumada",
+          "position": "Director Emprendimiento",
+          "image": "",
+          "bio": ""
+        },
+        {
+          "name": "Ana Rodríguez",
+          "position": "Directora de Programas",
+          "image": "",
+          "bio": ""
+        },
+        {
+          "name": "Carlos Mendoza",
+          "position": "Director de Comunicaciones",
+          "image": "",
+          "bio": ""
+        }
+      ]
+    }
+  }
+}

@@ -1,72 +1,61 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "sueno-andino/servicios-block",
-    "version": "1.0.0",
-    "title": "Servicios Section",
-    "category": "sueno-andino",
-    "icon": "admin-site-alt3",
-    "description": "Sección de servicios con grid elegante y carrusel",
-    "keywords": ["servicios", "grid", "carrusel", "soluciones"],
-    "supports": {
-        "html": false,
-        "align": ["full"],
-        "spacing": {
-            "padding": true,
-            "margin": true
-        }
+  "apiVersion": 3,
+  "title": "Servicios",
+  "name": "sueño-andino/servicios-block",
+  "category": "sueño-andino",
+  "icon": "admin-tools",
+  "description": "Sección de servicios con tarjetas personalizables",
+  "keywords": ["servicios", "tarjetas", "ofrecemos"],
+  "version": "1.0.0",
+  "textdomain": "sueño-andino",
+  "supports": {
+    "html": false,
+    "align": ["full", "wide"],
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Soluciones Especializadas"
     },
-    "attributes": {
-        "title": {
-            "type": "string",
-            "default": "Soluciones Especializadas"
-        },
-        "subtitle": {
-            "type": "string",
-            "default": "Desarrollamos programas integrales que combinan metodologías probadas con innovación constante para cada tipo de organización."
-        },
-        "services": {
-            "type": "array",
-            "default": [
-                {
-                    "title": "Para Personas",
-                    "description": "Programas de desarrollo personal y profesional diseñados para empoderar a individuos en comunidades andinas.",
-                    "features": ["Capacitación técnica", "Liderazgo comunitario", "Emprendimiento personal"],
-                    "icon": "👥",
-                    "color": "#2a4351"
-                },
-                {
-                    "title": "Para Organizaciones",
-                    "description": "Soluciones corporativas de responsabilidad social y desarrollo sostenible para empresas.",
-                    "features": ["Consultoría estratégica", "Programas RSE", "Impacto medible"],
-                    "icon": "🏢",
-                    "color": "#d3600f"
-                },
-                {
-                    "title": "Para Comunidades",
-                    "description": "Proyectos integrales de desarrollo territorial regenerativo para comunidades andinas.",
-                    "features": ["Desarrollo territorial", "Sostenibilidad ambiental", "Cohesión social"],
-                    "icon": "🏔️",
-                    "color": "#c16134"
-                }
-            ]
-        },
-        "ctaTitle": {
-            "type": "string",
-            "default": "¿Listo para Transformar tu Comunidad?"
-        },
-        "ctaDescription": {
-            "type": "string",
-            "default": "Descubre cómo nuestros servicios pueden impulsar el desarrollo regenerativo en tu comunidad o empresa."
-        },
-        "ctaButton": {
-            "type": "string",
-            "default": "Agendar Consulta"
-        }
+    "description": {
+      "type": "string",
+      "default": "Desarrollamos programas integrales que combinan metodologías probadas con innovación constante."
     },
-    "textdomain": "sueno-andino",
-    "editorScript": "file:./block.js",
-    "editorStyle": "file:./editor.css",
-    "style": "file:./style.css"
+    "services": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Para Personas",
+          "description": "Programas de educación básica y técnica, capacitación en emprendimiento, desarrollo de habilidades digitales y apoyo psicosocial.",
+          "icon": "dashicons-admin-users"
+        },
+        {
+          "title": "Para Empresas",
+          "description": "Consultoría en responsabilidad social, programas de desarrollo comunitario, capacitación de personal local y proyectos de impacto social.",
+          "icon": "dashicons-building"
+        },
+        {
+          "title": "Para Gobiernos",
+          "description": "Políticas públicas de desarrollo, programas de inclusión social, capacitación de funcionarios y evaluación de impacto social.",
+          "icon": "dashicons-admin-site"
+        }
+      ]
+    },
+    "ctaTitle": {
+      "type": "string",
+      "default": "¿Listo para transformar tu organización?"
+    },
+    "ctaDescription": {
+      "type": "string",
+      "default": "Descubre cómo nuestros servicios pueden impulsar el desarrollo regenerativo en tu comunidad o empresa."
+    },
+    "ctaButtonText": {
+      "type": "string",
+      "default": "Agendar Consulta"
+    }
+  }
 }
-

@@ -1,0 +1,117 @@
+/* Equipo Block Styles */
+.equipo-section {
+    padding: 5rem 0;
+    background: white;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-badge {
+    display: inline-block;
+    background: #d3600f;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.equipo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.equipo-item {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.equipo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.equipo-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d3600f, #ff7b00);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    overflow: hidden;
+}
+
+.equipo-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.equipo-avatar svg {
+    width: 48px;
+    height: 48px;
+    color: white;
+}
+
+.equipo-item h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.equipo-item p {
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+.equipo-bio {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #8e9aaf;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .equipo-section {
+        padding: 3rem 0;
+    }
+    
+    .equipo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .equipo-item {
+        padding: 1.5rem;
+    }
+    
+    .equipo-avatar {
+        width: 100px;
+        height: 100px;
+    }
+}

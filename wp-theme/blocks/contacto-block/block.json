@@ -1,86 +1,53 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "sueno-andino/contacto-block",
-    "version": "1.0.0",
-    "title": "Contacto Section",
-    "category": "sueno-andino",
-    "icon": "admin-site-alt3",
-    "description": "Sección de contacto con formulario avanzado",
-    "keywords": ["contacto", "formulario", "comunicacion"],
-    "supports": {
-        "html": false,
-        "align": ["full"],
-        "spacing": {
-            "padding": true,
-            "margin": true
-        }
+  "apiVersion": 3,
+  "title": "Contacto",
+  "name": "sueño-andino/contacto-block",
+  "category": "sueño-andino",
+  "icon": "email",
+  "description": "Sección de contacto con formulario y información",
+  "keywords": ["contacto", "formulario", "información"],
+  "version": "1.0.0",
+  "textdomain": "sueño-andino",
+  "supports": {
+    "html": false,
+    "align": ["full", "wide"],
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "¿Listo para Transformar tu Comunidad?"
     },
-    "attributes": {
-        "title": {
-            "type": "string",
-            "default": "Trabajemos Juntos"
-        },
-        "subtitle": {
-            "type": "string",
-            "default": "¿Listo para transformar tu territorio? Conectemos y exploremos cómo podemos impulsar el desarrollo regenerativo en tu región."
-        },
-        "formFields": {
-            "type": "array",
-            "default": [
-                {
-                    "name": "nombre",
-                    "label": "Nombre Completo",
-                    "type": "text",
-                    "placeholder": "Tu nombre completo",
-                    "required": true
-                },
-                {
-                    "name": "email",
-                    "label": "Email",
-                    "type": "email",
-                    "placeholder": "tu@email.com",
-                    "required": true
-                },
-                {
-                    "name": "telefono",
-                    "label": "Teléfono",
-                    "type": "tel",
-                    "placeholder": "+51 999 888 777",
-                    "required": false
-                },
-                {
-                    "name": "organizacion",
-                    "label": "Organización",
-                    "type": "text",
-                    "placeholder": "Nombre de tu organización",
-                    "required": false
-                },
-                {
-                    "name": "mensaje",
-                    "label": "Mensaje",
-                    "type": "textarea",
-                    "placeholder": "Cuéntanos sobre tu proyecto y cómo podemos ayudarte...",
-                    "required": true,
-                    "rows": 5
-                }
-            ]
-        },
-        "buttonText": {
-            "type": "string",
-            "default": "Enviar Mensaje"
-        },
-        "successMessage": {
-            "type": "string",
-            "default": "¡Gracias por tu mensaje! Te contactaremos pronto."
-        },
-        "errorMessage": {
-            "type": "string",
-            "default": "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo."
-        }
+    "description": {
+      "type": "string",
+      "default": "Conecta con nosotros y descubre cómo podemos impulsar el desarrollo regenerativo en tu territorio."
     },
-    "textdomain": "sueno-andino",
-    "editorScript": "file:./block.js",
-    "editorStyle": "file:./editor.css",
-    "style": "file:./style.css"
+    "email": {
+      "type": "string",
+      "default": "hola@sueñoandino.com"
+    },
+    "phone": {
+      "type": "string",
+      "default": "+51 999 888 777"
+    },
+    "address": {
+      "type": "string",
+      "default": "Lima, Perú"
+    },
+    "calendarEmbed": {
+      "type": "string",
+      "default": "https://calendar.google.com/calendar/embed?src=YOUR_EMAIL%40gmail.com&ctz=America%2FLima&mode=WEEK&showTabs=0&showCalendars=0&showTz=0&height=600&wkst=1&bgcolor=%23ffffff&color=%23d3600f"
+    },
+    "formTitle": {
+      "type": "string",
+      "default": "Agenda tu Consulta Gratuita"
+    },
+    "formDescription": {
+      "type": "string",
+      "default": "Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas."
+    }
+  }
 }
