@@ -1,631 +1,364 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sueño Andino - Transformando Vidas en los Andes</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Desarrollo territorial regenerativo en comunidades andinas. Educación, emprendimiento y sostenibilidad desde y hacia Latinoamérica.">
-    <meta name="keywords" content="desarrollo territorial, comunidades andinas, educación, emprendimiento, sostenibilidad, Perú, Latinoamérica">
-    <meta name="author" content="Sueño Andino">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#d3600f">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Sueño Andino - Transformando Vidas en los Andes">
-    <meta property="og:description" content="Desarrollo territorial regenerativo en comunidades andinas. Educación, emprendimiento y sostenibilidad desde y hacia Latinoamérica.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sueñoandino.com">
-    <meta property="og:image" content="https://sueñoandino.com/assets/img/hero-background.jpg">
-    <meta property="og:site_name" content="Sueño Andino">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sueño Andino - Transformando Vidas en los Andes">
-    <meta name="twitter:description" content="Desarrollo territorial regenerativo en comunidades andinas. Educación, emprendimiento y sostenibilidad desde y hacia Latinoamérica.">
-    <meta name="twitter:image" content="https://sueñoandino.com/assets/img/hero-background.jpg">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://sueñoandino.com">
-    
-    <!-- Preconnect and Preload -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="image" href="assets/img/hero-background.jpg">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/components.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Sueño Andino",
-        "url": "https://sueñoandino.com",
-        "logo": "https://sueñoandino.com/assets/img/logo-sa-blanco.png",
-        "description": "Desarrollo territorial regenerativo en comunidades andinas. Educación, emprendimiento y sostenibilidad desde y hacia Latinoamérica.",
-        "foundingDate": "2020",
-        "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "PE",
-            "addressLocality": "Lima"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+51-999-888-777",
-            "contactType": "customer service",
-            "availableLanguage": "Spanish"
-        }
-    }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sueño Andino - Transformando Vidas en los Andes</title>
+<meta name="description" content="Desarrollo territorial regenerativo en comunidades andinas. Educación, emprendimiento y sostenibilidad desde y hacia Latinoamérica.">
+<meta name="keywords" content="desarrollo territorial, comunidades andinas, educación, emprendimiento, sostenibilidad, Perú, Latinoamérica">
+<meta name="author" content="Sueño Andino">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#d3600f">
+<meta property="og:title" content="Sueño Andino - Transformando Vidas en los Andes">
+<meta property="og:description" content="Desarrollo territorial regenerativo en comunidades andinas. Educación, emprendimiento y sostenibilidad desde y hacia Latinoamérica.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sueñoandino.com">
+<meta property="og:image" content="https://sueñoandino.com/assets/img/hero-background.jpg">
+<meta property="og:site_name" content="Sueño Andino">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sueño Andino - Transformando Vidas en los Andes">
+<meta name="twitter:description" content="Desarrollo territorial regenerativo en comunidades andinas. Educación, emprendimiento y sostenibilidad desde y hacia Latinoamérica.">
+<meta name="twitter:image" content="https://sueñoandino.com/assets/img/hero-background.jpg">
+<link rel="canonical" href="https://sueñoandino.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/img/hero-background.jpg">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Sueño Andino","url":"https://sueñoandino.com","logo":"https://sueñoandino.com/assets/img/logo-sa-blanco.png","description":"Desarrollo territorial regenerativo en comunidades andinas. Educación, emprendimiento y sostenibilidad desde y hacia Latinoamérica.","foundingDate":"2020","address":{"@type":"PostalAddress","addressCountry":"PE","addressLocality":"Lima"},"contactPoint":{"@type":"ContactPoint","telephone":"+51-999-888-777","contactType":"customer service","availableLanguage":"Spanish"}}</script>
 </head>
 <body>
-    <!-- Header -->
-    <header id="header" class="header-premium">
-        <div class="header-container">
-            <div class="header-logo">
-                <img src="assets/img/logo-sa-blanco.png" 
-                     alt="Logo de Sueño Andino" 
-                     loading="eager"
-                     decoding="async">
-            </div>
-            
-            <nav class="header-nav" aria-label="Navegación principal">
-                <a href="#servicios" class="nav-link-premium">Servicios</a>
-                <a href="#equipo" class="nav-link-premium">Nosotros</a>
-                <a href="pages/blog.html" class="nav-link-premium">Blog</a>
-                <a href="#contacto" class="nav-link-premium">Contacto</a>
-            </nav>
-        </div>
-    </header>
+<header id="header" class="header-premium">
+<div class="header-container">
+<div class="header-logo"><img src="assets/img/logo-sa-blanco.png" alt="Logo de Sueño Andino" loading="eager" decoding="async"></div>
+<nav class="header-nav" aria-label="Navegación principal">
+<a href="#servicios" class="nav-link-premium">Servicios</a>
+<a href="#equipo" class="nav-link-premium">Nosotros</a>
+<a href="pages/blog.html" class="nav-link-premium">Blog</a>
+<a href="#contacto" class="nav-link-premium">Contacto</a>
+</nav>
+</div>
+</header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero-section">
-        <div class="hero-background">
-            <img src="assets/img/hero-background.jpg" 
-                 alt="Paisaje andino regenerativo" 
-                 loading="eager"
-                 decoding="async"
-                 fetchpriority="high">
-            <div class="hero-overlay"></div>
-        </div>
-        
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="hero-title-line">DESARROLLO TERRITORIAL<br>REGENERATIVO</span>
-                <span class="hero-title-accent">DESDE Y HACIA<br>LATINOAMÉRICA</span>
-            </h1>
-            
-            <p class="hero-description">
-                Impulsamos proyectos de desarrollo territorial que devuelven vitalidad a los ecosistemas, 
-                fortalecen comunidades y generan prosperidad consciente y regenerativa
-            </p>
-            
-            <div class="hero-cta">
-                <a href="#servicios" class="btn btn-primary">Conoce Nuestros Servicios</a>
-                <button id="leadMagnetBtn" class="btn btn-secondary">Descarga Guía Gratuita</button>
-            </div>
-        </div>
-        
-        <!-- Stats Bar -->
-        <div class="hero-stats">
-            <div class="stat-item">
-                <div class="stat-number">1,200+</div>
-                <div class="stat-label">Personas Beneficiadas</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">25+</div>
-                <div class="stat-label">Comunidades Atendidas</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">Proyectos Exitosos</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">98%</div>
-                <div class="stat-label">Satisfacción</div>
-            </div>
-        </div>
-    </section>
+<section id="hero" class="hero-section">
+<div class="hero-background">
+<img src="assets/img/hero-background.jpg" alt="Paisaje andino regenerativo" loading="eager" decoding="async" fetchpriority="high">
+<div class="hero-overlay"></div>
+</div>
+<div class="hero-content">
+<h1 class="hero-title">
+<span class="hero-title-line">DESARROLLO TERRITORIAL<br>REGENERATIVO</span>
+<span class="hero-title-accent">DESDE Y HACIA<br>LATINOAMÉRICA</span>
+</h1>
+<p class="hero-description">Impulsamos proyectos de desarrollo territorial que devuelven vitalidad a los ecosistemas, fortalecen comunidades y generan prosperidad consciente y regenerativa</p>
+<div class="hero-cta">
+<a href="#servicios" class="btn btn-primary">Conoce Nuestros Servicios</a>
+<button id="leadMagnetBtn" class="btn btn-secondary">Descarga Guía Gratuita</button>
+</div>
+</div>
+<div class="hero-stats">
+<div class="stat-item"><div class="stat-number">1,200+</div><div class="stat-label">Personas Beneficiadas</div></div>
+<div class="stat-item"><div class="stat-number">25+</div><div class="stat-label">Comunidades Atendidas</div></div>
+<div class="stat-item"><div class="stat-number">15+</div><div class="stat-label">Proyectos Exitosos</div></div>
+<div class="stat-item"><div class="stat-number">98%</div><div class="stat-label">Satisfacción</div></div>
+</div>
+</section>
 
-    <!-- Golden Circle Section -->
-    <section id="nosotros" class="golden-circle-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Nuestra Propuesta</span>
-                <h2 class="section-title">¿Por qué Sueño Andino?</h2>
-                <p class="section-description">
-                    Transformamos territorios combinando <span class="text-accent">sabiduría ancestral</span> 
-                    con <span class="text-accent">innovación moderna</span>.
-                </p>
-            </div>
-            
-            <div class="golden-circle-grid">
-                <div class="circle-card">
-                    <div class="card-image">
-                        <div class="image-placeholder">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                            </svg>
-                            <span>Foto placeholder</span>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>¿Por qué lo hacemos?</h3>
-                        <p>Cada persona en los Andes merece oportunidades equitativas para <span class="text-accent">desarrollarse y prosperar</span>.</p>
-                    </div>
-                </div>
-                
-                <div class="circle-card">
-                    <div class="card-image">
-                        <div class="image-placeholder">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                            </svg>
-                            <span>Foto placeholder</span>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>¿Cómo lo hacemos?</h3>
-                        <p>Trabajamos directamente con las comunidades usando un <span class="text-accent">enfoque participativo</span>.</p>
-                    </div>
-                </div>
-                
-                <div class="circle-card">
-                    <div class="card-image">
-                        <div class="image-placeholder">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                            </svg>
-                            <span>Foto placeholder</span>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>¿Qué hacemos?</h3>
-                        <p>Desarrollamos programas educativos combinando <span class="text-accent">saberes ancestrales con metodologías modernas</span>.</p>
-                    </div>
-                </div>
-                
-                <div class="circle-card">
-                    <div class="card-image">
-                        <div class="image-placeholder">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                            </svg>
-                            <span>Foto placeholder</span>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>¿Para quién?</h3>
-                        <p>Trabajamos con <span class="text-accent">comunidades andinas, empresas y gobiernos</span> comprometidos.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Newsletter -->
-            <div class="newsletter-section">
-                <p class="newsletter-text">Mantente al día con nuestras últimas iniciativas</p>
-                <form id="newsletterForm" class="newsletter-form">
-                    <div class="newsletter-input-group">
-                        <input type="email" id="newsletterEmail" placeholder="tu@email.com" required>
-                        <div id="newsletterError" class="error-message">Ingresa un email válido</div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Suscribirse</button>
-                </form>
-                <div id="newsletterSuccess" class="success-message">
-                    ✅ ¡Gracias! Te has suscrito exitosamente a nuestro newsletter.
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="nosotros" class="golden-circle-section">
+<div class="container">
+<div class="section-header">
+<span class="section-badge">Nuestra Propuesta</span>
+<h2 class="section-title">¿Por qué Sueño Andino?</h2>
+<p class="section-description">Transformamos territorios combinando <span class="text-accent">sabiduría ancestral</span> con <span class="text-accent">innovación moderna</span>.</p>
+</div>
+<div class="golden-circle-grid">
+<div class="circle-card">
+<div class="card-image"><div class="image-placeholder"><svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Foto placeholder</span></div></div>
+<div class="card-content"><h3>¿Por qué lo hacemos?</h3><p>Cada persona en los Andes merece oportunidades equitativas para <span class="text-accent">desarrollarse y prosperar</span>.</p></div>
+</div>
+<div class="circle-card">
+<div class="card-image"><div class="image-placeholder"><svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Foto placeholder</span></div></div>
+<div class="card-content"><h3>¿Cómo lo hacemos?</h3><p>Trabajamos directamente con las comunidades usando un <span class="text-accent">enfoque participativo</span>.</p></div>
+</div>
+<div class="circle-card">
+<div class="card-image"><div class="image-placeholder"><svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Foto placeholder</span></div></div>
+<div class="card-content"><h3>¿Qué hacemos?</h3><p>Desarrollamos programas educativos combinando <span class="text-accent">saberes ancestrales con metodologías modernas</span>.</p></div>
+</div>
+<div class="circle-card">
+<div class="card-image"><div class="image-placeholder"><svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Foto placeholder</span></div></div>
+<div class="card-content"><h3>¿Para quién?</h3><p>Trabajamos con <span class="text-accent">comunidades andinas, empresas y gobiernos</span> comprometidos.</p></div>
+</div>
+</div>
+<div class="newsletter-section">
+<p class="newsletter-text">Mantente al día con nuestras últimas iniciativas</p>
+<form id="newsletterForm" class="newsletter-form">
+<div class="newsletter-input-group">
+<input type="email" id="newsletterEmail" placeholder="tu@email.com" required>
+<div id="newsletterError" class="error-message">Ingresa un email válido</div>
+</div>
+<button type="submit" class="btn btn-primary">Suscribirse</button>
+</form>
+<div id="newsletterSuccess" class="success-message">✅ ¡Gracias! Te has suscrito exitosamente a nuestro newsletter.</div>
+</div>
+</div>
+</section>
 
-    <!-- Timeline Section -->
-    <section class="timeline-section">
-        <div class="timeline-background">
-            <img src="assets/img/timeline-background.jpg" alt="Timeline background" loading="lazy">
-            <div class="timeline-overlay"></div>
-        </div>
-        
-        <div class="timeline-container">
-            <div class="section-header">
-                <span class="section-badge">Nuestra Historia</span>
-                <h2 class="section-title">Hitos Transformadores</h2>
-                <p class="section-description">
-                    Seis años de <span class="text-accent">impacto regenerativo</span> en las comunidades andinas.
-                </p>
-            </div>
-            
-            <div class="timeline">
-                <div class="timeline-line"></div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">2018</div>
-                    <div class="timeline-content">
-                        <h3>Fundación</h3>
-                        <p>Nace Sueño Andino con la misión de transformar vidas en las comunidades andinas.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">2020</div>
-                    <div class="timeline-content">
-                        <h3>Primeros Proyectos</h3>
-                        <p>Implementamos programas educativos en 5 comunidades, beneficiando a 200+ familias.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">2022</div>
-                    <div class="timeline-content">
-                        <h3>Expansión</h3>
-                        <p>Ampliamos servicios a empresas y gobiernos, estableciendo alianzas estratégicas.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">2024</div>
-                    <div class="timeline-content">
-                        <h3>Presente</h3>
-                        <p>Hemos transformado 1,200+ vidas y continuamos creciendo con metodologías innovadoras.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="timeline-section">
+<div class="timeline-background">
+<img src="assets/img/timeline-background.jpg" alt="Timeline background" loading="lazy">
+<div class="timeline-overlay"></div>
+</div>
+<div class="timeline-container">
+<div class="section-header">
+<span class="section-badge">Nuestra Historia</span>
+<h2 class="section-title">Hitos Transformadores</h2>
+<p class="section-description">Seis años de <span class="text-accent">impacto regenerativo</span> en las comunidades andinas.</p>
+</div>
+<div class="timeline">
+<div class="timeline-line"></div>
+<div class="timeline-item">
+<div class="timeline-year">2018</div>
+<div class="timeline-content"><h3>Fundación</h3><p>Nace Sueño Andino con la misión de transformar vidas en las comunidades andinas.</p></div>
+</div>
+<div class="timeline-item">
+<div class="timeline-year">2020</div>
+<div class="timeline-content"><h3>Primeros Proyectos</h3><p>Implementamos programas educativos en 5 comunidades, beneficiando a 200+ familias.</p></div>
+</div>
+<div class="timeline-item">
+<div class="timeline-year">2022</div>
+<div class="timeline-content"><h3>Expansión</h3><p>Ampliamos servicios a empresas y gobiernos, estableciendo alianzas estratégicas.</p></div>
+</div>
+<div class="timeline-item">
+<div class="timeline-year">2024</div>
+<div class="timeline-content"><h3>Presente</h3><p>Hemos transformado 1,200+ vidas y continuamos creciendo con metodologías innovadoras.</p></div>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Servicios Section -->
-    <section id="servicios" class="servicios-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Nuestros Servicios</span>
-                <h2 class="section-title">Soluciones Especializadas</h2>
-                <p class="section-description">
-                    Desarrollamos programas integrales que combinan metodologías probadas con innovación constante.
-                </p>
-            </div>
-            
-            <div class="servicios-grid">
-                <div class="servicio-card">
-                    <div class="servicio-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 7H16c-.8 0-1.54.37-2.01.99L12 10l-1.99-2.01A2.5 2.5 0 0 0 8 7H5.46c-.8 0-1.54.37-2.01.99L1 10.5V22h2v-6h2.5l2.54 7.63A1.5 1.5 0 0 0 9.46 25H12c.8 0 1.54-.37 2.01-.99L16 22l1.99 2.01A2.5 2.5 0 0 0 20 25h2.54c.8 0 1.54-.37 2.01-.99L27 16.5V22h2z"/>
-                        </svg>
-                    </div>
-                    <h3>Para Personas</h3>
-                    <p>Programas de educación básica y técnica, capacitación en emprendimiento, desarrollo de habilidades digitales y apoyo psicosocial.</p>
-                </div>
-                
-                <div class="servicio-card">
-                    <div class="servicio-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10z"/>
-                        </svg>
-                    </div>
-                    <h3>Para Empresas</h3>
-                    <p>Consultoría en responsabilidad social, programas de desarrollo comunitario, capacitación de personal local y proyectos de impacto social.</p>
-                </div>
-                
-                <div class="servicio-card">
-                    <div class="servicio-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </div>
-                    <h3>Para Gobiernos</h3>
-                    <p>Políticas públicas de desarrollo, programas de inclusión social, capacitación de funcionarios y evaluación de impacto social.</p>
-                </div>
-            </div>
-            
-            <div class="servicios-cta">
-                <h3>¿Listo para transformar tu organización?</h3>
-                <p>Descubre cómo nuestros servicios pueden impulsar el desarrollo regenerativo en tu comunidad o empresa.</p>
-                <button onclick="abrirModalCalendario()" class="btn btn-primary">Agendar Consulta</button>
-            </div>
-        </div>
-    </section>
+<section id="servicios" class="servicios-section">
+<div class="container">
+<div class="section-header">
+<span class="section-badge">Nuestros Servicios</span>
+<h2 class="section-title">Soluciones Especializadas</h2>
+<p class="section-description">Desarrollamos programas integrales que combinan metodologías probadas con innovación constante.</p>
+</div>
+<div class="servicios-grid">
+<div class="servicio-card">
+<div class="servicio-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 7H16c-.8 0-1.54.37-2.01.99L12 10l-1.99-2.01A2.5 2.5 0 0 0 8 7H5.46c-.8 0-1.54.37-2.01.99L1 10.5V22h2v-6h2.5l2.54 7.63A1.5 1.5 0 0 0 9.46 25H12c.8 0 1.54-.37 2.01-.99L16 22l1.99 2.01A2.5 2.5 0 0 0 20 25h2.54c.8 0 1.54-.37 2.01-.99L27 16.5V22h2z"/></svg></div>
+<h3>Para Personas</h3><p>Programas de educación básica y técnica, capacitación en emprendimiento, desarrollo de habilidades digitales y apoyo psicosocial.</p>
+</div>
+<div class="servicio-card">
+<div class="servicio-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10z"/></svg></div>
+<h3>Para Empresas</h3><p>Consultoría en responsabilidad social, programas de desarrollo comunitario, capacitación de personal local y proyectos de impacto social.</p>
+</div>
+<div class="servicio-card">
+<div class="servicio-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+<h3>Para Gobiernos</h3><p>Políticas públicas de desarrollo, programas de inclusión social, capacitación de funcionarios y evaluación de impacto social.</p>
+</div>
+</div>
+<div class="servicios-cta">
+<h3>¿Listo para transformar tu organización?</h3>
+<p>Descubre cómo nuestros servicios pueden impulsar el desarrollo regenerativo en tu comunidad o empresa.</p>
+<button onclick="abrirModalCalendario()" class="btn btn-primary">Agendar Consulta</button>
+</div>
+</div>
+</section>
 
-    <!-- Equipo Section -->
-    <section id="equipo" class="equipo-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Nuestro Equipo</span>
-                <h2 class="section-title">Conoce a Nuestro Equipo</h2>
-                <p class="section-description">
-                    Profesionales comprometidos con la <span class="text-accent">transformación social</span> y el desarrollo regenerativo.
-                </p>
-            </div>
-            
-            <div class="equipo-grid">
-                <div class="equipo-item">
-                    <div class="equipo-avatar">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                        </svg>
-                    </div>
-                    <h4>Pedro Smith</h4>
-                    <p>Director Ejecutivo</p>
-                </div>
-                
-                <div class="equipo-item">
-                    <div class="equipo-avatar">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                        </svg>
-                    </div>
-                    <h4>Martín Araneda</h4>
-                    <p>Director Desarrollo Territorial</p>
-                </div>
-                
-                <div class="equipo-item">
-                    <div class="equipo-avatar">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                        </svg>
-                    </div>
-                    <h4>Goran Ahumada</h4>
-                    <p>Director Emprendimiento</p>
-                </div>
-                
-                <div class="equipo-item">
-                    <div class="equipo-avatar">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                        </svg>
-                    </div>
-                    <h4>Ana Rodríguez</h4>
-                    <p>Directora de Programas</p>
-                </div>
-                
-                <div class="equipo-item">
-                    <div class="equipo-avatar">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                        </svg>
-                    </div>
-                    <h4>Carlos Mendoza</h4>
-                    <p>Director de Comunicaciones</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="equipo" class="equipo-section">
+<div class="container">
+<div class="section-header">
+<span class="section-badge">Nuestro Equipo</span>
+<h2 class="section-title">Conoce a Nuestro Equipo</h2>
+<p class="section-description">Profesionales comprometidos con la <span class="text-accent">transformación social</span> y el desarrollo regenerativo.</p>
+</div>
+<div class="equipo-grid">
+<div class="equipo-item">
+<div class="equipo-avatar"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+<h4>Pedro Smith</h4><p>Director Ejecutivo</p>
+</div>
+<div class="equipo-item">
+<div class="equipo-avatar"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+<h4>Martín Araneda</h4><p>Director Desarrollo Territorial</p>
+</div>
+<div class="equipo-item">
+<div class="equipo-avatar"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+<h4>Goran Ahumada</h4><p>Director Emprendimiento</p>
+</div>
+<div class="equipo-item">
+<div class="equipo-avatar"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+<h4>Ana Rodríguez</h4><p>Directora de Programas</p>
+</div>
+<div class="equipo-item">
+<div class="equipo-avatar"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+<h4>Carlos Mendoza</h4><p>Director de Comunicaciones</p>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Casos de Éxito Section -->
-    <section class="casos-exito-section">
-        <div class="casos-background">
-            <img src="assets/img/fondo-casosexito.jpg" alt="Casos de éxito background" loading="lazy">
-            <div class="casos-overlay"></div>
-        </div>
-        
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Nuestro Impacto</span>
-                <h2 class="section-title">Casos de Éxito</h2>
-                <p class="section-description">
-                    Historias reales de transformación que demuestran el impacto positivo de nuestro trabajo.
-                </p>
-            </div>
-            
-            <div class="testimonios-grid">
-                <div class="testimonio-card">
-                    <div class="testimonio-stat">+150%</div>
-                    <h3>Comunidad de Huancavelica</h3>
-                    <p class="testimonio-metric">en ingresos familiares</p>
-                    <blockquote>"Gracias al programa de emprendimiento, pudimos crear una cooperativa de artesanías que ahora exporta a nivel nacional."</blockquote>
-                    <div class="testimonio-author">
-                        <div class="author-name">María Quispe</div>
-                        <div class="author-title">Líder Comunitaria</div>
-                    </div>
-                </div>
-                
-                <div class="testimonio-card">
-                    <div class="testimonio-stat">95%</div>
-                    <h3>Escuela Rural de Cusco</h3>
-                    <p class="testimonio-metric">de aprobación estudiantil</p>
-                    <blockquote>"Nuestros estudiantes ahora tienen acceso a tecnología educativa y metodologías modernas que los preparan para el futuro."</blockquote>
-                    <div class="testimonio-author">
-                        <div class="author-name">Prof. Carlos Mamani</div>
-                        <div class="author-title">Director</div>
-                    </div>
-                </div>
-                
-                <div class="testimonio-card">
-                    <div class="testimonio-stat">+300</div>
-                    <h3>Empresa Minera Responsable</h3>
-                    <p class="testimonio-metric">empleos locales</p>
-                    <blockquote>"El programa de responsabilidad social nos ayudó a crear un modelo de desarrollo sostenible que beneficia a toda la región."</blockquote>
-                    <div class="testimonio-author">
-                        <div class="author-name">Ing. Ana Vargas</div>
-                        <div class="author-title">Gerente RSE</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Galería -->
-            <div class="galeria-section">
-                <div class="galeria-header">
-                    <span class="section-badge">Galería</span>
-                    <h3>Nuestra Marca en Imágenes</h3>
-                    <p>Momentos que capturan la esencia de nuestro trabajo regenerativo</p>
-                </div>
-                
-                <div class="galeria-grid">
-                    <div class="galeria-item galeria-large">
-                        <img src="assets/img/galeria1.jpg" alt="Comunidad andina trabajando" loading="lazy">
-                    </div>
-                    <div class="galeria-item galeria-large">
-                        <img src="assets/img/galeria2.jpg" alt="Escuela rural en los Andes" loading="lazy">
-                    </div>
-                    <div class="galeria-item">
-                        <img src="assets/img/galeria3.jpg" alt="Taller de emprendimiento" loading="lazy">
-                    </div>
-                    <div class="galeria-item">
-                        <img src="assets/img/galeria4.jpg" alt="Reunión comunitaria" loading="lazy">
-                    </div>
-                    <div class="galeria-item">
-                        <img src="assets/img/galeria5.jpg" alt="Celebración comunitaria" loading="lazy">
-                    </div>
-                    <div class="galeria-item">
-                        <img src="assets/img/galeria6.jpg" alt="Paisaje andino" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="casos-exito-section">
+<div class="casos-background">
+<img src="assets/img/fondo-casosexito.jpg" alt="Casos de éxito background" loading="lazy">
+<div class="casos-overlay"></div>
+</div>
+<div class="container">
+<div class="section-header">
+<span class="section-badge">Nuestro Impacto</span>
+<h2 class="section-title">Casos de Éxito</h2>
+<p class="section-description">Historias reales de transformación que demuestran el impacto positivo de nuestro trabajo.</p>
+</div>
+<div class="testimonios-grid">
+<div class="testimonio-card">
+<div class="testimonio-stat">+150%</div>
+<h3>Comunidad de Huancavelica</h3>
+<p class="testimonio-metric">en ingresos familiares</p>
+<blockquote>"Gracias al programa de emprendimiento, pudimos crear una cooperativa de artesanías que ahora exporta a nivel nacional."</blockquote>
+<div class="testimonio-author">
+<div class="author-name">María Quispe</div>
+<div class="author-title">Líder Comunitaria</div>
+</div>
+</div>
+<div class="testimonio-card">
+<div class="testimonio-stat">95%</div>
+<h3>Escuela Rural de Cusco</h3>
+<p class="testimonio-metric">de aprobación estudiantil</p>
+<blockquote>"Nuestros estudiantes ahora tienen acceso a tecnología educativa y metodologías modernas que los preparan para el futuro."</blockquote>
+<div class="testimonio-author">
+<div class="author-name">Prof. Carlos Mamani</div>
+<div class="author-title">Director</div>
+</div>
+</div>
+<div class="testimonio-card">
+<div class="testimonio-stat">+300</div>
+<h3>Empresa Minera Responsable</h3>
+<p class="testimonio-metric">empleos locales</p>
+<blockquote>"El programa de responsabilidad social nos ayudó a crear un modelo de desarrollo sostenible que beneficia a toda la región."</blockquote>
+<div class="testimonio-author">
+<div class="author-name">Ing. Ana Vargas</div>
+<div class="author-title">Gerente RSE</div>
+</div>
+</div>
+</div>
+<div class="galeria-section">
+<div class="galeria-header">
+<span class="section-badge">Galería</span>
+<h3>Nuestra Marca en Imágenes</h3>
+<p>Momentos que capturan la esencia de nuestro trabajo regenerativo</p>
+</div>
+<div class="galeria-grid">
+<div class="galeria-item galeria-large"><img src="assets/img/galeria1.jpg" alt="Comunidad andina trabajando" loading="lazy"></div>
+<div class="galeria-item galeria-large"><img src="assets/img/galeria2.jpg" alt="Escuela rural en los Andes" loading="lazy"></div>
+<div class="galeria-item"><img src="assets/img/galeria3.jpg" alt="Taller de emprendimiento" loading="lazy"></div>
+<div class="galeria-item"><img src="assets/img/galeria4.jpg" alt="Reunión comunitaria" loading="lazy"></div>
+<div class="galeria-item"><img src="assets/img/galeria5.jpg" alt="Celebración comunitaria" loading="lazy"></div>
+<div class="galeria-item"><img src="assets/img/galeria6.jpg" alt="Paisaje andino" loading="lazy"></div>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Contacto Section -->
-    <section id="contacto" class="contacto-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Contacto</span>
-                <h2 class="section-title">Trabajemos Juntos</h2>
-                <p class="section-description">
-                    ¿Listo para transformar tu territorio? Conectemos y exploremos cómo podemos impulsar el desarrollo regenerativo.
-                </p>
-            </div>
-            
-            <div class="contacto-form-container">
-                <form class="contacto-form">
-                    <div class="form-group">
-                        <label>Nombre Completo</label>
-                        <input type="text" name="nombre" placeholder="Tu nombre completo" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="email" placeholder="tu@email.com" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Mensaje</label>
-                        <textarea name="mensaje" rows="5" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary btn-full">Enviar Mensaje</button>
-                </form>
-            </div>
-        </div>
-    </section>
+<section id="contacto" class="contacto-section">
+<div class="container">
+<div class="section-header">
+<span class="section-badge">Contacto</span>
+<h2 class="section-title">Trabajemos Juntos</h2>
+<p class="section-description">¿Listo para transformar tu territorio? Conectemos y exploremos cómo podemos impulsar el desarrollo regenerativo.</p>
+</div>
+<div class="contacto-form-container">
+<form class="contacto-form">
+<div class="form-group"><label>Nombre Completo</label><input type="text" name="nombre" placeholder="Tu nombre completo" required></div>
+<div class="form-group"><label>Email</label><input type="email" name="email" placeholder="tu@email.com" required></div>
+<div class="form-group"><label>Mensaje</label><textarea name="mensaje" rows="5" placeholder="Cuéntanos sobre tu proyecto..." required></textarea></div>
+<button type="submit" class="btn btn-primary btn-full">Enviar Mensaje</button>
+</form>
+</div>
+</div>
+</section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <img src="assets/img/logo-sa-blanco.png" alt="Sueño Andino Logo" class="footer-logo">
-                    <p>Transformando vidas y regenerando territorios en los Andes a través del desarrollo sostenible y la innovación social.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Twitter">Twitter</a>
-                        <a href="#" aria-label="Facebook">Facebook</a>
-                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Enlaces Rápidos</h4>
-                    <div class="footer-links">
-                        <a href="#servicios">Servicios</a>
-                        <a href="#equipo">Nosotros</a>
-                        <a href="pages/blog.html">Blog</a>
-                        <a href="#contacto">Contacto</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <div class="footer-contact">
-                        <div class="contact-item">
-                            <span>📍</span>
-                            <span>Lima, Perú</span>
-                        </div>
-                        <div class="contact-item">
-                            <span>📞</span>
-                            <span>+51 999 888 777</span>
-                        </div>
-                        <div class="contact-item">
-                            <span>✉️</span>
-                            <span>info@sueñoandino.org</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-legal">
-                    <a href="legal/politica-privacidad.html">Política de Privacidad</a>
-                    <a href="legal/terminos-condiciones.html">Términos y Condiciones</a>
-                    <a href="legal/cookies-policy.html">Política de Cookies</a>
-                </div>
-                <p>© 2024 Sueño Andino. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
+<footer class="footer">
+<div class="footer-container">
+<div class="footer-content">
+<div class="footer-section">
+<img src="assets/img/logo-sa-blanco.png" alt="Sueño Andino Logo" class="footer-logo">
+<p>Transformando vidas y regenerando territorios en los Andes a través del desarrollo sostenible y la innovación social.</p>
+<div class="social-links">
+<a href="#" aria-label="Twitter">Twitter</a>
+<a href="#" aria-label="Facebook">Facebook</a>
+<a href="#" aria-label="LinkedIn">LinkedIn</a>
+</div>
+</div>
+<div class="footer-section">
+<h4>Enlaces Rápidos</h4>
+<div class="footer-links">
+<a href="#servicios">Servicios</a>
+<a href="#equipo">Nosotros</a>
+<a href="pages/blog.html">Blog</a>
+<a href="#contacto">Contacto</a>
+</div>
+</div>
+<div class="footer-section">
+<h4>Contacto</h4>
+<div class="footer-contact">
+<div class="contact-item"><span>📍</span><span>Lima, Perú</span></div>
+<div class="contact-item"><span>📞</span><span>+51 999 888 777</span></div>
+<div class="contact-item"><span>✉️</span><span>info@sueñoandino.org</span></div>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="footer-legal">
+<a href="legal/politica-privacidad.html">Política de Privacidad</a>
+<a href="legal/terminos-condiciones.html">Términos y Condiciones</a>
+<a href="legal/cookies-policy.html">Política de Cookies</a>
+</div>
+<p>© 2024 Sueño Andino. Todos los derechos reservados.</p>
+</div>
+</div>
+</footer>
 
-    <!-- Modals -->
-    <div id="modalCalendario" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Agenda tu Consulta</h2>
-                <p>Selecciona una fecha y hora que funcione para ti</p>
-                <button onclick="cerrarModalCalendario()" class="modal-close">&times;</button>
-            </div>
-            <div class="modal-body">
-                <iframe src="https://calendar.google.com/calendar/embed?src=c&ctz=America%2FLima&mode=WEEK&showTabs=0&showCalendars=0&showTz=0&height=600&wkst=1&bgcolor=%23ffffff&src=YOUR_EMAIL%40gmail.com&color=%23d3600f" 
-                        frameborder="0" scrolling="no">
-                </iframe>
-            </div>
-            <div class="modal-footer">
-                <p>¿Prefieres contactarnos directamente? 
-                    <a href="https://wa.me/51999888777" target="_blank">Escríbenos por WhatsApp</a>
-                </p>
-            </div>
-        </div>
-    </div>
+<div id="modalCalendario" class="modal">
+<div class="modal-content">
+<div class="modal-header">
+<h2>Agenda tu Consulta</h2>
+<p>Selecciona una fecha y hora que funcione para ti</p>
+<button onclick="cerrarModalCalendario()" class="modal-close">&times;</button>
+</div>
+<div class="modal-body">
+<iframe src="https://calendar.google.com/calendar/embed?src=c&ctz=America%2FLima&mode=WEEK&showTabs=0&showCalendars=0&showTz=0&height=600&wkst=1&bgcolor=%23ffffff&src=YOUR_EMAIL%40gmail.com&color=%23d3600f" frameborder="0" scrolling="no"></iframe>
+</div>
+<div class="modal-footer">
+<p>¿Prefieres contactarnos directamente? <a href="https://wa.me/51999888777" target="_blank">Escríbenos por WhatsApp</a></p>
+</div>
+</div>
+</div>
 
-    <div id="leadMagnetModal" class="modal">
-        <div class="modal-content">
-            <button id="closeModal" class="modal-close">&times;</button>
-            <div class="modal-header">
-                <div class="modal-icon">🎁</div>
-                <h3>Guía Gratuita</h3>
-                <p>Descarga nuestra guía completa sobre <span class="text-accent">desarrollo territorial regenerativo</span></p>
-            </div>
-            <form id="leadMagnetForm" class="modal-form">
-                <div class="form-group">
-                    <label>Nombre Completo *</label>
-                    <input type="text" name="nombre" placeholder="Tu nombre completo" required>
-                    <div id="nombreError" class="error-message">El nombre es requerido</div>
-                </div>
-                <div class="form-group">
-                    <label>Email *</label>
-                    <input type="email" name="email" placeholder="tu@email.com" required>
-                    <div id="emailError" class="error-message">Ingresa un email válido</div>
-                </div>
-                <div class="form-group">
-                    <label>Teléfono (Opcional)</label>
-                    <input type="tel" name="telefono" placeholder="+51 999 888 777">
-                </div>
-                <button type="submit" class="btn btn-primary btn-full">DESCARGAR GUÍA AHORA</button>
-            </form>
-            <p class="modal-disclaimer">Al descargar, aceptas recibir contenido de valor de Sueño Andino. Respetamos tu privacidad.</p>
-        </div>
-    </div>
+<div id="leadMagnetModal" class="modal">
+<div class="modal-content">
+<button id="closeModal" class="modal-close">&times;</button>
+<div class="modal-header">
+<div class="modal-icon">🎁</div>
+<h3>Guía Gratuita</h3>
+<p>Descarga nuestra guía completa sobre <span class="text-accent">desarrollo territorial regenerativo</span></p>
+</div>
+<form id="leadMagnetForm" class="modal-form">
+<div class="form-group"><label>Nombre Completo *</label><input type="text" name="nombre" placeholder="Tu nombre completo" required><div id="nombreError" class="error-message">El nombre es requerido</div></div>
+<div class="form-group"><label>Email *</label><input type="email" name="email" placeholder="tu@email.com" required><div id="emailError" class="error-message">Ingresa un email válido</div></div>
+<div class="form-group"><label>Teléfono (Opcional)</label><input type="tel" name="telefono" placeholder="+51 999 888 777"></div>
+<button type="submit" class="btn btn-primary btn-full">DESCARGAR GUÍA AHORA</button>
+</form>
+<p class="modal-disclaimer">Al descargar, aceptas recibir contenido de valor de Sueño Andino. Respetamos tu privacidad.</p>
+</div>
+</div>
 
-    <!-- CTA Flotante -->
-    <div id="floatingCTA" class="floating-cta">
-        <button id="floatingBtn" class="btn btn-primary">
-            <span>🎁</span>
-            <span>Guía Gratuita</span>
-        </button>
-    </div>
+<div id="floatingCTA" class="floating-cta">
+<button id="floatingBtn" class="btn btn-primary"><span>🎁</span><span>Guía Gratuita</span></button>
+</div>
 
-    <!-- Scripts -->
-    <script src="assets/js/utils.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/modals.js"></script>
-    <script src="assets/js/forms.js"></script>
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/modals.js"></script>
+<script src="assets/js/forms.js"></script>
 </body>
 </html>
