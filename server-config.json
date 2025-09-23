@@ -1,0 +1,33 @@
+{
+  "name": "Sueño Andino - Servidor de Desarrollo",
+  "version": "1.0.0",
+  "description": "Configuración del servidor para el proyecto Sueño Andino",
+  "port": 3000,
+  "routes": {
+    "pages": {
+      "blog": "/pages/blog.html",
+      "404": "/pages/404.html",
+      "500": "/pages/500.html",
+      "preview-equipo": "/pages/preview-equipo.html"
+    },
+    "legal": {
+      "politica-privacidad": "/legal/politica-privacidad.html",
+      "terminos-condiciones": "/legal/terminos-condiciones.html",
+      "cookies-policy": "/legal/cookies-policy.html"
+    },
+    "assets": {
+      "css": "/assets/css/",
+      "js": "/assets/js/",
+      "img": "/assets/img/"
+    }
+  },
+  "redirects": {
+    "/blog.html": "/pages/blog.html",
+    "/404.html": "/pages/404.html",
+    "/500.html": "/pages/500.html",
+    "/preview-equipo.html": "/pages/preview-equipo.html",
+    "/politica-privacidad.html": "/legal/politica-privacidad.html",
+    "/terminos-condiciones.html": "/legal/terminos-condiciones.html",
+    "/cookies-policy.html": "/legal/cookies-policy.html"
+  }
+}
